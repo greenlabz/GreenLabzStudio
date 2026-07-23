@@ -31,14 +31,12 @@ export default async function handler(request: VercelRequest, response: VercelRe
     ])
     const emailSent = emailResult.status === 'fulfilled' && Boolean(emailResult.value)
     const leadStored = sheetResult.status === 'fulfilled' && Boolean(sheetResult.value)
-    const emailError = emailResult.status === 'rejected' ? String(emailResult.reason?.message || emailResult.reason) : (emailResult.status === 'fulfilled' && !emailResult.value ? 'Kein Mailer konfiguriert (SMTP / Gmail OAuth2 fehlt)' : null)
 
     response.setHeader('Cache-Control', 'no-store')
     response.status(200).json({
       fileName,
       pdfBase64: pdf.toString('base64'),
       emailSent,
-      emailError,
       leadStored,
     })
   } catch (error) {
