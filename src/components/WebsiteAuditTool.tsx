@@ -180,25 +180,63 @@ export default function WebsiteAuditTool({ onOpenDatenschutz }: WebsiteAuditTool
   if (view === 'result-preview' && audit) {
     return (
       <div className="website-audit-tool audit-result">
-        <h2>Deine Analyse ist da.</h2>
-        <div className="audit-scores" aria-label="Ergebnisse der Website-Analyse">
-          <ScoreRing label="SEO" score={audit.seo.score} />
-          <ScoreRing label="Mobile" score={audit.mobile.score} />
-          <ScoreRing label="KI-Sichtbarkeit" score={audit.geo.score} />
-        </div>
-        <p>Ich hab 3 Dinge gefunden, die dich gerade Kunden kosten. Zum Beispiel:</p>
-        <div className="audit-teasers">
-          {teaserFindings.map(([status, text]) => (
-            <div key={text} className={status === 'fail' ? 'is-critical' : 'is-warning'}>
-              {status === 'fail' ? <X size={15} /> : <ShieldCheck size={15} />}
-              <span>{text}</span>
+        <div className="pdf-card-frame">
+          <div className="pdf-card-header">
+            <span className="pdf-tag">[ GREENLABZ STUDIO / QUICK CHECK ]</span>
+            <h2>Website-Analyse</h2>
+            <p className="pdf-subtitle">für {audit.domain}</p>
+            <div className="pdf-meta-bar">
+              <span>15 PUNKTE</span> / <span>3 BEREICHE</span> / <span>1 KLARER NÄCHSTER SCHRITT</span>
             </div>
-          ))}
+          </div>
+
+          <div className="audit-scores" aria-label="Ergebnisse der Website-Analyse">
+            <ScoreRing label="SEO & SUCHE" score={audit.seo.score} />
+            <ScoreRing label="MOBILE-ERLEBNIS" score={audit.mobile.score} />
+            <ScoreRing label="KI-BEREITSCHAFT" score={audit.geo.score} />
+          </div>
+
+          <div className="pdf-process-flow" aria-hidden="true">
+            <div className="pdf-flow-step">
+              <div className="pdf-circle-node"><span>01</span><strong>3 SEK.</strong></div>
+              <span className="pdf-step-label">ERSTER BLICK</span>
+            </div>
+            <div className="pdf-flow-arrow"><ArrowRight size={16} /></div>
+            <div className="pdf-flow-step">
+              <div className="pdf-circle-node"><span>02</span><strong>KLAR</strong></div>
+              <span className="pdf-step-label">ANGEBOT</span>
+            </div>
+            <div className="pdf-flow-arrow"><ArrowRight size={16} /></div>
+            <div className="pdf-flow-step">
+              <div className="pdf-circle-node"><span>03</span><strong>ANFRAGE</strong></div>
+              <span className="pdf-step-label">NÄCHSTER SCHRITT</span>
+            </div>
+          </div>
+
+          <div className="pdf-findings-list">
+            {teaserFindings.map(([status, text]) => (
+              <div key={text} className={`pdf-check-row ${status === 'fail' ? 'is-critical' : 'is-warning'}`}>
+                <span className="pdf-check-circle">{status === 'fail' ? <X size={14} /> : <ShieldCheck size={14} />}</span>
+                <span className="pdf-check-label">{text}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="pdf-callout-box">
+            <strong>Deine Priorität für {audit.domain}:</strong>
+            <p>Zähle deine offenen Punkte. Beginne dort, wo Klarheit, Vertrauen und Handlung gleichzeitig fehlen. Das bringt meist mehr als einzelne Designkorrekturen.</p>
+          </div>
+
+          <button className="gl-audit-submit" type="button" onClick={() => setView('email-gate')}>
+            <span>Vollständigen Report als PDF erhalten</span>
+            <ArrowRight size={18} aria-hidden="true" />
+          </button>
+
+          <div className="pdf-card-footer">
+            <span>GREENLABZ STUDIO / WEBSITE-ANALYSE</span>
+            <span>01</span>
+          </div>
         </div>
-        <button className="gl-audit-submit" type="button" onClick={() => setView('email-gate')}>
-          <span>Vollständigen Report als PDF erhalten</span>
-          <ArrowRight size={18} aria-hidden="true" />
-        </button>
       </div>
     )
   }
