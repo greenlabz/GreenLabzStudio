@@ -342,7 +342,7 @@ function App() {
 
     try {
       const formData = new FormData(event.currentTarget)
-      formData.append('Aktion', 'Website-Analyse angefordert / Download ausgelöst')
+      formData.append('Aktion', '5-Minuten-Checkliste für deine Website angefordert / Download ausgelöst')
       formData.append('Zeitpunkt', new Intl.DateTimeFormat('de-DE', {
         dateStyle: 'medium',
         timeStyle: 'medium',
@@ -358,7 +358,7 @@ function App() {
       setLeadStatus('success')
       const download = document.createElement('a')
       download.href = leadMagnetFile
-      download.download = 'greenlabz-website-analyse.pdf'
+      download.download = 'greenlabz-5-minuten-checkliste.pdf'
       document.body.appendChild(download)
       download.click()
       download.remove()
@@ -1040,7 +1040,7 @@ function App() {
 
         <section className="section lead-magnet-section" id="freebie" data-reveal>
           <div className="lead-magnet-copy">
-            <SectionLabel number="10" label="Website-Checkliste" />
+            <SectionLabel number="10" label="5-Minuten-Checkliste für deine Website" />
             <h2><span className="section-title-serif">Warum</span> deine Website <span className="section-title-serif">Kunden verliert.</span></h2>
             <p>
               Die 5-Minuten-Checkliste als PDF. Finde heraus, ob deine Website Vertrauen aufbaut, bei Google gefunden wird und echte Anfragen auslöst.
@@ -1056,12 +1056,12 @@ function App() {
             {leadStatus === 'success' ? (
               <div className="lead-magnet-success" role="status">
                 <Check size={22} />
-                <strong>Deine Website-Checkliste ist bereit.</strong>
+                <strong>Deine 5-Minuten-Checkliste für deine Website ist bereit.</strong>
                 <p>Der Download wurde gestartet. Prüfe bei Bedarf auch deinen Download-Ordner.</p>
               </div>
             ) : (
               <form className="lead-magnet-form" onSubmit={handleLeadSubmit}>
-                <label htmlFor="lead-email">E-Mail-Adresse für deine Website-Checkliste</label>
+                <label htmlFor="lead-email">E-Mail-Adresse für deine 5-Minuten-Checkliste</label>
                 <input
                   id="lead-email"
                   name="email"
@@ -1072,7 +1072,7 @@ function App() {
                   autoComplete="email"
                   required
                 />
-                <input type="hidden" name="_subject" value="Website-Checkliste angefordert / Download ausgelöst" />
+                <input type="hidden" name="_subject" value="5-Minuten-Checkliste für deine Website angefordert / Download ausgelöst" />
                 <input type="hidden" name="_template" value="table" />
                 <label className="lead-magnet-consent">
                   <input
@@ -1082,7 +1082,7 @@ function App() {
                     required
                   />
                   <span>
-                    Ja, schickt mir die Checkliste. Ich bin damit einverstanden, dass GreenLabz Studio mir regelmäßig per E-Mail Angebote und Tipps zu Webdesign &amp; SEO zusendet. Meine Einwilligung kann ich jederzeit widerrufen. Details in der{' '}
+                    Ja, schickt mir die 5-Minuten-Checkliste für deine Website. Ich bin damit einverstanden, dass GreenLabz Studio mir regelmäßig per E-Mail Angebote und Tipps zu Webdesign &amp; SEO zusendet. Meine Einwilligung kann ich jederzeit widerrufen. Details in der{' '}
                     <button
                       type="button"
                       onClick={() => setIsDatenschutzModalOpen(true)}
@@ -1093,11 +1093,11 @@ function App() {
                   </span>
                 </label>
                 <button className="btn primary lead-magnet-submit" type="submit" disabled={leadStatus === 'sending'}>
-                  <span>{leadStatus === 'sending' ? 'Wird vorbereitet...' : 'Checkliste kostenlos herunterladen'}</span>
+                  <span>{leadStatus === 'sending' ? 'Wird vorbereitet...' : '5-Minuten-Checkliste kostenlos herunterladen'}</span>
                   <Download size={17} />
                 </button>
                 {leadStatus === 'error' && <p className="lead-magnet-error" role="alert">Das hat gerade nicht funktioniert. Bitte versuche es erneut.</p>}
-                <small>Kein Spam. Deine E-Mail-Adresse wird für die Zusendung der Checkliste und Tipps verwendet.</small>
+                <small>Kein Spam. Deine E-Mail-Adresse wird für die Zusendung der 5-Minuten-Checkliste und Tipps verwendet.</small>
               </form>
             )}
           </div>
