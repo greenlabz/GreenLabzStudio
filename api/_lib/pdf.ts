@@ -387,8 +387,10 @@ export async function createAuditPdf(audit: AuditResult) {
     page1.drawRectangle({ x, y: 220, width: 160, height: 160, color: colors.panel, borderColor: colors.line, borderWidth: 1 })
     page1.drawText(String(cat.score), { x: x + 20, y: 290, size: 48, font: bold, color: colors.accent })
     page1.drawText(cat.title, { x: x + 16, y: 250, size: 9.5, font: bold, color: colors.text })
-    page1.drawText(`${cat.score >= 70 ? 'Optimal' : 'Handlungsbedarf'}`, { x: x + 16, y: 234, size: 8.5, font: regular, color: colors.muted })
+    page1.drawText(`${cat.score >= 70 ? 'Optimal' : 'Handlungsbedarf'} (max. 100)`, { x: x + 16, y: 234, size: 8.5, font: regular, color: colors.muted })
   })
+
+  page1.drawText('* Maximal 100 erreichbare Punkte pro Kategorie', { x: margin + 4, y: 198, size: 8, font: regular, color: colors.muted })
 
   page1.drawText(`Erstellt am ${date} · GreenLabz Studio Audit`, { x: margin, y: 70, size: 9, font: regular, color: colors.muted })
 

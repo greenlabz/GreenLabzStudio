@@ -195,6 +195,7 @@ export default function WebsiteAuditTool({ onOpenDatenschutz }: WebsiteAuditTool
             <ScoreRing label="MOBILE-ERLEBNIS" score={audit.mobile.score} />
             <ScoreRing label="KI-BEREITSCHAFT" score={audit.geo.score} />
           </div>
+          <p className="pdf-score-explanation">* Maximal 100 erreichbare Punkte pro Kategorie</p>
 
           <div className="pdf-process-flow" aria-hidden="true">
             <div className="pdf-flow-step">
