@@ -1,4 +1,4 @@
-import { PDFDocument, StandardFonts, rgb, type PDFPage, type PDFFont } from 'pdf-lib'
+import { PDFDocument, StandardFonts, rgb, PDFString, type PDFPage, type PDFFont } from 'pdf-lib'
 import type { AuditItem, AuditResult, AuditStatus } from './types.js'
 
 const pageWidth = 595.28
@@ -16,6 +16,24 @@ const colors = {
   fail: rgb(.92, .3, .3),
   line: rgb(.08, .16, .11),
   border: rgb(0, .45, .22),
+}
+
+function addLinkAnnotation(page: PDFPage, uri: string, x: number, y: number, width: number, height: number) {
+  const linkAnnotation = page.doc.context.register(
+    page.doc.context.obj({
+      Type: 'Annot',
+      Subtype: 'Link',
+      Rect: [x, y, x + width, y + height],
+      Border: [0, 0, 0],
+      C: [0, 0, 0],
+      A: {
+        Type: 'Action',
+        S: 'URI',
+        URI: PDFString.of(uri),
+      },
+    })
+  )
+  page.node.addAnnot(linkAnnotation)
 }
 
 interface ItemInsight {
@@ -520,6 +538,8 @@ export async function createAuditPdf(audit: AuditResult) {
     15
   )
 
+  const calendarUrl = 'https://greenlabz-studio.de/#calendar'
+
   // Primary Pill Button style (Dunkler Hintergund + Smaragd-Rahmen)
   const buttonWidth = pageWidth - margin * 2 - 48
   const buttonX = margin + 24
@@ -544,6 +564,9 @@ export async function createAuditPdf(audit: AuditResult) {
     color: colors.text,
   })
 
+  // Interaktiven PDF-Hyperlink auf den gesamten CTA-Button legen
+  addLinkAnnotation(page5, calendarUrl, buttonX, buttonY, buttonWidth, buttonHeight)
+
   // Link auf den Kalender-Bereich der Website
   page5.drawText('Zum Kalender-Bereich auf der Website: https://greenlabz-studio.de/#calendar', {
     x: margin + 24,
@@ -552,6 +575,9 @@ export async function createAuditPdf(audit: AuditResult) {
     font: regular,
     color: colors.accent,
   })
+
+  // Interaktiven PDF-Hyperlink auf die URL-Zeile legen
+  addLinkAnnotation(page5, calendarUrl, margin + 24, 105, buttonWidth, 18)
 
   pdf.setTitle(`Website Audit Report – ${audit.domain}`)
   pdf.setAuthor('GreenLabz Studio')
