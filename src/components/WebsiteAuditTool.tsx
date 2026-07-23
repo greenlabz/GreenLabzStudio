@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { ArrowLeft, ArrowRight, Check, LoaderCircle, ShieldCheck, X } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Check, Download, LoaderCircle, ShieldCheck, X } from 'lucide-react'
 import gsap from 'gsap'
 
 type AuditStatus = 'pass' | 'warning' | 'fail'
@@ -85,6 +85,7 @@ export default function WebsiteAuditTool({ onOpenDatenschutz }: WebsiteAuditTool
   const [consent, setConsent] = useState(false)
   const [error, setError] = useState('')
   const [sending, setSending] = useState(false)
+  const [pdfData, setPdfData] = useState<{ pdfBase64?: string; fileName?: string } | null>(null)
   const [, setDelivery] = useState({ emailSent: false, leadStored: false })
   const statusRef = useRef<HTMLParagraphElement>(null)
 
@@ -140,12 +141,14 @@ export default function WebsiteAuditTool({ onOpenDatenschutz }: WebsiteAuditTool
       })
       const data = await response.json() as {
         fileName?: string
+        pdfBase64?: string
         emailSent?: boolean
         leadStored?: boolean
         error?: string
       }
       if (!response.ok) throw new Error(data.error || 'Der Report konnte nicht versendet werden.')
       setDelivery({ emailSent: Boolean(data.emailSent), leadStored: Boolean(data.leadStored) })
+      setPdfData({ pdfBase64: data.pdfBase64, fileName: data.fileName })
       setView('success')
     } catch (reportError) {
       setError(reportError instanceof Error ? reportError.message : 'Der Report konnte nicht versendet werden.')
@@ -282,6 +285,26 @@ export default function WebsiteAuditTool({ onOpenDatenschutz }: WebsiteAuditTool
           <span>Kostenloses Erstgespräch buchen</span>
           <ArrowRight size={18} aria-hidden="true" />
         </a>
+        {pdfData?.pdfBase64 && (
+          <button
+            type="button"
+            className="audit-direct-download-btn"
+            onClick={() => {
+              const bytes = Uint8Array.from(atob(pdfData.pdfBase64!), (character) => character.charCodeAt(0))
+              const blobUrl = URL.createObjectURL(new Blob([bytes], { type: 'application/pdf' }))
+              const downloadLink = document.createElement('a')
+              downloadLink.href = blobUrl
+              downloadLink.download = pdfData.fileName || 'website-audit.pdf'
+              document.body.appendChild(downloadLink)
+              downloadLink.click()
+              downloadLink.remove()
+              window.setTimeout(() => URL.revokeObjectURL(blobUrl), 1000)
+            }}
+          >
+            <Download size={14} aria-hidden="true" />
+            <span>PDF zusätzlich direkt herunterladen</span>
+          </button>
+        )}
         <button
           type="button"
           className="audit-back-btn"
