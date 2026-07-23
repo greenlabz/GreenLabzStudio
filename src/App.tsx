@@ -1037,14 +1037,14 @@ function App() {
 
         <section className="section lead-magnet-section" id="freebie" data-reveal>
           <div className="lead-magnet-copy">
-            <SectionLabel number="10" label="Website-Analyse" />
+            <SectionLabel number="10" label="Website-Checkliste" />
             <h2><span className="section-title-serif">Warum</span> deine Website <span className="section-title-serif">Kunden verliert.</span></h2>
             <p>
-              Fünf Minuten, die dir zeigen, ob deine Website Vertrauen aufbaut, gefunden wird und Anfragen auslöst.
-              Kostenlos als PDF - ohne Verkaufsdruck.
+              Die 5-Minuten-Checkliste als PDF. Finde heraus, ob deine Website Vertrauen aufbaut, bei Google gefunden wird und echte Anfragen auslöst.
+              100% kostenlos zum Downloaden.
             </p>
             <ul className="lead-magnet-points">
-              <li><Check size={16} /> Die wichtigsten Seitenbereiche pruefen</li>
+              <li><Check size={16} /> Die wichtigsten Seitenbereiche prüfen</li>
               <li><Check size={16} /> Mobile Stolperstellen erkennen</li>
               <li><Check size={16} /> Nächsten sinnvollen Schritt ableiten</li>
             </ul>
@@ -1053,12 +1053,12 @@ function App() {
             {leadStatus === 'success' ? (
               <div className="lead-magnet-success" role="status">
                 <Check size={22} />
-                <strong>Deine Website-Analyse ist bereit.</strong>
-                <p>Der Download wurde gestartet. Prüfe bei Bedarf auch den Download-Ordner.</p>
+                <strong>Deine Website-Checkliste ist bereit.</strong>
+                <p>Der Download wurde gestartet. Prüfe bei Bedarf auch deinen Download-Ordner.</p>
               </div>
             ) : (
               <form className="lead-magnet-form" onSubmit={handleLeadSubmit}>
-                <label htmlFor="lead-email">E-Mail-Adresse für deine Website-Analyse</label>
+                <label htmlFor="lead-email">E-Mail-Adresse für deine Website-Checkliste</label>
                 <input
                   id="lead-email"
                   name="email"
@@ -1069,7 +1069,7 @@ function App() {
                   autoComplete="email"
                   required
                 />
-                <input type="hidden" name="_subject" value="Website-Analyse angefordert / Download ausgelöst" />
+                <input type="hidden" name="_subject" value="Website-Checkliste angefordert / Download ausgelöst" />
                 <input type="hidden" name="_template" value="table" />
                 <label className="lead-magnet-consent">
                   <input
@@ -1079,7 +1079,7 @@ function App() {
                     required
                   />
                   <span>
-                    Ja, schickt mir das Audit. Ich bin damit einverstanden, dass GreenLabz Studio mir regelmäßig per E-Mail Angebote und Tipps zu Webdesign &amp; SEO zusendet. Meine Einwilligung kann ich jederzeit widerrufen. Details in der{' '}
+                    Ja, schickt mir die Checkliste. Ich bin damit einverstanden, dass GreenLabz Studio mir regelmäßig per E-Mail Angebote und Tipps zu Webdesign &amp; SEO zusendet. Meine Einwilligung kann ich jederzeit widerrufen. Details in der{' '}
                     <button
                       type="button"
                       onClick={() => setIsDatenschutzModalOpen(true)}
@@ -1090,11 +1090,11 @@ function App() {
                   </span>
                 </label>
                 <button className="btn primary lead-magnet-submit" type="submit" disabled={leadStatus === 'sending'}>
-                  <span>{leadStatus === 'sending' ? 'Wird vorbereitet...' : 'Website-Analyse herunterladen'}</span>
+                  <span>{leadStatus === 'sending' ? 'Wird vorbereitet...' : 'Checkliste kostenlos herunterladen'}</span>
                   <Download size={17} />
                 </button>
                 {leadStatus === 'error' && <p className="lead-magnet-error" role="alert">Das hat gerade nicht funktioniert. Bitte versuche es erneut.</p>}
-                <small>Kein Newsletter. Deine E-Mail-Adresse wird nur für diese Website-Analyse verwendet.</small>
+                <small>Kein Spam. Deine E-Mail-Adresse wird für die Zusendung der Checkliste und Tipps verwendet.</small>
               </form>
             )}
           </div>
