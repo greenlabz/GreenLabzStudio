@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { ArrowRight, Check, LoaderCircle, ShieldCheck, X } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Check, LoaderCircle, ShieldCheck, X } from 'lucide-react'
 import gsap from 'gsap'
 
 type AuditStatus = 'pass' | 'warning' | 'fail'
@@ -282,6 +282,18 @@ export default function WebsiteAuditTool({ onOpenDatenschutz }: WebsiteAuditTool
           <span>Kostenloses Erstgespräch buchen</span>
           <ArrowRight size={18} aria-hidden="true" />
         </a>
+        <button
+          type="button"
+          className="audit-back-btn"
+          onClick={() => {
+            setAudit(null)
+            setDomain('')
+            setView('input')
+          }}
+        >
+          <ArrowLeft size={14} aria-hidden="true" />
+          <span>Zurück zur Seite / Neue Analyse starten</span>
+        </button>
       </div>
     )
   }

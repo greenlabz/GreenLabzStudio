@@ -4203,6 +4203,26 @@
 .audit-success-icon { display: grid; width: 48px; height: 48px; place-items: center; border: 1px solid rgba(0,204,106,.45); border-radius: 50%; color: var(--accent); background: rgba(0,204,106,.08); }
 .audit-success > strong { max-width: 42ch; color: var(--ink); }
 .audit-success > small { max-width: 60ch; color: var(--dim); }
+.audit-back-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 0.4rem;
+  border: none;
+  background: none;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.audit-back-btn:hover {
+  color: var(--ink);
+}
 
 /* PDF Checklist Matching Card Styling */
 .pdf-card-frame {
