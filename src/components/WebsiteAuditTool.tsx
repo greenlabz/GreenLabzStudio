@@ -85,7 +85,7 @@ export default function WebsiteAuditTool({ onOpenDatenschutz }: WebsiteAuditTool
   const [consent, setConsent] = useState(false)
   const [error, setError] = useState('')
   const [sending, setSending] = useState(false)
-  const [delivery, setDelivery] = useState({ emailSent: false, leadStored: false })
+  const [, setDelivery] = useState({ emailSent: false, leadStored: false })
   const statusRef = useRef<HTMLParagraphElement>(null)
 
   useEffect(() => {
@@ -140,25 +140,15 @@ export default function WebsiteAuditTool({ onOpenDatenschutz }: WebsiteAuditTool
       })
       const data = await response.json() as {
         fileName?: string
-        pdfBase64?: string
         emailSent?: boolean
         leadStored?: boolean
         error?: string
       }
-      if (!response.ok || !data.fileName || !data.pdfBase64) throw new Error(data.error || 'Der Report konnte nicht erstellt werden.')
-      const bytes = Uint8Array.from(atob(data.pdfBase64), (character) => character.charCodeAt(0))
-      const url = URL.createObjectURL(new Blob([bytes], { type: 'application/pdf' }))
-      const download = document.createElement('a')
-      download.href = url
-      download.download = data.fileName
-      document.body.appendChild(download)
-      download.click()
-      download.remove()
-      window.setTimeout(() => URL.revokeObjectURL(url), 1000)
+      if (!response.ok) throw new Error(data.error || 'Der Report konnte nicht versendet werden.')
       setDelivery({ emailSent: Boolean(data.emailSent), leadStored: Boolean(data.leadStored) })
       setView('success')
     } catch (reportError) {
-      setError(reportError instanceof Error ? reportError.message : 'Der Report konnte nicht erstellt werden.')
+      setError(reportError instanceof Error ? reportError.message : 'Der Report konnte nicht versendet werden.')
     } finally {
       setSending(false)
     }
@@ -229,7 +219,7 @@ export default function WebsiteAuditTool({ onOpenDatenschutz }: WebsiteAuditTool
           </div>
 
           <button className="gl-audit-submit" type="button" onClick={() => setView('email-gate')}>
-            <span>Vollständigen Report als PDF erhalten</span>
+            <span>Vollständigen Report per E-Mail erhalten</span>
             <ArrowRight size={18} aria-hidden="true" />
           </button>
 
@@ -246,7 +236,7 @@ export default function WebsiteAuditTool({ onOpenDatenschutz }: WebsiteAuditTool
     return (
       <div className="website-audit-tool audit-email-gate">
         <h2>Wohin soll dein Report?</h2>
-        <p>Trag deine E-Mail ein, ich schick dir den vollständigen Bericht als PDF. Mit allen Punkten, verständlich erklärt, und was du konkret tun kannst.</p>
+        <p>Trag deine E-Mail ein, ich schicke dir den vollständigen Bericht direkt per E-Mail zu. Mit allen Punkten, verständlich erklärt, und was du konkret tun kannst.</p>
         <form className="gl-audit-form" onSubmit={requestReport}>
           <label className="gl-audit-field" htmlFor="audit-name">
             <span>Name</span>
@@ -259,7 +249,7 @@ export default function WebsiteAuditTool({ onOpenDatenschutz }: WebsiteAuditTool
           <label className="audit-consent">
             <input type="checkbox" checked={consent} onChange={(event) => setConsent(event.target.checked)} required />
             <span>
-              Ja, schickt mir das Audit. Ich bin damit einverstanden, dass GreenLabz Studio mir regelmäßig per E-Mail Angebote und Tipps zu Webdesign &amp; SEO zusendet. Meine Einwilligung kann ich jederzeit widerrufen.{' '}
+              Ja, schickt mir das Audit per E-Mail. Ich bin damit einverstanden, dass GreenLabz Studio mir regelmäßig per E-Mail Angebote und Tipps zu Webdesign &amp; SEO zusendet. Meine Einwilligung kann ich jederzeit widerrufen.{' '}
               <button
                 type="button"
                 onClick={onOpenDatenschutz}
@@ -271,7 +261,7 @@ export default function WebsiteAuditTool({ onOpenDatenschutz }: WebsiteAuditTool
           </label>
           {error && <p className="audit-error" role="alert">{error}</p>}
           <button className="gl-audit-submit" type="submit" disabled={sending}>
-            <span>{sending ? 'Report wird erstellt …' : 'Report jetzt zusenden'}</span>
+            <span>{sending ? 'Report wird versendet …' : 'Report jetzt per E-Mail senden'}</span>
             <ArrowRight size={18} aria-hidden="true" />
           </button>
         </form>
@@ -283,13 +273,10 @@ export default function WebsiteAuditTool({ onOpenDatenschutz }: WebsiteAuditTool
     return (
       <div className="website-audit-tool audit-success" aria-live="polite">
         <span className="audit-success-icon"><Check size={22} /></span>
-        <h2>Fertig. Dein Report ist unterwegs.</h2>
+        <h2>Vielen Dank! Dein Bericht ist unterwegs.</h2>
         <p>
-          {delivery.emailSent
-            ? 'Check dein Postfach, der Download-Link zum PDF ist gerade angekommen. Falls nicht innerhalb von 2 Minuten: Spam-Ordner checken.'
-            : 'Der PDF-Download wurde gestartet. Der E-Mail-Versand wird aktiv, sobald die SMTP-Zugangsdaten hinterlegt sind.'}
+          Wir haben dir deinen ausführlichen Audit-Bericht als PDF direkt per E-Mail zugeschickt. Bitte prüfe bei Bedarf auch deinen Spam-Ordner.
         </p>
-        {!delivery.leadStored && <small>Die Google-Sheet-Speicherung wird aktiv, sobald die Service-Account-Daten hinterlegt sind.</small>}
         <strong>Willst du direkt besprechen, wie wir die gefundenen Punkte angehen?</strong>
         <a className="gl-audit-submit" href="#calendar">
           <span>Kostenloses Erstgespräch buchen</span>
