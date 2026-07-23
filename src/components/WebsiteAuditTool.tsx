@@ -262,7 +262,7 @@ export default function WebsiteAuditTool({ onOpenDatenschutz }: WebsiteAuditTool
 
   return (
     <div className="website-audit-tool audit-input">
-      <h2>Ist deine Website bereit für neue Kunden?</h2>
+      <h2>Ist deine <span className="text-accent">Website</span> <span className="text-accent">bereit</span> für neue Kunden<span className="text-accent">?</span></h2>
       <p id="audit-description">Gib deine Domain ein. Ich zeige dir in 30 Sekunden, wie du bei Google und bei Kunden ankommst.</p>
       <form className="gl-audit-form" aria-describedby="audit-description" onSubmit={startAudit}>
         <div className="gl-audit-start-row">
