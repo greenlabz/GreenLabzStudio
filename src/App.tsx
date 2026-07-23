@@ -436,7 +436,7 @@ function App() {
       const mobilePhone = mobileModel?.querySelector<HTMLElement>('.gl-exact-phone-static')
       if (mobileSection && mobileStage && mobileModel && mobilePhone) {
         const mobileViewport = window.matchMedia('(max-width: 1079px)').matches
-        const pinDistance = mobileViewport ? 1200 : 1080
+        const pinDistance = mobileViewport ? 1800 : 1600
         const phoneStates = gsap.utils.toArray<HTMLElement>('.gl-exact-phone-state', mobileModel)
         const beatCopies = gsap.utils.toArray<HTMLElement>('.mobile-beat-copy-state', mobileSection)
         const stopwatchRing = mobileModel.querySelector<SVGCircleElement>('.gl-exact-phone-state-one .gl-exact-progress-ring')
@@ -527,6 +527,9 @@ function App() {
           .to(competitiveOther, { autoAlpha: 1, x: 0, duration: .2, ease: 'none' }, 2.72)
           .to(competitiveYours, { autoAlpha: 1, x: 0, duration: .2, ease: 'none' }, 2.82)
           .to(competitiveLead, { autoAlpha: 1, y: 0, duration: .16, ease: 'none' }, 2.96)
+          .to({}, { duration: 1.2 }, 3.12)
+          .to([phoneStates[3], beatCopies[3]], { autoAlpha: 0, y: -24, duration: .35, ease: 'none' }, 4.32)
+          .to(mobilePhone, { autoAlpha: 0, y: -48, scale: .9, duration: .35, ease: 'none' }, '<')
       }
 
       gsap.utils.toArray<HTMLElement>('[data-reveal]').forEach((el) => {
