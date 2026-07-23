@@ -494,43 +494,61 @@ export async function createAuditPdf(audit: AuditResult) {
     y5 -= 36
   })
 
-  // Primary CTA Box
+  // Primary CTA Box (Gefuehrtes Design im Website-Stil)
   page5.drawRectangle({
     x: margin,
-    y: 110,
+    y: 95,
     width: pageWidth - margin * 2,
-    height: 150,
+    height: 165,
     color: colors.callout,
     borderColor: colors.border,
     borderWidth: 1,
   })
 
-  page5.drawText('25 MINUTEN. KLARE PRIORITÄTEN.', { x: margin + 24, y: 228, size: 10, font: bold, color: colors.accent })
+  page5.drawText('25 MINUTEN. KLARE PRIORITÄTEN.', { x: margin + 24, y: 234, size: 9.5, font: bold, color: colors.accent })
   drawWrapped(
     page5,
-    '25 Minuten deiner Zeit gegen Klarheit, welche Stellschrauben deine Website sofort in eine Kundenmaschine verwandeln. Kein Verkaufstheater. Keine Verpflichtung.',
+    '25 Minuten deiner Zeit gegen Klarheit, welche 3 Änderungen deine Website sofort in eine Kundenmaschine verwandeln. Kein Verkaufstheater.',
     bold,
-    11,
+    10.5,
     margin + 24,
-    205,
+    215,
     pageWidth - margin * 2 - 48,
     colors.text,
-    16
+    15
   )
 
+  // Primary Pill Button style (Dunkler Hintergund + Smaragd-Rahmen)
+  const buttonWidth = pageWidth - margin * 2 - 48
+  const buttonX = margin + 24
+  const buttonY = 138
+  const buttonHeight = 40
+
   page5.drawRectangle({
-    x: margin + 24,
-    y: 130,
-    width: pageWidth - margin * 2 - 48,
-    height: 38,
-    color: colors.accent,
+    x: buttonX,
+    y: buttonY,
+    width: buttonWidth,
+    height: buttonHeight,
+    color: rgb(.04, .08, .05),
+    borderColor: colors.accent,
+    borderWidth: 1.5,
   })
+
   page5.drawText('KOSTENLOSES ERSTGESPRÄCH BUCHEN', {
-    x: margin + 105,
-    y: 144,
-    size: 11,
+    x: buttonX + 104,
+    y: buttonY + 15,
+    size: 10.5,
     font: bold,
-    color: colors.background,
+    color: colors.text,
+  })
+
+  // Link auf den Kalender-Bereich der Website
+  page5.drawText('Zum Kalender-Bereich auf der Website: https://greenlabz-studio.de/#calendar', {
+    x: margin + 24,
+    y: 110,
+    size: 8.5,
+    font: regular,
+    color: colors.accent,
   })
 
   pdf.setTitle(`Website Audit Report – ${audit.domain}`)
