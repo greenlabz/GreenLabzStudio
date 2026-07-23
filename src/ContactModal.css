@@ -1,0 +1,364 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+  padding: 1rem;
+  animation: modalFadeIn 0.3s ease forwards;
+}
+
+.modal-content {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 480px;
+  padding: clamp(2rem, 5vw, 3rem);
+  position: relative;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  animation: modalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.modal-content h2 {
+  font-family: var(--hero-display);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  margin: 0 0 0.5rem;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+}
+
+.funnel-progress {
+  display: flex;
+  gap: .45rem;
+  margin-bottom: 1.8rem;
+}
+
+.funnel-progress span {
+  height: 3px;
+  flex: 1;
+  border-radius: 99px;
+  background: var(--line);
+  transition: background .25s ease;
+}
+
+.funnel-progress span.is-active {
+  background: var(--accent);
+  box-shadow: 0 0 12px color-mix(in oklch, var(--accent) 55%, transparent);
+}
+
+.funnel-step .section-code {
+  margin-bottom: .8rem;
+}
+
+.funnel-options {
+  display: grid;
+  gap: .65rem;
+  margin: 1.4rem 0 1.5rem;
+}
+
+.funnel-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 52px;
+  padding: .85rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  color: var(--muted);
+  background: rgba(255, 255, 255, .025);
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  transition: border-color .2s ease, color .2s ease, background .2s ease, transform .2s ease;
+}
+
+.funnel-option svg {
+  color: transparent;
+}
+
+.funnel-option:hover,
+.funnel-option.is-selected {
+  border-color: color-mix(in oklch, var(--accent) 70%, var(--line));
+  color: var(--ink);
+  background: color-mix(in oklch, var(--accent) 9%, transparent);
+  transform: translateX(3px);
+}
+
+.funnel-option.is-selected svg {
+  color: var(--accent);
+}
+
+.service-options {
+  display: grid;
+  gap: .45rem;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.service-option {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: .7rem;
+  align-items: start;
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: .72rem .8rem;
+  color: var(--muted);
+  background: rgba(255, 255, 255, .025);
+  font: inherit;
+  font-size: .9rem;
+  line-height: 1.35;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color .2s ease, color .2s ease, background .2s ease, transform .2s ease;
+}
+
+.service-radio {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  margin-top: .05rem;
+  border: 1px solid color-mix(in oklch, var(--muted) 70%, transparent);
+  border-radius: 50%;
+  color: transparent;
+  background: rgba(0, 0, 0, .18);
+}
+
+.service-option:hover,
+.service-option.is-selected {
+  border-color: color-mix(in oklch, var(--accent) 70%, var(--line));
+  color: var(--ink);
+  background: color-mix(in oklch, var(--accent) 9%, transparent);
+  transform: translateX(2px);
+}
+
+.service-option.is-selected .service-radio {
+  border-color: var(--accent);
+  color: #04120b;
+  background: var(--accent);
+  box-shadow: 0 0 14px color-mix(in oklch, var(--accent) 45%, transparent);
+}
+
+.service-option:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.funnel-next {
+  width: 100%;
+  justify-content: center;
+}
+.modal-content .btn.primary {
+  color: var(--ink);
+  -webkit-text-fill-color: var(--ink);
+  text-shadow: 0 1px 16px rgba(255,255,255,.24);
+}
+.funnel-actions .btn.primary {
+  padding-right: 2.6rem;
+}
+
+.funnel-next:disabled,
+.funnel-actions .btn:disabled {
+  cursor: not-allowed;
+  opacity: .72;
+}
+
+.funnel-actions {
+  display: flex;
+  gap: .7rem;
+}
+
+.funnel-actions .btn {
+  flex: 1;
+  justify-content: center;
+}
+
+.modal-subtitle {
+  color: var(--muted);
+  margin: 0 0 2rem;
+  font-size: 1rem;
+}
+
+.modal-form {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.form-honey {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.input-group {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.input-group label {
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 0 4px color-mix(in oklch, var(--accent) 15%, transparent);
+}
+
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.input-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.modal-action {
+  margin-top: 1rem;
+  position: relative;
+}
+
+.form-error {
+  margin: 0;
+  border: 1px solid rgba(255, 94, 94, .34);
+  border-radius: 8px;
+  padding: .8rem 1rem;
+  color: #ffb4b4;
+  background: rgba(255, 94, 94, .08);
+  font-size: .92rem;
+  line-height: 1.45;
+}
+
+.submit-btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.progress-container {
+  position: absolute;
+  bottom: -1rem;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.1s ease;
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.modal-success {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.success-icon-wrapper {
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  animation: successPop 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.modal-success h2 {
+  margin-bottom: 1rem;
+}
+
+.modal-success p {
+  color: var(--muted);
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalSlideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes successPop {
+  0% { transform: scale(0.5); opacity: 0; }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 700px) {
+  .service-option {
+    font-size: .86rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal-backdrop,
+  .modal-content {
+    animation: none;
+  }
+
+  .service-option {
+    transition: none;
+  }
+}

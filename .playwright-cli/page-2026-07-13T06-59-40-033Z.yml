@@ -1,0 +1,595 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - link "GreenLabz Studio Start" [ref=e5] [cursor=pointer]:
+      - /url: "#top"
+      - img "GreenLabz Studio" [ref=e6]
+    - link "Projekt starten" [ref=e7] [cursor=pointer]:
+      - /url: "#calendar"
+    - button "Menü öffnen" [ref=e10] [cursor=pointer]:
+      - img "GreenLabz Studio" [ref=e11]
+  - main [ref=e13]:
+    - generic [ref=e15]:
+      - paragraph [ref=e16]: "[01] Digital Design Studio"
+      - heading "Websites die verstanden werden. Von Menschen. Und von Google." [level=1] [ref=e18]:
+        - generic [ref=e19]:
+          - emphasis [ref=e20]: Websites
+          - text: die
+        - generic [ref=e21]:
+          - emphasis [ref=e22]: verstanden
+          - text: werden
+        - generic [ref=e23]:
+          - text: Von
+          - emphasis [ref=e24]: Menschen
+        - generic [ref=e25]:
+          - text: Und von
+          - emphasis [ref=e26]: Google
+      - paragraph [ref=e27]: Klare Websites, saubere Technik und bessere Sichtbarkeit bei Google. Für Unternehmen, die online ernst genommen werden wollen.
+      - generic [ref=e28]:
+        - link "Projekt starten" [ref=e29] [cursor=pointer]:
+          - /url: "#calendar"
+        - link "Projekte ansehen" [ref=e32] [cursor=pointer]:
+          - /url: "#cases"
+      - generic "GreenLabz Nutzen" [ref=e34]:
+        - generic [ref=e35]:
+          - strong [ref=e41]: 1:1
+          - generic [ref=e42]: Direkt mit mir
+        - generic [ref=e43]:
+          - strong [ref=e51]: SEO
+          - generic [ref=e52]: Google & KI-Suche
+        - generic [ref=e53]:
+          - strong [ref=e57]: "0"
+          - generic [ref=e58]: Agentur-Blabla
+    - generic [ref=e64]:
+      - generic [ref=e65]:
+        - paragraph [ref=e66]: "[02] Problem"
+        - heading "Kennst du das?" [level=2] [ref=e68]:
+          - generic [ref=e69]: Kennst
+          - text: du
+          - generic [ref=e70]: das?
+      - generic [ref=e71]:
+        - article [ref=e72]:
+          - generic [ref=e76]: "01"
+          - heading "„Meine Website ist doch okay so...“" [level=3] [ref=e77]
+          - paragraph [ref=e78]: Du weißt es selbst besser. Sie sieht aus wie 2015, und jeder, der sie sieht, weiß es auch.
+        - article [ref=e79]:
+          - generic [ref=e84]: "02"
+          - heading "„Ich hab einfach keine Zeit dafür.“" [level=3] [ref=e85]
+          - paragraph [ref=e86]: Seit wie vielen Jahren sagst du dir das schon? Die Website wartet nicht auf dich.
+        - article [ref=e87]:
+          - generic [ref=e92]: "03"
+          - heading "„Was, wenn ich’s falsch mache?“" [level=3] [ref=e93]
+          - paragraph [ref=e94]: "Lieber gar nichts tun, als etwas falsch zu machen. Nur: nichts tun ist längst die falsche Entscheidung."
+        - article [ref=e95]:
+          - generic [ref=e99]: "04"
+          - heading "„Bringt das überhaupt was?“" [level=3] [ref=e100]
+          - paragraph [ref=e101]: Du hast schon einmal Geld verbrannt, ohne Ergebnis. Die Angst sitzt tiefer als du zugibst.
+        - article [ref=e102]:
+          - generic [ref=e109]: "05"
+          - heading "„Ein paar Anfragen weniger, kein Drama.“" [level=3] [ref=e110]
+          - paragraph [ref=e111]: Doch jede Anfrage, die bei der Konkurrenz landet, ist ein Kunde, den du nie wieder siehst.
+        - article [ref=e112]:
+          - generic [ref=e119]: "06"
+          - heading "„Die Kunden kommen schon noch.“" [level=3] [ref=e120]
+          - paragraph [ref=e121]: Woher? Sie googeln, finden dich nicht, und geben ihr Geld genau dort aus, wo sie stattdessen landen.
+    - generic [ref=e122]:
+      - generic [ref=e123]:
+        - paragraph [ref=e124]: "[03] Agitation / Konkrete Konsequenzen"
+        - heading "Wenn die eigene Website zur Umsatzbremse wird." [level=2] [ref=e126]:
+          - text: Wenn die
+          - generic [ref=e127]: eigene Website
+          - text: zur
+          - generic [ref=e128]: Umsatzbremse
+          - text: wird.
+      - generic [ref=e129]:
+        - article [ref=e130]:
+          - generic [ref=e135]: "01"
+          - heading "Jede dritte Anfrage geht verloren" [level=3] [ref=e136]
+          - paragraph [ref=e137]: Bevor sie überhaupt bei dir ankommt. Langsame Ladezeit, unklare Navigation – der Kunde ist weg, bevor er anruft.
+        - article [ref=e138]:
+          - generic [ref=e146]: "02"
+          - heading "Deine Konkurrenz zahlt nichts dafür" [level=3] [ref=e147]
+          - paragraph [ref=e148]: Sie taucht einfach vor dir bei Google auf. Kostenlos, weil du es ihr überlässt.
+        - article [ref=e149]:
+          - generic [ref=e154]: "03"
+          - heading "Ein Kunde heute ist zehn Jahre Umsatz" [level=3] [ref=e155]
+          - paragraph [ref=e156]: Bei Stammkunden verlierst du nicht einen Auftrag, du verlierst alles, was danach gekommen wäre.
+        - article [ref=e157]:
+          - generic [ref=e162]: "04"
+          - heading "Dein schlechtester Monat wird zum Normalzustand" [level=3] [ref=e163]
+          - paragraph [ref=e164]: Was sich heute nach einer schwachen Phase anfühlt, ist in Wahrheit die neue Realität, wenn nichts sich ändert.
+    - generic [ref=e165]:
+      - generic [ref=e166]:
+        - paragraph [ref=e167]: "[04] Leistungen / Was ich mache"
+        - heading "Sechs Disziplinen alles aus einer Hand" [level=2] [ref=e169]:
+          - generic [ref=e170]: Sechs
+          - text: Disziplinen alles
+          - generic [ref=e171]: aus einer Hand
+      - generic [ref=e172]:
+        - article [ref=e173]:
+          - generic [ref=e191]: "01"
+          - heading "Premium Webdesign" [level=3] [ref=e192]
+          - paragraph [ref=e193]: Konversionsstarke Websites, Landingpages & Online-Shops.
+          - list [ref=e194]:
+            - listitem [ref=e195]: Verkaufspsychologisches Design
+            - listitem [ref=e198]: Blitzschnelle Ladezeiten
+            - listitem [ref=e201]: Mobile-first, gemacht fürs Handy
+        - article [ref=e207]:
+          - generic [ref=e230]: "02"
+          - heading "Lokale Google-Dominanz" [level=3] [ref=e231]
+          - paragraph [ref=e232]: Sichtbarkeit, die bleibt. Werde die Nr. 1 in deiner Region.
+          - list [ref=e233]:
+            - listitem [ref=e234]: Google Unternehmensprofil
+            - listitem [ref=e237]: Top-Platzierungen lokal
+            - listitem [ref=e240]: Optimierte Website-Texte
+        - article [ref=e246]:
+          - generic [ref=e265]: "03"
+          - heading "KI-Sichtbarkeit" [level=3] [ref=e266]
+          - paragraph [ref=e267]: Gefunden werden von ChatGPT, Perplexity & Co.
+          - list [ref=e268]:
+            - listitem [ref=e269]: Fit für KI-Rankings
+            - listitem [ref=e272]: Strukturierte Inhalte
+            - listitem [ref=e275]: Häufige Fragen optimal beantwortet
+        - article [ref=e281]:
+          - generic [ref=e300]: "04"
+          - heading "KI & Automatisierung" [level=3] [ref=e301]
+          - paragraph [ref=e302]: Smarte Prozesse, die dir Zeit und Nerven sparen.
+          - list [ref=e303]:
+            - listitem [ref=e304]: Automatisierte Kundenanfragen
+            - listitem [ref=e307]: Smarte Terminbuchung
+            - listitem [ref=e310]: E-Mail & CRM-Anbindung
+        - article [ref=e316]:
+          - generic [ref=e335]: "05"
+          - heading "Verkaufs-Optimierung" [level=3] [ref=e336]
+          - paragraph [ref=e337]: Mehr Anfragen aus deinen bestehenden Website-Besuchern.
+          - list [ref=e338]:
+            - listitem [ref=e339]: Besucher-Analyse
+            - listitem [ref=e342]: Klare CTA-Systeme
+            - listitem [ref=e345]: Nutzerführung leicht gemacht
+        - article [ref=e351]:
+          - generic [ref=e366]: "06"
+          - heading "Wartungsfreie Systeme" [level=3] [ref=e367]
+          - paragraph [ref=e368]: Saubere Technik, um die du dich nicht kümmern musst.
+          - list [ref=e369]:
+            - listitem [ref=e370]: Absolute Hacker-Sicherheit
+            - listitem [ref=e373]: Keine nervigen Plugin-Updates
+            - listitem [ref=e376]: Einfaches Ändern von Texten
+    - generic [ref=e382]:
+      - generic [ref=e383]:
+        - generic [ref=e384]:
+          - paragraph [ref=e385]: "[05] Warum das wichtig ist"
+          - heading "Die Suche hat sich verändert" [level=2] [ref=e387]:
+            - text: Die
+            - generic [ref=e388]: Suche
+            - text: hat sich
+            - generic [ref=e389]: verändert
+          - paragraph [ref=e390]: Früher hat man bei Google getippt und geklickt. Heute fragen immer mehr Menschen direkt ChatGPT, Gemini oder Perplexity nach einer Empfehlung – „Welcher Zahnarzt in Heilbronn hat gute Bewertungen?“
+          - paragraph [ref=e391]: Wenn deine Website nicht auch für diese KI-Suchen aufbereitet ist, existierst du für einen wachsenden Teil deiner Kunden schlicht nicht.
+        - generic "Vorher und jetzt Vergleich" [ref=e392]:
+          - generic [ref=e393]: So sucht man dich
+          - generic [ref=e398]:
+            - article [ref=e399]:
+              - generic [ref=e400]:
+                - generic [ref=e401]: Früher
+                - strong [ref=e402]: Nur Google-Ranking zählte
+              - generic [ref=e405]:
+                - generic [ref=e406]: Jetzt
+                - strong [ref=e407]: Auch KI-Assistenten empfehlen dich – oder eben nicht
+            - article [ref=e408]:
+              - generic [ref=e409]:
+                - generic [ref=e410]: Früher
+                - strong [ref=e411]: Keywords einbauen reichte
+              - generic [ref=e414]:
+                - generic [ref=e415]: Jetzt
+                - strong [ref=e416]: Klare Inhalte, die eine KI korrekt zusammenfassen kann
+            - article [ref=e417]:
+              - generic [ref=e418]:
+                - generic [ref=e419]: Früher
+                - strong [ref=e420]: Einmal optimieren, fertig
+              - generic [ref=e423]:
+                - generic [ref=e424]: Jetzt
+                - strong [ref=e425]: Laufende Anpassung, weil sich Suche ständig verändert
+      - paragraph [ref=e426]: Genau deshalb ist SEO und GEO-Optimierung bei mir kein Extra, sondern von Anfang an Teil jeder Website, die ich baue.
+    - generic [ref=e428]:
+      - paragraph [ref=e429]: "[05.1] Mobile First"
+      - heading "Warum Mobil so Wichtig ist" [level=2] [ref=e431]:
+        - text: Warum
+        - generic [ref=e432]: Mobil
+        - text: so
+        - generic [ref=e433]: Wichtig
+        - text: ist
+    - generic [ref=e435]:
+      - generic [ref=e436]:
+        - paragraph [ref=e437]: "[06] Projekte / Case Studies"
+        - heading "Kein Blabla . Nur fertige Websites." [level=2] [ref=e439]:
+          - text: Kein
+          - generic [ref=e440]: Blabla
+          - text: . Nur fertige Websites.
+      - generic [ref=e441]:
+        - link "01 Neweo Energy Studio Relaunch / Local SEO Showcase-Platzhalter" [ref=e442] [cursor=pointer]:
+          - /url: https://neweo.de/
+          - generic [ref=e443]: "01"
+          - strong [ref=e444]: Neweo Energy Studio
+          - generic [ref=e445]: Relaunch / Local SEO
+          - emphasis [ref=e446]: Showcase-Platzhalter
+        - link "02 Tierarzt Dr. Buss Website / Local SEO Showcase-Platzhalter" [ref=e450] [cursor=pointer]:
+          - /url: https://www.xn--tierarztpraxis-mckmhl-wec5l.de/
+          - generic [ref=e451]: "02"
+          - strong [ref=e452]: Tierarzt Dr. Buss
+          - generic [ref=e453]: Website / Local SEO
+          - emphasis [ref=e454]: Showcase-Platzhalter
+        - link "03 Happen Streetfood Landingpage / Google Ads Showcase-Platzhalter" [ref=e458] [cursor=pointer]:
+          - /url: https://happen.food/
+          - generic [ref=e459]: "03"
+          - strong [ref=e460]: Happen Streetfood
+          - generic [ref=e461]: Landingpage / Google Ads
+          - emphasis [ref=e462]: Showcase-Platzhalter
+        - link "04 TFM Montage Website / Sichtbarkeit Showcase-Platzhalter" [ref=e466] [cursor=pointer]:
+          - /url: https://www.tf-m.de/
+          - generic [ref=e467]: "04"
+          - strong [ref=e468]: TFM Montage
+          - generic [ref=e469]: Website / Sichtbarkeit
+          - emphasis [ref=e470]: Showcase-Platzhalter
+        - link "05 Zahnarzt A. Roth Website / Local SEO +43% mehr Terminanfragen" [ref=e474] [cursor=pointer]:
+          - /url: https://zahnaerzte-roth.de/
+          - generic [ref=e475]: "05"
+          - strong [ref=e476]: Zahnarzt A. Roth
+          - generic [ref=e477]: Website / Local SEO
+          - emphasis [ref=e478]: +43% mehr Terminanfragen
+    - generic [ref=e482]:
+      - generic [ref=e483]:
+        - paragraph [ref=e484]: "[07] Ergebnisse"
+        - heading "Weniger reden, mehr liefern" [level=2] [ref=e486]:
+          - generic [ref=e487]: Weniger
+          - text: reden,
+          - generic [ref=e488]: mehr
+          - text: liefern
+      - generic [ref=e489]:
+        - generic [ref=e490]:
+          - strong [ref=e491]: +37%
+          - paragraph [ref=e492]: mehr Anfragen durchschnittlich
+        - generic [ref=e493]:
+          - strong [ref=e494]: 2x
+          - paragraph [ref=e495]: mehr Sichtbarkeit bei Google
+        - generic [ref=e496]:
+          - strong [ref=e497]: Platz 1
+          - paragraph [ref=e498]: bei Google Maps für relevante Suchbegriffe
+        - generic [ref=e499]:
+          - strong [ref=e500]: 50+
+          - paragraph [ref=e501]: erfolgreiche Projekte in verschiedensten Branchen
+    - generic [ref=e502]:
+      - generic [ref=e503]:
+        - paragraph [ref=e504]: "[08] MEIN VERSPRECHEN"
+        - heading "Wie ich Qualität garantiere" [level=2] [ref=e506]:
+          - text: Wie
+          - generic [ref=e507]: ich
+          - text: Qualität
+          - generic [ref=e508]: garantiere
+      - generic [ref=e509]:
+        - article [ref=e510]:
+          - heading "100% individuell, keine Templates" [level=3] [ref=e515]
+          - paragraph [ref=e516]: Ich nutze keine billigen WordPress-Baukästen. Jedes Projekt wird von Grund auf mit modernsten Technologien und effizienten KI-Workflows maßgeschneidert entwickelt.
+        - article [ref=e517]:
+          - heading "Mobile-First, ohne Kompromisse" [level=3] [ref=e521]
+          - paragraph [ref=e522]: Über die Hälfte deiner Besucher kommt vom Handy. Deshalb entwickle ich zuerst für den kleinsten Bildschirm, nicht als nachträgliche Anpassung einer Desktop-Seite.
+        - article [ref=e523]:
+          - heading "Kompromisslose Performance" [level=3] [ref=e527]
+          - paragraph [ref=e528]: Ladezeiten unter einer Sekunde. Das freut nicht nur deine Besucher, sondern wird auch von Google mit massiv besseren Rankings (SEO) belohnt.
+        - article [ref=e529]:
+          - heading "Conversion als oberstes Ziel" [level=3] [ref=e534]
+          - paragraph [ref=e535]: Eine Website muss nicht nur gut aussehen, sie muss Anfragen generieren. Jedes Design-Element ist psychologisch darauf ausgerichtet, Besucher in Kunden zu verwandeln.
+    - generic [ref=e536]:
+      - generic [ref=e537]:
+        - paragraph [ref=e538]: "[09] Investition"
+        - heading "Investiere in dein Wachstum." [level=2] [ref=e540]:
+          - generic [ref=e541]: Investiere
+          - text: in dein
+          - generic [ref=e542]: Wachstum.
+      - generic [ref=e543]:
+        - article [ref=e544]:
+          - heading "Starter" [level=3] [ref=e545]
+          - paragraph [ref=e546]: Die professionelle Grundlage für deinen Webauftritt
+          - list [ref=e547]:
+            - listitem [ref=e548]: Mobiles Premium-Design
+            - listitem [ref=e551]: Basis Google SEO-Setup
+            - listitem [ref=e554]: DSGVO-konforme Umsetzung
+            - listitem [ref=e557]: Optimierte Ladezeiten
+          - strong [ref=e560]: 599 EUR
+          - link "Paket wählen" [ref=e561] [cursor=pointer]:
+            - /url: "#calendar"
+        - article [ref=e562]:
+          - generic [ref=e563]: Empfohlen
+          - heading "Growth" [level=3] [ref=e564]
+          - paragraph [ref=e565]: Maximale Sichtbarkeit & Conversion
+          - list [ref=e566]:
+            - listitem [ref=e567]: Alles aus Starter, plus
+            - listitem [ref=e570]: Conversion-fokussiertes UX/UI Design
+            - listitem [ref=e573]: Lokale Google Maps Dominanz
+            - listitem [ref=e576]: Strategisches SEO & Content
+            - listitem [ref=e579]: Conversion-Tracking
+          - strong [ref=e582]: ab 1.599 EUR
+          - link "Paket wählen" [ref=e583] [cursor=pointer]:
+            - /url: "#calendar"
+        - article [ref=e584]:
+          - heading "Premium" [level=3] [ref=e585]
+          - paragraph [ref=e586]: High-End Strategie & Automatisierung
+          - list [ref=e587]:
+            - listitem [ref=e588]: Alles aus Growth, plus
+            - listitem [ref=e591]: Individuelles High-End Webdesign
+            - listitem [ref=e594]: Lead-Funnel & Automationen
+            - listitem [ref=e597]: Skalierbare Lead-Gewinnung
+            - listitem [ref=e600]: Intensive persönliche Begleitung
+          - strong [ref=e603]: ab 2.990 EUR
+          - link "Paket wählen" [ref=e604] [cursor=pointer]:
+            - /url: "#calendar"
+      - generic [ref=e605]:
+        - article [ref=e606]:
+          - generic [ref=e607]:
+            - heading "Dein Erfolg ist kein einmal Projekt" [level=3] [ref=e608]
+            - generic [ref=e609]: Google findet dich ständig. Ich halte dich oben.
+            - strong [ref=e610]: SEO- & Website-Begleitung
+            - paragraph [ref=e611]: Ich übernehme nach dem Launch Wartung, Sicherheitsupdates und optimiere deine Rankings kontinuierlich weiter.
+          - emphasis [ref=e612]: ab 99 EUR mtl.
+        - article [ref=e613]:
+          - generic [ref=e614]:
+            - heading "Software & App Entwicklung" [level=3] [ref=e615]
+            - generic [ref=e616]: Deine Vision als digitale Lösung
+            - strong [ref=e617]: Maßgeschneiderte Plattformen
+            - paragraph [ref=e618]: Ich baue nicht nur Websites, sondern komplette Web-Apps, mobile Apps und individuelle Softwarelösungen.
+          - emphasis [ref=e619]: auf Anfrage
+    - generic [ref=e620]:
+      - generic [ref=e621]:
+        - paragraph [ref=e622]: "[10] Ratgeber / Tipps"
+        - heading "Erst wissen was zählt. Dann entscheiden" [level=2] [ref=e624]:
+          - text: Erst
+          - generic [ref=e625]: wissen
+          - text: was zählt. Dann
+          - generic [ref=e626]: entscheiden
+      - generic [ref=e627]:
+        - article [ref=e628]:
+          - heading "Website-Relaunch ohne Risiko" [level=3] [ref=e632]
+          - paragraph [ref=e633]: Woran du erkennst, ob deine aktuelle Seite Anfragen verhindert und wie ein Relaunch sauber geplant wird.
+          - link "Ratgeber öffnen" [ref=e634] [cursor=pointer]:
+            - /url: "#ratgeber"
+        - article [ref=e638]:
+          - heading "SEO für lokale Betriebe" [level=3] [ref=e642]
+          - paragraph [ref=e643]: Welche Grundlagen wirklich zählen, bevor man Geld in Ads, Tools oder große Content-Pläne steckt.
+          - link "Ratgeber öffnen" [ref=e644] [cursor=pointer]:
+            - /url: "#ratgeber"
+      - button "Alle Ratgeber anzeigen" [ref=e649] [cursor=pointer]
+    - generic [ref=e652]:
+      - generic [ref=e653]:
+        - paragraph [ref=e654]: "[11] Einwände / Stille Ängste"
+        - heading "Fragen & Antworten" [level=2] [ref=e656]:
+          - generic [ref=e657]: Fragen
+          - text: "&"
+          - generic [ref=e658]: Antworten
+        - paragraph [ref=e659]: Häufige Fragen, klare Antworten. Damit du einschätzen kannst, ob GreenLabz zu deinem Betrieb passt.
+      - generic [ref=e660]:
+        - group [ref=e661]:
+          - generic "Was kostet eine neue Website?" [ref=e662] [cursor=pointer]
+          - paragraph [ref=e668]: Das hängt vom Umfang, den Zielen und dem vorhandenen Material ab. Nach einem kurzen Gespräch bekommst du eine klare Einschätzung ohne Preisnebel.
+        - group [ref=e669]:
+          - generic "Arbeitest du nur lokal oder auch in ganz Deutschland?" [ref=e670] [cursor=pointer]
+        - group [ref=e675]:
+          - generic "Wie läuft unsere Zusammenarbeit ab?" [ref=e676] [cursor=pointer]
+        - group [ref=e681]:
+          - generic "Wie lange dauert es, bis meine Seite fertig ist?" [ref=e682] [cursor=pointer]
+        - group [ref=e687]:
+          - generic "Ich verstehe nichts von Technik. Ist das schlimm?" [ref=e688] [cursor=pointer]
+        - group [ref=e693]:
+          - generic "Was bedeutet SEO und warum ist das wichtig?" [ref=e694] [cursor=pointer]
+        - group [ref=e699]:
+          - generic "Baust du auch Seiten für kleine Betriebe und Selbstständige?" [ref=e700] [cursor=pointer]
+        - group [ref=e705]:
+          - generic "Muss ich Texte und Bilder selbst mitbringen?" [ref=e706] [cursor=pointer]
+        - group [ref=e711]:
+          - generic "Was passiert, wenn die Seite fertig ist? Hilfst du mir danach noch?" [ref=e712] [cursor=pointer]
+    - generic [ref=e717]:
+      - img "James Green" [ref=e719]
+      - generic [ref=e720]:
+        - paragraph [ref=e721]: "[12] About Me"
+        - heading "Warum GreenLabz ?" [level=2] [ref=e723]:
+          - generic [ref=e724]: Warum
+          - text: GreenLabz
+          - generic [ref=e725]: "?"
+        - paragraph [ref=e726]: "Hi, ich bin James Green. Ich entwickle maßgeschneiderte digitale Plattformen, die nicht nur auf den ersten Blick faszinieren, sondern deine Besucher gezielt in echte Kunden verwandeln. Dafür setze ich auf modernste KI-gestützte Entwicklungsprozesse. Sie machen mich schneller und präziser als klassische Agenturen und deine digitale Präsenz effizient, skalierbar und zukunftssicher. Mein Antrieb ist simpel: Meine Kunden sollen online so wirken wie sie wirklich sind. Professionell, vertrauenswürdig und einen Schritt voraus. Mein Fokus liegt auf einem Ding: deinem Umsatzwachstum durch smarte technologische Umsetzung. Ich freue mich darauf, mit dir zu arbeiten. Bis bald!"
+    - generic [ref=e727]:
+      - heading "Such dir einen Termin aus." [level=2] [ref=e728]:
+        - generic [ref=e729]: Such
+        - text: dir einen
+        - generic [ref=e730]: Termin
+        - text: aus.
+      - paragraph [ref=e731]: 20 Minuten. Kein Verkaufstheater. Wir prüfen, wo du gerade stehst, was dich Anfragen kostet und ob ein Relaunch oder monatliche Begleitung Sinn ergibt.
+      - iframe [ref=e735]:
+        - generic [ref=f1e1]:
+          - main [ref=f1e3]:
+            - generic [ref=f1e4]:
+              - generic [ref=f1e5]:
+                - generic [ref=f1e9]:
+                  - list [ref=f1e10]:
+                    - listitem [ref=f1e11]:
+                      - link [ref=f1e12] [cursor=pointer]:
+                        - /url: https://cal.com/green-labz-uufryt?redirect=false
+                        - img "Green Labz Studio" [ref=f1e14]
+                  - paragraph [ref=f1e15]: Green Labz Studio
+                  - heading "Discovery Call" [level=1] [ref=f1e16]
+                  - generic [ref=f1e17]:
+                    - generic [ref=f1e18]: 25Min
+                    - generic [ref=f1e26]:
+                      - img "Google Meet icon" [ref=f1e27]
+                      - paragraph [ref=f1e28]: Google Meet
+                - generic [ref=f1e37]:
+                  - generic [ref=f1e38]:
+                    - time [ref=f1e40]:
+                      - strong [ref=f1e41]: Juli
+                      - text: "2026"
+                    - generic [ref=f1e43]:
+                      - button "Vormonat anzeigen" [disabled] [ref=f1e44]
+                      - button "Nächsten Monat anzeigen" [ref=f1e47] [cursor=pointer]
+                  - generic [ref=f1e50]:
+                    - generic [ref=f1e51]: So
+                    - generic [ref=f1e52]: Mo
+                    - generic [ref=f1e53]: Di
+                    - generic [ref=f1e54]: Mi
+                    - generic [ref=f1e55]: Do
+                    - generic [ref=f1e56]: Fr
+                    - generic [ref=f1e57]: Sa
+                  - generic [ref=f1e58]:
+                    - button "1" [disabled] [ref=f1e63]
+                    - button "2" [disabled] [ref=f1e65]
+                    - button "3" [disabled] [ref=f1e67]
+                    - button "4" [disabled] [ref=f1e69]
+                    - button "5" [disabled] [ref=f1e71]
+                    - button "6" [disabled] [ref=f1e73]
+                    - button "7" [disabled] [ref=f1e75]
+                    - button "8" [disabled] [ref=f1e77]
+                    - button "9" [disabled] [ref=f1e79]
+                    - button "10" [disabled] [ref=f1e81]
+                    - button "11" [disabled] [ref=f1e83]
+                    - button "12" [disabled] [ref=f1e85]
+                    - button "13 heute" [disabled] [ref=f1e87]:
+                      - text: "13"
+                      - generic [ref=f1e88]: heute
+                    - button "14" [disabled] [ref=f1e91]
+                    - button "15" [disabled] [ref=f1e93]
+                    - button "16" [ref=f1e95]
+                    - button "17" [ref=f1e97]
+                    - button "18" [disabled] [ref=f1e99]
+                    - button "19" [disabled] [ref=f1e101]
+                    - button "20" [ref=f1e103]
+                    - button "21" [ref=f1e105]
+                    - button "22" [ref=f1e107]
+                    - button "23" [ref=f1e109]
+                    - button "24" [ref=f1e111]
+                    - button "25" [disabled] [ref=f1e113]
+                    - button "26" [disabled] [ref=f1e115]
+                    - button "27" [ref=f1e117]
+                    - button "28" [ref=f1e119]
+                    - button "29" [ref=f1e121]
+                    - button "30" [ref=f1e123]
+                    - button "31" [ref=f1e125]
+                - generic [ref=f1e126]:
+                  - generic [ref=f1e128]:
+                    - generic [ref=f1e129]:
+                      - text: Do
+                      - generic [ref=f1e130]: "16"
+                    - group "Zeitformat" [ref=f1e132]:
+                      - radio "12 Std" [ref=f1e133] [cursor=pointer]
+                      - radio "24 Std" [checked] [ref=f1e135] [cursor=pointer]
+                  - generic [ref=f1e140]:
+                    - button "09:00" [ref=f1e142] [cursor=pointer]
+                    - button "09:25" [ref=f1e147] [cursor=pointer]
+                    - button "09:50" [ref=f1e152] [cursor=pointer]
+                    - button "10:15" [ref=f1e157] [cursor=pointer]
+              - link [ref=f1e163] [cursor=pointer]:
+                - /url: https://go.cal.com/booking
+                - img "Cal.com Logo" [ref=f1e164]
+          - alert [ref=f1e165]
+          - generic:
+            - region "Notifications"
+          - generic:
+            - region "Notifications"
+    - generic [ref=e736]:
+      - generic [ref=e737]:
+        - paragraph [ref=e738]: "[14] Technik"
+        - heading "Technologie & Transparenz" [level=2] [ref=e740]:
+          - text: Technologie &
+          - generic [ref=e741]: Transparenz
+        - paragraph [ref=e742]: Ich nenne Stack, Performance-Ziele und Standards offen. Hier kannst du die wichtigsten Quellen selbst nachvollziehen.
+      - generic [ref=e743]:
+        - link [ref=e744] [cursor=pointer]:
+          - /url: https://nextjs.org
+          - strong [ref=e745]: Next.js 16
+          - paragraph [ref=e746]: Production Framework powering every GreenLabz Studio site.
+        - link [ref=e750] [cursor=pointer]:
+          - /url: https://react.dev
+          - strong [ref=e751]: React 19
+          - paragraph [ref=e752]: UI library that keeps interfaces fast and modular.
+        - link [ref=e756] [cursor=pointer]:
+          - /url: https://vercel.com
+          - strong [ref=e757]: Vercel
+          - paragraph [ref=e758]: Default deployment platform with global CDN and fast previews.
+        - link [ref=e762] [cursor=pointer]:
+          - /url: https://www.typescriptlang.org
+          - strong [ref=e763]: TypeScript
+          - paragraph [ref=e764]: Type-safe codebase for reliable, maintainable projects.
+        - link [ref=e768] [cursor=pointer]:
+          - /url: https://web.dev/vitals
+          - strong [ref=e769]: Core Web Vitals
+          - paragraph [ref=e770]: Google performance standards for speed and user experience.
+        - link [ref=e774] [cursor=pointer]:
+          - /url: https://schema.org
+          - strong [ref=e775]: Schema.org
+          - paragraph [ref=e776]: Structured data foundation for Google and AI search systems.
+        - link [ref=e780] [cursor=pointer]:
+          - /url: https://llmstxt.org
+          - strong [ref=e781]: /llms-full.txt
+          - paragraph [ref=e782]: Machine-readable reference layer for AI assistant visibility.
+    - generic [ref=e786]:
+      - paragraph [ref=e787]: "[15] Kontakt"
+      - heading "Lass uns reden" [level=2] [ref=e789]:
+        - generic [ref=e790]: Lass
+        - text: uns
+        - generic [ref=e791]: reden
+      - paragraph [ref=e792]: Erzähl mir von deinem nächsten Projekt. Klicke auf den Button unten, um das kurze Briefing zu starten. So kann ich mich optimal vorbereiten. Du erhältst innerhalb von 24 Stunden Feedback mit den nächsten konkreten Schritten.
+      - button "Nachricht schreiben" [ref=e793] [cursor=pointer]
+      - generic [ref=e796]:
+        - generic [ref=e797]:
+          - generic [ref=e798]: "E-Mail:"
+          - strong [ref=e799]: hello@greenlabz-studio.de
+        - generic [ref=e800]:
+          - generic [ref=e801]: "Telefon:"
+          - strong [ref=e802]: +49 1604928746
+        - generic [ref=e803]:
+          - generic [ref=e804]: Antwort innerhalb
+          - strong [ref=e805]: 24h
+  - contentinfo [ref=e806]:
+    - generic [ref=e807]:
+      - paragraph [ref=e808]: "[16] Footer / Links"
+      - img "GreenLabz Studio" [ref=e810]
+      - list [ref=e811]:
+        - listitem [ref=e812]: DSGVO-konforme Umsetzung
+        - listitem [ref=e816]: Impressum & Datenschutz vorgesehen
+        - listitem [ref=e820]: Direkter Kontakt ohne Zwischenebene
+      - generic "Social Links" [ref=e824]:
+        - link "E-Mail" [ref=e825] [cursor=pointer]:
+          - /url: mailto:hello@greenlabz-studio.de
+        - link "WhatsApp" [ref=e829] [cursor=pointer]:
+          - /url: https://wa.me/491604928746
+        - link "LinkedIn" [ref=e832] [cursor=pointer]:
+          - /url: https://linkedin.com
+        - link "Nach oben" [ref=e837] [cursor=pointer]:
+          - /url: "#top"
+    - generic [ref=e841]:
+      - generic [ref=e842]:
+        - heading "Navigation" [level=3] [ref=e843]
+        - link "Startseite" [ref=e844] [cursor=pointer]:
+          - /url: "#top"
+        - link "Ratgeber" [ref=e845] [cursor=pointer]:
+          - /url: "#ratgeber"
+        - link "Vorher / Nachher" [ref=e846] [cursor=pointer]:
+          - /url: "#beforeafter"
+        - link "Mobile Ansicht" [ref=e847] [cursor=pointer]:
+          - /url: "#mobileview"
+      - generic [ref=e848]:
+        - heading "Fokus" [level=3] [ref=e849]
+        - link "Webdesign" [ref=e850] [cursor=pointer]:
+          - /url: "#cases"
+        - link "SEO & KI-Suchmaschinen Optimierung" [ref=e851] [cursor=pointer]:
+          - /url: "#top"
+        - link "KI-Integration" [ref=e852] [cursor=pointer]:
+          - /url: "#top"
+        - link "Conversion Optimierung" [ref=e853] [cursor=pointer]:
+          - /url: "#calendar"
+      - generic [ref=e854]:
+        - heading "Kontakt" [level=3] [ref=e855]
+        - generic [ref=e856]: hello@greenlabz-studio.deBaden-Württemberg, DE
+    - generic [ref=e857]:
+      - generic [ref=e858]: © 2026 GreenLabz Studio. Engineering, Design and Strategy.
+      - navigation "Rechtliches" [ref=e859]:
+        - link "Impressum" [ref=e860] [cursor=pointer]:
+          - /url: "#calendar"
+        - link "Datenschutz" [ref=e861] [cursor=pointer]:
+          - /url: "#calendar"
+        - link "AGB" [ref=e862] [cursor=pointer]:
+          - /url: "#calendar"

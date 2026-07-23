@@ -1,0 +1,935 @@
+- generic [active] [ref=e1]:
+  - navigation "Primary":
+    - generic [ref=e2]:
+      - link "Wibify — zur Startseite" [ref=e3] [cursor=pointer]:
+        - /url: /
+        - img "Wibify" [ref=e4]
+      - button "Projekt starten →" [ref=e5] [cursor=pointer]
+      - button "Menü öffnen" [ref=e7] [cursor=pointer]
+  - main [ref=e10]:
+    - generic [ref=e11]:
+      - img "Abstraktes Hintergrundbild für Wibify und professionelle Websites für Unternehmen." [ref=e13]
+      - generic [ref=e15]:
+        - paragraph [ref=e16]:
+          - generic [ref=e18]: "[01]"
+          - text: Digital Design Studio
+        - heading "Website erstellen lassen. Für Marken mit Anspruch." [level=1] [ref=e19]:
+          - generic [ref=e20]: Website
+          - emphasis [ref=e22]: erstellen
+          - generic [ref=e23]: lassen.
+          - generic [ref=e24]: Für
+          - emphasis [ref=e26]: Marken
+          - generic [ref=e27]: mit
+          - generic [ref=e28]: Anspruch.
+        - paragraph [ref=e29]: Website erstellen lassen für Unternehmen in Deutschland — mit Strategie, Design, Entwicklung und SEO aus einer Hand.
+        - generic [ref=e30]:
+          - button "Projekt starten →" [ref=e31] [cursor=pointer]
+          - link "Ausgewählte Arbeiten" [ref=e33] [cursor=pointer]:
+            - /url: "#work"
+        - generic "Kennzahlen" [ref=e36]:
+          - generic [ref=e37]:
+            - generic [ref=e41]: "5.0"
+            - generic [ref=e42]: Google · 21 Reviews
+          - generic [ref=e44]:
+            - generic [ref=e51]: 7.5M+
+            - generic [ref=e52]: Nutzer erreicht
+          - generic [ref=e54]:
+            - generic [ref=e58]: "100"
+            - generic [ref=e59]: PageSpeed Score
+    - generic [ref=e61]:
+      - generic [ref=e62]:
+        - paragraph [ref=e63]:
+          - generic [ref=e65]: "[02]"
+          - text: Selected Work / 2024 — 2026
+        - heading [level=2] [ref=e66]:
+          - text: Was wir
+          - emphasis [ref=e67]: gebaut
+          - text: haben.
+      - list [ref=e68]:
+        - listitem [ref=e69]:
+          - link "Die Lackier-Werkstatt — Case Study von Wibify (Webseite · Branding, 2025). Die Lackier-Werkstatt 2025" [ref=e70] [cursor=pointer]:
+            - /url: /die-lackier-werkstatt
+            - img "Die Lackier-Werkstatt — Case Study von Wibify (Webseite · Branding, 2025)." [ref=e72]
+            - generic [ref=e73]:
+              - generic [ref=e74]: Die Lackier-Werkstatt
+              - generic [ref=e75]: "2025"
+        - listitem [ref=e76]:
+          - link "UnfallFix24 — Case Study von Wibify (Webseite · Software, 2025). UnfallFix24 2025" [ref=e77] [cursor=pointer]:
+            - /url: /unfallfix24
+            - img "UnfallFix24 — Case Study von Wibify (Webseite · Software, 2025)." [ref=e79]
+            - generic [ref=e80]:
+              - generic [ref=e81]: UnfallFix24
+              - generic [ref=e82]: "2025"
+        - listitem [ref=e83]:
+          - link "Mousa Export — Case Study von Wibify (Webseite, 2025). Mousa Export 2025" [ref=e84] [cursor=pointer]:
+            - /url: /mousaexport
+            - img "Mousa Export — Case Study von Wibify (Webseite, 2025)." [ref=e86]
+            - generic [ref=e87]:
+              - generic [ref=e88]: Mousa Export
+              - generic [ref=e89]: "2025"
+        - listitem [ref=e90]:
+          - link "Steak Club — Case Study von Wibify (Webseite · Branding, 2024). Steak Club 2024" [ref=e91] [cursor=pointer]:
+            - /url: /steakclub
+            - img "Steak Club — Case Study von Wibify (Webseite · Branding, 2024)." [ref=e93]
+            - generic [ref=e94]:
+              - generic [ref=e95]: Steak Club
+              - generic [ref=e96]: "2024"
+        - listitem [ref=e97]:
+          - link "Josh Jabs — Case Study von Wibify (Webseite · Branding, 2024). Josh Jabs 2024" [ref=e98] [cursor=pointer]:
+            - /url: /joshjabs
+            - img "Josh Jabs — Case Study von Wibify (Webseite · Branding, 2024)." [ref=e100]
+            - generic [ref=e101]:
+              - generic [ref=e102]: Josh Jabs
+              - generic [ref=e103]: "2024"
+        - listitem [ref=e104]:
+          - link "Umzugsservice — Case Study von Wibify (Webseite · SEO, 2024). Umzugsservice 2024" [ref=e105] [cursor=pointer]:
+            - /url: /umzugsservice
+            - img "Umzugsservice — Case Study von Wibify (Webseite · SEO, 2024)." [ref=e107]
+            - generic [ref=e108]:
+              - generic [ref=e109]: Umzugsservice
+              - generic [ref=e110]: "2024"
+    - generic [ref=e112]:
+      - generic [ref=e113]:
+        - paragraph [ref=e114]:
+          - generic [ref=e116]: "[03]"
+          - text: Leistungen / Was wir machen
+        - heading [level=2] [ref=e117]:
+          - text: Vier
+          - emphasis [ref=e118]: Disziplinen.
+          - text: Eine Hand.
+      - generic [ref=e119]:
+        - article [ref=e120]:
+          - generic: "01"
+          - generic [ref=e127]:
+            - heading [level=3] [ref=e128]:
+              - generic "Webseiten" [ref=e129]:
+                - generic [ref=e130]:
+                  - generic [ref=e131]: W
+                  - generic [ref=e132]: e
+                  - generic [ref=e133]: b
+                  - generic [ref=e134]: s
+                  - generic [ref=e135]: e
+                  - generic [ref=e136]: i
+                  - generic [ref=e137]: t
+                  - generic [ref=e138]: e
+                  - generic [ref=e139]: "n"
+                - generic [ref=e140]:
+                  - generic [ref=e141]: W
+                  - generic [ref=e142]: e
+                  - generic [ref=e143]: b
+                  - generic [ref=e144]: s
+                  - generic [ref=e145]: e
+                  - generic [ref=e146]: i
+                  - generic [ref=e147]: t
+                  - generic [ref=e148]: e
+                  - generic [ref=e149]: "n"
+            - paragraph [ref=e150]: Hochperformante Marketing-Sites, Landing Pages und Corporate Websites — gebaut für Conversion und Geschwindigkeit.
+          - list [ref=e152]:
+            - listitem [ref=e153]:
+              - generic [ref=e158]: Next.js & React
+            - listitem [ref=e159]:
+              - generic [ref=e163]: Headless CMS
+            - listitem [ref=e164]:
+              - generic [ref=e170]: SEO & Performance
+            - listitem [ref=e171]:
+              - generic [ref=e175]: A/B Testing
+          - generic: →
+        - article [ref=e176]:
+          - generic: "02"
+          - generic [ref=e180]:
+            - heading [level=3] [ref=e181]:
+              - generic "Branding" [ref=e182]:
+                - generic [ref=e183]:
+                  - generic [ref=e184]: B
+                  - generic [ref=e185]: r
+                  - generic [ref=e186]: a
+                  - generic [ref=e187]: "n"
+                  - generic [ref=e188]: d
+                  - generic [ref=e189]: i
+                  - generic [ref=e190]: "n"
+                  - generic [ref=e191]: g
+                - generic [ref=e192]:
+                  - generic [ref=e193]: B
+                  - generic [ref=e194]: r
+                  - generic [ref=e195]: a
+                  - generic [ref=e196]: "n"
+                  - generic [ref=e197]: d
+                  - generic [ref=e198]: i
+                  - generic [ref=e199]: "n"
+                  - generic [ref=e200]: g
+            - paragraph [ref=e201]: Markenidentitäten von Logo bis Designsystem — Identitäten die haften und über alle Touchpoints konsistent funktionieren.
+          - list [ref=e203]:
+            - listitem [ref=e204]:
+              - generic [ref=e209]: Logo & Wordmark
+            - listitem [ref=e210]:
+              - generic [ref=e218]: Visual Identity
+            - listitem [ref=e219]:
+              - generic [ref=e226]: Designsystem
+            - listitem [ref=e227]:
+              - generic [ref=e231]: Brand Guidelines
+          - generic: →
+        - article [ref=e232]:
+          - generic: "03"
+          - generic [ref=e238]:
+            - heading [level=3] [ref=e239]:
+              - generic "Software" [ref=e240]:
+                - generic [ref=e241]:
+                  - generic [ref=e242]: S
+                  - generic [ref=e243]: o
+                  - generic [ref=e244]: f
+                  - generic [ref=e245]: t
+                  - generic [ref=e246]: w
+                  - generic [ref=e247]: a
+                  - generic [ref=e248]: r
+                  - generic [ref=e249]: e
+                - generic [ref=e250]:
+                  - generic [ref=e251]: S
+                  - generic [ref=e252]: o
+                  - generic [ref=e253]: f
+                  - generic [ref=e254]: t
+                  - generic [ref=e255]: w
+                  - generic [ref=e256]: a
+                  - generic [ref=e257]: r
+                  - generic [ref=e258]: e
+            - paragraph [ref=e259]: Custom Tools, interne Plattformen und SaaS-Produkte. Vom MVP bis zur skalierbaren Enterprise-Lösung.
+          - list [ref=e261]:
+            - listitem [ref=e262]:
+              - generic [ref=e269]: Web-Apps & Dashboards
+            - listitem [ref=e270]:
+              - generic [ref=e277]: API & Backend
+            - listitem [ref=e278]:
+              - generic [ref=e282]: SaaS-Plattformen
+            - listitem [ref=e283]:
+              - generic [ref=e291]: Internal Tools
+          - generic: →
+        - article [ref=e292]:
+          - generic: "04"
+          - generic [ref=e296]:
+            - heading [level=3] [ref=e297]:
+              - generic "Mobile Apps" [ref=e298]:
+                - generic [ref=e299]:
+                  - generic [ref=e300]: M
+                  - generic [ref=e301]: o
+                  - generic [ref=e302]: b
+                  - generic [ref=e303]: i
+                  - generic [ref=e304]: l
+                  - generic [ref=e305]: e
+                  - generic [ref=e307]: A
+                  - generic [ref=e308]: p
+                  - generic [ref=e309]: p
+                  - generic [ref=e310]: s
+                - generic [ref=e311]:
+                  - generic [ref=e312]: M
+                  - generic [ref=e313]: o
+                  - generic [ref=e314]: b
+                  - generic [ref=e315]: i
+                  - generic [ref=e316]: l
+                  - generic [ref=e317]: e
+                  - generic [ref=e319]: A
+                  - generic [ref=e320]: p
+                  - generic [ref=e321]: p
+                  - generic [ref=e322]: s
+            - paragraph [ref=e323]: Native und Cross-Platform Apps mit erstklassiger User Experience — iOS, Android und alles dazwischen.
+          - list [ref=e325]:
+            - listitem [ref=e326]:
+              - generic [ref=e330]: iOS & Android
+            - listitem [ref=e331]:
+              - generic [ref=e338]: React Native
+            - listitem [ref=e339]:
+              - generic [ref=e347]: App Store Launch
+            - listitem [ref=e348]:
+              - generic [ref=e354]: Push & Analytics
+          - generic: →
+    - generic [ref=e356]:
+      - generic [ref=e357]:
+        - paragraph [ref=e358]:
+          - generic [ref=e360]: "[04]"
+          - text: Prozess / Wie wir arbeiten
+        - heading [level=2] [ref=e361]:
+          - text: Vom
+          - emphasis [ref=e362]: Briefing
+          - text: zum
+          - emphasis [ref=e363]: Launch.
+      - generic [ref=e364]:
+        - article [ref=e366]:
+          - img "Strategie" [ref=e368]
+          - generic [ref=e369]:
+            - generic [ref=e370]: 01/04
+            - heading "Strategie" [level=3] [ref=e371]
+            - paragraph [ref=e372]: Wir lernen euch und eure Marke kennen. Ziele, Zielgruppe, Wettbewerb. Daraus entsteht die Roadmap, die alles Weitere trägt.
+            - list [ref=e373]:
+              - listitem [ref=e374]: Briefing & Workshop
+              - listitem [ref=e375]: Wettbewerbsanalyse
+              - listitem [ref=e376]: Markenstrategie
+              - listitem [ref=e377]: Roadmap
+        - article [ref=e379]:
+          - img "Design" [ref=e381]
+          - generic [ref=e382]:
+            - generic [ref=e383]: 02/04
+            - heading "Design" [level=3] [ref=e384]
+            - paragraph [ref=e385]: Identität, Interface, Prototyp. Hier wird die Marke sichtbar — vom Logo bis zum letzten Pixel der Website.
+            - list [ref=e386]:
+              - listitem [ref=e387]: Brand Identity
+              - listitem [ref=e388]: Wireframes & UX
+              - listitem [ref=e389]: UI Design
+              - listitem [ref=e390]: Designsystem
+        - article [ref=e392]:
+          - img "Build" [ref=e394]
+          - generic [ref=e395]:
+            - generic [ref=e396]: 03/04
+            - heading "Build" [level=3] [ref=e397]
+            - paragraph [ref=e398]: "Entwicklung in modernem Stack: Next.js, React, Performance-first. Sauberer Code, der skaliert und in fünf Jahren noch läuft."
+            - list [ref=e399]:
+              - listitem [ref=e400]: Frontend & CMS
+              - listitem [ref=e401]: Backend / API
+              - listitem [ref=e402]: Performance & SEO
+              - listitem [ref=e403]: QA & Testing
+        - article [ref=e405]:
+          - img "Launch & Pflege" [ref=e407]
+          - generic [ref=e408]:
+            - generic [ref=e409]: 04/04
+            - heading "Launch & Pflege" [level=3] [ref=e410]
+            - paragraph [ref=e411]: Deployment, Monitoring, kontinuierliche Optimierung. Wir bleiben dran — eure Marke wächst, wir wachsen mit.
+            - list [ref=e412]:
+              - listitem [ref=e413]: Go-Live
+              - listitem [ref=e414]: Analytics
+              - listitem [ref=e415]: Wartung & Updates
+              - listitem [ref=e416]: Iteration & Growth
+    - generic [ref=e418]:
+      - generic [ref=e419]:
+        - paragraph [ref=e420]:
+          - generic [ref=e422]: "[06]"
+          - text: Kontakt
+        - heading [level=2] [ref=e423]:
+          - text: Lass uns
+          - emphasis [ref=e424]: reden.
+        - paragraph [ref=e425]: Direkter Draht zu Kerim — kein Account-Manager und kein Briefing-Telefonspiel zwischen Abteilungen. Erzähl uns von deinem nächsten Projekt für digitale Produkte mit Anspruch, und wir antworten innerhalb von 24 Stunden mit konkreten nächsten Schritten.
+        - list [ref=e426]:
+          - listitem [ref=e427]:
+            - generic [ref=e428]: E-Mail
+            - link "Briefing per E-Mail an Wibify senden" [ref=e429] [cursor=pointer]:
+              - /url: mailto:info@wibify.de
+              - text: info@wibify.de
+          - listitem [ref=e430]:
+            - generic [ref=e431]: Telefon
+            - link "Direkter Draht zu Kerim Bilin per Telefon" [ref=e432] [cursor=pointer]:
+              - /url: tel:+4915754405511
+              - text: +49 1575 4405511
+          - listitem [ref=e433]:
+            - generic [ref=e434]: Studio
+            - generic [ref=e435]: Bocholt · Nordrhein-Westfalen
+        - generic [ref=e436]:
+          - generic [ref=e437]: Antwort innerhalb 24h
+          - generic [ref=e439]: Q3 / Q4 verfügbar
+      - generic [ref=e441]:
+        - generic [ref=e442]:
+          - paragraph [ref=e443]: Briefing
+          - paragraph [ref=e444]:
+            - text: Schreib uns ein
+            - emphasis [ref=e445]: kurzes Briefing.
+        - generic [ref=e446]:
+          - generic [ref=e447]:
+            - generic [ref=e448]:
+              - generic [ref=e449]: Vorname *
+              - textbox "Vorname" [ref=e450]:
+                - /placeholder: Anna
+            - generic [ref=e451]:
+              - generic [ref=e452]: Nachname *
+              - textbox "Nachname" [ref=e453]:
+                - /placeholder: Schmidt
+          - generic [ref=e454]:
+            - generic [ref=e455]: E-Mail *
+            - textbox "E-Mail" [ref=e456]:
+              - /placeholder: anna@firma.de
+          - generic [ref=e457]:
+            - generic [ref=e458]: Telefonnummer *
+            - textbox "Telefonnummer" [ref=e459]:
+              - /placeholder: +49 170 1234567
+          - generic [ref=e460]:
+            - generic [ref=e461]:
+              - generic [ref=e462]: Firmenname — optional
+              - textbox "Firmenname — optional" [ref=e463]:
+                - /placeholder: Studio GmbH
+            - generic [ref=e464]:
+              - generic [ref=e465]: Aktuelle Website — optional
+              - textbox "Aktuelle Website — optional" [ref=e466]:
+                - /placeholder: https://deine-domain.de
+          - generic [ref=e467]:
+            - generic [ref=e468]: Nachricht — optional
+            - textbox "Nachricht — optional" [ref=e469]:
+              - /placeholder: Idee, Branche, Timeline — was wir wissen sollten.
+          - generic [ref=e471]:
+            - text: Company website (do not fill)
+            - textbox [ref=e472]
+          - generic [ref=e473] [cursor=pointer]:
+            - checkbox "Ich stimme der Verarbeitung meiner Angaben gemäß der Datenschutzerklärung zu." [ref=e474]
+            - generic [ref=e475]:
+              - text: Ich stimme der Verarbeitung meiner Angaben gemäß der
+              - link "Datenschutzerklärung" [ref=e476]:
+                - /url: /datenschutz
+              - text: zu.
+          - button "Anfrage senden →" [disabled]
+    - generic [ref=e478]:
+      - paragraph [ref=e480]:
+        - generic [ref=e482]: "[07]"
+        - text: Profil · Mind behind
+      - generic [ref=e483]:
+        - generic [ref=e484]:
+          - 'generic "Google: 21 Rezensionen" [ref=e485]':
+            - generic [ref=e486]: Google
+            - strong [ref=e487]: "21"
+            - generic [ref=e488]: Rezensionen
+          - heading [level=2] [ref=e489]:
+            - text: Erfahrungen, die
+            - emphasis [ref=e490]: bleiben.
+          - list [ref=e491]:
+            - listitem [ref=e492]:
+              - generic [ref=e493]: "01"
+              - text: Direkter Kontakt
+            - listitem [ref=e494]:
+              - generic [ref=e495]: "02"
+              - text: Klare Kommunikation
+            - listitem [ref=e496]:
+              - generic [ref=e497]: "03"
+              - text: Umsetzung aus einer Hand
+        - complementary [ref=e498]:
+          - figure [ref=e499]:
+            - img "Kerim Bilin · Founder" [ref=e500]
+          - generic [ref=e501]:
+            - paragraph [ref=e502]: Inhaber
+            - heading [level=3] [ref=e503]:
+              - text: Kerim
+              - emphasis [ref=e504]: Bilin.
+            - generic [ref=e505]: Direkter Ansprechpartner für Strategie, Design und Entwicklung.
+            - generic [ref=e506]: Vom ersten Gespräch bis zum Launch arbeitest du direkt mit Kerim.
+    - generic [ref=e508]:
+      - generic [ref=e509]:
+        - generic [ref=e510]:
+          - heading "Ergebnisse." [level=2] [ref=e511]
+          - paragraph [ref=e512]: Webseiten, optimiert für echte Ergebnisse.
+        - separator [ref=e513]
+      - generic [ref=e514]:
+        - article [ref=e515]:
+          - generic [ref=e516]: Letzte 12 Monate — durch echte Kundenprojekte
+          - generic [ref=e518]:
+            - generic [ref=e519]:
+              - paragraph [ref=e520]: 93 Mio
+              - paragraph [ref=e521]: Seitenaufrufe
+            - generic [ref=e523]:
+              - paragraph [ref=e524]: 3 Mio
+              - paragraph [ref=e525]: Eindeutige Nutzer
+            - generic [ref=e527]:
+              - paragraph [ref=e528]: 1 Mrd+
+              - paragraph [ref=e529]: Netzwerk-Requests
+          - generic [ref=e532]:
+            - generic:
+              - generic: ↗
+              - generic: +47%
+        - article [ref=e536]:
+          - heading [level=3] [ref=e537]:
+            - text: Webseiten, optimiert für
+            - emphasis [ref=e538]: echte Ergebnisse.
+          - list [ref=e539]:
+            - listitem [ref=e540]:
+              - generic [ref=e541]: OnPage-SEO
+              - generic [ref=e542]: Bereit, um bei Google gefunden zu werden.
+            - listitem [ref=e543]:
+              - generic [ref=e544]: Tracking & Analyse
+              - generic [ref=e545]: Nutzerstatistiken & Marketing-Cookies.
+            - listitem [ref=e546]:
+              - generic [ref=e547]: 100% Responsive
+              - generic [ref=e548]: Desktop, Tablet, Handy — alles dazwischen.
+            - listitem [ref=e549]:
+              - generic [ref=e550]: ROI-First
+              - generic [ref=e551]: Maximum aus dem Werbebudget.
+        - article [ref=e552]:
+          - generic [ref=e553]:
+            - heading [level=3] [ref=e554]:
+              - text: Von A bis
+              - emphasis [ref=e555]: Z, eine Hand.
+            - paragraph [ref=e556]: Briefing, Konzept, Design, Build, Betrieb — keine Übergaben zwischen Spezialisten. Du redest die ganze Zeit mit dem Studio, das auch wirklich baut.
+          - generic [ref=e557]:
+            - generic [ref=e558]:
+              - generic [ref=e559]: Workflow · Eine Hand
+              - generic [ref=e561]: 0 Übergaben
+            - generic [ref=e562]:
+              - generic: A
+              - generic: Z
+              - list [ref=e563]:
+                - listitem [ref=e564]:
+                  - generic [ref=e565]: A
+                  - generic [ref=e571]: Briefing
+                  - generic [ref=e572]: Start
+                - listitem [ref=e573]:
+                  - generic [ref=e574]: B
+                  - generic [ref=e580]: Konzept
+                  - generic [ref=e581]: Route
+                - listitem [ref=e582]:
+                  - generic [ref=e583]: C
+                  - generic [ref=e588]: Design
+                  - generic [ref=e589]: Look
+                - listitem [ref=e590]:
+                  - generic [ref=e591]: D
+                  - generic [ref=e597]: Build
+                  - generic [ref=e598]: Code
+                - listitem [ref=e599]:
+                  - generic [ref=e600]: Z
+                  - generic [ref=e605]: Betrieb
+                  - generic [ref=e606]: Live
+              - generic:
+                - generic:
+                  - generic: "01"
+                  - generic: Studio
+        - article [ref=e607]:
+          - generic [ref=e608]:
+            - heading [level=3] [ref=e609]:
+              - text: Vier Werte.
+              - emphasis [ref=e610]: Alle 100.
+            - paragraph [ref=e611]: Volle Lighthouse-Punktzahl in Performance, SEO, Barrierefreiheit und Best Practices — Standard bei jedem Projekt, nicht Glücksfall.
+          - generic [ref=e612]:
+            - generic [ref=e613]: Google Lighthouse · Live
+            - generic [ref=e615]:
+              - generic [ref=e616]:
+                - generic [ref=e617]: "100"
+                - generic [ref=e622]: Performance
+              - generic [ref=e623]:
+                - generic [ref=e624]: "100"
+                - generic [ref=e629]: Barrierefreiheit
+              - generic [ref=e630]:
+                - generic [ref=e631]: "100"
+                - generic [ref=e636]: Best Practices
+              - generic [ref=e637]:
+                - generic [ref=e638]: "100"
+                - generic [ref=e643]: SEO
+    - region [ref=e644]:
+      - generic:
+        - generic [ref=e645]:
+          - paragraph [ref=e646]:
+            - generic [ref=e648]: "[08]"
+            - text: Website erstellen
+          - generic [ref=e649]:
+            - heading [level=2] [ref=e650]:
+              - text: Eine Website, die
+              - emphasis [ref=e651]: klar führt.
+            - paragraph [ref=e652]: Eine professionelle Website ist kein isoliertes Designprojekt. Sie verbindet Positionierung, Inhalte, Technik und Sichtbarkeit zu einem System, das Menschen verstehen und nutzen können.
+        - generic [ref=e653]:
+          - generic [ref=e654]:
+            - paragraph [ref=e655]: Website erstellen lassen
+            - heading "Von der ersten Frage bis zum sichtbaren Launch." [level=3] [ref=e656]
+          - paragraph [ref=e657]: Wer eine Website erstellen lässt, braucht mehr als eine schöne Startseite. Entscheidend sind ein klares Angebot, eine nachvollziehbare Seitenstruktur und Inhalte, die die Fragen der Zielgruppe konkret beantworten. Erst dann können Design, Entwicklung und SEO ihr Potenzial entfalten.
+          - img "Strategische Planung einer professionellen Unternehmenswebsite" [ref=e659]
+        - list [ref=e660]:
+          - listitem [ref=e661]:
+            - generic [ref=e662]: "01"
+            - heading "Ziel und Zielgruppe klären" [level=3] [ref=e663]
+            - paragraph [ref=e664]: "Eine gute Website beginnt nicht mit Farben, sondern mit einer klaren Aufgabe: Wen soll sie erreichen, welche Frage beantworten und welche nächste Handlung auslösen?"
+          - listitem [ref=e665]:
+            - generic [ref=e666]: "02"
+            - heading "Inhalte und Struktur planen" [level=3] [ref=e667]
+            - paragraph [ref=e668]: Seiten, Navigation, Botschaften und Belege werden vor dem Design geordnet. So finden Menschen und Suchmaschinen schneller, was für sie relevant ist.
+          - listitem [ref=e669]:
+            - generic [ref=e670]: "03"
+            - heading "Design und Entwicklung verbinden" [level=3] [ref=e671]
+            - paragraph [ref=e672]: "Marke, Leseführung und Technik greifen ineinander: responsive Komponenten, verständliche Inhalte und eine performante Umsetzung statt eines austauschbaren Templates."
+          - listitem [ref=e673]:
+            - generic [ref=e674]: "04"
+            - heading "Sichtbar machen und weiterentwickeln" [level=3] [ref=e675]
+            - paragraph [ref=e676]: Vor dem Launch gehören saubere Metadaten, Bildbeschreibungen, strukturierte Daten und eine verständliche interne Verlinkung zur Grundlage jeder Website.
+        - region [ref=e677]:
+          - generic [ref=e678]:
+            - paragraph [ref=e679]: Der passende Rahmen
+            - heading "Nicht jede Website muss dasselbe leisten." [level=3] [ref=e680]
+          - generic [ref=e681]:
+            - article [ref=e682]:
+              - heading "Unternehmenswebsite" [level=4] [ref=e683]
+              - paragraph [ref=e684]: Für Unternehmen, die Angebot, Haltung, Leistungen und Referenzen in einer klaren digitalen Präsenz bündeln wollen.
+            - article [ref=e685]:
+              - heading "Landingpage" [level=4] [ref=e686]
+              - paragraph [ref=e687]: Für eine konkrete Kampagne, Leistung oder Zielgruppe mit einer fokussierten Botschaft und einer eindeutigen Handlung.
+            - article [ref=e688]:
+              - heading "Content-Website" [level=4] [ref=e689]
+              - paragraph [ref=e690]: Für Teams, die Ratgeber, Referenzen oder News regelmäßig veröffentlichen und dabei langfristig organische Sichtbarkeit aufbauen wollen.
+        - generic [ref=e691]:
+          - generic [ref=e692]:
+            - paragraph [ref=e693]: Die Grundlage
+            - heading "Woran eine Unternehmenswebsite erkennbar gut ist." [level=3] [ref=e694]
+            - list [ref=e695]:
+              - listitem [ref=e696]: Sie erklärt Angebot und Nutzen ohne Fachsprache.
+              - listitem [ref=e697]: Sie führt auf jedem Gerät zu einer klaren Handlung.
+              - listitem [ref=e698]: Sie verbindet Markenbild, Inhalte und Technik konsistent.
+              - listitem [ref=e699]: Sie schafft eine saubere Basis für langfristige Sichtbarkeit.
+            - link "Website-Projekt besprechen" [ref=e700] [cursor=pointer]:
+              - /url: /kontakt
+              - text: Website-Projekt besprechen
+              - generic [ref=e701]: →
+          - generic [ref=e702]:
+            - paragraph [ref=e703]: Häufige Fragen
+            - group [ref=e704]:
+              - generic "Was gehört zu einer professionellen Website? +" [ref=e705] [cursor=pointer]
+            - group [ref=e706]:
+              - generic "Wie läuft es ab, eine Website erstellen zu lassen? +" [ref=e707] [cursor=pointer]
+            - group [ref=e708]:
+              - generic "Kann ich Inhalte meiner Website später selbst pflegen? +" [ref=e709] [cursor=pointer]
+            - group [ref=e710]:
+              - generic "Wie wird eine neue Website bei Google sichtbar? +" [ref=e711] [cursor=pointer]
+            - group [ref=e712]:
+              - generic "Welche Seiten braucht eine Unternehmenswebsite? +" [ref=e713] [cursor=pointer]
+            - group [ref=e714]:
+              - generic "Was muss ich vorbereiten, bevor ich eine Website erstellen lasse? +" [ref=e715] [cursor=pointer]
+            - group [ref=e716]:
+              - generic "Was ist der Unterschied zwischen einer Website und einer Landingpage? +" [ref=e717] [cursor=pointer]
+            - group [ref=e718]:
+              - generic "Wann sollte eine bestehende Website überarbeitet werden? +" [ref=e719] [cursor=pointer]
+    - region [ref=e720]:
+      - generic:
+        - generic [ref=e721]:
+          - paragraph [ref=e722]:
+            - generic [ref=e724]: "[09]"
+            - text: Ratgeber
+          - generic [ref=e725]:
+            - heading [level=2] [ref=e726]:
+              - text: Mehr Klarheit vor dem
+              - emphasis [ref=e727]: Website-Projekt.
+            - link "Alle Artikel" [ref=e728] [cursor=pointer]:
+              - /url: /blog
+              - text: Alle Artikel
+              - generic [ref=e729]: →
+        - generic [ref=e730]:
+          - article [ref=e731]:
+            - 'link "Konzeption einer professionellen Unternehmenswebsite SEO 10 Min. Lesezeit Website erstellen: Der Leitfaden für Unternehmen Eine Website entsteht nicht mit einem Template, sondern mit klaren Entscheidungen. Dieser Leitfaden zeigt, worauf Unternehmen bei Strategie, Inhalten, Design und Sichtbarkeit achten sollten. Artikel lesen" [ref=e732] [cursor=pointer]':
+              - /url: /website-erstellen-fuer-unternehmen
+              - generic [ref=e733]:
+                - img "Konzeption einer professionellen Unternehmenswebsite" [ref=e734]
+                - generic [ref=e735]: ↗
+              - generic [ref=e736]:
+                - generic [ref=e737]:
+                  - generic [ref=e738]: SEO
+                  - generic [ref=e739]: 10 Min. Lesezeit
+                - 'heading "Website erstellen: Der Leitfaden für Unternehmen" [level=3] [ref=e740]'
+                - paragraph [ref=e741]: Eine Website entsteht nicht mit einem Template, sondern mit klaren Entscheidungen. Dieser Leitfaden zeigt, worauf Unternehmen bei Strategie, Inhalten, Design und Sichtbarkeit achten sollten.
+                - generic [ref=e742]:
+                  - text: Artikel lesen
+                  - generic [ref=e743]: →
+          - article [ref=e744]:
+            - 'link "Entwicklung einer individuellen Website für ein Unternehmen SEO 9 Min. Lesezeit Website erstellen lassen: Ablauf, Inhalte und Entscheidungshilfe Was passiert, wenn Sie eine Website erstellen lassen? Von Briefing und Seitenstruktur bis zum Launch: ein klarer Überblick über den Ablauf einer professionellen Website. Artikel lesen" [ref=e745] [cursor=pointer]':
+              - /url: /website-erstellen-lassen
+              - generic [ref=e746]:
+                - img "Entwicklung einer individuellen Website für ein Unternehmen" [ref=e747]
+                - generic [ref=e748]: ↗
+              - generic [ref=e749]:
+                - generic [ref=e750]:
+                  - generic [ref=e751]: SEO
+                  - generic [ref=e752]: 9 Min. Lesezeit
+                - 'heading "Website erstellen lassen: Ablauf, Inhalte und Entscheidungshilfe" [level=3] [ref=e753]'
+                - paragraph [ref=e754]: "Was passiert, wenn Sie eine Website erstellen lassen? Von Briefing und Seitenstruktur bis zum Launch: ein klarer Überblick über den Ablauf einer professionellen Website."
+                - generic [ref=e755]:
+                  - text: Artikel lesen
+                  - generic [ref=e756]: →
+          - article [ref=e757]:
+            - link "Strategische Planung von Umfang und Budget einer Website SEO 8 Min. Lesezeit Was kostet eine Website? Kosten, Umfang und die richtige Entscheidung Eine seriöse Website-Kalkulation beginnt nicht mit einer Pauschale. Dieser Ratgeber erklärt, welche Faktoren den Aufwand bestimmen und wie Unternehmen Angebote sinnvoll vergleichen. Artikel lesen" [ref=e758] [cursor=pointer]:
+              - /url: /website-kosten
+              - generic [ref=e759]:
+                - img "Strategische Planung von Umfang und Budget einer Website" [ref=e760]
+                - generic [ref=e761]: ↗
+              - generic [ref=e762]:
+                - generic [ref=e763]:
+                  - generic [ref=e764]: SEO
+                  - generic [ref=e765]: 8 Min. Lesezeit
+                - heading "Was kostet eine Website? Kosten, Umfang und die richtige Entscheidung" [level=3] [ref=e766]
+                - paragraph [ref=e767]: Eine seriöse Website-Kalkulation beginnt nicht mit einer Pauschale. Dieser Ratgeber erklärt, welche Faktoren den Aufwand bestimmen und wie Unternehmen Angebote sinnvoll vergleichen.
+                - generic [ref=e768]:
+                  - text: Artikel lesen
+                  - generic [ref=e769]: →
+    - region [ref=e770]:
+      - generic:
+        - generic [ref=e771]:
+          - paragraph [ref=e772]:
+            - generic [ref=e773]: "10"
+            - text: Die erste Entscheidung
+          - heading [level=2] [ref=e774]:
+            - text: Eine Website beantwortet die
+            - emphasis [ref=e775]: richtigen Fragen.
+          - paragraph [ref=e776]: Bevor Gestaltung oder Technik wichtig werden, muss eine Website die Perspektive ihrer Zielgruppe einnehmen. Was suchen Menschen, welche Unsicherheit haben sie und welche Information brauchen sie als Nächstes? Diese Fragen entscheiden über Aufbau, Inhalte und die spätere Wirkung.
+          - list [ref=e777]:
+            - listitem [ref=e778]: Welches Problem löst das Angebot konkret?
+            - listitem [ref=e779]: Welche Entscheidung soll die Website erleichtern?
+            - listitem [ref=e780]: Welche Belege schaffen vor einem Gespräch Vertrauen?
+          - link "Projektziele besprechen" [ref=e781] [cursor=pointer]:
+            - /url: /kontakt
+            - text: Projektziele besprechen
+            - generic [ref=e782]: →
+        - figure "Eine Website beginnt mit Orientierung, nicht mit einer Oberfläche." [ref=e783]:
+          - img "Strategische Planung einer Website anhand von Zielgruppenfragen und Seitenzielen" [ref=e784]
+    - region [ref=e786]:
+      - generic:
+        - generic [ref=e787]:
+          - paragraph [ref=e788]:
+            - generic [ref=e789]: "11"
+            - text: Informationsarchitektur
+          - heading [level=2] [ref=e790]:
+            - text: Nicht mehr Seiten.
+            - emphasis [ref=e791]: Bessere Wege.
+          - paragraph [ref=e792]: Eine klare Seitenstruktur führt vom ersten Überblick zu einer konkreten Leistung, einem passenden Beleg und einer Handlung. Statt jede interne Abteilung abzubilden, orientiert sie sich an den Wegen, die Interessierte bei einer echten Entscheidung gehen.
+          - list [ref=e793]:
+            - listitem [ref=e794]: Startseite für Positionierung und Orientierung
+            - listitem [ref=e795]: Leistungsseiten für konkrete Suchfragen
+            - listitem [ref=e796]: Referenzen und Kontakt für Vertrauen und den nächsten Schritt
+          - link "Leistungen ansehen" [ref=e797] [cursor=pointer]:
+            - /url: /leistungen
+            - text: Leistungen ansehen
+            - generic [ref=e798]: →
+        - figure "Seitenstruktur übersetzt das Angebot in einen verständlichen Weg." [ref=e799]:
+          - img "Übersicht einer klar gegliederten Website mit Leistungsbereichen" [ref=e800]
+    - region [ref=e802]:
+      - generic:
+        - generic [ref=e803]:
+          - paragraph [ref=e804]:
+            - generic [ref=e805]: "12"
+            - text: Inhalte mit Substanz
+          - heading [level=2] [ref=e806]:
+            - text: Texte, die Entscheidungen
+            - emphasis [ref=e807]: erleichtern.
+          - paragraph [ref=e808]: Gute Inhalte machen Angebote konkret. Sie erklären nicht nur, was ein Unternehmen tut, sondern für wen es relevant ist, wie die Zusammenarbeit aussieht und woran Qualität erkennbar wird. Das ist die Basis für verständliche Kommunikation und organische Auffindbarkeit.
+          - list [ref=e809]:
+            - listitem [ref=e810]: Klare Leistungsbeschreibungen statt allgemeiner Floskeln
+            - listitem [ref=e811]: Beispiele und Referenzen mit nachvollziehbarem Kontext
+            - listitem [ref=e812]: Ratgeber für wiederkehrende Fragen der Zielgruppe
+          - link "Ratgeber lesen" [ref=e813] [cursor=pointer]:
+            - /url: /blog
+            - text: Ratgeber lesen
+            - generic [ref=e814]: →
+        - figure "Hilfreiche Inhalte beantworten Fragen, bevor sie im Gespräch gestellt werden." [ref=e815]:
+          - img "Redaktionelle Inhalte und Ratgeber für eine professionelle Unternehmenswebsite" [ref=e816]
+    - region [ref=e818]:
+      - generic:
+        - generic [ref=e819]:
+          - paragraph [ref=e820]:
+            - generic [ref=e821]: "13"
+            - text: Design und UX
+          - heading [level=2] [ref=e822]:
+            - text: Design macht Inhalte
+            - emphasis [ref=e823]: schneller lesbar.
+          - paragraph [ref=e824]: Visuelles Design schafft einen Rahmen, in dem Inhalte priorisiert werden können. Typografie, Kontrast, Abstände und Bildauswahl lenken Aufmerksamkeit. Wenn das System konsistent ist, wirkt die Website nicht nur hochwertiger, sondern auch ruhiger und verständlicher.
+          - list [ref=e825]:
+            - listitem [ref=e826]: Eine erkennbare visuelle Hierarchie auf jeder Seite
+            - listitem [ref=e827]: Komponenten, die über alle Inhalte konsistent bleiben
+            - listitem [ref=e828]: Eine Marke, die auf Desktop und Mobilgeräten gleich klar wirkt
+          - link "Design-Arbeiten ansehen" [ref=e829] [cursor=pointer]:
+            - /url: /portfolio
+            - text: Design-Arbeiten ansehen
+            - generic [ref=e830]: →
+        - 'figure "Design ist Leseführung: Wichtiges wird sichtbar, ohne laut zu werden." [ref=e831]':
+          - img "Visuelles Interface-Design einer klar strukturierten Unternehmenswebsite" [ref=e832]
+    - region [ref=e834]:
+      - generic:
+        - generic [ref=e835]:
+          - paragraph [ref=e836]:
+            - generic [ref=e837]: "14"
+            - text: Mobile Nutzung
+          - heading [level=2] [ref=e838]:
+            - text: Mobil ist kein
+            - emphasis [ref=e839]: zweites Projekt.
+          - paragraph [ref=e840]: Auf kleinen Bildschirmen wird sichtbar, ob eine Website wirklich gut strukturiert ist. Lesbare Absätze, erkennbare Buttons, kurze Wege und passende Bilder sind keine nachträglichen Anpassungen. Sie gehören von Anfang an zu Inhalt und Interface.
+          - list [ref=e841]:
+            - listitem [ref=e842]: Inhalte zuerst für begrenzte Bildschirmbreite priorisieren
+            - listitem [ref=e843]: Interaktionen und Formulare mit ausreichend großen Trefferflächen gestalten
+            - listitem [ref=e844]: Bilder mit passenden Größen und klaren Beschreibungen ausliefern
+          - link "Mobile Website planen" [ref=e845] [cursor=pointer]:
+            - /url: /kontakt
+            - text: Mobile Website planen
+            - generic [ref=e846]: →
+        - figure "Gute digitale Erlebnisse bleiben auf jedem Bildschirm klar und zugänglich." [ref=e847]:
+          - img "Webdesigner prüft eine Unternehmenswebsite auf einem Laptop" [ref=e848]
+    - region [ref=e850]:
+      - generic:
+        - generic [ref=e851]:
+          - paragraph [ref=e852]:
+            - generic [ref=e853]: "15"
+            - text: Technische Basis
+          - heading [level=2] [ref=e854]:
+            - text: Technik trägt, was Menschen
+            - emphasis [ref=e855]: nicht sehen.
+          - paragraph [ref=e856]: Eine moderne Website braucht keine Technik um ihrer selbst willen. Sie braucht eine solide Basis für schnelle Auslieferung, saubere Inhalte, sichere Formulare und spätere Erweiterungen. Die richtige Architektur hält die Oberfläche verlässlich, wenn Inhalte und Anforderungen wachsen.
+          - list [ref=e857]:
+            - listitem [ref=e858]: Semantisches HTML und zugängliche Komponenten
+            - listitem [ref=e859]: Optimierte Bilder, Fonts und Ladewege
+            - listitem [ref=e860]: Ein Aufbau, der Inhalte und Funktionen erweiterbar hält
+          - link "Entwicklung verstehen" [ref=e861] [cursor=pointer]:
+            - /url: /leistungen
+            - text: Entwicklung verstehen
+            - generic [ref=e862]: →
+        - figure "Die technische Basis entscheidet, wie zuverlässig eine Website langfristig weiterentwickelt werden kann." [ref=e863]:
+          - img "Technische Entwicklung einer performanten Website mit modernen Webtechnologien" [ref=e864]
+    - region [ref=e866]:
+      - generic:
+        - generic [ref=e867]:
+          - paragraph [ref=e868]:
+            - generic [ref=e869]: "16"
+            - text: SEO von Beginn an
+          - heading [level=2] [ref=e870]:
+            - text: Sichtbarkeit wird
+            - emphasis [ref=e871]: mitgebaut.
+          - paragraph [ref=e872]: SEO ist keine einzelne Seite und kein Text, der am Ende ergänzt wird. Suchmaschinen brauchen eine nachvollziehbare Struktur, eindeutige Seitenthemen, beschreibende Bilder und hilfreiche Inhalte. Diese Grundlagen helfen, eine Website technisch und redaktionell sauber einzuordnen.
+          - list [ref=e873]:
+            - listitem [ref=e874]: Eine eindeutige Hauptfrage pro Seite beantworten
+            - listitem [ref=e875]: Metadaten, Canonicals und strukturierte Daten konsistent halten
+            - listitem [ref=e876]: Interne Links nutzen, um Themen sinnvoll zu verbinden
+          - link "SEO-Ratgeber lesen" [ref=e877] [cursor=pointer]:
+            - /url: /blog
+            - text: SEO-Ratgeber lesen
+            - generic [ref=e878]: →
+        - figure "SEO beginnt mit hilfreichen Antworten auf konkrete Suchfragen." [ref=e879]:
+          - img "Suchfragen und strukturierte Antworten als Grundlage für SEO-Content" [ref=e880]
+    - region [ref=e882]:
+      - generic:
+        - generic [ref=e883]:
+          - paragraph [ref=e884]:
+            - generic [ref=e885]: "17"
+            - text: Vertrauen vor Kontakt
+          - heading [level=2] [ref=e886]:
+            - text: Belege machen ein Angebot
+            - emphasis [ref=e887]: glaubwürdig.
+          - paragraph [ref=e888]: "Menschen entscheiden selten nach einer Überschrift allein. Sie suchen nach Belegen: nachvollziehbaren Projekten, klaren Abläufen, echten Ansprechpartnern und Antworten auf mögliche Risiken. Eine Website sollte diese Informationen dort zeigen, wo sie für eine Entscheidung relevant werden."
+          - list [ref=e889]:
+            - listitem [ref=e890]: Projekte mit Ausgangslage, Lösung und Ergebnis einordnen
+            - listitem [ref=e891]: Verantwortliche Personen sichtbar und erreichbar machen
+            - listitem [ref=e892]: Abläufe und Erwartungen transparent beschreiben
+          - link "Referenzen ansehen" [ref=e893] [cursor=pointer]:
+            - /url: /portfolio
+            - text: Referenzen ansehen
+            - generic [ref=e894]: →
+        - figure "Referenzen zeigen nicht nur Ergebnisse, sondern auch die Art der Zusammenarbeit." [ref=e895]:
+          - img "Auswahl visueller Referenzen und Projekte einer Website-Agentur" [ref=e896]
+    - region [ref=e898]:
+      - generic:
+        - generic [ref=e899]:
+          - paragraph [ref=e900]:
+            - generic [ref=e901]: "18"
+            - text: Vor dem Go-live
+          - heading [level=2] [ref=e902]:
+            - text: Ein Launch braucht
+            - emphasis [ref=e903]: einen Check.
+          - paragraph [ref=e904]: "Vor der Veröffentlichung sollte eine Website auf reale Nutzung geprüft werden: Funktionieren Formulare, Links und rechtliche Seiten? Sind Texte auf Mobilgeräten lesbar? Werden Seiten korrekt indexiert? Diese Prüfung verhindert, dass wichtige Details erst nach dem ersten Besuch auffallen."
+          - list [ref=e905]:
+            - listitem [ref=e906]: Formulare, Links und Kontaktwege testen
+            - listitem [ref=e907]: Meta-Daten, Sitemap und Indexierbarkeit kontrollieren
+            - listitem [ref=e908]: Inhalte auf unterschiedlichen Geräten durchgehen
+          - link "Website-Launch vorbereiten" [ref=e909] [cursor=pointer]:
+            - /url: /kontakt
+            - text: Website-Launch vorbereiten
+            - generic [ref=e910]: →
+        - figure "Ein sauberer Launch prüft Inhalt, Technik und den nächsten Schritt aus Nutzersicht." [ref=e911]:
+          - img "Vorbereitung und Qualitätsprüfung vor dem Launch einer neuen Website" [ref=e912]
+    - region [ref=e914]:
+      - generic:
+        - generic [ref=e915]:
+          - paragraph [ref=e916]:
+            - generic [ref=e917]: "19"
+            - text: Nach dem Launch
+          - heading [level=2] [ref=e918]:
+            - text: Eine Website bleibt
+            - emphasis [ref=e919]: in Bewegung.
+          - paragraph [ref=e920]: Nach dem Launch zeigen Fragen aus Gesprächen, Vertrieb und Support, welche Informationen noch fehlen. Neue Referenzen, Ratgeber und präzisere Leistungsseiten halten die Website relevant. Regelmäßige Pflege bedeutet nicht dauerndes Redesign, sondern gezielte Verbesserung auf Basis echter Nutzung.
+          - list [ref=e921]:
+            - listitem [ref=e922]: Neue Fragen als Themen für Inhalte und FAQs nutzen
+            - listitem [ref=e923]: Referenzen und Leistungen aktuell halten
+            - listitem [ref=e924]: Technische Qualität und Kontaktwege regelmäßig prüfen
+          - link "Wissen weiter vertiefen" [ref=e925] [cursor=pointer]:
+            - /url: /blog
+            - text: Wissen weiter vertiefen
+            - generic [ref=e926]: →
+        - figure "Relevante Websites wachsen mit den Fragen ihrer Zielgruppe weiter." [ref=e927]:
+          - img "Fortlaufende Pflege und Weiterentwicklung einer Unternehmenswebsite" [ref=e928]
+    - region [ref=e930]:
+      - generic:
+        - generic [ref=e931]:
+          - paragraph [ref=e932]:
+            - generic [ref=e933]: "20"
+            - text: Die passende Lösung
+          - heading [level=2] [ref=e934]:
+            - text: Selbst bauen oder professionell
+            - emphasis [ref=e935]: umsetzen lassen?
+          - paragraph [ref=e936]: Ein Baukasten kann für einen einfachen Start genügen. Sobald eine Website Positionierung, individuelle Inhalte, mehrere Leistungen oder organische Sichtbarkeit tragen soll, werden Strategie und Umsetzung wichtiger. Die passende Lösung richtet sich deshalb nach Aufgabe und Anspruch, nicht nach einem Tool allein.
+          - list [ref=e937]:
+            - listitem [ref=e938]: Baukasten für einfache, selbst gepflegte Einstiege
+            - listitem [ref=e939]: Individuelles System für klare Positionierung und komplexere Anforderungen
+            - listitem [ref=e940]: Ein Gespräch, wenn Umfang und Prioritäten noch offen sind
+          - link "Projekt einordnen" [ref=e941] [cursor=pointer]:
+            - /url: /kontakt
+            - text: Projekt einordnen
+            - generic [ref=e942]: →
+        - figure "Die richtige Lösung richtet sich nach Ziel, Umfang und langfristiger Bedeutung der Website." [ref=e943]:
+          - img "Abstraktes Website-Hintergrundbild für die Entscheidung zwischen Baukasten und individueller Umsetzung" [ref=e944]
+  - contentinfo [ref=e946]:
+    - generic [ref=e947]:
+      - generic [ref=e948]:
+        - generic [ref=e949]:
+          - link "Wibify — zur Startseite" [ref=e950] [cursor=pointer]:
+            - /url: /
+            - img "Wibify" [ref=e951]
+          - paragraph [ref=e952]:
+            - text: DigitalDesign Studiofür
+            - emphasis [ref=e953]: Deutschland.
+        - navigation "Footer Navigation" [ref=e954]:
+          - generic [ref=e955]:
+            - paragraph [ref=e956]: Kontakt
+            - list [ref=e957]:
+              - listitem [ref=e958]:
+                - link "E-Mail an Wibify schreiben" [ref=e959] [cursor=pointer]:
+                  - /url: mailto:info@wibify.de
+                  - text: info@wibify.de
+              - listitem [ref=e960]:
+                - link "Wibify telefonisch erreichen" [ref=e961] [cursor=pointer]:
+                  - /url: tel:+4915754405511
+                  - text: +49 1575 4405511
+          - generic [ref=e962]:
+            - paragraph [ref=e963]: Studio
+            - generic [ref=e964]: Weidenstraße 5846395 Bocholt
+          - generic [ref=e965]:
+            - paragraph [ref=e966]: Sitemap
+            - list [ref=e967]:
+              - listitem [ref=e968]:
+                - link "Leistungen" [ref=e969] [cursor=pointer]:
+                  - /url: /leistungen
+              - listitem [ref=e970]:
+                - link "Portfolio" [ref=e971] [cursor=pointer]:
+                  - /url: /portfolio
+              - listitem [ref=e972]:
+                - link "Blog" [ref=e973] [cursor=pointer]:
+                  - /url: /blog
+              - listitem [ref=e974]:
+                - link "FAQ" [ref=e975] [cursor=pointer]:
+                  - /url: /faq
+              - listitem [ref=e976]:
+                - link "Kontakt" [ref=e977] [cursor=pointer]:
+                  - /url: /kontakt
+          - generic [ref=e978]:
+            - paragraph [ref=e979]: Rechtlich
+            - list [ref=e980]:
+              - listitem [ref=e981]:
+                - link "Impressum" [ref=e982] [cursor=pointer]:
+                  - /url: /impressum
+              - listitem [ref=e983]:
+                - link "Datenschutz" [ref=e984] [cursor=pointer]:
+                  - /url: /datenschutz
+              - listitem [ref=e985]:
+                - link "AGB" [ref=e986] [cursor=pointer]:
+                  - /url: /agb
+          - generic [ref=e987]:
+            - paragraph [ref=e988]: Social
+            - list [ref=e989]:
+              - listitem [ref=e990]:
+                - link "Wibify auf LinkedIn (externer Link)" [ref=e991] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/company/wibify/
+                  - text: LinkedIn ↗
+              - listitem [ref=e992]:
+                - link "Wibify auf Instagram (externer Link)" [ref=e993] [cursor=pointer]:
+                  - /url: https://www.instagram.com/wibify.de
+                  - text: Instagram ↗
+              - listitem [ref=e994]:
+                - link "Wibify Studio bei Google Maps anzeigen (externer Link)" [ref=e995] [cursor=pointer]:
+                  - /url: https://www.google.com/maps/place/?q=place_id:ChIJTSsmGeYAfGMRAY3yZnWFkzI
+                  - text: Google Maps ↗
+      - generic [ref=e996]:
+        - paragraph [ref=e997]: © 2026 Wibify · Kerim Bilin
+        - paragraph [ref=e998]: Built in Germany
