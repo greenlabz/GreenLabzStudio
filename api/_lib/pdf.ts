@@ -18,7 +18,7 @@ const colors = {
   border: rgb(0, .45, .22),
 }
 
-function drawBackgroundAndFrame(page: PDFPage, pageNumber: string) {
+function drawBackgroundAndFrame(page: PDFPage, pageNumber: string, font: PDFFont) {
   // Page background
   page.drawRectangle({ x: 0, y: 0, width: pageWidth, height: pageHeight, color: colors.background })
   // Outer decorative rounded frame
@@ -35,14 +35,14 @@ function drawBackgroundAndFrame(page: PDFPage, pageNumber: string) {
     x: margin,
     y: 34,
     size: 8,
-    font: null as any,
+    font,
     color: colors.muted,
   })
   page.drawText(pageNumber, {
     x: pageWidth - margin - 15,
     y: 34,
     size: 8,
-    font: null as any,
+    font,
     color: colors.muted,
   })
 }
@@ -138,7 +138,7 @@ export async function createAuditPdf(audit: AuditResult) {
   // PAGE 1: COVER
   // -------------------------------------------------------------
   const page1 = pdf.addPage([pageWidth, pageHeight])
-  drawBackgroundAndFrame(page1, '01')
+  drawBackgroundAndFrame(page1, '01', regular)
   page1.drawText('[ GREENLABZ STUDIO / QUICK CHECK ]', { x: margin, y: pageHeight - 75, size: 9, font: bold, color: colors.accent })
   page1.drawText('Website-Analyse', { x: margin, y: pageHeight - 140, size: 36, font: bold, color: colors.text })
   page1.drawText(`für ${cleanText(audit.domain)}`, { x: margin, y: pageHeight - 175, size: 20, font: regular, color: colors.accent })
@@ -188,7 +188,7 @@ export async function createAuditPdf(audit: AuditResult) {
   // PAGE 2: 01 KLARHEIT
   // -------------------------------------------------------------
   const page2 = pdf.addPage([pageWidth, pageHeight])
-  drawBackgroundAndFrame(page2, '02')
+  drawBackgroundAndFrame(page2, '02', regular)
   page2.drawText('[ 01 / WEBSITE-ANALYSE ]', { x: margin, y: pageHeight - 75, size: 9, font: bold, color: colors.accent })
   page2.drawText('01  Klarheit', { x: margin, y: pageHeight - 125, size: 30, font: bold, color: colors.text })
   page2.drawText('Versteht man dein Angebot?', { x: margin, y: pageHeight - 155, size: 16, font: regular, color: colors.accent })
@@ -220,7 +220,7 @@ export async function createAuditPdf(audit: AuditResult) {
   // PAGE 3: 02 SICHTBARKEIT
   // -------------------------------------------------------------
   const page3 = pdf.addPage([pageWidth, pageHeight])
-  drawBackgroundAndFrame(page3, '03')
+  drawBackgroundAndFrame(page3, '03', regular)
   page3.drawText('[ 02 / WEBSITE-ANALYSE ]', { x: margin, y: pageHeight - 75, size: 9, font: bold, color: colors.accent })
   page3.drawText('02  Sichtbarkeit', { x: margin, y: pageHeight - 125, size: 30, font: bold, color: colors.text })
   page3.drawText('Wird deine Seite gefunden?', { x: margin, y: pageHeight - 155, size: 16, font: regular, color: colors.accent })
@@ -251,7 +251,7 @@ export async function createAuditPdf(audit: AuditResult) {
   // PAGE 4: 03 VERTRAUEN & ANFRAGEN
   // -------------------------------------------------------------
   const page4 = pdf.addPage([pageWidth, pageHeight])
-  drawBackgroundAndFrame(page4, '04')
+  drawBackgroundAndFrame(page4, '04', regular)
   page4.drawText('[ 03 / WEBSITE-ANALYSE ]', { x: margin, y: pageHeight - 75, size: 9, font: bold, color: colors.accent })
   page4.drawText('03  Vertrauen & Anfragen', { x: margin, y: pageHeight - 125, size: 30, font: bold, color: colors.text })
   page4.drawText('Entsteht aus Interesse eine Anfrage?', { x: margin, y: pageHeight - 155, size: 16, font: regular, color: colors.accent })
@@ -282,7 +282,7 @@ export async function createAuditPdf(audit: AuditResult) {
   // PAGE 5: NÄCHSTER SCHRITT
   // -------------------------------------------------------------
   const page5 = pdf.addPage([pageWidth, pageHeight])
-  drawBackgroundAndFrame(page5, '05')
+  drawBackgroundAndFrame(page5, '05', regular)
   page5.drawText('[ NÄCHSTER SCHRITT ]', { x: margin, y: pageHeight - 75, size: 9, font: bold, color: colors.accent })
   page5.drawText('Du weißt jetzt,', { x: margin, y: pageHeight - 130, size: 32, font: bold, color: colors.text })
   page5.drawText('wo es hakt.', { x: margin, y: pageHeight - 170, size: 32, font: bold, color: colors.accent })
