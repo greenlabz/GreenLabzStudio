@@ -10,23 +10,48 @@ interface DeliveryInput {
   fileName: string
 }
 
-function smtpConfigured() {
-  return Boolean(process.env.SMTP_HOST && process.env.SMTP_PORT && process.env.SMTP_USER && process.env.SMTP_PASS)
+function createTransporter() {
+  if (process.env.SMTP_HOST && process.env.SMTP_PORT && process.env.SMTP_USER && process.env.SMTP_PASS) {
+    const port = Number(process.env.SMTP_PORT)
+    return {
+      transporter: nodemailer.createTransport({
+        host: process.env.SMTP_HOST,
+        port,
+        secure: port === 465,
+        auth: {
+          user: process.env.SMTP_USER,
+          pass: process.env.SMTP_PASS,
+        },
+      }),
+      from: process.env.SMTP_FROM || process.env.SMTP_USER,
+    }
+  }
+
+  if (process.env.GMAIL_USER && process.env.GOOGLE_REFRESH_TOKEN && process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
+    const gmailUser = process.env.GMAIL_USER
+    return {
+      transporter: nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          type: 'OAuth2',
+          user: gmailUser,
+          clientId: process.env.GOOGLE_CLIENT_ID,
+          clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+          refreshToken: process.env.GOOGLE_REFRESH_TOKEN,
+        },
+      }),
+      from: process.env.EMAIL_ALIAS || gmailUser,
+    }
+  }
+
+  return null
 }
 
 export async function sendAuditEmails(input: DeliveryInput) {
-  if (!smtpConfigured()) return false
-  const port = Number(process.env.SMTP_PORT)
-  const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port,
-    secure: port === 465,
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
-    },
-  })
-  const from = process.env.SMTP_FROM || process.env.SMTP_USER
+  const mailer = createTransporter()
+  if (!mailer) return false
+
+  const { transporter, from } = mailer
   await transporter.sendMail({
     from: `GreenLabz Studio <${from}>`,
     to: input.email,
@@ -34,9 +59,10 @@ export async function sendAuditEmails(input: DeliveryInput) {
     text: `Hallo${input.name ? ` ${input.name}` : ''},\n\nim Anhang findest du deinen Website Audit Report für ${input.audit.domain}.\n\nViele Grüße\nJames von GreenLabz Studio`,
     attachments: [{ filename: input.fileName, content: input.pdf, contentType: 'application/pdf' }],
   })
+
   await transporter.sendMail({
     from: `GreenLabz Website Audit <${from}>`,
-    to: process.env.LEAD_NOTIFICATION_EMAIL || process.env.SMTP_USER,
+    to: process.env.LEAD_NOTIFICATION_EMAIL || from,
     subject: `Neuer Lead: ${input.audit.domain} – ${input.email}`,
     text: [
       `Domain: ${input.audit.domain}`,
@@ -55,10 +81,12 @@ export async function appendLeadToSheet(input: Omit<DeliveryInput, 'pdf' | 'file
   const privateKey = process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n')
   const sheetId = process.env.GOOGLE_SHEET_ID
   if (!clientEmail || !privateKey || !sheetId) return false
+
   const auth = new GoogleAuth({
     credentials: { client_email: clientEmail, private_key: privateKey },
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   })
+
   const client = await auth.getClient()
   const token = await client.getAccessToken()
   const tab = process.env.GOOGLE_SHEET_TAB || 'Leads'
@@ -85,4 +113,3 @@ export async function appendLeadToSheet(input: Omit<DeliveryInput, 'pdf' | 'file
   if (!response.ok) throw new Error(`Google Sheets: ${response.status}`)
   return true
 }
-
