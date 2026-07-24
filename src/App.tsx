@@ -45,7 +45,6 @@ const socialProofLogos = [
   { src: '/assets/showcases/neweo-logo.png', alt: 'NewEO' },
   { src: '/assets/showcases/buss-logo.png', alt: 'Tierarzt Buss' },
   { src: '/assets/showcases/happen-logo.png', alt: 'Happen' },
-  { src: '/assets/showcases/ad-logo-cutout.png', alt: 'AD' },
   { src: '/assets/showcases/tfm-montage.png', alt: 'TFM Montage' },
   { src: '/assets/showcases/greenlabz-studio-logo.svg', alt: 'GreenLabz Studio' },
 ]
