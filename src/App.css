@@ -2321,27 +2321,28 @@
 
   .mobile-importance-section .section-head {
     max-width: 650px;
+    margin-bottom: 1.5rem;
   }
 
   .mobile-importance-section h2 {
-    font-size: clamp(4rem, 5vw, 5.5rem);
-    line-height: .92;
-    letter-spacing: -.055em;
+    font-size: clamp(3.2rem, 4.2vw, 4.6rem);
+    line-height: .96;
+    letter-spacing: -.045em;
   }
 
   .mobile-beat-copy {
-    position: absolute;
-    top: 47%;
-    left: 0;
+    position: relative;
+    top: auto;
+    left: auto;
     width: min(52%, 680px);
-    min-height: 0;
-    margin: 0;
+    min-height: 220px;
+    margin-top: 1.5rem;
   }
 
   .mobile-beat-copy-state h3 {
-    max-width: 19ch;
-    font-size: clamp(2rem, 2.35vw, 2.45rem);
-    line-height: .98;
+    max-width: 22ch;
+    font-size: clamp(1.8rem, 2.1vw, 2.3rem);
+    line-height: 1.1;
   }
 
   .mobile-model-visual {
