@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useEffect, useRef } from 'react'
-import { ArrowRight, ArrowUp, ExternalLink, Mail, MessageCircle } from 'lucide-react'
+import { ArrowRight, ArrowUp, ArrowUpRight, ExternalLink, Mail, MessageCircle } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -8,7 +8,9 @@ gsap.registerPlugin(ScrollTrigger)
 
 type CinematicFooterProps = {
   onPrimaryClick: () => void
+  onContactClick: () => void
   onNavigate: (route: string) => void
+  onOpenImpressum: () => void
   onOpenDatenschutz?: () => void
 }
 
@@ -62,10 +64,26 @@ function MarqueeItem() {
   )
 }
 
-export default function CinematicFooter({ onPrimaryClick, onNavigate, onOpenDatenschutz }: CinematicFooterProps) {
+const footerLinks = [
+  { number: '01', label: 'Startseite', target: 'top' },
+  { number: '02', label: 'Projekte & Ergebnisse', target: 'cases' },
+  { number: '03', label: 'Leistungen', target: 'services' },
+  { number: '04', label: 'Investition', target: 'pricing' },
+  { number: '05', label: 'Fragen & Antworten', target: 'faq' },
+] as const
+
+export default function CinematicFooter({ onPrimaryClick, onContactClick, onNavigate, onOpenImpressum, onOpenDatenschutz }: CinematicFooterProps) {
   const wrapperRef = useRef<HTMLDivElement>(null)
   const headingRef = useRef<HTMLHeadingElement>(null)
   const linksRef = useRef<HTMLDivElement>(null)
+
+  const goToSection = (event: React.MouseEvent<HTMLAnchorElement>, target: string) => {
+    event.preventDefault()
+    onNavigate('home')
+    window.setTimeout(() => {
+      document.getElementById(target)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    })
+  }
 
   useEffect(() => {
     const wrapper = wrapperRef.current
@@ -105,10 +123,38 @@ export default function CinematicFooter({ onPrimaryClick, onNavigate, onOpenDate
                 Projekte ansehen
               </MagneticAnchor>
             </div>
+            <nav className="cinematic-footer-nav" aria-label="Seitennavigation">
+              {footerLinks.map((link) => (
+                <MagneticAnchor
+                  key={link.number}
+                  href={`#${link.target}`}
+                  onClick={(event) => goToSection(event, link.target)}
+                  className="cinematic-footer-nav-link"
+                >
+                  <span>{link.number}</span>
+                  <strong>{link.label}</strong>
+                  <ArrowUpRight size={18} aria-hidden="true" />
+                </MagneticAnchor>
+              ))}
+              <MagneticButton type="button" onClick={onPrimaryClick} className="cinematic-footer-nav-link">
+                <span>06</span>
+                <strong>Kostenloses Erstgespräch</strong>
+                <ArrowUpRight size={18} aria-hidden="true" />
+              </MagneticButton>
+              <MagneticButton type="button" onClick={() => onNavigate('ratgeber')} className="cinematic-footer-nav-link">
+                <span>07</span>
+                <strong>Ratgeber</strong>
+                <ArrowUpRight size={18} aria-hidden="true" />
+              </MagneticButton>
+              <MagneticButton type="button" onClick={onContactClick} className="cinematic-footer-nav-link">
+                <span>08</span>
+                <strong>Kontakt</strong>
+                <ArrowUpRight size={18} aria-hidden="true" />
+              </MagneticButton>
+            </nav>
             <nav className="cinematic-footer-legal" aria-label="Rechtliches">
-              <MagneticAnchor href="#calendar" onClick={() => onNavigate('home')}>Impressum</MagneticAnchor>
-              <MagneticButton type="button" onClick={onOpenDatenschutz} style={{ background: 'none', border: 'none', color: 'inherit', font: 'inherit', cursor: 'pointer' }}>Datenschutz</MagneticButton>
-              <MagneticButton type="button" onClick={onPrimaryClick} style={{ background: 'none', border: 'none', color: 'inherit', font: 'inherit', cursor: 'pointer' }}>Kontakt</MagneticButton>
+              <MagneticButton type="button" onClick={onOpenImpressum}>Impressum</MagneticButton>
+              <MagneticButton type="button" onClick={onOpenDatenschutz}>Datenschutz</MagneticButton>
             </nav>
           </div>
         </div>

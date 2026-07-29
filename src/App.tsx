@@ -2,6 +2,7 @@ import { type CSSProperties, useEffect, useRef, useState } from 'react'
 import Cal, { getCalApi } from "@calcom/embed-react"
 import { ContactModal } from './ContactModal'
 import { DatenschutzModal } from './DatenschutzModal'
+import { ImpressumModal } from './ImpressumModal'
 import RatgeberPage from './pages/RatgeberPage'
 import CinematicHero from './components/CinematicHero'
 import CinematicPhone from './components/CinematicPhone'
@@ -479,7 +480,6 @@ function BookingFlow({ onOpenDatenschutz }: { onOpenDatenschutz: () => void }) {
                 config={{
                   layout: 'month_view',
                   useSlotsViewOnSmallScreen: 'true',
-                  notes: bookingSummary,
                 }}
               />
             </div>
@@ -498,6 +498,7 @@ function App() {
   const rootRef = useRef<HTMLDivElement>(null)
   const [isContactModalOpen, setIsContactModalOpen] = useState(false)
   const [isDatenschutzModalOpen, setIsDatenschutzModalOpen] = useState(false)
+  const [isImpressumModalOpen, setIsImpressumModalOpen] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [route, setRoute] = useState(() => window.location.hash === '#ratgeber' ? 'ratgeber' : 'home')
   const [activeMethod, setActiveMethod] = useState(0)
@@ -1384,9 +1385,15 @@ function App() {
         isOpen={isDatenschutzModalOpen}
         onClose={() => setIsDatenschutzModalOpen(false)}
       />
+      <ImpressumModal
+        isOpen={isImpressumModalOpen}
+        onClose={() => setIsImpressumModalOpen(false)}
+      />
       <CinematicFooter
         onPrimaryClick={scrollToCalendar}
+        onContactClick={() => setIsContactModalOpen(true)}
         onNavigate={navigate}
+        onOpenImpressum={() => setIsImpressumModalOpen(true)}
         onOpenDatenschutz={() => setIsDatenschutzModalOpen(true)}
       />
     </div>

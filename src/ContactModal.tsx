@@ -8,7 +8,7 @@ interface ContactModalProps {
   onOpenDatenschutz?: () => void
 }
 
-const contactEndpoint = 'https://formsubmit.co/ajax/hello@greenlabz-studio.de'
+const contactEndpoint = '/api/contact'
 
 export function ContactModal({ isOpen, onClose, onOpenDatenschutz }: ContactModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -35,12 +35,24 @@ export function ContactModal({ isOpen, onClose, onOpenDatenschutz }: ContactModa
     const interval = window.setInterval(() => setProgress((value) => Math.min(value + 5, 92)), 50)
 
     try {
+      const formData = new FormData(event.currentTarget)
       const response = await fetch(contactEndpoint, {
         method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: new FormData(event.currentTarget),
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.get('name'),
+          email: formData.get('email'),
+          phone: formData.get('phone'),
+          message: formData.get('message'),
+          consent: formData.get('consent') === 'on',
+          honey: formData.get('_honey'),
+        }),
       })
-      if (!response.ok) throw new Error('Deine Anfrage konnte nicht gesendet werden. Schreib mir bitte direkt an hello@greenlabz-studio.de')
+      const result = await response.json() as { error?: string }
+      if (!response.ok) throw new Error(result.error || 'Deine Anfrage konnte nicht gesendet werden. Schreib mir bitte direkt an hello@greenlabz-studio.de')
       window.clearInterval(interval)
       setProgress(100)
       window.setTimeout(() => {
@@ -69,9 +81,6 @@ export function ContactModal({ isOpen, onClose, onOpenDatenschutz }: ContactModa
             <p className="modal-subtitle">Erzähl mir von deinem Projekt oder stelle deine Frage. Ich antworte innerhalb von 24 Stunden.</p>
 
             <form onSubmit={handleSubmit} className="modal-form">
-              <input type="hidden" name="_subject" value="Neue Kontaktanfrage über GreenLabz Studio" />
-              <input type="hidden" name="_template" value="table" />
-              <input type="hidden" name="_captcha" value="false" />
               <input type="text" name="_honey" className="form-honey" tabIndex={-1} autoComplete="off" />
 
               <div className="input-group">
@@ -95,7 +104,7 @@ export function ContactModal({ isOpen, onClose, onOpenDatenschutz }: ContactModa
               </div>
 
               <label className="audit-consent" style={{ display: 'grid', gridTemplateColumns: '18px 1fr', gap: '0.6rem', alignItems: 'start', fontSize: '0.78rem', color: 'var(--muted)' }}>
-                <input type="checkbox" required disabled={isSubmitting} />
+                <input type="checkbox" name="consent" required disabled={isSubmitting} />
                 <span>
                   Ich stimme der Verarbeitung meiner Angaben zur Kontaktaufnahme gemäß der{' '}
                   <button

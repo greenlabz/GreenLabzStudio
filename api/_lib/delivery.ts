@@ -10,6 +10,14 @@ interface DeliveryInput {
   fileName: string
 }
 
+interface ContactInput {
+  name: string
+  email: string
+  phone?: string
+  message: string
+  createdAt: string
+}
+
 function createTransporter() {
   if (process.env.SMTP_HOST && process.env.SMTP_PORT && process.env.SMTP_USER && process.env.SMTP_PASS) {
     const port = Number(process.env.SMTP_PORT)
@@ -76,21 +84,41 @@ export async function sendAuditEmails(input: DeliveryInput) {
   return true
 }
 
-export async function appendLeadToSheet(input: Omit<DeliveryInput, 'pdf' | 'fileName'>) {
+export async function sendContactEmail(input: ContactInput) {
+  const mailer = createTransporter()
+  if (!mailer) return false
+
+  const { transporter, from } = mailer
+  await transporter.sendMail({
+    from: `GreenLabz Kontaktformular <${from}>`,
+    to: process.env.LEAD_NOTIFICATION_EMAIL || from,
+    replyTo: input.email,
+    subject: `Neue Kontaktanfrage von ${input.name}`,
+    text: [
+      `Name: ${input.name}`,
+      `E-Mail: ${input.email}`,
+      `Telefon: ${input.phone || 'nicht angegeben'}`,
+      '',
+      input.message,
+    ].join('\n'),
+  })
+  return true
+}
+
+async function getGoogleSheetsAccessToken() {
   const clientEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL
   const privateKey = process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n')
-  const sheetId = process.env.GOOGLE_SHEET_ID
-  if (!sheetId) return false
 
-  let accessToken: string | null | undefined
   if (clientEmail && privateKey) {
     const auth = new GoogleAuth({
       credentials: { client_email: clientEmail, private_key: privateKey },
       scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     })
     const client = await auth.getClient()
-    accessToken = (await client.getAccessToken()).token
-  } else if (
+    return (await client.getAccessToken()).token
+  }
+
+  if (
     process.env.GOOGLE_CLIENT_ID
     && process.env.GOOGLE_CLIENT_SECRET
     && process.env.GOOGLE_REFRESH_TOKEN
@@ -100,8 +128,70 @@ export async function appendLeadToSheet(input: Omit<DeliveryInput, 'pdf' | 'file
       process.env.GOOGLE_CLIENT_SECRET,
     )
     client.setCredentials({ refresh_token: process.env.GOOGLE_REFRESH_TOKEN })
-    accessToken = (await client.getAccessToken()).token
+    return (await client.getAccessToken()).token
   }
+
+  return null
+}
+
+async function ensureSheetTab(accessToken: string, sheetId: string, tab: string, headers: string[]) {
+  const metadataEndpoint = `https://sheets.googleapis.com/v4/spreadsheets/${encodeURIComponent(sheetId)}?fields=sheets.properties.title`
+  const metadataResponse = await fetch(metadataEndpoint, {
+    headers: { authorization: `Bearer ${accessToken}` },
+  })
+  if (!metadataResponse.ok) {
+    const details = (await metadataResponse.text()).slice(0, 500)
+    throw new Error(`Google Sheets: ${metadataResponse.status} ${details}`)
+  }
+
+  const metadata = await metadataResponse.json() as {
+    sheets?: Array<{ properties?: { title?: string } }>
+  }
+  const exists = metadata.sheets?.some((sheet) => sheet.properties?.title === tab)
+  if (!exists) {
+    const createResponse = await fetch(
+      `https://sheets.googleapis.com/v4/spreadsheets/${encodeURIComponent(sheetId)}:batchUpdate`,
+      {
+        method: 'POST',
+        headers: {
+          authorization: `Bearer ${accessToken}`,
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify({
+          requests: [{ addSheet: { properties: { title: tab } } }],
+        }),
+      },
+    )
+    if (!createResponse.ok) {
+      const details = (await createResponse.text()).slice(0, 500)
+      throw new Error(`Google Sheets: ${createResponse.status} ${details}`)
+    }
+  }
+
+  const escapedTab = tab.replace(/'/g, "''")
+  const headerRange = encodeURIComponent(`'${escapedTab}'!A1:${String.fromCharCode(64 + headers.length)}1`)
+  const headerResponse = await fetch(
+    `https://sheets.googleapis.com/v4/spreadsheets/${encodeURIComponent(sheetId)}/values/${headerRange}?valueInputOption=RAW`,
+    {
+      method: 'PUT',
+      headers: {
+        authorization: `Bearer ${accessToken}`,
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({ values: [headers] }),
+    },
+  )
+  if (!headerResponse.ok) {
+    const details = (await headerResponse.text()).slice(0, 500)
+    throw new Error(`Google Sheets: ${headerResponse.status} ${details}`)
+  }
+}
+
+export async function appendLeadToSheet(input: Omit<DeliveryInput, 'pdf' | 'fileName'>) {
+  const sheetId = process.env.GOOGLE_SHEET_ID
+  if (!sheetId) return false
+
+  const accessToken = await getGoogleSheetsAccessToken()
   if (!accessToken) return false
 
   const tab = process.env.GOOGLE_SHEET_TAB || 'Leads'
@@ -122,6 +212,44 @@ export async function appendLeadToSheet(input: Omit<DeliveryInput, 'pdf' | 'file
         input.audit.seo.score,
         input.audit.mobile.score,
         input.audit.geo.score,
+      ]],
+    }),
+  })
+  if (!response.ok) {
+    const details = (await response.text()).slice(0, 500)
+    throw new Error(`Google Sheets: ${response.status} ${details}`)
+  }
+  return true
+}
+
+export async function appendContactToSheet(input: ContactInput) {
+  const sheetId = process.env.GOOGLE_SHEET_ID
+  if (!sheetId) return false
+
+  const accessToken = await getGoogleSheetsAccessToken()
+  if (!accessToken) return false
+
+  const tab = process.env.GOOGLE_CONTACT_SHEET_TAB || 'Kontaktanfragen'
+  const headers = ['Zeitpunkt', 'Name', 'E-Mail', 'Telefon', 'Nachricht', 'Quelle']
+  await ensureSheetTab(accessToken, sheetId, tab, headers)
+
+  const escapedTab = tab.replace(/'/g, "''")
+  const range = encodeURIComponent(`'${escapedTab}'!A:F`)
+  const endpoint = `https://sheets.googleapis.com/v4/spreadsheets/${encodeURIComponent(sheetId)}/values/${range}:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`
+  const response = await fetch(endpoint, {
+    method: 'POST',
+    headers: {
+      authorization: `Bearer ${accessToken}`,
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      values: [[
+        input.createdAt,
+        input.name,
+        input.email,
+        input.phone || '',
+        input.message,
+        'Kontaktformular',
       ]],
     }),
   })

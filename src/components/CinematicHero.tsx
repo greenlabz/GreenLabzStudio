@@ -111,9 +111,9 @@ export default function CinematicHero({ onOpenDatenschutz }: CinematicHeroProps 
         .fromTo(all('.gl-exact-badge-left'), { y: 100, autoAlpha: 0, scale: .7, rotationZ: -10 }, { y: 0, autoAlpha: 1, scale: 1, rotationZ: 0, ease: 'power3.out', duration: .85 }, '<')
         .to({}, { duration: 2.5 })
         .set(all('.gl-exact-hero-text-wrapper'), { autoAlpha: 0 })
-        .set(all('.gl-exact-cta'), { autoAlpha: 1 })
         .to({}, { duration: 1.5 })
         .to([...all('.gl-exact-phone-wrap'), ...all('.gl-exact-badge'), ...all('.gl-exact-card-left'), ...all('.gl-exact-card-right')], { scale: .9, y: -40, z: -200, autoAlpha: 0, ease: 'power3.in', duration: 1.2, stagger: .05 })
+        .set(all('.gl-exact-cta'), { autoAlpha: 1 }, 'pullback')
         .to(all('.gl-exact-main-card'), { width: isMobile ? '92vw' : '85vw', height: isMobile ? '92vh' : '85vh', borderRadius: isMobile ? '32px' : '40px', ease: 'expo.inOut', duration: 1.8 }, 'pullback')
         .to(all('.gl-exact-cta'), { scale: 1, filter: 'blur(0px)', ease: 'expo.inOut', duration: 1.8 }, 'pullback')
         .to(
