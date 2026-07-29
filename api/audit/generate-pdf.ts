@@ -31,6 +31,8 @@ export default async function handler(request: VercelRequest, response: VercelRe
     ])
     const emailSent = emailResult.status === 'fulfilled' && Boolean(emailResult.value)
     const leadStored = sheetResult.status === 'fulfilled' && Boolean(sheetResult.value)
+    if (emailResult.status === 'rejected') console.error('Audit email delivery failed:', emailResult.reason)
+    if (sheetResult.status === 'rejected') console.error('Audit sheet delivery failed:', sheetResult.reason)
 
     response.setHeader('Cache-Control', 'no-store')
     response.status(200).json({
@@ -43,4 +45,3 @@ export default async function handler(request: VercelRequest, response: VercelRe
     sendError(response, error)
   }
 }
-

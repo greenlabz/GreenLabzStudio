@@ -1,4 +1,4 @@
-import { GoogleAuth } from 'google-auth-library'
+import { GoogleAuth, OAuth2Client } from 'google-auth-library'
 import nodemailer from 'nodemailer'
 import type { AuditResult } from './types.js'
 
@@ -80,22 +80,37 @@ export async function appendLeadToSheet(input: Omit<DeliveryInput, 'pdf' | 'file
   const clientEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL
   const privateKey = process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n')
   const sheetId = process.env.GOOGLE_SHEET_ID
-  if (!clientEmail || !privateKey || !sheetId) return false
+  if (!sheetId) return false
 
-  const auth = new GoogleAuth({
-    credentials: { client_email: clientEmail, private_key: privateKey },
-    scopes: ['https://www.googleapis.com/auth/spreadsheets'],
-  })
+  let accessToken: string | null | undefined
+  if (clientEmail && privateKey) {
+    const auth = new GoogleAuth({
+      credentials: { client_email: clientEmail, private_key: privateKey },
+      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+    })
+    const client = await auth.getClient()
+    accessToken = (await client.getAccessToken()).token
+  } else if (
+    process.env.GOOGLE_CLIENT_ID
+    && process.env.GOOGLE_CLIENT_SECRET
+    && process.env.GOOGLE_REFRESH_TOKEN
+  ) {
+    const client = new OAuth2Client(
+      process.env.GOOGLE_CLIENT_ID,
+      process.env.GOOGLE_CLIENT_SECRET,
+    )
+    client.setCredentials({ refresh_token: process.env.GOOGLE_REFRESH_TOKEN })
+    accessToken = (await client.getAccessToken()).token
+  }
+  if (!accessToken) return false
 
-  const client = await auth.getClient()
-  const token = await client.getAccessToken()
   const tab = process.env.GOOGLE_SHEET_TAB || 'Leads'
   const range = encodeURIComponent(`${tab}!A:G`)
   const endpoint = `https://sheets.googleapis.com/v4/spreadsheets/${encodeURIComponent(sheetId)}/values/${range}:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`
   const response = await fetch(endpoint, {
     method: 'POST',
     headers: {
-      authorization: `Bearer ${token.token}`,
+      authorization: `Bearer ${accessToken}`,
       'content-type': 'application/json',
     },
     body: JSON.stringify({
@@ -110,6 +125,9 @@ export async function appendLeadToSheet(input: Omit<DeliveryInput, 'pdf' | 'file
       ]],
     }),
   })
-  if (!response.ok) throw new Error(`Google Sheets: ${response.status}`)
+  if (!response.ok) {
+    const details = (await response.text()).slice(0, 500)
+    throw new Error(`Google Sheets: ${response.status} ${details}`)
+  }
   return true
 }

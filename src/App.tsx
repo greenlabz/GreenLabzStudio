@@ -72,6 +72,53 @@ const cardIcons = {
 type Discipline = [string, string, string, string[], keyof typeof cardIcons, string]
 type PricingPackage = [string, string, string, string[]]
 type PricingAddOn = [string, string, string, string, string]
+type BookingTopic = {
+  title: string
+  options: string[]
+}
+
+const bookingTopics: BookingTopic[] = [
+  {
+    title: 'Neue Website / Relaunch',
+    options: [
+      'Ich habe noch keine eigene Website',
+      'Meine Website ist veraltet oder wirkt nicht mehr professionell',
+      'Meine Website sieht gut aus, bringt aber zu wenig Anfragen',
+    ],
+  },
+  {
+    title: 'Branding',
+    options: [
+      'Ich brauche ein komplett neues Branding',
+      'Mein Branding existiert, wirkt aber inkonsistent',
+      'Ich brauche einzelne Assets wie Visitenkarten oder ein Social-Media-Kit',
+    ],
+  },
+  {
+    title: 'App- & Software-Entwicklung',
+    options: [
+      'Ich brauche ein Buchungssystem oder einen Terminkalender',
+      'Ich brauche einen KI-Telefon- oder Chat-Assistenten',
+      'Ich habe eine eigene Softwareidee, die umgesetzt werden soll',
+    ],
+  },
+  {
+    title: 'KI-Integration',
+    options: [
+      'Anfragen automatisch bearbeiten',
+      'Interne Prozesse wie Leads, Content oder Reporting automatisieren',
+      'In KI-Suchmaschinen wie ChatGPT oder Perplexity sichtbar werden',
+    ],
+  },
+  {
+    title: 'SEO- & Website-Begleitung',
+    options: [
+      'Laufende technische Betreuung und Wartung',
+      'Local SEO und Google-Unternehmensprofil verbessern',
+      'Content und GEO für KI-Suchmaschinen verbessern',
+    ],
+  },
+]
 
 const agitation = [
   ['01', 'Jede dritte Anfrage geht verloren', 'Bevor sie überhaupt bei dir ankommt. Langsame Ladezeit, unklare Navigation – der Kunde ist weg, bevor er anruft.', 'gauge'],
@@ -318,6 +365,135 @@ function SectionLabel({ number, label }: { number: string; label: string }) {
   return <p className="section-code"><span /> [{number}] {label}</p>
 }
 
+function BookingFlow({ onOpenDatenschutz }: { onOpenDatenschutz: () => void }) {
+  const [step, setStep] = useState<1 | 2 | 3>(1)
+  const [topicIndex, setTopicIndex] = useState<number | null>(null)
+  const [option, setOption] = useState('')
+  const topic = topicIndex === null ? null : bookingTopics[topicIndex]
+  const bookingSummary = topic && option ? `Anliegen: ${topic.title} | ${option}` : ''
+
+  const chooseTopic = (index: number) => {
+    setTopicIndex(index)
+    setOption('')
+    setStep(2)
+  }
+
+  const goBack = () => {
+    if (step === 3) {
+      setStep(2)
+      return
+    }
+    setTopicIndex(null)
+    setOption('')
+    setStep(1)
+  }
+
+  return (
+    <div className="booking-flow">
+      <div className="booking-progress" aria-label={`Schritt ${step} von 3`}>
+        {['Anliegen', 'Details', 'Termin & Angaben'].map((label, index) => (
+          <div className={step >= index + 1 ? 'is-active' : ''} key={label}>
+            <span>0{index + 1}</span>
+            <strong>{label}</strong>
+          </div>
+        ))}
+      </div>
+
+      <div className="booking-stage" aria-live="polite">
+        {step === 1 && (
+          <div className="booking-panel">
+            <div className="booking-panel-head">
+              <span>[01] DEIN ANLIEGEN</span>
+              <h3>Wobei kann ich dir helfen?</h3>
+              <p>Wähle den Bereich, der am besten zu deinem Vorhaben passt.</p>
+            </div>
+            <div className="booking-choice-list">
+              {bookingTopics.map((entry, index) => (
+                <button type="button" onClick={() => chooseTopic(index)} key={entry.title}>
+                  <span>0{index + 1}</span>
+                  <strong>{entry.title}</strong>
+                  <ArrowRight size={18} aria-hidden="true" />
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {step === 2 && topic && (
+          <div className="booking-panel">
+            <button className="booking-back" type="button" onClick={goBack}>
+              <span aria-hidden="true">←</span> Zurück
+            </button>
+            <div className="booking-panel-head">
+              <span>[02] {topic.title}</span>
+              <h3>Was beschreibt deine Situation?</h3>
+              <p>Damit können wir im Gespräch direkt beim richtigen Punkt starten.</p>
+            </div>
+            <div className="booking-option-list" role="radiogroup" aria-label={topic.title}>
+              {topic.options.map((entry) => (
+                <button
+                  className={option === entry ? 'is-selected' : ''}
+                  type="button"
+                  role="radio"
+                  aria-checked={option === entry}
+                  onClick={() => setOption(entry)}
+                  key={entry}
+                >
+                  <span className="booking-radio" aria-hidden="true" />
+                  <strong>{entry}</strong>
+                  {option === entry && <Check size={18} aria-hidden="true" />}
+                </button>
+              ))}
+            </div>
+            <button
+              className="btn primary booking-next"
+              type="button"
+              disabled={!option}
+              onClick={() => setStep(3)}
+            >
+              <span className="cta-label">Datum &amp; Uhrzeit wählen</span>
+              <span className="cta-dots" aria-hidden="true" />
+              <ArrowRight size={19} />
+            </button>
+          </div>
+        )}
+
+        {step === 3 && topic && option && (
+          <div className="booking-panel booking-calendar-panel">
+            <div className="booking-calendar-head">
+              <button className="booking-back" type="button" onClick={goBack}>
+                <span aria-hidden="true">←</span> Auswahl ändern
+              </button>
+              <div className="booking-summary">
+                <span>{topic.title}</span>
+                <strong>{option}</strong>
+              </div>
+              <p>Wähle zuerst Datum und Uhrzeit. Danach folgen Name, E-Mail-Adresse, Website und Telefonnummer (optional).</p>
+            </div>
+            <div className="calendar-embed-container">
+              <Cal
+                key={bookingSummary}
+                namespace="discoverycall"
+                calLink="green-labz-uufryt/discoverycall"
+                style={{ width: '100%', height: '100%', overflow: 'auto', borderRadius: '16px' }}
+                config={{
+                  layout: 'month_view',
+                  useSlotsViewOnSmallScreen: 'true',
+                  notes: bookingSummary,
+                }}
+              />
+            </div>
+            <p className="booking-privacy">
+              Für die Terminbuchung werden deine Angaben an Cal.com übermittelt. Details stehen in der{' '}
+              <button type="button" onClick={onOpenDatenschutz}>Datenschutzerklärung</button>.
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+
 function App() {
   const rootRef = useRef<HTMLDivElement>(null)
   const [isContactModalOpen, setIsContactModalOpen] = useState(false)
@@ -333,6 +509,17 @@ function App() {
     setRoute(nextRoute)
     window.history.pushState(null, '', nextRoute === 'home' ? '#top' : `#${nextRoute}`)
     window.scrollTo(0, 0)
+  }
+
+  const scrollToCalendar = () => {
+    setRoute('home')
+    window.history.pushState(null, '', '#calendar')
+    window.requestAnimationFrame(() => {
+      document.getElementById('calendar')?.scrollIntoView({
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+        block: 'start',
+      })
+    })
   }
 
   const handleLeadSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -679,7 +866,7 @@ function App() {
           <LogoMark />
         </a>
 
-        <a className="nav-cta" href="#calendar" onClick={(event) => { event.preventDefault(); setIsContactModalOpen(true) }}>
+        <a className="nav-cta" href="#calendar">
           <span className="cta-dots" aria-hidden="true" />
           <span className="cta-label nav-cta-label-full">Kostenloses Erstgespräch</span>
           <span className="cta-label nav-cta-label-short">Kostenloses Erstgespräch</span>
@@ -728,7 +915,7 @@ function App() {
             </div>
             <div className="hero-text-block hero-support-block">
             <div className="hero-actions">
-              <PrimaryCta onClick={() => setIsContactModalOpen(true)}>Kostenloses Erstgespräch</PrimaryCta>
+              <PrimaryCta onClick={scrollToCalendar}>Kostenloses Erstgespräch</PrimaryCta>
               <a className="btn secondary" href="#cases"><span className="cta-dot" /><span className="cta-label">Projekte ansehen</span></a>
             </div>
             <div className="metrics" aria-label="GreenLabz Studio Nutzen">
@@ -1133,28 +1320,19 @@ function App() {
         </section>
 
         <section className="contact-section calendar-section" id="calendar" data-reveal>
-          
-          <h2><span className="section-title-serif">Such</span> dir einen <span className="section-title-serif">Termin</span> aus.</h2>
+          <SectionLabel number="13" label="Kostenloses Erstgespräch" />
+          <h2><span className="section-title-serif">In drei Schritten</span> zum passenden Gespräch.</h2>
           <p>
-            20 Minuten. Kein Verkaufstheater. Wir prüfen, wo du gerade stehst,
-            was dich Anfragen kostet und ob ein Relaunch oder monatliche Begleitung Sinn ergibt.
+            25 Minuten. Kein Verkaufstheater. Erst dein Anliegen, dann dein Termin.
           </p>
-          <div className="calendar-embed-container" style={{ width: 'min(1060px, 100%)', margin: '2rem auto 0' }}>
-            <Cal 
-              namespace="discoverycall"
-              calLink="green-labz-uufryt/discoverycall"
-              style={{ width: "100%", height: "100%", overflow: "scroll", borderRadius: '12px' }}
-              config={{ layout: "month_view", // @ts-ignore
-              useSlotsViewOnSmallScreen: true }}
-            />
-          </div>
+          <BookingFlow onOpenDatenschutz={() => setIsDatenschutzModalOpen(true)} />
         </section>
 
 
 
         <section className="section tech-section" data-reveal>
           <div className="tech-refs">
-            <SectionLabel number="13" label="Technik" />
+            <SectionLabel number="14" label="Technik" />
             <h2>Technologie & <span className="section-title-serif">Transparenz</span></h2>
             <p>
               Ich nenne Stack, Performance-Ziele und Standards offen. Hier kannst du die wichtigsten
@@ -1173,7 +1351,7 @@ function App() {
         </section>
 
         <section className="section contact-section" id="contact" data-reveal>
-          <SectionLabel number="14" label="Kontakt" />
+          <SectionLabel number="15" label="Kontakt" />
           <h2><span className="section-title-serif">Lass</span> uns <span className="section-title-serif">reden</span></h2>
           <p>
             Erzähl mir von deinem nächsten Projekt oder stelle deine Frage. Klicke auf den Button unten, um mir direkt deine Nachricht zu senden.
@@ -1207,7 +1385,7 @@ function App() {
         onClose={() => setIsDatenschutzModalOpen(false)}
       />
       <CinematicFooter
-        onPrimaryClick={() => setIsContactModalOpen(true)}
+        onPrimaryClick={scrollToCalendar}
         onNavigate={navigate}
         onOpenDatenschutz={() => setIsDatenschutzModalOpen(true)}
       />
