@@ -2,12 +2,12 @@ import { Car, Utensils, Hammer, Building2, Stethoscope, ArrowRight } from 'lucid
 
 const industries = [
   {
-    title: 'Automobil & KFZ',
-    subtitle: 'Autohäuser, Werkstätten & Aufbereitung',
-    kicker: 'REFERENZ · CAR COMPANY',
-    icon: Car,
+    title: 'Handwerk & Bau',
+    subtitle: 'Elektrotechnik, Sanierung & Meisterbetriebe',
+    kicker: 'REFERENZ · TFM MONTAGE',
+    icon: Hammer,
     image: '/assets/showcases/tfm-montage.png',
-    accent: '#00cc6a',
+    accent: '#ffb300',
   },
   {
     title: 'Gastronomie & Food',
@@ -18,12 +18,12 @@ const industries = [
     accent: '#ff5722',
   },
   {
-    title: 'Handwerk & Bau',
-    subtitle: 'Elektrotechnik, Sanierung & Meisterbetriebe',
-    kicker: 'REFERENZ · MONTAGE & BAU',
-    icon: Hammer,
+    title: 'Gesundheit & Praxis',
+    subtitle: 'Tierärzte, Hausärzte & Fachpraxen',
+    kicker: 'REFERENZ · TIERARZTPRAXIS',
+    icon: Stethoscope,
     image: '/assets/showcases/buss-logo.png',
-    accent: '#ffb300',
+    accent: '#00cc6a',
   },
   {
     title: 'B2B & Dienstleistung',
@@ -34,12 +34,12 @@ const industries = [
     accent: '#635bff',
   },
   {
-    title: 'Gesundheit & Praxis',
-    subtitle: 'Fachärzte, Therapeuten & Kliniken',
-    kicker: 'REFERENZ · PRAXIS & MEDIZIN',
-    icon: Stethoscope,
-    image: '/assets/showcases/ad-logo-cutout.png',
-    accent: '#00bcd4',
+    title: 'Automobil & KFZ',
+    subtitle: 'Autohäuser, Werkstätten & Aufbereitung',
+    kicker: 'REFERENZ · CAR COMPANY',
+    icon: Car,
+    image: '/assets/iphone-screen-reference.jpg',
+    accent: '#4285f4',
   },
 ]
 
