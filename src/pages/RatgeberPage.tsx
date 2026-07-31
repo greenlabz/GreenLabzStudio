@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ArrowLeft, BookOpen, X, Clock, Tag, CheckCircle2 } from 'lucide-react'
+import { ArrowLeft, X, Clock, Tag, CheckCircle2 } from 'lucide-react'
 import { ratgeberArticles, type RatgeberArticle } from './ratgeberData'
 
 interface RatgeberPageProps {
