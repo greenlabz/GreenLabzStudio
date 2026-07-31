@@ -9,14 +9,16 @@ const GoogleBadgeIcon = () => (
 
 const sampleReviews = [
   {
-    name: 'Zaamou',
-    date: 'Vor 2 Monaten',
-    initials: 'Z',
-    text: 'Schnelle und extrem saubere Arbeit! Meine Erwartungen wurden voll übertroffen. Immer wieder gerne.',
+    name: 'Volkan Tenes',
+    subtitle: 'Local Guide · Happen Döner',
+    date: 'Vor 3 Monaten',
+    initials: 'VT',
+    text: 'Ein riesiges Dankeschön an das Team von greenlabz! Wir von Happen Döner & Street Food haben nach einer Agentur gesucht, die unsere digitale Sichtbarkeit auf das nächste Level hebt, und unsere Erwartungen wurden mehr als übertroffen. Die Zusammenarbeit war von Tag eins an überragend – super unkompliziert, professionell und voller kreativer Ideen. Die fertige Website ist extrem nutzerfreundlich und perfekt zugeschnitten. Man hat schon in der allerersten Woche gemerkt, dass die Resonanz massiv steigt! Wer einen echten Experten sucht, ist hier goldrichtig. Absolute Empfehlung!',
     avatarBg: '#00cc6a',
   },
   {
     name: 'Berkcan Topal',
+    subtitle: 'Local Guide',
     date: 'Vor 4 Monaten',
     initials: 'BT',
     text: 'Positiv überrascht von der schnellen und professionellen Umsetzung. Sehr flexibel bei Wünschen und erstklassige Beratung. Absolut empfehlenswert!',
@@ -24,6 +26,7 @@ const sampleReviews = [
   },
   {
     name: 'Hi Ba',
+    subtitle: 'Google Rezension',
     date: 'Vor 2 Monaten',
     initials: 'HB',
     text: 'Ich bin mehr als zufrieden mit der Zusammenarbeit mit GreenLabz Studio! Von Anfang an lief alles absolut professionell und strukturiert. Meine Wünsche wurden nicht nur umgesetzt, sondern sogar übertroffen.',
@@ -31,6 +34,7 @@ const sampleReviews = [
   },
   {
     name: 'Michael R.',
+    subtitle: 'Unternehmer',
     date: 'Vor 1 Monat',
     initials: 'MR',
     text: 'Top Betreuung und extrem starke Performance. Unsere Kundenanfragen haben sich seit dem Relaunch spürbar gesteigert!',
@@ -38,6 +42,7 @@ const sampleReviews = [
   },
   {
     name: 'Elena K.',
+    subtitle: 'Praxisinhaberin',
     date: 'Vor 3 Wochen',
     initials: 'EK',
     text: 'Sehr angenehme Kommunikation, pünktliche Fertigstellung und ein Design, das sich von der Konkurrenz abhebt. 5 von 5 Sternen!',
@@ -75,7 +80,7 @@ export function GoogleReviewsSection() {
                   </div>
                   <div className="review-author-info">
                     <strong>{review.name}</strong>
-                    <small>{review.date}</small>
+                    <small>{review.subtitle} · {review.date}</small>
                   </div>
                 </div>
                 <div className="google-badge">
