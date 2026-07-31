@@ -1092,7 +1092,7 @@ function App() {
             </article>
             <article className="mobile-beat-copy-state">
               <span className="mobile-beat-kicker">[02] MOBILE TRAFFIC</span>
-              <h3>8 von 10 Menschen suchen deine Praxis zuerst auf dem Handy, nicht am PC.</h3>
+              <h3>8 von 10 Menschen suchen deine Branche zuerst auf dem Handy, nicht am PC.</h3>
             </article>
             <article className="mobile-beat-copy-state">
               <span className="mobile-beat-kicker">[03] MOBILE VERLUSTE</span>
