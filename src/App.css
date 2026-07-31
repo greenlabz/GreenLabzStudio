@@ -336,9 +336,9 @@
   color: var(--ink);
   font-family: var(--hero-display);
   font-size: clamp(3.05rem, 4.35vw, 4.15rem);
-  font-weight: 600;
-  line-height: 1.04;
-  letter-spacing: -.052em;
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -.03em;
 }
 .hero-title em,
 .hero-title .hero-highlight {

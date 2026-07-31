@@ -1,5 +1,5 @@
 @import url('https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700,800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700;800&display=swap');
 
 :root {
   --ink: #ffffff;
@@ -12,7 +12,7 @@
   --accent-2: #67f2b0;
   --font: 'DM Sans', system-ui, sans-serif;
   --display: 'Switzer', 'DM Sans', system-ui, sans-serif;
-  --hero-display: 'Switzer', 'DM Sans', system-ui, sans-serif;
+  --hero-display: 'Bricolage Grotesque', 'Switzer', 'DM Sans', system-ui, sans-serif;
   --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, monospace;
   --serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
   font-family: var(--font);
