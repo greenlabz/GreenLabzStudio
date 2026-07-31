@@ -17,12 +17,12 @@ const sampleReviews = [
     avatarBg: '#00cc6a',
   },
   {
-    name: 'Berkcan Topal',
-    subtitle: 'Local Guide',
-    date: 'Vor 4 Monaten',
-    initials: 'BT',
-    text: 'Positiv überrascht von der schnellen und professionellen Umsetzung. Sehr flexibel bei Wünschen und erstklassige Beratung. Absolut empfehlenswert!',
-    avatarBg: '#34a853',
+    name: 'Daniel Klink',
+    subtitle: 'Team NEWEO',
+    date: 'Vor 3 Monaten',
+    initials: 'DK',
+    text: 'Als Team von NEWEO können wir Greenlabz uneingeschränkt weiterempfehlen! Wir waren auf der Suche nach einem starken Partner für unseren digitalen Auftritt und unsere Erwartungen wurden übertroffen. Das neue Website Design ist absolut hervorragend. Wir haben nun nicht nur eine deutlich bessere Optik, sondern auch die technischen Mechaniken greifen reibungslos ineinander. Alles lädt extrem schnell! Durch die strategische SEO-Optimierung verzeichnen wir spürbar mehr Kundenanfragen. 1A Betreuung auch nach dem Launch!',
+    avatarBg: '#635bff',
   },
   {
     name: 'Hi Ba',
