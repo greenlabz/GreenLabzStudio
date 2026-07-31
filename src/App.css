@@ -2796,8 +2796,12 @@
   gap: 1.25rem;
   place-items: stretch;
   overflow: clip;
-  padding: clamp(2rem, 5vw, 4.5rem);
+  padding: clamp(2.5rem, 5vw, 4rem) clamp(1.2rem, 3.5vw, 3rem);
+  max-width: 1180px;
+  margin: 0 auto;
   text-align: left;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   background:
     radial-gradient(circle at 84% 8%, rgba(0,204,106,.13), transparent 34%),
     linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.014) 54%),
@@ -2820,14 +2824,14 @@
   margin-inline: 0;
 }
 .calendar-section > h2 {
-  max-width: 12ch;
-  margin: 0;
+  max-width: 28ch;
+  margin: 0 0 0.5rem;
   color: var(--ink);
   font-family: var(--display);
-  font-size: clamp(2.35rem, 6vw, 5rem);
+  font-size: clamp(1.8rem, 3.8vw, 3.2rem);
   font-weight: 620;
-  line-height: .92;
-  letter-spacing: -.045em;
+  line-height: 1.05;
+  letter-spacing: -.03em;
 }
 .calendar-section > p {
   margin: 0;
@@ -3035,7 +3039,7 @@
 .calendar-embed-container {
   width: 100%;
   min-width: 0;
-  min-height: 680px;
+  min-height: 560px;
   border: 1px solid color-mix(in oklch, var(--accent) 20%, var(--line));
   border-radius: var(--card-radius);
   background: #090909;
@@ -3044,7 +3048,7 @@
 .calendar-embed-container iframe,
 .calendar-embed-container > div {
   width: 100%;
-  min-height: 680px;
+  min-height: 560px;
 }
 .booking-privacy {
   max-width: 72ch !important;
