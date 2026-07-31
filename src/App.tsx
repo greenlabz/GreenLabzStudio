@@ -690,18 +690,22 @@ function App() {
           transformOrigin: '50% 50%',
           transformPerspective: mobileViewport ? 1000 : 1400,
         })
-        gsap.set(phoneStates, { autoAlpha: 0, y: 16, display: 'flex' })
-        gsap.set(beatCopies, { autoAlpha: 0, y: 18 })
-        gsap.set(stopwatchRing, { strokeDashoffset: 427 })
-        gsap.set(trafficRing, { strokeDashoffset: 427 })
-        gsap.set([splitBad, splitGood, lossLabel], { autoAlpha: 0 })
-        gsap.set(splitBad, { x: -18, rotation: -3 })
-        gsap.set(splitGood, { x: 18, rotation: 3 })
-        gsap.set([competitiveYours, competitiveOther, competitiveLead], { autoAlpha: 0 })
-        gsap.set(competitiveYours, { x: -14 })
-        gsap.set(competitiveOther, { x: 14 })
+        if (phoneStates.length) gsap.set(phoneStates, { autoAlpha: 0, y: 16, display: 'flex' })
+        if (beatCopies.length) gsap.set(beatCopies, { autoAlpha: 0, y: 18 })
+        if (stopwatchRing) gsap.set(stopwatchRing, { strokeDashoffset: 427 })
+        if (trafficRing) gsap.set(trafficRing, { strokeDashoffset: 427 })
+        
+        const validSplit = [splitBad, splitGood, lossLabel].filter(Boolean) as HTMLElement[]
+        if (validSplit.length) gsap.set(validSplit, { autoAlpha: 0 })
+        if (splitBad) gsap.set(splitBad, { x: -18, rotation: -3 })
+        if (splitGood) gsap.set(splitGood, { x: 18, rotation: 3 })
+        
+        const validComp = [competitiveYours, competitiveOther, competitiveLead].filter(Boolean) as HTMLElement[]
+        if (validComp.length) gsap.set(validComp, { autoAlpha: 0 })
+        if (competitiveYours) gsap.set(competitiveYours, { x: -14 })
+        if (competitiveOther) gsap.set(competitiveOther, { x: 14 })
 
-        gsap.timeline({
+        const tl = gsap.timeline({
           scrollTrigger: {
             trigger: mobileStage,
             start: 'top top',
@@ -717,21 +721,32 @@ function App() {
             onLeaveBack: mobileViewport ? showNav : undefined,
           },
         })
-          .to(mobilePhone, {
-            autoAlpha: 1,
-            y: 0,
-            z: 0,
-            scale: 1,
-            rotationY: 0,
-            duration: .62,
-            ease: 'none',
-          })
-          .to(mobilePhone, { y: mobileViewport ? -6 : -10, duration: .38, ease: 'none' })
-          .to([phoneStates[0], beatCopies[0]], { autoAlpha: 1, y: 0, duration: .12, ease: 'none' }, 0)
-          .to(stopwatchRing, { strokeDashoffset: 0, duration: .42, ease: 'none' }, .18)
-          .to([phoneStates[0], beatCopies[0]], { autoAlpha: 0, y: -14, duration: .12, ease: 'none' }, 1.08)
-          .to([phoneStates[1], beatCopies[1]], { autoAlpha: 1, y: 0, duration: .12, ease: 'none' }, '<')
-          .to(trafficValue, {
+
+        tl.to(mobilePhone, {
+          autoAlpha: 1,
+          y: 0,
+          z: 0,
+          scale: 1,
+          rotationY: 0,
+          duration: .62,
+          ease: 'none',
+        })
+        .to(mobilePhone, { y: mobileViewport ? -6 : -10, duration: .38, ease: 'none' })
+
+        if (phoneStates[0] && beatCopies[0]) {
+          tl.to([phoneStates[0], beatCopies[0]], { autoAlpha: 1, y: 0, duration: .12, ease: 'none' }, 0)
+        }
+        if (stopwatchRing) {
+          tl.to(stopwatchRing, { strokeDashoffset: 0, duration: .42, ease: 'none' }, .18)
+        }
+        if (phoneStates[0] && beatCopies[0]) {
+          tl.to([phoneStates[0], beatCopies[0]], { autoAlpha: 0, y: -14, duration: .12, ease: 'none' }, 1.08)
+        }
+        if (phoneStates[1] && beatCopies[1]) {
+          tl.to([phoneStates[1], beatCopies[1]], { autoAlpha: 1, y: 0, duration: .12, ease: 'none' }, '<')
+        }
+        if (trafficElement) {
+          tl.to(trafficValue, {
             value: 82,
             duration: .42,
             ease: 'none',
@@ -739,20 +754,45 @@ function App() {
               if (trafficElement) trafficElement.textContent = `${Math.round(trafficValue.value)}%`
             },
           }, 1.2)
-          .to(trafficRing, { strokeDashoffset: 77, duration: .42, ease: 'none' }, 1.18)
-          .to([phoneStates[1], beatCopies[1]], { autoAlpha: 0, y: -14, duration: .12, ease: 'none' }, 1.82)
-          .to([phoneStates[2], beatCopies[2]], { autoAlpha: 1, y: 0, duration: .12, ease: 'none' }, '<')
-          .to(splitBad, { autoAlpha: 1, x: 0, rotation: 0, duration: .22, ease: 'none' }, 1.92)
-          .to(splitGood, { autoAlpha: 1, x: 0, rotation: 0, duration: .22, ease: 'none' }, 2.02)
-          .to(lossLabel, { autoAlpha: 1, duration: .14, ease: 'none' }, 2.22)
-          .to([phoneStates[2], beatCopies[2]], { autoAlpha: 0, y: -14, duration: .12, ease: 'none' }, 2.58)
-          .to([phoneStates[3], beatCopies[3]], { autoAlpha: 1, y: 0, duration: .12, ease: 'none' }, '<')
-          .to(competitiveOther, { autoAlpha: 1, x: 0, duration: .2, ease: 'none' }, 2.72)
-          .to(competitiveYours, { autoAlpha: 1, x: 0, duration: .2, ease: 'none' }, 2.82)
-          .to(competitiveLead, { autoAlpha: 1, y: 0, duration: .16, ease: 'none' }, 2.96)
-          .to({}, { duration: 1.2 }, 3.12)
-          .to([phoneStates[3], beatCopies[3]], { autoAlpha: 0, y: -24, duration: .35, ease: 'none' }, 4.32)
-          .to(mobilePhone, { autoAlpha: 0, y: -48, scale: .9, duration: .35, ease: 'none' }, '<')
+        }
+        if (trafficRing) {
+          tl.to(trafficRing, { strokeDashoffset: 77, duration: .42, ease: 'none' }, 1.18)
+        }
+        if (phoneStates[1] && beatCopies[1]) {
+          tl.to([phoneStates[1], beatCopies[1]], { autoAlpha: 0, y: -14, duration: .12, ease: 'none' }, 1.82)
+        }
+        if (phoneStates[2] && beatCopies[2]) {
+          tl.to([phoneStates[2], beatCopies[2]], { autoAlpha: 1, y: 0, duration: .12, ease: 'none' }, '<')
+        }
+        if (splitBad) {
+          tl.to(splitBad, { autoAlpha: 1, x: 0, rotation: 0, duration: .22, ease: 'none' }, 1.92)
+        }
+        if (splitGood) {
+          tl.to(splitGood, { autoAlpha: 1, x: 0, rotation: 0, duration: .22, ease: 'none' }, 2.02)
+        }
+        if (lossLabel) {
+          tl.to(lossLabel, { autoAlpha: 1, duration: .14, ease: 'none' }, 2.22)
+        }
+        if (phoneStates[2] && beatCopies[2]) {
+          tl.to([phoneStates[2], beatCopies[2]], { autoAlpha: 0, y: -14, duration: .12, ease: 'none' }, 2.58)
+        }
+        if (phoneStates[3] && beatCopies[3]) {
+          tl.to([phoneStates[3], beatCopies[3]], { autoAlpha: 1, y: 0, duration: .12, ease: 'none' }, '<')
+        }
+        if (competitiveOther) {
+          tl.to(competitiveOther, { autoAlpha: 1, x: 0, duration: .2, ease: 'none' }, 2.72)
+        }
+        if (competitiveYours) {
+          tl.to(competitiveYours, { autoAlpha: 1, x: 0, duration: .2, ease: 'none' }, 2.82)
+        }
+        if (competitiveLead) {
+          tl.to(competitiveLead, { autoAlpha: 1, y: 0, duration: .16, ease: 'none' }, 2.96)
+        }
+        tl.to({}, { duration: 1.2 }, 3.12)
+        if (phoneStates[3] && beatCopies[3]) {
+          tl.to([phoneStates[3], beatCopies[3]], { autoAlpha: 0, y: -24, duration: .35, ease: 'none' }, 4.32)
+        }
+        tl.to(mobilePhone, { autoAlpha: 0, y: -48, scale: .9, duration: .35, ease: 'none' }, '<')
       }
 
       gsap.utils.toArray<HTMLElement>('[data-reveal]').forEach((el) => {
@@ -1101,7 +1141,7 @@ function App() {
         </section>
 
         <div className="mobile-importance-stage">
-        <section className="section mobile-importance-section" data-reveal>
+        <section className="section mobile-importance-section">
           <div className="section-head">
             <SectionLabel number="05" label="Mobile First" />
             <h2>Warum <span className="text-accent">Mobil</span> so <span className="text-accent">Wichtig</span> ist</h2>
