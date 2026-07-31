@@ -402,7 +402,7 @@ def cover_page(c):
     c.drawString(52, HEIGHT - 190, "Website-Analyse")
     c.setFillColor(GREEN)
     c.setFont("GreenLabz-Italic", 19)
-    c.drawString(52, HEIGHT - 232, "für inhabergeführte Betriebe")
+    c.drawString(52, HEIGHT - 232, "Für deinen Betrieb")
     draw_text(
         c,
         "Prüfe in wenigen Minuten, ob deine Website Vertrauen schafft, gefunden wird und den nächsten Schritt klar macht.",
@@ -485,7 +485,7 @@ def build_pdf():
     c = canvas.Canvas(str(OUTPUT), pagesize=A4)
     c.setTitle("GreenLabz Studio Website-Analyse")
     c.setAuthor("GreenLabz Studio")
-    c.setSubject("Website-Analyse für inhabergeführte Betriebe")
+    c.setSubject("Website-Analyse Für deinen Betrieb")
     cover_page(c)
     checklist_page(
         c,
