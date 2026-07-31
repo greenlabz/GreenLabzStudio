@@ -114,7 +114,7 @@ export function TechStackSection() {
   return (
     <section className="section tech-stack-section" data-reveal>
       <div className="section-head">
-        <div className="section-label"><span>06</span>QUALITÄT & PERFORMANCE</div>
+        <p className="section-code"><span /> [06] QUALITÄT &amp; PERFORMANCE</p>
         <h2>
           Zukunftssichere <span className="text-accent">Technik</span> <span className="section-title-serif">für deinen Betrieb.</span>
         </h2>
