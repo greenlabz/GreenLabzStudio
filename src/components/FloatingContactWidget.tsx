@@ -6,7 +6,8 @@ export function FloatingContactWidget() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 120) {
+      // Einblenden zusammen mit der Menu-Bar / Nav-Leiste (ab 250px Scroll)
+      if (window.scrollY > 250) {
         setIsVisible(true)
       } else {
         setIsVisible(false)
@@ -20,29 +21,29 @@ export function FloatingContactWidget() {
 
   return (
     <aside className={`floating-contact-sidebar ${isVisible ? 'is-visible' : ''}`} aria-label="Schnellkontakt">
-      {/* WhatsApp Button: Kreis, der sich beim Hovern zur Pille ausdehnt */}
+      {/* WhatsApp Button (CTA Optik -> dehnt sich beim Hovern zur transparenten Glasmorphism-Pille aus) */}
       <a
         href="https://wa.me/491604928749"
         target="_blank"
         rel="noopener noreferrer"
-        className="floating-expand-btn floating-whatsapp"
+        className="floating-cta-btn floating-whatsapp-cta"
         aria-label="WhatsApp Chat starten"
       >
-        <span className="expand-text">WhatsApp</span>
-        <div className="expand-icon-circle" aria-hidden="true">
-          <MessageCircle size={20} />
+        <span className="cta-expand-text">WhatsApp</span>
+        <div className="cta-icon-badge" aria-hidden="true">
+          <MessageCircle size={19} />
         </div>
       </a>
 
-      {/* E-Mail Button: Kreis, der sich beim Hovern zur Pille ausdehnt */}
+      {/* E-Mail Button (CTA Optik -> dehnt sich beim Hovern zur transparenten Glasmorphism-Pille aus) */}
       <a
         href="mailto:hallo@greenlabz-studio.de"
-        className="floating-expand-btn floating-email"
+        className="floating-cta-btn floating-email-cta"
         aria-label="E-Mail schreiben"
       >
-        <span className="expand-text">E-Mail</span>
-        <div className="expand-icon-circle" aria-hidden="true">
-          <Mail size={20} />
+        <span className="cta-expand-text">E-Mail</span>
+        <div className="cta-icon-badge" aria-hidden="true">
+          <Mail size={19} />
         </div>
       </a>
     </aside>
