@@ -10,6 +10,7 @@ import CinematicFooter from './components/CinematicFooter'
 import { FloatingContactWidget } from './components/FloatingContactWidget'
 import { TechStackSection } from './components/TechStackSection'
 import { GoogleReviewsSection } from './components/GoogleReviewsSection'
+import { IndustriesSection } from './components/IndustriesSection'
 import {
   ArrowRight,
   ArrowUpRight,
@@ -1110,9 +1111,11 @@ function App() {
 
         <TechStackSection />
 
+        <IndustriesSection />
+
         <section className="section work-section" id="cases" data-reveal>
           <div className="section-head">
-            <SectionLabel number="07" label="Projekte / Case Studies" />
+            <SectionLabel number="08" label="Projekte / Case Studies" />
             <h2>Kein <span className="text-accent">Blabla</span>. Nur fertige Websites.</h2>
           </div>
           <article className="featured-case">
@@ -1160,7 +1163,7 @@ function App() {
 
         <section className="section promises-section" data-reveal>
           <div className="section-head">
-            <SectionLabel number="09" label="MEIN VERSPRECHEN" />
+            <SectionLabel number="10" label="MEIN VERSPRECHEN" />
             <h2>Wie <span className="text-accent">ich</span> Qualität <span className="text-accent">garantiere</span></h2>
           </div>
           <div className="card-grid">
@@ -1190,7 +1193,7 @@ function App() {
 
         <section className="section pricing-section" id="pricing" data-reveal>
           <div className="section-head pricing-head">
-            <SectionLabel number="10" label="Investition" />
+            <SectionLabel number="11" label="Investition" />
             <h2><span className="section-title-serif">Investiere</span> in dein <span className="section-title-serif">Wachstum.</span></h2>
           </div>
           <div className="pricing-grid">
@@ -1225,7 +1228,7 @@ function App() {
 
         <section className="section guide-section" data-reveal>
           <div className="section-head">
-            <SectionLabel number="11" label="Ratgeber / Tipps" />
+            <SectionLabel number="12" label="Ratgeber / Tipps" />
             <h2>Erst <span className="section-title-serif">wissen</span><br /> was zählt. Dann <span className="section-title-serif">entscheiden</span></h2>
           </div>
           <div className="guide-grid">
@@ -1245,7 +1248,7 @@ function App() {
 
         <section className="section lead-magnet-section" id="freebie" data-reveal>
           <div className="lead-magnet-copy">
-            <SectionLabel number="12" label="5-Minuten-Checkliste für deine Website" />
+            <SectionLabel number="13" label="5-Minuten-Checkliste für deine Website" />
             <h2><span className="section-title-serif">Warum</span> deine Website <span className="section-title-serif">Kunden verliert.</span></h2>
             <p>
               Die 5-Minuten-Checkliste als PDF. Finde heraus, ob deine Website Vertrauen aufbaut, bei Google gefunden wird und echte Anfragen auslöst.
@@ -1310,7 +1313,7 @@ function App() {
 
         <section className="section objections-section" id="faq" data-reveal>
           <div className="section-head">
-            <SectionLabel number="13" label="Einwände / Stille Ängste" />
+            <SectionLabel number="14" label="Einwände / Stille Ängste" />
             <h2><span className="section-title-serif">Fragen</span> & <span className="section-title-serif">Antworten</span></h2>
             <p className="faq-intro">Häufige Fragen, klare Antworten. Damit du einschätzen kannst, ob GreenLabz Studio zu deinem Betrieb passt.</p>
           </div>
@@ -1329,7 +1332,7 @@ function App() {
             <img src="/assets/james-portrait-2.png" alt="James Green" className="about-image" />
           </div>
           <div>
-            <SectionLabel number="14" label="About Me" />
+            <SectionLabel number="15" label="About Me" />
             <h2><span className="section-title-serif">Warum</span> GreenLabz Studio <span className="section-title-serif">?</span></h2>
             <p>
               Hi, ich bin James Green. Ich entwickle maßgeschneiderte digitale Plattformen, die nicht nur auf den ersten Blick faszinieren, sondern deine Besucher gezielt in echte Kunden verwandeln. Dafür setze ich auf modernste KI-gestützte Entwicklungsprozesse. Sie machen mich schneller und präziser als klassische Agenturen und deine digitale Präsenz effizient, skalierbar und zukunftssicher. Mein Antrieb ist simpel: Meine Kunden sollen online so wirken wie sie wirklich sind. Professionell, vertrauenswürdig und einen Schritt voraus. Mein Fokus liegt auf einem Ding: deinem Umsatzwachstum durch smarte technologische Umsetzung. Ich freue mich darauf, mit dir zu arbeiten. Bis bald!
@@ -1338,7 +1341,7 @@ function App() {
         </section>
 
         <section className="contact-section calendar-section" id="calendar" data-reveal>
-          <SectionLabel number="15" label="Kostenloses Erstgespräch" />
+          <SectionLabel number="16" label="Kostenloses Erstgespräch" />
           <h2><span className="section-title-serif">In drei Schritten</span> zum passenden Gespräch.</h2>
           <p>
             25 Minuten. Kein Verkaufstheater. Erst dein Anliegen, dann dein Termin.
@@ -1350,7 +1353,7 @@ function App() {
 
         <section className="section tech-section" data-reveal>
           <div className="tech-refs">
-            <SectionLabel number="16" label="Technik" />
+            <SectionLabel number="17" label="Technik" />
             <h2>Technologie & <span className="section-title-serif">Transparenz</span></h2>
             <p>
               Ich nenne Stack, Performance-Ziele und Standards offen. Hier kannst du die wichtigsten
@@ -1369,7 +1372,7 @@ function App() {
         </section>
 
         <section className="section contact-section" id="contact" data-reveal>
-          <SectionLabel number="17" label="Kontakt" />
+          <SectionLabel number="18" label="Kontakt" />
           <h2><span className="section-title-serif">Lass</span> uns <span className="section-title-serif">reden</span></h2>
           <p>
             Erzähl mir von deinem nächsten Projekt oder stelle deine Frage. Klicke auf den Button unten, um mir direkt deine Nachricht zu senden.
