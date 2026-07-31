@@ -162,7 +162,7 @@ export default function CinematicFooter({ onPrimaryClick, onContactClick, onNavi
         <div className="cinematic-footer-bottom">
           <div className="cinematic-footer-socials" aria-label="Social Links">
             <MagneticAnchor href="mailto:hello@greenlabz-studio.de" aria-label="E-Mail"><Mail size={17} /></MagneticAnchor>
-            <MagneticAnchor href="https://wa.me/491604928746" aria-label="WhatsApp"><MessageCircle size={17} /></MagneticAnchor>
+            <MagneticAnchor href="https://wa.me/491604928749" aria-label="WhatsApp"><MessageCircle size={17} /></MagneticAnchor>
             <MagneticAnchor href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn"><ExternalLink size={17} /></MagneticAnchor>
           </div>
           <span>&copy; 2026 GreenLabz Studio. Engineering, Design and Strategy.</span>
