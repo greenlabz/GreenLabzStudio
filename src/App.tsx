@@ -7,7 +7,6 @@ import RatgeberPage from './pages/RatgeberPage'
 import CinematicHero from './components/CinematicHero'
 import CinematicPhone from './components/CinematicPhone'
 import CinematicFooter from './components/CinematicFooter'
-import { FloatingContactWidget } from './components/FloatingContactWidget'
 import {
   ArrowRight,
   ArrowUpRight,
@@ -1397,7 +1396,6 @@ function App() {
         onOpenImpressum={() => setIsImpressumModalOpen(true)}
         onOpenDatenschutz={() => setIsDatenschutzModalOpen(true)}
       />
-      <FloatingContactWidget />
     </div>
   )
 }
