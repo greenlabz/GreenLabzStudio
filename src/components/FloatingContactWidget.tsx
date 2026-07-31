@@ -20,29 +20,30 @@ export function FloatingContactWidget() {
 
   return (
     <aside className={`floating-contact-sidebar ${isVisible ? 'is-visible' : ''}`} aria-label="Schnellkontakt">
-      {/* WhatsApp Pill Button (wie im Referenzbild im GreenLabz Stil) */}
+      {/* WhatsApp Button: Kreis, der sich beim Hovern zur Pille ausdehnt */}
       <a
         href="https://wa.me/491604928749"
         target="_blank"
         rel="noopener noreferrer"
-        className="floating-pill-btn floating-whatsapp-pill"
+        className="floating-expand-btn floating-whatsapp"
         aria-label="WhatsApp Chat starten"
       >
-        <span>WhatsApp</span>
-        <div className="pill-icon-circle" aria-hidden="true">
-          <MessageCircle size={18} />
+        <span className="expand-text">WhatsApp</span>
+        <div className="expand-icon-circle" aria-hidden="true">
+          <MessageCircle size={20} />
         </div>
       </a>
 
-      {/* E-Mail Circle Button */}
+      {/* E-Mail Button: Kreis, der sich beim Hovern zur Pille ausdehnt */}
       <a
         href="mailto:hallo@greenlabz-studio.de"
-        className="floating-circle-btn floating-email-circle"
+        className="floating-expand-btn floating-email"
         aria-label="E-Mail schreiben"
-        title="E-Mail schreiben"
       >
-        <Mail size={22} />
-        <span className="circle-tooltip">E-Mail</span>
+        <span className="expand-text">E-Mail</span>
+        <div className="expand-icon-circle" aria-hidden="true">
+          <Mail size={20} />
+        </div>
       </a>
     </aside>
   )
