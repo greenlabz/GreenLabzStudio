@@ -64,7 +64,7 @@ export function IndustriesSection() {
           </h2>
         </div>
         <p className="industries-subtext">
-          Vom etablierten Handwerksbetrieb bis zum B2B-Dienstleister: Wir übersetzen dein Angebot in ein digitales Erlebnis, das deine Kunden sofort versteht. Viele unserer erfolgreichsten Projekte stammen genau aus diesen Bereichen.
+          Vom etablierten Handwerksbetrieb bis zum B2B-Dienstleister: Wir übersetzen dein Angebot in ein digitales Erlebnis, das deine Kunden sofort verstehen. Viele unserer erfolgreichsten Projekte stammen genau aus diesen Bereichen.
         </p>
       </div>
 
