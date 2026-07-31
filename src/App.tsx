@@ -275,8 +275,8 @@ const cases = [
 ]
 
 const pricingPackages: PricingPackage[] = [
-  ['Starter', 'Die professionelle Grundlage für deinen Webauftritt', '1.190 EUR', ['Mobiles Premium-Design', 'Basis Google SEO-Setup', 'DSGVO-konforme Umsetzung', 'Optimierte Ladezeiten']],
-  ['Relaunch', 'Deine bestehende Website wird zum klaren Vertriebskanal', 'ab 1.490 EUR', ['Analyse der aktuellen Seite', 'Neue Struktur und Texte', 'Premium Redesign ohne Ranking-Verlust', 'Google Search Console Integration', 'KI-Suchmaschinen-Grundlage']],
+  ['Starter', 'Die professionelle Grundlage für deinen Webauftritt', 'ab 1.190 EUR', ['Mobiles Premium-Design', 'Basis Google SEO-Setup', 'DSGVO-konforme Umsetzung', 'Optimierte Ladezeiten']],
+  ['Relaunch', 'Deine bestehende Website wird zum klaren Vertriebskanal', 'ab 1.990 EUR', ['Analyse der aktuellen Seite', 'Neue Struktur und Texte', 'Premium Redesign ohne Ranking-Verlust', 'Google Search Console Integration', 'KI-Suchmaschinen-Grundlage']],
   ['Premium', 'High-End Strategie & Automatisierung', 'ab 2.990 EUR', ['Alles aus Relaunch, plus', 'Individuelles High-End Webdesign', 'Lead-Funnel & Automationen', 'Google Search Console & laufende SEO', 'KI-Suchmaschinen-Optimierung']],
 ]
 
@@ -324,7 +324,7 @@ const guides = [
 ]
 
 const objections = [
-  ['Was kostet eine neue Website?', 'Eine solide Website startet bei 1.190 EUR. Ein Relaunch startet ab 1.490 EUR, Premium-Projekte ab 2.990 EUR. Du bekommst vor dem Start eine klare Einschätzung ohne Preisnebel.'],
+  ['Was kostet eine neue Website?', 'Eine solide Website startet ab 1.190 EUR. Ein Relaunch startet ab 1.990 EUR, Premium-Projekte ab 2.990 EUR. Du bekommst vor dem Start eine klare Einschätzung ohne Preisnebel.'],
   ['Arbeitest du nur lokal oder auch in ganz Deutschland?', 'Ich arbeite im kompletten DACH-Raum. Local SEO setze ich dort ein, wo regionale Nachfrage wichtig ist - zum Beispiel bei Praxen und Handwerksbetrieben. Für andere Unternehmen erweitere ich die Sichtbarkeit bundesweit oder international.'],
   ['Wie läuft unsere Zusammenarbeit ab?', 'Wir klären Ziel, Angebot und Zielgruppe, danach entstehen Struktur, Texte, Design, technische Umsetzung und Launch in klaren Schritten.'],
   ['Wie lange dauert es, bis meine Seite fertig ist?', 'Kleine Seiten können schnell stehen. Umfangreichere Relaunches brauchen mehr Abstimmung. Wichtig ist: du bekommst einen realistischen Zeitplan vor Projektstart.'],
