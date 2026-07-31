@@ -586,13 +586,23 @@ function App() {
       if (reduce) return
 
       const siteNav = root.querySelector<HTMLElement>('.site-nav')
+      const floatingContact = root.querySelector<HTMLElement>('.floating-contact-sidebar')
+      if (floatingContact) {
+        gsap.set(floatingContact, { autoAlpha: 0, y: 16, scale: .85, filter: 'blur(12px)', pointerEvents: 'none' })
+      }
       if (siteNav) {
         gsap.set(siteNav, { autoAlpha: 0, y: -18, z: -220, scale: .72, filter: 'blur(12px)', pointerEvents: 'none' })
         ScrollTrigger.create({
           trigger: '.problem-section',
           start: 'top 72%',
-          onEnter: () => gsap.to(siteNav, { autoAlpha: 1, y: 0, z: 0, scale: 1, filter: 'blur(0px)', pointerEvents: 'auto', duration: 1.15, ease: 'expo.out', overwrite: 'auto' }),
-          onLeaveBack: () => gsap.to(siteNav, { autoAlpha: 0, y: -18, z: -220, scale: .72, filter: 'blur(12px)', pointerEvents: 'none', duration: .8, ease: 'power3.inOut', overwrite: 'auto' }),
+          onEnter: () => {
+            gsap.to(siteNav, { autoAlpha: 1, y: 0, z: 0, scale: 1, filter: 'blur(0px)', pointerEvents: 'auto', duration: 1.15, ease: 'expo.out', overwrite: 'auto' })
+            if (floatingContact) gsap.to(floatingContact, { autoAlpha: 1, y: 0, scale: 1, filter: 'blur(0px)', pointerEvents: 'auto', duration: 1.15, ease: 'expo.out', overwrite: 'auto' })
+          },
+          onLeaveBack: () => {
+            gsap.to(siteNav, { autoAlpha: 0, y: -18, z: -220, scale: .72, filter: 'blur(12px)', pointerEvents: 'none', duration: .8, ease: 'power3.inOut', overwrite: 'auto' })
+            if (floatingContact) gsap.to(floatingContact, { autoAlpha: 0, y: 16, scale: .85, filter: 'blur(12px)', pointerEvents: 'none', duration: .8, ease: 'power3.inOut', overwrite: 'auto' })
+          },
         })
       }
 
@@ -639,12 +649,12 @@ function App() {
         const competitiveOther = mobileModel.querySelector<HTMLElement>('.gl-exact-competitive-other')
         const competitiveLead = mobileModel.querySelector<HTMLElement>('.gl-exact-competitive-lead')
         const hideNav = () => {
-          if (!siteNav) return
-          gsap.to(siteNav, { autoAlpha: 0, y: -14, z: -160, scale: .76, filter: 'blur(10px)', pointerEvents: 'none', duration: .85, ease: 'power3.inOut', overwrite: 'auto' })
+          if (siteNav) gsap.to(siteNav, { autoAlpha: 0, y: -14, z: -160, scale: .76, filter: 'blur(10px)', pointerEvents: 'none', duration: .85, ease: 'power3.inOut', overwrite: 'auto' })
+          if (floatingContact) gsap.to(floatingContact, { autoAlpha: 0, y: 14, scale: .85, filter: 'blur(10px)', pointerEvents: 'none', duration: .85, ease: 'power3.inOut', overwrite: 'auto' })
         }
         const showNav = () => {
-          if (!siteNav) return
-          gsap.to(siteNav, { autoAlpha: 1, y: 0, z: 0, scale: 1, filter: 'blur(0px)', pointerEvents: 'auto', duration: .9, ease: 'expo.out', overwrite: 'auto' })
+          if (siteNav) gsap.to(siteNav, { autoAlpha: 1, y: 0, z: 0, scale: 1, filter: 'blur(0px)', pointerEvents: 'auto', duration: .9, ease: 'expo.out', overwrite: 'auto' })
+          if (floatingContact) gsap.to(floatingContact, { autoAlpha: 1, y: 0, scale: 1, filter: 'blur(0px)', pointerEvents: 'auto', duration: .9, ease: 'expo.out', overwrite: 'auto' })
         }
 
         gsap.set(mobilePhone, {

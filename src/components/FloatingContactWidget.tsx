@@ -1,26 +1,8 @@
-import { useEffect, useState } from 'react'
 import { Mail, MessageCircle } from 'lucide-react'
 
 export function FloatingContactWidget() {
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Einblenden zusammen mit der Menu-Bar / Nav-Leiste (ab 250px Scroll)
-      if (window.scrollY > 250) {
-        setIsVisible(true)
-      } else {
-        setIsVisible(false)
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return (
-    <aside className={`floating-contact-sidebar ${isVisible ? 'is-visible' : ''}`} aria-label="Schnellkontakt">
+    <aside className="floating-contact-sidebar" aria-label="Schnellkontakt">
       {/* WhatsApp Button (CTA Optik -> dehnt sich beim Hovern zur transparenten Glasmorphism-Pille aus) */}
       <a
         href="https://wa.me/491604928749"

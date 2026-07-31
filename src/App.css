@@ -6472,16 +6472,8 @@
   align-items: flex-end;
   gap: 0.85rem;
   opacity: 0;
-  transform: translateY(20px) scale(0.92);
   pointer-events: none;
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-
-.floating-contact-sidebar.is-visible {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  pointer-events: auto;
+  will-change: opacity, transform, filter;
 }
 
 /* Floating CTA Buttons (Exakte Optik der Website-CTAs: Dark Glassmorphism, Neon Glow & smaragdgrünes Badge) */
