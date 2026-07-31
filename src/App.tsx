@@ -590,11 +590,32 @@ function App() {
 
       const siteNav = root.querySelector<HTMLElement>('.site-nav')
       const floatingContact = root.querySelector<HTMLElement>('.floating-contact-sidebar')
-      if (floatingContact) {
-        gsap.set(floatingContact, { autoAlpha: 0, y: 16, scale: .85, filter: 'blur(12px)', pointerEvents: 'none' })
-      }
+
+      // Set initial visible state for Hero entrance
       if (siteNav) {
-        gsap.set(siteNav, { autoAlpha: 0, y: -18, z: -220, scale: .72, filter: 'blur(12px)', pointerEvents: 'none' })
+        gsap.set(siteNav, { autoAlpha: 1, y: 0, z: 0, scale: 1, filter: 'blur(0px)', pointerEvents: 'auto' })
+      }
+      if (floatingContact) {
+        gsap.set(floatingContact, { autoAlpha: 1, y: 0, scale: 1, filter: 'blur(0px)', pointerEvents: 'auto' })
+      }
+
+      // 1. Hide nav when scrolling down past Hero
+      ScrollTrigger.create({
+        trigger: '.hero-section',
+        start: 'top top',
+        end: 'bottom 60%',
+        onLeave: () => {
+          if (siteNav) gsap.to(siteNav, { autoAlpha: 0, y: -18, z: -220, scale: .72, filter: 'blur(12px)', pointerEvents: 'none', duration: .65, ease: 'power3.inOut', overwrite: 'auto' })
+          if (floatingContact) gsap.to(floatingContact, { autoAlpha: 0, y: 16, scale: .85, filter: 'blur(12px)', pointerEvents: 'none', duration: .65, ease: 'power3.inOut', overwrite: 'auto' })
+        },
+        onEnterBack: () => {
+          if (siteNav) gsap.to(siteNav, { autoAlpha: 1, y: 0, z: 0, scale: 1, filter: 'blur(0px)', pointerEvents: 'auto', duration: .85, ease: 'expo.out', overwrite: 'auto' })
+          if (floatingContact) gsap.to(floatingContact, { autoAlpha: 1, y: 0, scale: 1, filter: 'blur(0px)', pointerEvents: 'auto', duration: .85, ease: 'expo.out', overwrite: 'auto' })
+        },
+      })
+
+      // 2. Re-appear sticky nav starting at problem-section
+      if (siteNav) {
         ScrollTrigger.create({
           trigger: '.problem-section',
           start: 'top 72%',
@@ -611,7 +632,7 @@ function App() {
 
       gsap
         .timeline({ defaults: { ease: 'expo.out' } })
-        .from('.site-nav', { y: -24, opacity: 0, duration: 0.75 })
+        .from('.site-nav, .floating-contact-sidebar', { y: -24, opacity: 0, duration: 0.75 })
         .from('.hero-label, .hero-title .line, .hero-copy p, .hero-actions, .metrics', {
           y: 46,
           opacity: 0,
