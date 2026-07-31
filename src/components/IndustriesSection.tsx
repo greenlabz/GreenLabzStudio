@@ -1,4 +1,4 @@
-import { Car, Utensils, Hammer, Building2, Stethoscope, ArrowRight } from 'lucide-react'
+import { Car, Utensils, Hammer, Zap, Stethoscope, ArrowRight } from 'lucide-react'
 
 const industries = [
   {
@@ -26,10 +26,10 @@ const industries = [
     accent: '#00cc6a',
   },
   {
-    title: 'B2B & Dienstleistung',
-    subtitle: 'Agenturen, Kanzleien & Beratung',
-    kicker: 'REFERENZ · NEWEO DIGITAL',
-    icon: Building2,
+    title: 'Energie & Beratung',
+    subtitle: 'Energieberater, Effizienz & Sanierungskonzepte',
+    kicker: 'REFERENZ · NEWEO ENERGIEBERATUNG',
+    icon: Zap,
     image: '/assets/showcases/neweo-logo.png',
     accent: '#635bff',
   },
