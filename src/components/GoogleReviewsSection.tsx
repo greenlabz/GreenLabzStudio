@@ -1,5 +1,8 @@
+import { useState } from 'react'
+import { ChevronDown } from 'lucide-react'
+
 const GoogleBadgeIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
     <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
     <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
@@ -50,7 +53,11 @@ const sampleReviews = [
   },
 ]
 
+const MAX_PREVIEW_LENGTH = 110
+
 export function GoogleReviewsSection() {
+  const [activeHoverIndex, setActiveHoverIndex] = useState<number | null>(null)
+
   return (
     <section className="section google-reviews-section" data-reveal>
       <div className="google-reviews-head">
@@ -71,29 +78,61 @@ export function GoogleReviewsSection() {
 
       <div className="reviews-marquee-container" aria-label="Kundenbewertungen Karussell">
         <div className="reviews-marquee-track">
-          {[...sampleReviews, ...sampleReviews, ...sampleReviews].map((review, index) => (
-            <article className="review-card" key={`rev-${index}`}>
-              <div className="review-card-head">
-                <div className="review-author">
-                  <div className="review-avatar" style={{ background: review.avatarBg }}>
-                    {review.initials}
+          {[...sampleReviews, ...sampleReviews, ...sampleReviews].map((review, index) => {
+            const isLong = review.text.length > MAX_PREVIEW_LENGTH
+            const isHovered = activeHoverIndex === index
+
+            return (
+              <article
+                className={`review-card compact-review-card ${isLong ? 'has-overflow-text' : ''}`}
+                key={`rev-${index}`}
+                onMouseEnter={() => isLong && setActiveHoverIndex(index)}
+                onMouseLeave={() => isLong && setActiveHoverIndex(null)}
+              >
+                <div className="review-card-head">
+                  <div className="review-author">
+                    <div className="review-avatar" style={{ background: review.avatarBg }}>
+                      {review.initials}
+                    </div>
+                    <div className="review-author-info">
+                      <strong>{review.name}</strong>
+                      <small>{review.subtitle} · {review.date}</small>
+                    </div>
                   </div>
-                  <div className="review-author-info">
-                    <strong>{review.name}</strong>
-                    <small>{review.subtitle} · {review.date}</small>
+                  <div className="google-badge">
+                    <GoogleBadgeIcon />
+                    <span>Google</span>
                   </div>
                 </div>
-                <div className="google-badge">
-                  <GoogleBadgeIcon />
-                  <span>Google</span>
+
+                <div className="review-stars" aria-hidden="true">
+                  {'★★★★★'}
                 </div>
-              </div>
-              <div className="review-stars" aria-hidden="true">
-                {'★★★★★'}
-              </div>
-              <p className="review-text">{review.text}</p>
-            </article>
-          ))}
+
+                <div className="review-text-wrap">
+                  <p className="review-text">
+                    {isLong ? `${review.text.slice(0, MAX_PREVIEW_LENGTH)}...` : review.text}
+                    {isLong && (
+                      <span className="review-more-btn">
+                        Mehr <ChevronDown size={11} />
+                      </span>
+                    )}
+                  </p>
+                </div>
+
+                {/* Full Text Hover Card Overlay for Long Reviews */}
+                {isLong && (
+                  <div className={`review-hover-popup ${isHovered ? 'is-visible' : ''}`}>
+                    <div className="review-popup-header">
+                      <strong>{review.name}</strong>
+                      <small>{review.subtitle} · {review.date}</small>
+                    </div>
+                    <p className="review-popup-text">{review.text}</p>
+                  </div>
+                )}
+              </article>
+            )
+          })}
         </div>
       </div>
     </section>
