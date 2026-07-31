@@ -8,6 +8,7 @@ import CinematicHero from './components/CinematicHero'
 import CinematicPhone from './components/CinematicPhone'
 import CinematicFooter from './components/CinematicFooter'
 import { FloatingContactWidget } from './components/FloatingContactWidget'
+import { TechStackSection } from './components/TechStackSection'
 import {
   ArrowRight,
   ArrowUpRight,
@@ -1106,9 +1107,11 @@ function App() {
         </section>
         </div>
 
+        <TechStackSection />
+
         <section className="section work-section" id="cases" data-reveal>
           <div className="section-head">
-            <SectionLabel number="06" label="Projekte / Case Studies" />
+            <SectionLabel number="07" label="Projekte / Case Studies" />
             <h2>Kein <span className="text-accent">Blabla</span>. Nur fertige Websites.</h2>
           </div>
           <article className="featured-case">
@@ -1154,7 +1157,7 @@ function App() {
 
         <section className="section promises-section" data-reveal>
           <div className="section-head">
-            <SectionLabel number="07" label="MEIN VERSPRECHEN" />
+            <SectionLabel number="08" label="MEIN VERSPRECHEN" />
             <h2>Wie <span className="text-accent">ich</span> Qualität <span className="text-accent">garantiere</span></h2>
           </div>
           <div className="card-grid">
@@ -1184,7 +1187,7 @@ function App() {
 
         <section className="section pricing-section" id="pricing" data-reveal>
           <div className="section-head pricing-head">
-            <SectionLabel number="08" label="Investition" />
+            <SectionLabel number="09" label="Investition" />
             <h2><span className="section-title-serif">Investiere</span> in dein <span className="section-title-serif">Wachstum.</span></h2>
           </div>
           <div className="pricing-grid">
