@@ -62,16 +62,67 @@ export default function ClaudeSkillsPage({ onNavigate, initialSkillId }: ClaudeS
         </button>
       </div>
 
-      <section className="section ratgeber-section">
-        <div className="section-head text-center-head">
-          <p className="section-code"><span></span> [09] GreenLabz Open Library</p>
-          <h2>
-            Claude &amp; Agent <span className="text-accent">Skills Library</span>
-          </h2>
-          <p className="section-subtitle">
-            Die beliebtesten und mächtigsten Agent Skills aus dem Open-Source-Ökosystem. Mit einem Befehl in Claude Code &amp; AI-Agenten installieren.
-          </p>
+      <section className="section ratgeber-section skills-hero-section">
+        <div className="skills-hero-grid">
+          <div className="skills-hero-copy">
+            <p className="section-code"><span></span> [09] GreenLabz Open Library · 2026</p>
+            <h1 className="skills-hero-title">
+              Claude <span className="text-accent">Skills Library</span>
+            </h1>
+            <p className="skills-hero-lead">
+              Die 150 meistgenutzten Agent Skills – kuratiert aus dem offenen Vercel Skills Ökosystem. Finde fertige Fähigkeiten für Claude Code, Cursor &amp; AI-Agenten.
+            </p>
+            <div className="skills-hero-badges">
+              <span><ShieldCheck size={14} className="text-accent" /> 100% Open Source</span>
+              <span><Terminal size={14} className="text-accent" /> Claude Code Ready</span>
+              <span><Sparkles size={14} className="text-accent" /> 1-Klick Installation</span>
+            </div>
+          </div>
+
+          {/* Interactive Graphic: How it works in 3 visual steps */}
+          <div className="skills-hero-visual-card">
+            <div className="terminal-header">
+              <div className="terminal-dots">
+                <span className="dot red" />
+                <span className="dot yellow" />
+                <span className="dot green" />
+              </div>
+              <span className="terminal-title">claude-code / terminal workflow</span>
+            </div>
+            
+            <div className="terminal-body">
+              <div className="terminal-step">
+                <span className="step-num">1</span>
+                <div className="step-content">
+                  <span className="step-label">Skill auswählen &amp; Befehl kopieren</span>
+                  <div className="code-badge">
+                    <code>npx skills add vercel-labs/skills</code>
+                  </div>
+                </div>
+              </div>
+
+              <div className="terminal-step active">
+                <span className="step-num">2</span>
+                <div className="step-content">
+                  <span className="step-label">Im Terminal deines Projekts ausführen</span>
+                  <div className="status-checklist">
+                    <span><Check size={14} className="text-accent" /> Repository verifiziert</span>
+                    <span><Check size={14} className="text-accent" /> SKILL.md automatisch geladen</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="terminal-step success">
+                <span className="step-num">3</span>
+                <div className="step-content">
+                  <span className="step-label">Dein KI-Agent arbeitet sofort intelligenter</span>
+                  <p className="step-note">✨ Claude nutzt die neuen Regeln &amp; Workflows automatisch bei passenden Aufgaben.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
         {/* Search & Category Filter Control */}
         <div className="skills-filter-toolbar">
