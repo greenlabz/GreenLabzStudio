@@ -6,31 +6,26 @@ const caseResults = [
     icon: Search,
     title: 'Jetzt Top 3 bei Google in der Region',
     desc: 'Lokale SEO & GEO-Optimierung für Neuer Ansturm',
-    badge: 'TOP 3 GOOGLE',
   },
   {
     icon: CalendarCheck,
     title: 'Vereinfachte Terminvergabe',
     desc: 'Direkter 2-Klick Termin-CTA ohne Hürden',
-    badge: '2-KLICK TERMIN',
   },
   {
     icon: TrendingUp,
     title: '+43% Mehr Patienten-Anfragen',
     desc: 'Binnen 60 Tagen nach Relaunch erzielt',
-    badge: '+43% ERFOLG',
   },
   {
     icon: ShieldCheck,
     title: 'Vertrauen & 100% Barrierefreiheit',
     desc: 'Mobile-First Design mit perfekter Führung',
-    badge: '100% MOBILE-FIRST',
   },
   {
     icon: Zap,
     title: '0.7s Ladezeit & KI-Sichtbarkeit',
     desc: 'Optimiert für Google, ChatGPT & Co',
-    badge: '0.7s ULTRA-FAST',
   },
 ]
 
@@ -40,7 +35,7 @@ export function BeforeAfterSlider() {
   const [activeItemIndex, setActiveItemIndex] = useState(0)
   const containerRef = useRef<HTMLDivElement>(null)
 
-  // Automatische Rotation der Erfolgs-Features mit leuchtendem Häkchen
+  // Nur 1 Zeile gleichzeitig eingeblendet - rotiert alle 3.2 Sekunden
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveItemIndex((prev) => (prev + 1) % caseResults.length)
@@ -65,6 +60,9 @@ export function BeforeAfterSlider() {
     if (!isDragging) return
     handleMove(e.clientX)
   }
+
+  const currentResult = caseResults[activeItemIndex]
+  const CurrentIcon = currentResult.icon
 
   return (
     <div className="ba-case-side-grid">
@@ -122,43 +120,36 @@ export function BeforeAfterSlider() {
         </div>
       </div>
 
-      {/* Rechts (rot markierter Bereich): Aufleuchtende Erfolgs-Karten */}
-      <div className="ba-live-results-panel">
+      {/* Rechts im rot markierten Bereich: IMMER NUR 1 ZEILE MIT GRÜNEM LEUCHTENDEN HAKEN EINGEBLENDET */}
+      <div className="ba-single-line-results-panel">
         <div className="ba-results-header">
-          <span className="ba-results-tag">RELAUNCH ERFOLGE</span>
+          <span className="ba-results-tag">RELAUNCH ERFOLG</span>
           <h4>Was das Redesign bewirkt hat:</h4>
         </div>
 
-        <div className="ba-results-list">
-          {caseResults.map((item, idx) => {
-            const isActive = idx === activeItemIndex
-            const Icon = item.icon
-            return (
-              <div
-                key={item.title}
-                className={`ba-result-row ${isActive ? 'active' : ''}`}
-                onClick={() => setActiveItemIndex(idx)}
-              >
-                <div className="ba-check-icon">
-                  <CheckCircle2 className={`check-svg ${isActive ? 'glow' : ''}`} size={20} />
-                </div>
-                <div className="ba-result-text">
-                  <h5>{item.title}</h5>
-                  <p>{item.desc}</p>
-                </div>
-                <div className="ba-result-feature-icon">
-                  <Icon size={16} />
-                </div>
-              </div>
-            )
-          })}
+        <div className="ba-single-result-card">
+          <div className="ba-single-row">
+            <div className="ba-check-icon">
+              <CheckCircle2 className="check-svg glow" size={24} />
+            </div>
+            <div className="ba-result-text">
+              <h5>{currentResult.title}</h5>
+              <p>{currentResult.desc}</p>
+            </div>
+            <div className="ba-result-feature-icon">
+              <CurrentIcon size={22} />
+            </div>
+          </div>
         </div>
 
-        <div className="ba-results-progress-bar">
-          <div
-            className="ba-results-progress-fill"
-            style={{ width: `${((activeItemIndex + 1) / caseResults.length) * 100}%` }}
-          />
+        <div className="ba-single-dots-nav">
+          {caseResults.map((_, idx) => (
+            <span
+              key={idx}
+              className={`ba-nav-dot ${idx === activeItemIndex ? 'active' : ''}`}
+              onClick={() => setActiveItemIndex(idx)}
+            />
+          ))}
         </div>
       </div>
     </div>
