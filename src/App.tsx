@@ -965,7 +965,7 @@ function App() {
       window.removeEventListener('load', refreshScrollScenes)
       lenis?.destroy()
     }
-  }, [])
+  }, [route])
 
   return (
     <div className="page" ref={rootRef}>
