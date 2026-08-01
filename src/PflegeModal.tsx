@@ -83,68 +83,78 @@ export function PflegeModal({ isOpen, onClose, packageName, onOpenDatenschutz }:
   if (!isOpen) return null
 
   return (
-    <div className="contact-modal-overlay" onClick={onClose}>
-      <div className="contact-modal-card" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true" aria-labelledby="pflege-modal-title">
-        <button className="contact-modal-close" onClick={onClose} aria-label="Schließen">
-          <X size={20} />
+    <div className="modal-backdrop" onClick={onClose}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true" aria-labelledby="pflege-modal-title">
+        <button className="modal-close" onClick={onClose} aria-label="Schließen">
+          <X size={24} />
         </button>
 
         {isSuccess ? (
-          <div className="contact-modal-success">
-            <CheckCircle2 size={48} className="text-accent" />
-            <h3 id="pflege-modal-title">Anfrage erfolgreich übermittelt!</h3>
+          <div className="modal-success">
+            <div className="success-icon-wrapper">
+              <CheckCircle2 size={52} />
+            </div>
+            <h2 id="pflege-modal-title">Anfrage übermittelt!</h2>
             <p>
-              Vielen Dank! Ich habe deine Angaben für <strong>{selectedPackage}</strong> erhalten. Ich analysiere deine Website und melde mich innerhalb von 24 Stunden mit einer Einschätzung bei dir zurück.
+              Vielen Dank! Ich habe deine Angaben für <strong>{selectedPackage}</strong> erhalten. Ich analysiere deine Website und melde mich innerhalb von 24 Stunden persönlich bei dir zurück.
             </p>
-            <button className="pricing-cta" onClick={onClose}>
-              <span className="cta-label">Schließen</span>
+            <button className="btn primary submit-btn" onClick={onClose}>
+              <span>Schließen</span>
             </button>
           </div>
         ) : (
-          <form className="contact-modal-form" onSubmit={handleSubmit}>
-            <div className="contact-modal-header">
-              <span className="contact-modal-tag">[04] WEBSITE-ANALYSE &amp; PFLEGE</span>
-              <h3 id="pflege-modal-title">Anfrage: <span className="text-accent">{selectedPackage}</span></h3>
-              <p>
-                Gib mir kurz deine Website-URL und Ansprechpartner an. Ich schaue mir den Ist-Zustand deiner Seite an und melde mich persönlich bei dir zurück.
-              </p>
-            </div>
+          <div className="funnel-step">
+            <p className="section-code">[04] WEBSITE-ANALYSE &amp; PFLEGE</p>
+            <h2 id="pflege-modal-title">Anfrage: <span className="text-accent">{selectedPackage}</span></h2>
+            <p className="modal-subtitle">
+              Gib mir kurz deine Website-URL und Ansprechpartner an. Ich schaue mir den Ist-Zustand deiner Seite an und melde mich persönlich bei dir zurück.
+            </p>
 
-            <input type="text" name="_honey" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
+            <form className="modal-form" onSubmit={handleSubmit}>
+              <input type="text" name="_honey" className="form-honey" tabIndex={-1} autoComplete="off" />
 
-            {error && <div className="contact-modal-error">{error}</div>}
+              {error && <p className="form-error">{error}</p>}
 
-            <div className="contact-form-group">
-              <label htmlFor="pf-package">Gewähltes Paket</label>
-              <select
-                id="pf-package"
-                name="package"
-                value={selectedPackage}
-                onChange={(e) => setSelectedPackage(e.target.value)}
-                className="contact-form-input"
-              >
-                <option value="Pflege Basis">Pflege Basis (59 €/mtl.)</option>
-                <option value="Pflege Business">Pflege Business (129 €/mtl. - Empfohlen)</option>
-                <option value="Pflege Premium">Pflege Premium (249 €/mtl.)</option>
-                <option value="Shop & E-Commerce">Shop &amp; E-Commerce (auf Anfrage)</option>
-                <option value="Individuell & Web-App">Individuell &amp; Web-App (auf Anfrage)</option>
-              </select>
-            </div>
+              <div className="input-group">
+                <label htmlFor="pf-package">Gewähltes Paket</label>
+                <select
+                  id="pf-package"
+                  name="package"
+                  value={selectedPackage}
+                  onChange={(e) => setSelectedPackage(e.target.value)}
+                  disabled={isSubmitting}
+                  style={{
+                    width: '100%',
+                    background: 'rgba(255, 255, 255, 0.03)',
+                    border: '1px solid var(--line)',
+                    borderRadius: '8px',
+                    padding: '0.8rem 1rem',
+                    color: 'var(--ink)',
+                    fontFamily: 'inherit',
+                    fontSize: '0.95rem'
+                  }}
+                >
+                  <option value="Pflege Basis" style={{ background: '#0d110e', color: '#fff' }}>Pflege Basis (59 €/mtl.)</option>
+                  <option value="Pflege Business" style={{ background: '#0d110e', color: '#fff' }}>Pflege Business (129 €/mtl. - Empfohlen)</option>
+                  <option value="Pflege Premium" style={{ background: '#0d110e', color: '#fff' }}>Pflege Premium (249 €/mtl.)</option>
+                  <option value="Shop & E-Commerce" style={{ background: '#0d110e', color: '#fff' }}>Shop &amp; E-Commerce (auf Anfrage)</option>
+                  <option value="Individuell & Web-App" style={{ background: '#0d110e', color: '#fff' }}>Individuell &amp; Web-App (auf Anfrage)</option>
+                </select>
+              </div>
 
-            <div className="contact-form-group">
-              <label htmlFor="pf-url">Website-URL *</label>
-              <input
-                id="pf-url"
-                type="text"
-                name="websiteUrl"
-                required
-                placeholder="z.B. www.deine-domain.de"
-                className="contact-form-input"
-              />
-            </div>
+              <div className="input-group">
+                <label htmlFor="pf-url">Website-URL *</label>
+                <input
+                  id="pf-url"
+                  type="text"
+                  name="websiteUrl"
+                  required
+                  placeholder="z.B. www.deine-domain.de"
+                  disabled={isSubmitting}
+                />
+              </div>
 
-            <div className="contact-form-row">
-              <div className="contact-form-group">
+              <div className="input-group">
                 <label htmlFor="pf-name">Dein Name / Firma *</label>
                 <input
                   id="pf-name"
@@ -152,10 +162,11 @@ export function PflegeModal({ isOpen, onClose, packageName, onOpenDatenschutz }:
                   name="name"
                   required
                   placeholder="Max Mustermann / Muster GmbH"
-                  className="contact-form-input"
+                  disabled={isSubmitting}
                 />
               </div>
-              <div className="contact-form-group">
+
+              <div className="input-group">
                 <label htmlFor="pf-email">E-Mail-Adresse *</label>
                 <input
                   id="pf-email"
@@ -163,61 +174,60 @@ export function PflegeModal({ isOpen, onClose, packageName, onOpenDatenschutz }:
                   name="email"
                   required
                   placeholder="max@firma.de"
-                  className="contact-form-input"
+                  disabled={isSubmitting}
                 />
               </div>
-            </div>
 
-            <div className="contact-form-group">
-              <label htmlFor="pf-phone">Telefonnummer / WhatsApp (Optional)</label>
-              <input
-                id="pf-phone"
-                type="tel"
-                name="phone"
-                placeholder="Für schnelle Rückfragen"
-                className="contact-form-input"
-              />
-            </div>
+              <div className="input-group">
+                <label htmlFor="pf-phone">Telefonnummer / WhatsApp <span style={{ opacity: 0.6, fontWeight: 400 }}>(optional)</span></label>
+                <input
+                  id="pf-phone"
+                  type="tel"
+                  name="phone"
+                  placeholder="Für schnelle Rückfragen (optional)"
+                  disabled={isSubmitting}
+                />
+              </div>
 
-            <div className="contact-form-group">
-              <label htmlFor="pf-message">Besondere Wünsche oder Anmerkungen (Optional)</label>
-              <textarea
-                id="pf-message"
-                name="message"
-                rows={3}
-                placeholder="z.B. WordPress läuft langsam, brauche regelmäßige Content-Pfleger usw."
-                className="contact-form-input"
-              />
-            </div>
+              <div className="input-group">
+                <label htmlFor="pf-message">Besondere Wünsche oder Anmerkungen <span style={{ opacity: 0.6, fontWeight: 400 }}>(optional)</span></label>
+                <textarea
+                  id="pf-message"
+                  name="message"
+                  rows={3}
+                  placeholder="z.B. WordPress läuft langsam, brauche regelmäßige Content-Pflege usw."
+                  disabled={isSubmitting}
+                />
+              </div>
 
-            <div className="contact-form-consent">
-              <label className="checkbox-label">
-                <input type="checkbox" name="consent" required />
+              <label className="audit-consent" style={{ display: 'grid', gridTemplateColumns: '18px 1fr', gap: '0.6rem', alignItems: 'start', fontSize: '0.78rem', color: 'var(--muted)' }}>
+                <input type="checkbox" name="consent" required disabled={isSubmitting} />
                 <span>
                   Ich stimme der Verarbeitung meiner Angaben zur Bearbeitung der Anfrage zu.{' '}
                   {onOpenDatenschutz && (
-                    <button type="button" className="link-button" onClick={onOpenDatenschutz}>
+                    <button type="button" style={{ background: 'none', border: 'none', padding: 0, color: 'var(--accent)', textDecoration: 'underline', cursor: 'pointer', font: 'inherit' }} onClick={onOpenDatenschutz}>
                       Datenschutzhinweise
                     </button>
                   )}
                 </span>
               </label>
-            </div>
 
-            {isSubmitting && (
-              <div className="contact-modal-progress">
-                <div className="contact-modal-progress-bar" style={{ width: `${progress}%` }} />
+              <div className="modal-action">
+                {isSubmitting && (
+                  <div className="progress-container">
+                    <div className="progress-bar" style={{ width: `${progress}%` }} />
+                  </div>
+                )}
+
+                <button type="submit" className="btn primary submit-btn" disabled={isSubmitting}>
+                  <span className="btn-label">
+                    {isSubmitting ? 'Wird übermittelt...' : 'Kostenlose Analyse & Angebot anfragen'}
+                  </span>
+                  <ArrowRight size={16} />
+                </button>
               </div>
-            )}
-
-            <button type="submit" className="pricing-cta" disabled={isSubmitting}>
-              <span className="cta-dots" aria-hidden="true" />
-              <span className="cta-label">
-                {isSubmitting ? 'Wird übermittelt...' : 'Kostenlose Analyse & Angebot anfragen'}
-              </span>
-              <ArrowRight size={16} />
-            </button>
-          </form>
+            </form>
+          </div>
         )}
       </div>
     </div>
