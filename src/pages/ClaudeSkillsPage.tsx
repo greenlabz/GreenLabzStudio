@@ -123,6 +123,7 @@ export default function ClaudeSkillsPage({ onNavigate, initialSkillId }: ClaudeS
               </div>
             </div>
           </div>
+        </div>
         </ParticleScroll>
       </section>
 
