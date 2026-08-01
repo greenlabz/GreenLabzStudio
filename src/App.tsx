@@ -483,13 +483,19 @@ function BookingFlow({ onOpenDatenschutz }: { onOpenDatenschutz: () => void }) {
                 config={{
                   layout: 'month_view',
                   useSlotsViewOnSmallScreen: 'true',
-import { ContactModal } from './ContactModal'
-import { PflegeModal } from './PflegeModal'
-import DatenschutzModal from './DatenschutzModal'
-import ImpressumModal from './ImpressumModal'
-
-const RatgeberPage = lazy(() => import('./pages/RatgeberPage'))
-const ClaudeSkillsPage = lazy(() => import('./pages/ClaudeSkillsPage'))
+                }}
+              />
+            </div>
+            <p className="booking-privacy">
+              Für die Terminbuchung werden deine Angaben an Cal.com übermittelt. Details stehen in der{' '}
+              <button type="button" onClick={onOpenDatenschutz}>Datenschutzerklärung</button>.
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
 
 export default function App() {
   const rootRef = useRef<HTMLDivElement>(null)
