@@ -1,13 +1,31 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ArrowLeft, X, Clock, Tag, CheckCircle2 } from 'lucide-react'
 import { ratgeberArticles, type RatgeberArticle } from './ratgeberData'
 
 interface RatgeberPageProps {
   onNavigate: (route: string) => void
+  initialArticleSlug?: string | null
 }
 
-export default function RatgeberPage({ onNavigate }: RatgeberPageProps) {
+export default function RatgeberPage({ onNavigate, initialArticleSlug }: RatgeberPageProps) {
   const [activeArticle, setActiveArticle] = useState<RatgeberArticle | null>(null)
+
+  useEffect(() => {
+    if (initialArticleSlug) {
+      const found = ratgeberArticles.find(a => a.id === initialArticleSlug)
+      if (found) setActiveArticle(found)
+    }
+  }, [initialArticleSlug])
+
+  const openArticle = (article: RatgeberArticle) => {
+    setActiveArticle(article)
+    window.history.replaceState(null, '', `#ratgeber/${article.id}`)
+  }
+
+  const closeArticle = () => {
+    setActiveArticle(null)
+    window.history.replaceState(null, '', '#ratgeber')
+  }
 
   return (
     <main className="ratgeber-page">
@@ -48,7 +66,7 @@ export default function RatgeberPage({ onNavigate }: RatgeberPageProps) {
 
               <button
                 className="article-read-btn"
-                onClick={() => setActiveArticle(article)}
+                onClick={() => openArticle(article)}
               >
                 Ratgeber lesen
               </button>
@@ -59,9 +77,9 @@ export default function RatgeberPage({ onNavigate }: RatgeberPageProps) {
 
       {/* Article Modal */}
       {activeArticle && (
-        <div className="article-modal-overlay" onClick={() => setActiveArticle(null)}>
+        <div className="article-modal-overlay" onClick={closeArticle}>
           <div className="article-modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={() => setActiveArticle(null)} aria-label="Schließen">
+            <button className="modal-close" onClick={closeArticle} aria-label="Schließen">
               <X size={22} />
             </button>
 

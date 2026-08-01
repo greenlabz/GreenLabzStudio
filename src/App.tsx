@@ -1,9 +1,9 @@
-import { type CSSProperties, useEffect, useRef, useState } from 'react'
+import { type CSSProperties, lazy, Suspense, useEffect, useRef, useState } from 'react'
 import Cal, { getCalApi } from "@calcom/embed-react"
 import { ContactModal } from './ContactModal'
 import { DatenschutzModal } from './DatenschutzModal'
 import { ImpressumModal } from './ImpressumModal'
-import RatgeberPage from './pages/RatgeberPage'
+const RatgeberPage = lazy(() => import('./pages/RatgeberPage'))
 import CinematicHero from './components/CinematicHero'
 import CinematicPhone from './components/CinematicPhone'
 import CinematicFooter from './components/CinematicFooter'
@@ -504,14 +504,29 @@ function App() {
   const [isDatenschutzModalOpen, setIsDatenschutzModalOpen] = useState(false)
   const [isImpressumModalOpen, setIsImpressumModalOpen] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [route, setRoute] = useState(() => window.location.hash === '#ratgeber' ? 'ratgeber' : 'home')
+  const [route, setRoute] = useState(() => {
+    const h = window.location.hash.replace('#', '')
+    if (h.startsWith('ratgeber')) return 'ratgeber'
+    return 'home'
+  })
+  const [articleSlug, setArticleSlug] = useState<string | null>(() => {
+    const h = window.location.hash.replace('#', '')
+    if (h.startsWith('ratgeber/')) return h.split('/')[1] || null
+    return null
+  })
   const [activeMethod, setActiveMethod] = useState(0)
   const [leadEmail, setLeadEmail] = useState('')
   const [leadConsent, setLeadConsent] = useState(false)
   const [leadStatus, setLeadStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
 
   const navigate = (nextRoute: string) => {
-    setRoute(nextRoute)
+    if (nextRoute.startsWith('ratgeber/')) {
+      setRoute('ratgeber')
+      setArticleSlug(nextRoute.split('/')[1])
+    } else {
+      setRoute(nextRoute)
+      setArticleSlug(null)
+    }
     window.history.pushState(null, '', nextRoute === 'home' ? '#top' : `#${nextRoute}`)
     window.scrollTo(0, 0)
   }
@@ -969,7 +984,9 @@ function App() {
         </nav>
       )}
       {route === 'ratgeber' ? (
-        <RatgeberPage onNavigate={navigate} />
+        <Suspense fallback={<div style={{minHeight:'100vh'}} />}>
+          <RatgeberPage onNavigate={navigate} initialArticleSlug={articleSlug} />
+        </Suspense>
       ) : (
 <main>
         <CinematicHero onOpenDatenschutz={() => setIsDatenschutzModalOpen(true)} />
