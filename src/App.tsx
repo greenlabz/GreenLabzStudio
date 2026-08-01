@@ -281,10 +281,7 @@ const pricingPackages: PricingPackage[] = [
   ['Premium', 'High-End Strategie & Automatisierung', 'ab 2.990 EUR', ['Alles aus Relaunch, plus', 'Individuelles High-End Webdesign', 'Lead-Funnel & Automationen', 'Google Search Console & laufende SEO', 'KI-Suchmaschinen-Optimierung']],
 ]
 
-const pricingAddOns: PricingAddOn[] = [
-  ['Dein Erfolg ist kein einmal Projekt', 'Google findet dich ständig. Ich halte dich oben.', 'SEO- & Website-Begleitung', 'ab 149 EUR mtl.', 'Ich übernehme nach dem Launch Wartung, Sicherheitsupdates und optimiere deine Rankings kontinuierlich weiter.'],
-  ['Software & App Entwicklung', 'Deine Vision als digitale Lösung', 'Maßgeschneiderte Plattformen', 'auf Anfrage', 'Ich baue nicht nur Websites, sondern komplette Web-Apps, mobile Apps und individuelle Softwarelösungen.'],
-]
+
 
 const techReferences = [
   ['Next.js 16', 'Production Framework powering every GreenLabz Studio site.', 'https://nextjs.org'],
