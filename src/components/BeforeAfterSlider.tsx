@@ -65,7 +65,7 @@ export function BeforeAfterSlider() {
   const CurrentIcon = currentResult.icon
 
   return (
-    <div className="ba-case-side-grid">
+    <div className="ba-case-side-grid ba-case-side-grid--flipped">
       {/* Links: Vorher / Nachher Slider */}
       <div
         ref={containerRef}
@@ -120,36 +120,31 @@ export function BeforeAfterSlider() {
         </div>
       </div>
 
-      {/* Rechts im rot markierten Bereich: IMMER NUR 1 ZEILE MIT GRÜNEM LEUCHTENDEN HAKEN EINGEBLENDET */}
-      <div className="ba-single-line-results-panel">
+      {/* Rechts: alle 5 Karten im 2-spaltigem Grid */}
+      <div className="ba-grid-results-panel">
         <div className="ba-results-header">
-          <span className="ba-results-tag">RELAUNCH ERFOLG</span>
+          <span className="ba-results-tag">RELAUNCH ERFOLGE</span>
           <h4>Was das Redesign bewirkt hat:</h4>
         </div>
 
-        <div className="ba-single-result-card">
-          <div className="ba-single-row">
-            <div className="ba-check-icon">
-              <CheckCircle2 className="check-svg glow" size={24} />
-            </div>
-            <div className="ba-result-text">
-              <h5>{currentResult.title}</h5>
-              <p>{currentResult.desc}</p>
-            </div>
-            <div className="ba-result-feature-icon">
-              <CurrentIcon size={22} />
-            </div>
-          </div>
-        </div>
-
-        <div className="ba-single-dots-nav">
-          {caseResults.map((_, idx) => (
-            <span
-              key={idx}
-              className={`ba-nav-dot ${idx === activeItemIndex ? 'active' : ''}`}
-              onClick={() => setActiveItemIndex(idx)}
-            />
-          ))}
+        <div className="ba-cards-2col">
+          {caseResults.map((item, idx) => {
+            const isActive = idx === activeItemIndex
+            const Icon = item.icon
+            return (
+              <div
+                key={item.title}
+                className={`ba-mini-card ${isActive ? 'active' : ''}`}
+                onClick={() => setActiveItemIndex(idx)}
+              >
+                <div className="ba-mini-card-top">
+                  <CheckCircle2 className={`check-svg ${isActive ? 'glow' : ''}`} size={18} />
+                  <Icon size={15} className="ba-mini-icon" />
+                </div>
+                <h5>{item.title}</h5>
+              </div>
+            )
+          })}
         </div>
       </div>
     </div>
