@@ -296,12 +296,12 @@ const promises = [
 ]
 
 const featuredCase = {
-  label: 'Case Study / Platzhalter',
-  title: 'Wie eine Praxis aus Besuchern mehr Terminanfragen macht',
-  intro: 'Die alte Website war fachlich korrekt, aber sie beantwortete die wichtigste Frage nicht schnell genug: Warum sollte ich genau hier einen Termin buchen?',
-  outcome: '+43% mehr Terminanfragen',
-  before: 'Unklare Startseite, kein klarer nächster Schritt',
-  after: 'Vertrauensaufbau, Leistungen und Termin-CTA in einer mobilen Führung',
+  label: 'Case Study / Referenz',
+  title: 'Wie Zahnarzt Dr. Roth aus Besuchern +43% mehr Patienten-Anfragen gewinnt',
+  intro: 'Die alte Website war unübersichtlich und auf Mobilgeräten schwer bedienbar. Wichtige Leistungen und die Online-Terminbuchung waren versteckt.',
+  outcome: '+43% mehr Patienten-Termine',
+  before: 'Veraltetes Layout, keine klare Führung, langsame Ladezeiten auf Smartphones',
+  after: 'Leichte mobile Führung, SEO- & GEO-Optimierung (Google & KI-Suche) und direkte Termin-CTAs',
 }
 
 const methods: [string, string, string, string[]][] = [

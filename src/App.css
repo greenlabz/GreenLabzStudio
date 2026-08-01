@@ -954,7 +954,7 @@
 }
 .featured-case {
   display: grid;
-  grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
+  grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr);
   gap: clamp(1.5rem, 4vw, 4rem);
   margin: 2rem 0 3rem;
   padding: clamp(1.25rem, 3vw, 2.2rem);
@@ -1011,7 +1011,7 @@
 .ba-slider-container {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 12;
+  aspect-ratio: 16 / 11;
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -5406,14 +5406,17 @@
     max-width: 20ch;
   }
   .featured-case-visuals {
-    gap: .65rem;
+    width: 100%;
   }
-  .case-shot {
-    min-height: 210px;
-    padding: .75rem;
+  .ba-slider-container {
+    aspect-ratio: 4 / 3;
+    min-height: 280px;
   }
-  .case-shot.after {
-    transform: translateY(.65rem);
+  .ba-url {
+    font-size: 0.6rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .method-tabs {
