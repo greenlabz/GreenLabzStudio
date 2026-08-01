@@ -48,4 +48,10 @@ function auditApiDevPlugin(): Plugin {
 
 export default defineConfig({
   plugins: [react(), auditApiDevPlugin()],
+  build: {
+    cssMinify: 'esbuild',
+  },
+  css: {
+    transformer: 'esbuild',
+  },
 })
