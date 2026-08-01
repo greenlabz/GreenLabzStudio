@@ -4,8 +4,9 @@
   background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 9999;
   padding: 1rem;
   overflow-y: auto;
@@ -18,8 +19,10 @@
   border-radius: 16px;
   width: 100%;
   max-width: 520px;
-  max-height: 88vh;
+  max-height: 85vh;
   overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   padding: clamp(1.8rem, 4vw, 2.5rem);
   position: relative;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
