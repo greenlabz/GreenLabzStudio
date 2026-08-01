@@ -1354,6 +1354,7 @@
   width: 100%;
   align-items: center;
   justify-content: center;
+  gap: 0.5rem;
   border: 1px solid color-mix(in oklch, var(--accent) 38%, var(--line));
   border-radius: 0;
   padding: 0 1.2rem;
@@ -1365,6 +1366,8 @@
   text-transform: uppercase;
   cursor: pointer;
   text-decoration: none;
+  z-index: 2;
+  pointer-events: auto;
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.08),
     inset 0 -18px 34px rgba(0,204,106,.055),
