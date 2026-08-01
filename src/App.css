@@ -1007,8 +1007,8 @@
 
 .ba-case-side-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-  gap: clamp(1rem, 2.5vw, 1.8rem);
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 3.5rem);
   align-items: stretch;
   width: 100%;
 }
