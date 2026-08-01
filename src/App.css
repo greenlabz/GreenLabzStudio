@@ -5410,30 +5410,46 @@
 
 @media (max-width: 760px) {
   .featured-case {
-    gap: 1.2rem;
+    gap: 1rem;
     margin-top: 1.25rem;
-    padding: 1.1rem;
+    padding: 0.75rem;
+    width: 100%;
+    border-radius: 14px;
   }
   .featured-case-header {
     grid-template-columns: 1fr;
-    gap: 1.2rem;
-    padding-bottom: 1.2rem;
+    gap: 1rem;
+    padding-bottom: 1rem;
   }
   .featured-case-intro-block h3 {
-    max-width: 20ch;
+    max-width: 100%;
+  }
+  .case-steps {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+  .case-steps > svg {
+    display: none;
   }
   .featured-case-visuals {
     width: 100%;
+    margin: 0;
   }
   .ba-slider-container {
-    aspect-ratio: 4 / 3;
-    min-height: 280px;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    min-height: 240px;
+    border-radius: 10px;
+  }
+  .ba-image img {
+    object-position: top left;
   }
   .ba-url {
-    font-size: 0.6rem;
+    font-size: 0.58rem;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    padding: 2px 6px;
   }
 
   .method-tabs {
