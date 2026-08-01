@@ -61,9 +61,6 @@ export function BeforeAfterSlider() {
     handleMove(e.clientX)
   }
 
-  const currentResult = caseResults[activeItemIndex]
-  const CurrentIcon = currentResult.icon
-
   return (
     <div className="ba-case-side-grid ba-case-side-grid--flipped">
       {/* Links: Vorher / Nachher Slider */}
