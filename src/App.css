@@ -1094,11 +1094,11 @@
 .ba-slider-container {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 11;
+  aspect-ratio: 4 / 3;
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid rgba(0, 204, 106, 0.25);
-  background: #080c09;
+  background: #ffffff;
   user-select: none;
   touch-action: none;
   cursor: ew-resize;
@@ -1254,7 +1254,7 @@
   width: 100%;
   height: calc(100% - 32px);
   object-fit: cover;
-  object-position: top center;
+  object-position: top left;
 }
 
 .ba-before-image {
