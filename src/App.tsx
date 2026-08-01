@@ -1317,10 +1317,10 @@ function App() {
               <article className="pricing-card maintenance-card">
                 <div className="card-top-icon">
                   <ShieldCheck size={20} className="text-accent" />
-                  <h4>Wartung Basis</h4>
+                  <h4>Pflege Basis</h4>
                 </div>
                 <div className="card-price-row">
-                  <strong>auf Anfrage</strong>
+                  <strong>59 €</strong><span>/ Monat</span>
                 </div>
                 <p className="card-subtext">Die Website bleibt sicher, aktuell und erreichbar.</p>
                 <ul>
@@ -1338,14 +1338,14 @@ function App() {
                 <span className="pricing-badge">Empfohlen</span>
                 <div className="card-top-icon">
                   <Wrench size={20} className="text-accent" />
-                  <h4>Wartung Business</h4>
+                  <h4>Pflege Business</h4>
                 </div>
                 <div className="card-price-row">
-                  <strong>auf Anfrage</strong>
+                  <strong>129 €</strong><span>/ Monat</span>
                 </div>
                 <p className="card-subtext">Laufende Änderungen und Technik in guten Händen.</p>
                 <ul>
-                  <li><Check size={14} /> Alles aus Wartung Basis</li>
+                  <li><Check size={14} /> Alles aus Pflege Basis</li>
                   <li><Check size={14} /> Änderungen &amp; Content-Updates (2 Std. / Monat)</li>
                   <li><Check size={14} /> Performance- &amp; Core-Web-Vitals-Checks</li>
                   <li><Check size={14} /> Prio-Support mit fester Reaktionszeit</li>
@@ -1359,14 +1359,14 @@ function App() {
               <article className="pricing-card maintenance-card">
                 <div className="card-top-icon">
                   <Sparkles size={20} className="text-accent" />
-                  <h4>Wartung Premium</h4>
+                  <h4>Pflege Premium</h4>
                 </div>
                 <div className="card-price-row">
-                  <strong>auf Anfrage</strong>
+                  <strong>249 €</strong><span>/ Monat</span>
                 </div>
-                <p className="card-subtext">Wartung plus laufende Sichtbarkeit und Beratung.</p>
+                <p className="card-subtext">Pflege plus laufende Sichtbarkeit und Beratung.</p>
                 <ul>
-                  <li><Check size={14} /> Alles aus Wartung Business</li>
+                  <li><Check size={14} /> Alles aus Pflege Business</li>
                   <li><Check size={14} /> Laufende SEO-Pflege &amp; Monats-Report</li>
                   <li><Check size={14} /> SEO-Dashboard inklusive</li>
                   <li><Check size={14} /> Strategie-Call pro Quartal</li>
