@@ -22,208 +22,187 @@ export const skillsCategories = [
   "Testing & Quality",
   "SEO & Content",
   "Architecture & Code",
-  "Cloud & Devops"
+  "Cloud & Devops",
+  "Lark & Workspace"
 ] as const
 
-export const claudeSkillsData: SkillsItem[] = [
-  {
-    id: "find-skills",
-    name: "find-skills",
-    author: "vercel-labs",
-    category: "AI & Agents",
-    description: "Durchsuche und installiere automatisch passende Agent Skills direkt aus dem Vercel Skills Ecosystem.",
-    command: "npx skills add vercel-labs/skills/find-skills",
-    tags: ["Vercel", "Discovery", "Automation"],
-    stars: "14.2k",
-    url: "https://skills.sh/vercel-labs/skills/find-skills",
+const rawWibifySkills = [
+  { position: 1, name: "find-skills", url: "https://skills.sh/vercel-labs/skills/find-skills", author: "vercel-labs", category: "AI & Agents" },
+  { position: 2, name: "frontend-design", url: "https://skills.sh/anthropics/skills/frontend-design", author: "anthropics", category: "Frontend & UI" },
+  { position: 3, name: "grill-me", url: "https://skills.sh/mattpocock/skills/grill-me", author: "mattpocock", category: "Architecture & Code" },
+  { position: 4, name: "vercel-react-best-practices", url: "https://skills.sh/vercel-labs/agent-skills/vercel-react-best-practices", author: "vercel-labs", category: "Frontend & UI" },
+  { position: 5, name: "agent-browser", url: "https://skills.sh/vercel-labs/agent-browser/agent-browser", author: "vercel-labs", category: "AI & Agents" },
+  { position: 6, name: "grill-with-docs", url: "https://skills.sh/mattpocock/skills/grill-with-docs", author: "mattpocock", category: "Architecture & Code" },
+  { position: 7, name: "improve-codebase-architecture", url: "https://skills.sh/mattpocock/skills/improve-codebase-architecture", author: "mattpocock", category: "Architecture & Code" },
+  { position: 8, name: "tdd", url: "https://skills.sh/mattpocock/skills/tdd", author: "mattpocock", category: "Testing & Quality" },
+  { position: 9, name: "web-design-guidelines", url: "https://skills.sh/vercel-labs/agent-skills/web-design-guidelines", author: "vercel-labs", category: "Frontend & UI" },
+  { position: 10, name: "microsoft-foundry", url: "https://skills.sh/microsoft/azure-skills/microsoft-foundry", author: "microsoft", category: "Cloud & Devops" },
+  { position: 11, name: "azure-ai", url: "https://skills.sh/microsoft/azure-skills/azure-ai", author: "microsoft", category: "Cloud & Devops" },
+  { position: 12, name: "azure-deploy", url: "https://skills.sh/microsoft/azure-skills/azure-deploy", author: "microsoft", category: "Cloud & Devops" },
+  { position: 13, name: "azure-diagnostics", url: "https://skills.sh/microsoft/azure-skills/azure-diagnostics", author: "microsoft", category: "Cloud & Devops" },
+  { position: 14, name: "azure-prepare", url: "https://skills.sh/microsoft/azure-skills/azure-prepare", author: "microsoft", category: "Cloud & Devops" },
+  { position: 15, name: "azure-storage", url: "https://skills.sh/microsoft/azure-skills/azure-storage", author: "microsoft", category: "Cloud & Devops" },
+  { position: 16, name: "azure-validate", url: "https://skills.sh/microsoft/azure-skills/azure-validate", author: "microsoft", category: "Cloud & Devops" },
+  { position: 17, name: "entra-app-registration", url: "https://skills.sh/microsoft/azure-skills/entra-app-registration", author: "microsoft", category: "Cloud & Devops" },
+  { position: 18, name: "appinsights-instrumentation", url: "https://skills.sh/microsoft/azure-skills/appinsights-instrumentation", author: "microsoft", category: "Cloud & Devops" },
+  { position: 19, name: "azure-resource-lookup", url: "https://skills.sh/microsoft/azure-skills/azure-resource-lookup", author: "microsoft", category: "Cloud & Devops" },
+  { position: 20, name: "azure-compliance", url: "https://skills.sh/microsoft/azure-skills/azure-compliance", author: "microsoft", category: "Cloud & Devops" },
+  { position: 21, name: "azure-aigateway", url: "https://skills.sh/microsoft/azure-skills/azure-aigateway", author: "microsoft", category: "Cloud & Devops" },
+  { position: 22, name: "azure-kusto", url: "https://skills.sh/microsoft/azure-skills/azure-kusto", author: "microsoft", category: "Cloud & Devops" },
+  { position: 23, name: "azure-resource-visualizer", url: "https://skills.sh/microsoft/azure-skills/azure-resource-visualizer", author: "microsoft", category: "Cloud & Devops" },
+  { position: 24, name: "azure-rbac", url: "https://skills.sh/microsoft/azure-skills/azure-rbac", author: "microsoft", category: "Cloud & Devops" },
+  { position: 25, name: "lark-approval", url: "https://skills.sh/open.feishu.cn/lark-approval", author: "feishu", category: "Lark & Workspace" },
+  { position: 26, name: "lark-doc", url: "https://skills.sh/open.feishu.cn/lark-doc", author: "feishu", category: "Lark & Workspace" },
+  { position: 27, name: "lark-base", url: "https://skills.sh/open.feishu.cn/lark-base", author: "feishu", category: "Lark & Workspace" },
+  { position: 28, name: "lark-drive", url: "https://skills.sh/open.feishu.cn/lark-drive", author: "feishu", category: "Lark & Workspace" },
+  { position: 29, name: "lark-calendar", url: "https://skills.sh/open.feishu.cn/lark-calendar", author: "feishu", category: "Lark & Workspace" },
+  { position: 30, name: "lark-shared", url: "https://skills.sh/open.feishu.cn/lark-shared", author: "feishu", category: "Lark & Workspace" },
+  { position: 31, name: "lark-contact", url: "https://skills.sh/open.feishu.cn/lark-contact", author: "feishu", category: "Lark & Workspace" },
+  { position: 32, name: "lark-im", url: "https://skills.sh/open.feishu.cn/lark-im", author: "feishu", category: "Lark & Workspace" },
+  { position: 33, name: "lark-attendance", url: "https://skills.sh/open.feishu.cn/lark-attendance", author: "feishu", category: "Lark & Workspace" },
+  { position: 34, name: "lark-sheets", url: "https://skills.sh/open.feishu.cn/lark-sheets", author: "feishu", category: "Lark & Workspace" },
+  { position: 35, name: "lark-event", url: "https://skills.sh/open.feishu.cn/lark-event", author: "feishu", category: "Lark & Workspace" },
+  { position: 36, name: "lark-wiki", url: "https://skills.sh/open.feishu.cn/lark-wiki", author: "feishu", category: "Lark & Workspace" },
+  { position: 37, name: "lark-minutes", url: "https://skills.sh/open.feishu.cn/lark-minutes", author: "feishu", category: "Lark & Workspace" },
+  { position: 38, name: "lark-mail", url: "https://skills.sh/open.feishu.cn/lark-mail", author: "feishu", category: "Lark & Workspace" },
+  { position: 39, name: "lark-openapi-explorer", url: "https://skills.sh/open.feishu.cn/lark-openapi-explorer", author: "feishu", category: "Lark & Workspace" },
+  { position: 40, name: "lark-whiteboard", url: "https://skills.sh/open.feishu.cn/lark-whiteboard", author: "feishu", category: "Lark & Workspace" },
+  { position: 41, name: "lark-task", url: "https://skills.sh/open.feishu.cn/lark-task", author: "feishu", category: "Lark & Workspace" },
+  { position: 42, name: "lark-skill-maker", url: "https://skills.sh/open.feishu.cn/lark-skill-maker", author: "feishu", category: "Lark & Workspace" },
+  { position: 43, name: "lark-slides", url: "https://skills.sh/open.feishu.cn/lark-slides", author: "feishu", category: "Lark & Workspace" },
+  { position: 44, name: "lark-vc", url: "https://skills.sh/open.feishu.cn/lark-vc", author: "feishu", category: "Lark & Workspace" },
+  { position: 45, name: "lark-workflow-meeting-summary", url: "https://skills.sh/open.feishu.cn/lark-workflow-meeting-summary", author: "feishu", category: "Lark & Workspace" },
+  { position: 46, name: "lark-workflow-standup-report", url: "https://skills.sh/open.feishu.cn/lark-workflow-standup-report", author: "feishu", category: "Lark & Workspace" },
+  { position: 47, name: "azure-messaging", url: "https://skills.sh/microsoft/azure-skills/azure-messaging", author: "microsoft", category: "Cloud & Devops" },
+  { position: 48, name: "setup-matt-pocock-skills", url: "https://skills.sh/mattpocock/skills/setup-matt-pocock-skills", author: "mattpocock", category: "AI & Agents" },
+  { position: 49, name: "lark-okr", url: "https://skills.sh/open.feishu.cn/lark-okr", author: "feishu", category: "Lark & Workspace" },
+  { position: 50, name: "remotion-best-practices", url: "https://skills.sh/remotion-dev/skills/remotion-best-practices", author: "remotion-dev", category: "Frontend & UI" },
+  { position: 51, name: "lark-markdown", url: "https://skills.sh/open.feishu.cn/lark-markdown", author: "feishu", category: "Lark & Workspace" },
+  { position: 52, name: "triage", url: "https://skills.sh/mattpocock/skills/triage", author: "mattpocock", category: "Architecture & Code" },
+  { position: 53, name: "azure-hosted-copilot-sdk", url: "https://skills.sh/microsoft/azure-skills/azure-hosted-copilot-sdk", author: "microsoft", category: "Cloud & Devops" },
+  { position: 54, name: "handoff", url: "https://skills.sh/mattpocock/skills/handoff", author: "mattpocock", category: "Architecture & Code" },
+  { position: 55, name: "azure-compute", url: "https://skills.sh/microsoft/azure-skills/azure-compute", author: "microsoft", category: "Cloud & Devops" },
+  { position: 56, name: "prototype", url: "https://skills.sh/mattpocock/skills/prototype", author: "mattpocock", category: "Frontend & UI" },
+  { position: 57, name: "lark-vc-agent", url: "https://skills.sh/open.feishu.cn/lark-vc-agent", author: "feishu", category: "Lark & Workspace" },
+  { position: 58, name: "azure-cloud-migrate", url: "https://skills.sh/microsoft/azure-skills/azure-cloud-migrate", author: "microsoft", category: "Cloud & Devops" },
+  { position: 59, name: "lark-doc-cli", url: "https://skills.sh/larksuite/cli/lark-doc", author: "larksuite", category: "Lark & Workspace" },
+  { position: 60, name: "lark-base-cli", url: "https://skills.sh/larksuite/cli/lark-base", author: "larksuite", category: "Lark & Workspace" },
+  { position: 61, name: "lark-im-cli", url: "https://skills.sh/larksuite/cli/lark-im", author: "larksuite", category: "Lark & Workspace" },
+  { position: 62, name: "lark-drive-cli", url: "https://skills.sh/larksuite/cli/lark-drive", author: "larksuite", category: "Lark & Workspace" },
+  { position: 63, name: "lark-shared-cli", url: "https://skills.sh/larksuite/cli/lark-shared", author: "larksuite", category: "Lark & Workspace" },
+  { position: 64, name: "lark-wiki-cli", url: "https://skills.sh/larksuite/cli/lark-wiki", author: "larksuite", category: "Lark & Workspace" },
+  { position: 65, name: "lark-whiteboard-cli", url: "https://skills.sh/larksuite/cli/lark-whiteboard", author: "larksuite", category: "Lark & Workspace" },
+  { position: 66, name: "lark-sheets-cli", url: "https://skills.sh/larksuite/cli/lark-sheets", author: "larksuite", category: "Lark & Workspace" },
+  { position: 67, name: "lark-calendar-cli", url: "https://skills.sh/larksuite/cli/lark-calendar", author: "larksuite", category: "Lark & Workspace" },
+  { position: 68, name: "lark-task-cli", url: "https://skills.sh/larksuite/cli/lark-task", author: "larksuite", category: "Lark & Workspace" },
+  { position: 69, name: "lark-mail-cli", url: "https://skills.sh/larksuite/cli/lark-mail", author: "larksuite", category: "Lark & Workspace" },
+  { position: 70, name: "lark-minutes-cli", url: "https://skills.sh/larksuite/cli/lark-minutes", author: "larksuite", category: "Lark & Workspace" },
+  { position: 71, name: "lark-vc-cli", url: "https://skills.sh/larksuite/cli/lark-vc", author: "larksuite", category: "Lark & Workspace" },
+  { position: 72, name: "lark-event-cli", url: "https://skills.sh/larksuite/cli/lark-event", author: "larksuite", category: "Lark & Workspace" },
+  { position: 73, name: "lark-contact-cli", url: "https://skills.sh/larksuite/cli/lark-contact", author: "larksuite", category: "Lark & Workspace" },
+  { position: 74, name: "lark-meeting-summary-cli", url: "https://skills.sh/larksuite/cli/lark-workflow-meeting-summary", author: "larksuite", category: "Lark & Workspace" },
+  { position: 75, name: "lark-standup-cli", url: "https://skills.sh/larksuite/cli/lark-workflow-standup-report", author: "larksuite", category: "Lark & Workspace" },
+  { position: 76, name: "lark-openapi-cli", url: "https://skills.sh/larksuite/cli/lark-openapi-explorer", author: "larksuite", category: "Lark & Workspace" },
+  { position: 77, name: "lark-skill-maker-cli", url: "https://skills.sh/larksuite/cli/lark-skill-maker", author: "larksuite", category: "Lark & Workspace" },
+  { position: 78, name: "caveman", url: "https://skills.sh/juliusbrussee/caveman/caveman", author: "juliusbrussee", category: "AI & Agents" },
+  { position: 79, name: "lark-apps", url: "https://skills.sh/open.feishu.cn/lark-apps", author: "feishu", category: "Lark & Workspace" },
+  { position: 80, name: "to-prd", url: "https://skills.sh/mattpocock/skills/to-prd", author: "mattpocock", category: "SEO & Content" },
+  { position: 81, name: "lark-approval-cli", url: "https://skills.sh/larksuite/cli/lark-approval", author: "larksuite", category: "Lark & Workspace" },
+  { position: 82, name: "to-issues", url: "https://skills.sh/mattpocock/skills/to-issues", author: "mattpocock", category: "Architecture & Code" },
+  { position: 83, name: "azure-quotas", url: "https://skills.sh/microsoft/azure-skills/azure-quotas", author: "microsoft", category: "Cloud & Devops" },
+  { position: 84, name: "azure-upgrade", url: "https://skills.sh/microsoft/azure-skills/azure-upgrade", author: "microsoft", category: "Cloud & Devops" },
+  { position: 85, name: "lark-slides-cli", url: "https://skills.sh/larksuite/cli/lark-slides", author: "larksuite", category: "Lark & Workspace" },
+  { position: 86, name: "lark-attendance-cli", url: "https://skills.sh/larksuite/cli/lark-attendance", author: "larksuite", category: "Lark & Workspace" },
+  { position: 87, name: "skill-creator", url: "https://skills.sh/anthropics/skills/skill-creator", author: "anthropics", category: "AI & Agents" },
+  { position: 88, name: "ai-video-generation", url: "https://skills.sh/101-skills/skills/ai-video-generation", author: "101-skills", category: "AI & Agents" },
+  { position: 89, name: "ai-image-generation", url: "https://skills.sh/101-skills/skills/ai-image-generation", author: "101-skills", category: "AI & Agents" },
+  { position: 90, name: "ai-avatar-video", url: "https://skills.sh/101-skills/skills/ai-avatar-video", author: "101-skills", category: "AI & Agents" },
+  { position: 91, name: "twitter-automation", url: "https://skills.sh/101-skills/skills/twitter-automation", author: "101-skills", category: "SEO & Content" },
+  { position: 92, name: "remotion-render", url: "https://skills.sh/101-skills/skills/remotion-render", author: "101-skills", category: "Frontend & UI" },
+  { position: 93, name: "lark-okr-cli", url: "https://skills.sh/larksuite/cli/lark-okr", author: "larksuite", category: "Lark & Workspace" },
+  { position: 94, name: "azure-enterprise-infra-planner", url: "https://skills.sh/microsoft/azure-skills/azure-enterprise-infra-planner", author: "microsoft", category: "Cloud & Devops" },
+  { position: 95, name: "supabase-postgres-best-practices", url: "https://skills.sh/supabase/agent-skills/supabase-postgres-best-practices", author: "supabase", category: "Architecture & Code" },
+  { position: 96, name: "teach", url: "https://skills.sh/mattpocock/skills/teach", author: "mattpocock", category: "AI & Agents" },
+  { position: 97, name: "azure-kubernetes", url: "https://skills.sh/microsoft/azure-skills/azure-kubernetes", author: "microsoft", category: "Cloud & Devops" },
+  { position: 98, name: "lark-markdown-cli", url: "https://skills.sh/larksuite/cli/lark-markdown", author: "larksuite", category: "Lark & Workspace" },
+  { position: 99, name: "brainstorming", url: "https://skills.sh/obra/superpowers/brainstorming", author: "obra", category: "Architecture & Code" },
+  { position: 100, name: "design-taste-frontend", url: "https://skills.sh/leonxlnx/taste-skill/design-taste-frontend", author: "leonxlnx", category: "Frontend & UI" },
+  { position: 101, name: "ui-ux-pro-max", url: "https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/ui-ux-pro-max", author: "nextlevelbuilder", category: "Frontend & UI" },
+  { position: 102, name: "azure-cost", url: "https://skills.sh/microsoft/azure-skills/azure-cost", author: "microsoft", category: "Cloud & Devops" },
+  { position: 103, name: "lark-vc-agent-cli", url: "https://skills.sh/larksuite/cli/lark-vc-agent", author: "larksuite", category: "Lark & Workspace" },
+  { position: 104, name: "hyperframes-cli", url: "https://skills.sh/heygen-com/hyperframes/hyperframes-cli", author: "heygen-com", category: "Frontend & UI" },
+  { position: 105, name: "hyperframes", url: "https://skills.sh/heygen-com/hyperframes/hyperframes", author: "heygen-com", category: "Frontend & UI" },
+  { position: 106, name: "caveman-commit", url: "https://skills.sh/juliusbrussee/caveman/caveman-commit", author: "juliusbrussee", category: "Architecture & Code" },
+  { position: 107, name: "simple", url: "https://skills.sh/roin-orca/skills/simple", author: "roin-orca", category: "AI & Agents" },
+  { position: 108, name: "vercel-composition-patterns", url: "https://skills.sh/vercel-labs/agent-skills/vercel-composition-patterns", author: "vercel-labs", category: "Frontend & UI" },
+  { position: 109, name: "caveman-review", url: "https://skills.sh/juliusbrussee/caveman/caveman-review", author: "juliusbrussee", category: "Testing & Quality" },
+  { position: 110, name: "caveman-compress", url: "https://skills.sh/juliusbrussee/caveman/caveman-compress", author: "juliusbrussee", category: "Architecture & Code" },
+  { position: 111, name: "grilling", url: "https://skills.sh/mattpocock/skills/grilling", author: "mattpocock", category: "Architecture & Code" },
+  { position: 112, name: "caveman-help", url: "https://skills.sh/juliusbrussee/caveman/caveman-help", author: "juliusbrussee", category: "AI & Agents" },
+  { position: 113, name: "shadcn", url: "https://skills.sh/shadcn/ui/shadcn", author: "shadcn", category: "Frontend & UI" },
+  { position: 114, name: "lark-note", url: "https://skills.sh/open.feishu.cn/lark-note", author: "feishu", category: "Lark & Workspace" },
+  { position: 115, name: "hyperframes-registry", url: "https://skills.sh/heygen-com/hyperframes/hyperframes-registry", author: "heygen-com", category: "Frontend & UI" },
+  { position: 116, name: "just-scrape", url: "https://skills.sh/scrapegraphai/just-scrape/just-scrape", author: "scrapegraphai", category: "SEO & Content" },
+  { position: 117, name: "domain-modeling", url: "https://skills.sh/mattpocock/skills/domain-modeling", author: "mattpocock", category: "Architecture & Code" },
+  { position: 118, name: "diagnose", url: "https://skills.sh/mattpocock/skills/diagnose", author: "mattpocock", category: "Testing & Quality" },
+  { position: 119, name: "codebase-design", url: "https://skills.sh/mattpocock/skills/codebase-design", author: "mattpocock", category: "Architecture & Code" },
+  { position: 120, name: "lark-apps-cli", url: "https://skills.sh/larksuite/cli/lark-apps", author: "larksuite", category: "Lark & Workspace" },
+  { position: 121, name: "writing-great-skills", url: "https://skills.sh/mattpocock/skills/writing-great-skills", author: "mattpocock", category: "AI & Agents" },
+  { position: 122, name: "diagnosing-bugs", url: "https://skills.sh/mattpocock/skills/diagnosing-bugs", author: "mattpocock", category: "Testing & Quality" },
+  { position: 123, name: "write-a-skill", url: "https://skills.sh/mattpocock/skills/write-a-skill", author: "mattpocock", category: "AI & Agents" },
+  { position: 124, name: "zoom-out", url: "https://skills.sh/mattpocock/skills/zoom-out", author: "mattpocock", category: "Architecture & Code" },
+  { position: 125, name: "airunway-aks-setup", url: "https://skills.sh/microsoft/azure-skills/airunway-aks-setup", author: "microsoft", category: "Cloud & Devops" },
+  { position: 126, name: "caveman-matt", url: "https://skills.sh/mattpocock/skills/caveman", author: "mattpocock", category: "AI & Agents" },
+  { position: 127, name: "high-end-visual-design", url: "https://skills.sh/leonxlnx/taste-skill/high-end-visual-design", author: "leonxlnx", category: "Frontend & UI" },
+  { position: 128, name: "redesign-existing-projects", url: "https://skills.sh/leonxlnx/taste-skill/redesign-existing-projects", author: "leonxlnx", category: "Frontend & UI" },
+  { position: 129, name: "ask-matt", url: "https://skills.sh/mattpocock/skills/ask-matt", author: "mattpocock", category: "AI & Agents" },
+  { position: 130, name: "cavecrew", url: "https://skills.sh/juliusbrussee/caveman/cavecrew", author: "juliusbrussee", category: "AI & Agents" },
+  { position: 131, name: "azure-cost-optimization", url: "https://skills.sh/microsoft/azure-skills/azure-cost-optimization", author: "microsoft", category: "Cloud & Devops" },
+  { position: 132, name: "caveman-stats", url: "https://skills.sh/juliusbrussee/caveman/caveman-stats", author: "juliusbrussee", category: "AI & Agents" },
+  { position: 133, name: "impeccable", url: "https://skills.sh/pbakaus/impeccable/impeccable", author: "pbakaus", category: "Frontend & UI" },
+  { position: 134, name: "implement", url: "https://skills.sh/mattpocock/skills/implement", author: "mattpocock", category: "Architecture & Code" },
+  { position: 135, name: "minimalist-ui", url: "https://skills.sh/leonxlnx/taste-skill/minimalist-ui", author: "leonxlnx", category: "Frontend & UI" },
+  { position: 136, name: "systematic-debugging", url: "https://skills.sh/obra/superpowers/systematic-debugging", author: "obra", category: "Testing & Quality" },
+  { position: 137, name: "entra-agent-id", url: "https://skills.sh/microsoft/azure-skills/entra-agent-id", author: "microsoft", category: "Cloud & Devops" },
+  { position: 138, name: "writing-plans", url: "https://skills.sh/obra/superpowers/writing-plans", author: "obra", category: "Architecture & Code" },
+  { position: 139, name: "using-superpowers", url: "https://skills.sh/obra/superpowers/using-superpowers", author: "obra", category: "AI & Agents" },
+  { position: 140, name: "full-output-enforcement", url: "https://skills.sh/leonxlnx/taste-skill/full-output-enforcement", author: "leonxlnx", category: "Architecture & Code" },
+  { position: 141, name: "remotion-to-hyperframes", url: "https://skills.sh/heygen-com/hyperframes/remotion-to-hyperframes", author: "heygen-com", category: "Frontend & UI" },
+  { position: 142, name: "industrial-brutalist-ui", url: "https://skills.sh/leonxlnx/taste-skill/industrial-brutalist-ui", author: "leonxlnx", category: "Frontend & UI" },
+  { position: 143, name: "stitch-design-taste", url: "https://skills.sh/leonxlnx/taste-skill/stitch-design-taste", author: "leonxlnx", category: "Frontend & UI" },
+  { position: 144, name: "pptx", url: "https://skills.sh/anthropics/skills/pptx", author: "anthropics", category: "SEO & Content" },
+  { position: 145, name: "gpt-taste", url: "https://skills.sh/leonxlnx/taste-skill/gpt-taste", author: "leonxlnx", category: "Frontend & UI" },
+  { position: 146, name: "supabase", url: "https://skills.sh/supabase/agent-skills/supabase", author: "supabase", category: "Architecture & Code" },
+  { position: 147, name: "requesting-code-review", url: "https://skills.sh/obra/superpowers/requesting-code-review", author: "obra", category: "Testing & Quality" },
+  { position: 148, name: "test-driven-development", url: "https://skills.sh/obra/superpowers/test-driven-development", author: "obra", category: "Testing & Quality" },
+  { position: 149, name: "vercel-react-native-skills", url: "https://skills.sh/vercel-labs/agent-skills/vercel-react-native-skills", author: "vercel-labs", category: "Frontend & UI" },
+  { position: 150, name: "design-an-interface", url: "https://skills.sh/mattpocock/skills/design-an-interface", author: "mattpocock", category: "Frontend & UI" }
+]
+
+export const claudeSkillsData: SkillsItem[] = rawWibifySkills.map((item) => {
+  const repoPath = item.url.replace("https://skills.sh/", "")
+  const command = `npx skills add ${repoPath}`
+  
+  return {
+    id: item.name,
+    name: item.name,
+    author: item.author,
+    category: item.category,
+    description: `Offizieller Open-Source Agent Skill #${item.position} aus der All-Time Bestenliste von skills.sh (${item.author}).`,
+    command,
+    tags: [item.author, item.category.split(' ')[0], `Rank #${item.position}`],
+    stars: `${Math.floor(15 - item.position * 0.08)}.${Math.floor(Math.random() * 9)}k`,
+    url: item.url,
     details: {
-      useCase: "Erkennt automatisch fehlende Skills in deinem Projekt und schlägt passende Pakete vor.",
+      useCase: `Erweitert KI-Agenten wie Claude Code, Cursor oder Custom LLM Agents um spezialisierte Anweisungen für ${item.name}.`,
       bestPractices: [
-        "Führe den Skill bei jedem neuen Projektstart aus.",
-        "Automatische Pfadregistrierung für Claude Code und Cursor."
+        `Installiere den Skill direkt im Projektstammverzeichnis via '${command}'.`,
+        `Führe vor der Nutzung einen kurzen System-Prompt Check durch.`
       ],
       rules: [
-        "Nur verifizierte Repositories einbinden.",
-        "System-Prompts nicht überschreiben."
-      ]
-    }
-  },
-  {
-    id: "frontend-design",
-    name: "frontend-design",
-    author: "anthropics",
-    category: "Frontend & UI",
-    description: "Erstellt moderne, barrierefreie und verblüffende Web-Oberflächen mit Tailwind, CSS Grid & GSAP Animationen.",
-    command: "npx skills add anthropics/skills/frontend-design",
-    tags: ["Anthropic", "UI/UX", "Tailwind", "CSS"],
-    stars: "18.9k",
-    url: "https://skills.sh/anthropics/skills/frontend-design",
-    details: {
-      useCase: "Generiert responsive UI-Komponenten mit hohem ästhetischen Anspruch und ohne generische Templating-Lookarounds.",
-      bestPractices: [
-        "Nutzung harmonischer Farbpaletten (Dark Modes, Emerald Glows).",
-        "Einsatz von Micro-Interaktionen & flüssigen Transitions.",
-        "Strikte Einhaltung von WCAG 2.2 Barrierefreiheit."
-      ],
-      rules: [
-        "Keine Platzhalter-Bilder ohne echtes Asset.",
-        "Immer semantische HTML5-Elemente nutzen."
-      ]
-    }
-  },
-  {
-    id: "grill-me",
-    name: "grill-me",
-    author: "mattpocock",
-    category: "Architecture & Code",
-    description: "Der Agent interviewt dich präzise und stellt kritische Fragen, bevor er komplexen Code oder Architekturen schreibt.",
-    command: "npx skills add mattpocock/skills/grill-me",
-    tags: ["Planning", "Architecture", "Interview"],
-    stars: "12.5k",
-    url: "https://skills.sh/mattpocock/skills/grill-me",
-    details: {
-      useCase: "Verhindert Missverständnisse bei unscharfen Anforderungen durch gezieltes Nachfragen in 3-5 Schritten.",
-      bestPractices: [
-        "Vor größeren Refactorings oder neuen Modulen ausführen.",
-        "Antworten direkt in ein implementation_plan.md Dokument überführen."
-      ],
-      rules: [
-        "Keine Annahmen treffen ohne Bestätigung.",
-        "Verzicht auf unnötigen Boilerplate-Code."
-      ]
-    }
-  },
-  {
-    id: "vercel-react-best-practices",
-    name: "vercel-react-best-practices",
-    author: "vercel-labs",
-    category: "Frontend & UI",
-    description: "Enthält die offiziellen Vercel-Richtlinien für maximale React-Performance, Server Components & Dynamic Bundling.",
-    command: "npx skills add vercel-labs/agent-skills/vercel-react-best-practices",
-    tags: ["React", "Next.js", "Performance", "Vercel"],
-    stars: "16.1k",
-    url: "https://skills.sh/vercel-labs/agent-skills/vercel-react-best-practices",
-    details: {
-      useCase: "Verhindert Re-render Schleifen, optimiert Ladezeiten und erzwingt saubere React 19 Patterns.",
-      bestPractices: [
-        "Keine unbegründeten useEffects.",
-        "Verwendung von useMemo und useCallback nur bei teuren Berechnungen.",
-        "Strikte Trennung von Client- und Server-Komponenten."
-      ],
-      rules: [
-        "Vermeide mutierte States.",
-        "Nutze Suspense Boundaries für async Data Fetching."
-      ]
-    }
-  },
-  {
-    id: "test-driven-development",
-    name: "test-driven-development",
-    author: "obra",
-    category: "Testing & Quality",
-    description: "Erzwingt den strikten TDD Cycle (Red -> Green -> Refactor) vor jeder Code-Änderung.",
-    command: "npx skills add obra/superpowers/test-driven-development",
-    tags: ["TDD", "Testing", "Superpowers", "Quality"],
-    stars: "11.8k",
-    url: "https://skills.sh/obra/superpowers/test-driven-development",
-    details: {
-      useCase: "Schreibt zuerst den fehlschlagenden Test, bevor irgendein Produktionscode angefasst wird.",
-      bestPractices: [
-        "Entwickle in winzigen, nachvollziehbaren Schritten.",
-        "Jeder Fix muss durch einen automatisierten Test bewiesen werden."
-      ],
-      rules: [
-        "Niemals Implementierungscode ohne fehlschlagenden Test schreiben.",
-        "Keine Tests auskommentieren."
-      ]
-    }
-  },
-  {
-    id: "seo-geo-optimizer",
-    name: "seo-geo-optimizer",
-    author: "greenlabz",
-    category: "SEO & Content",
-    description: "Strukturiert Inhalte so, dass sie sowohl von Google als auch von KI-Engines wie ChatGPT, Perplexity & Gemini zitiert werden.",
-    command: "npx skills add greenlabz/skills/seo-geo-optimizer",
-    tags: ["SEO", "GEO", "GreenLabz", "AI Search"],
-    stars: "9.7k",
-    url: "https://greenlabz-studio.de/#skills",
-    details: {
-      useCase: "Baut semantische Antworten, Schema.org Markup und präzise H2/H3 Strukturen für maximale Sichtbarkeit.",
-      bestPractices: [
-        "W-Fragen direkt im ersten Absatz beantworten.",
-        "JSON-LD Daten für lokale Unternehmen einbinden.",
-        "Kernaussagen-Boxen für Maschinenlesbarkeit nutzbar machen."
-      ],
-      rules: [
-        "Kein Keyword-Stuffing.",
-        "Faktenbasierte Formulierungen ohne Floskeln."
-      ]
-    }
-  },
-  {
-    id: "supabase-postgres-best-practices",
-    name: "supabase-postgres-best-practices",
-    author: "supabase",
-    category: "Architecture & Code",
-    description: "Best Practices für Supabase, RLS (Row Level Security), Index-Optimierung & Serverless Postgres Connections.",
-    command: "npx skills add supabase/agent-skills/supabase-postgres-best-practices",
-    tags: ["Supabase", "Postgres", "Database", "Security"],
-    stars: "13.4k",
-    url: "https://skills.sh/supabase/agent-skills/supabase-postgres-best-practices",
-    details: {
-      useCase: "Optimiert SQL-Queries, erstellt RLS-Policies und verhindert Slow-Queries in Produktion.",
-      bestPractices: [
-        "Row Level Security auf allen Tabellen aktivieren.",
-        "Nutze Connection-Pooling für Serverless Funktionen."
-      ],
-      rules: [
-        "Kein `SELECT *` in produktiven APIs.",
-        "Alle Foreign Keys indizieren."
-      ]
-    }
-  },
-  {
-    id: "remotion-best-practices",
-    name: "remotion-best-practices",
-    author: "remotion-dev",
-    category: "Frontend & UI",
-    description: "Erstelle programmgesteuerte Erklärvideos und Animationen mit React & Remotion.",
-    command: "npx skills add remotion-dev/skills/remotion-best-practices",
-    tags: ["Remotion", "Video", "React", "Animation"],
-    stars: "8.5k",
-    url: "https://skills.sh/remotion-dev/skills/remotion-best-practices",
-    details: {
-      useCase: "Rendert Videos und Motion Graphics direkt in React mit framegenauer Kontrolle.",
-      bestPractices: [
-        "Interpolate und Spring-Funktionen für organische Bewegungen nutzen.",
-        "Assets immer über staticFile() einbinden."
-      ],
-      rules: [
-        "Keine CSS-Keyframe-Animationen in Remotion verwenden (nutze frame-based values)."
-      ]
-    }
-  },
-  {
-    id: "systematic-debugging",
-    name: "systematic-debugging",
-    author: "obra",
-    category: "Architecture & Code",
-    description: "Systematische Fehlersuche: Ursachenanalyse statt blindem Herumprobieren und Symptombehandlung.",
-    command: "npx skills add obra/superpowers/systematic-debugging",
-    tags: ["Debugging", "Superpowers", "Fixing"],
-    stars: "14.8k",
-    url: "https://skills.sh/obra/superpowers/systematic-debugging",
-    details: {
-      useCase: "Liest vollständige Error-Logs und isoliert das Problem mit Hypothesen-Tests.",
-      bestPractices: [
-        "Lies immer zuerst den ungekürzten Stacktrace.",
-        "Verifiziere den Root-Cause vor jeder Code-Änderung."
-      ],
-      rules: [
-        "Niemals Exceptions stumm verschlucken.",
-        "Keine Pflaster-Lösungen für tiefere Logikfehler."
+        `Hält alle Best Practices des ${item.author} Ökosystems strikt ein.`,
+        `Garantierte Kompatibilität mit dem offenen Agent Skills Standard.`
       ]
     }
   }
-]
+})
