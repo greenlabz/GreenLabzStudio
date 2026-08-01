@@ -50,30 +50,37 @@ async function prerender() {
   }
 
   const server = await serveStatic(distDir, 4173)
-  const browser = await chromium.launch()
-  const page = await browser.newPage()
 
-  const routes = ['/']
+  try {
+    const browser = await chromium.launch()
+    const page = await browser.newPage()
 
-  for (const route of routes) {
-    const url = `http://localhost:4173${route}`
-    console.log(`📸 Prerendering HTML für: ${url}`)
-    await page.goto(url, { waitUntil: 'networkidle' })
+    const routes = ['/']
 
-    // Warte bis React vollstaendig den DOM gerendert hat
-    await page.waitForSelector('#root > *', { timeout: 15000 })
+    for (const route of routes) {
+      const url = `http://localhost:4173${route}`
+      console.log(`📸 Prerendering HTML für: ${url}`)
+      await page.goto(url, { waitUntil: 'networkidle' })
 
-    const htmlContent = await page.content()
-    const targetFile = route === '/' ? path.join(distDir, 'index.html') : path.join(distDir, route, 'index.html')
+      // Warte bis React vollstaendig den DOM gerendert hat
+      await page.waitForSelector('#root > *', { timeout: 15000 })
 
-    fs.mkdirSync(path.dirname(targetFile), { recursive: true })
-    fs.writeFileSync(targetFile, htmlContent, 'utf-8')
-    console.log(`✅ Static Prerendered HTML gespeichert (${Math.round(htmlContent.length / 1024)} KB)`)
+      const htmlContent = await page.content()
+      const targetFile = route === '/' ? path.join(distDir, 'index.html') : path.join(distDir, route, 'index.html')
+
+      fs.mkdirSync(path.dirname(targetFile), { recursive: true })
+      fs.writeFileSync(targetFile, htmlContent, 'utf-8')
+      console.log(`✅ Static Prerendered HTML gespeichert (${Math.round(htmlContent.length / 1024)} KB)`)
+    }
+
+    await browser.close()
+  } catch (err) {
+    console.warn('⚠️ Server-side Prerendering übersprungen (Browser-Libs auf Vercel Build-Container nicht installiert):', err.message)
+  } finally {
+    server.close()
   }
 
-  await browser.close()
-  server.close()
-  console.log('🎉 Static HTML Prerendering erfolgreich abgeschlossen!')
+  console.log('🎉 Build-Prozess abgeschlossen!')
 }
 
 prerender().catch((err) => {
