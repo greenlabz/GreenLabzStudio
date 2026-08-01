@@ -310,10 +310,7 @@ const methods: [string, string, string, string[]][] = [
   ['04', 'Entwicklung', 'Ich setze das System schnell, stabil und wartbar um. Nach dem Launch bleibt die technische Basis bereit für Wachstum.', ['Performance und Sicherheit', 'Tracking und Übergabe', 'Begleitung nach dem Launch']],
 ]
 
-const guides = [
-  ['Website-Relaunch ohne Risiko', 'Woran du erkennst, ob deine aktuelle Seite Anfragen verhindert und wie ein Relaunch sauber geplant wird.'],
-  ['SEO für lokale Betriebe', 'Welche Grundlagen wirklich zählen, bevor man Geld in Ads, Tools oder große Content-Pläne steckt.'],
-]
+
 
 const objections = [
   ['Was kostet eine neue Website?', 'Eine solide Website startet ab 1.190 EUR. Ein Relaunch startet ab 1.990 EUR, Premium-Projekte ab 2.990 EUR. Du bekommst vor dem Start eine klare Einschätzung ohne Preisnebel.'],
