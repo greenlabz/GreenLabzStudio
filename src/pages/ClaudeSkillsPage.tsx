@@ -117,12 +117,10 @@ export default function ClaudeSkillsPage({ onNavigate, initialSkillId }: ClaudeS
                 <div className="step-content">
                   <span className="step-label">Dein KI-Agent arbeitet sofort intelligenter</span>
                   <p className="step-note">✨ Claude nutzt die neuen Regeln &amp; Workflows automatisch bei passenden Aufgaben.</p>
-                </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
 
         {/* Search & Category Filter Control */}
         <div className="skills-filter-toolbar">
