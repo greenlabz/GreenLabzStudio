@@ -77,7 +77,7 @@ const cardIcons = {
 
 type Discipline = [string, string, string, string[], keyof typeof cardIcons, string]
 type PricingPackage = [string, string, string, string[]]
-type PricingAddOn = [string, string, string, string, string]
+
 type BookingTopic = {
   title: string
   options: string[]
