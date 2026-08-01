@@ -1447,29 +1447,9 @@ export default function App() {
           </div>
         </section>
 
-        <section className="section guide-section" data-reveal>
-          <div className="section-head">
-            <SectionLabel number="12" label="Ratgeber / Tipps" />
-            <h2>Erst <span className="section-title-serif">wissen</span><br /> was zählt. Dann <span className="section-title-serif">entscheiden</span></h2>
-          </div>
-          <div className="guide-grid">
-            {guides.map(([title, text]) => (
-              <article className="guide-card" key={title}>
-                <Sparkles size={18} />
-                <h3>{title}</h3>
-                <p>{text}</p>
-                <a href="#ratgeber" onClick={(event) => { event.preventDefault(); navigate('ratgeber') }}>Ratgeber öffnen <ArrowUpRight size={16} /></a>
-              </article>
-            ))}
-          </div>
-          <div style={{ marginTop: '3rem', display: 'flex' }}>
-            <PrimaryCta onClick={() => navigate('ratgeber')}>Alle Ratgeber anzeigen</PrimaryCta>
-          </div>
-        </section>
-
         <section className="section lead-magnet-section" id="freebie" data-reveal>
           <div className="lead-magnet-copy">
-            <SectionLabel number="13" label="5-Minuten-Checkliste für deine Website" />
+            <SectionLabel number="12" label="5-Minuten-Checkliste für deine Website" />
             <h2><span className="section-title-serif">Warum</span> deine Website <span className="section-title-serif">Kunden verliert.</span></h2>
             <p>
               Die 5-Minuten-Checkliste als PDF. Finde heraus, ob deine Website Vertrauen aufbaut, bei Google gefunden wird und echte Anfragen auslöst.
@@ -1534,7 +1514,7 @@ export default function App() {
 
         <section className="section objections-section" id="faq" data-reveal>
           <div className="section-head">
-            <SectionLabel number="14" label="Einwände / Stille Ängste" />
+            <SectionLabel number="13" label="Einwände / Stille Ängste" />
             <h2><span className="section-title-serif">Fragen</span> & <span className="section-title-serif">Antworten</span></h2>
             <p className="faq-intro">Häufige Fragen, klare Antworten. Damit du einschätzen kannst, ob GreenLabz Studio zu deinem Betrieb passt.</p>
           </div>
@@ -1553,7 +1533,7 @@ export default function App() {
             <img src="/assets/james-portrait-2.png" alt="James Green" className="about-image" />
           </div>
           <div>
-            <SectionLabel number="15" label="About Me" />
+            <SectionLabel number="14" label="About Me" />
             <h2><span className="section-title-serif">Warum</span> GreenLabz Studio <span className="section-title-serif">?</span></h2>
             <p>
               Hi, ich bin James Green. Ich entwickle maßgeschneiderte digitale Plattformen, die nicht nur auf den ersten Blick faszinieren, sondern deine Besucher gezielt in echte Kunden verwandeln. Dafür setze ich auf modernste KI-gestützte Entwicklungsprozesse. Sie machen mich schneller und präziser als klassische Agenturen und deine digitale Präsenz effizient, skalierbar und zukunftssicher. Mein Antrieb ist simpel: Meine Kunden sollen online so wirken wie sie wirklich sind. Professionell, vertrauenswürdig und einen Schritt voraus. Mein Fokus liegt auf einem Ding: deinem Umsatzwachstum durch smarte technologische Umsetzung. Ich freue mich darauf, mit dir zu arbeiten. Bis bald!
@@ -1562,7 +1542,7 @@ export default function App() {
         </section>
 
         <section className="contact-section calendar-section" id="calendar" data-reveal>
-          <SectionLabel number="16" label="Kostenloses Erstgespräch" />
+          <SectionLabel number="15" label="Kostenloses Erstgespräch" />
           <h2><span className="section-title-serif">In drei Schritten</span> zum passenden Gespräch.</h2>
           <p>
             25 Minuten. Kein Verkaufstheater. Erst dein Anliegen, dann dein Termin.
@@ -1573,7 +1553,7 @@ export default function App() {
 
 
         <section className="section contact-section" id="contact" data-reveal>
-          <SectionLabel number="17" label="Kontakt" />
+          <SectionLabel number="16" label="Kontakt" />
           <h2><span className="section-title-serif">Lass</span> uns <span className="section-title-serif">reden</span></h2>
           <p>
             Erzähl mir von deinem nächsten Projekt oder stelle deine Frage. Klicke auf den Button unten, um mir direkt deine Nachricht zu senden.
