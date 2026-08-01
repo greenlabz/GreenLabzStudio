@@ -1,6 +1,7 @@
 import { type CSSProperties, lazy, Suspense, useEffect, useRef, useState } from 'react'
 import Cal, { getCalApi } from "@calcom/embed-react"
 import { ContactModal } from './ContactModal'
+import { PflegeModal } from './PflegeModal'
 import { DatenschutzModal } from './DatenschutzModal'
 import { ImpressumModal } from './ImpressumModal'
 const RatgeberPage = lazy(() => import('./pages/RatgeberPage'))
@@ -482,26 +483,28 @@ function BookingFlow({ onOpenDatenschutz }: { onOpenDatenschutz: () => void }) {
                 config={{
                   layout: 'month_view',
                   useSlotsViewOnSmallScreen: 'true',
-                }}
-              />
-            </div>
-            <p className="booking-privacy">
-              Für die Terminbuchung werden deine Angaben an Cal.com übermittelt. Details stehen in der{' '}
-              <button type="button" onClick={onOpenDatenschutz}>Datenschutzerklärung</button>.
-            </p>
-          </div>
-        )}
-      </div>
-    </div>
-  )
-}
+import { ContactModal } from './ContactModal'
+import { PflegeModal } from './PflegeModal'
+import DatenschutzModal from './DatenschutzModal'
+import ImpressumModal from './ImpressumModal'
 
-function App() {
+const RatgeberPage = lazy(() => import('./pages/RatgeberPage'))
+const ClaudeSkillsPage = lazy(() => import('./pages/ClaudeSkillsPage'))
+
+export default function App() {
   const rootRef = useRef<HTMLDivElement>(null)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isContactModalOpen, setIsContactModalOpen] = useState(false)
+  const [isPflegeModalOpen, setIsPflegeModalOpen] = useState(false)
+  const [selectedPflegePackage, setSelectedPflegePackage] = useState('Pflege Business')
   const [isDatenschutzModalOpen, setIsDatenschutzModalOpen] = useState(false)
   const [isImpressumModalOpen, setIsImpressumModalOpen] = useState(false)
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const openPflegeAnfrage = (packageName: string) => {
+    setSelectedPflegePackage(packageName)
+    setIsPflegeModalOpen(true)
+  }
+
   const [route, setRoute] = useState(() => {
     const h = window.location.hash.replace('#', '')
     if (h.startsWith('ratgeber')) return 'ratgeber'
@@ -1329,9 +1332,9 @@ function App() {
                   <li><Check size={14} /> Kleine Anpassungen (30 Min. / Monat)</li>
                   <li><Check size={14} /> E-Mail-Support</li>
                 </ul>
-                <a className="pricing-cta" href="#calendar">
+                <button type="button" className="pricing-cta" onClick={() => openPflegeAnfrage('Pflege Basis')}>
                   <span className="cta-label">Paket anfragen</span>
-                </a>
+                </button>
               </article>
 
               <article className="pricing-card maintenance-card featured">
@@ -1350,10 +1353,10 @@ function App() {
                   <li><Check size={14} /> Performance- &amp; Core-Web-Vitals-Checks</li>
                   <li><Check size={14} /> Prio-Support mit fester Reaktionszeit</li>
                 </ul>
-                <a className="pricing-cta" href="#calendar">
+                <button type="button" className="pricing-cta" onClick={() => openPflegeAnfrage('Pflege Business')}>
                   <span className="cta-dots" aria-hidden="true" />
                   <span className="cta-label">Paket anfragen</span>
-                </a>
+                </button>
               </article>
 
               <article className="pricing-card maintenance-card">
@@ -1371,9 +1374,9 @@ function App() {
                   <li><Check size={14} /> SEO-Dashboard inklusive</li>
                   <li><Check size={14} /> Strategie-Call pro Quartal</li>
                 </ul>
-                <a className="pricing-cta" href="#calendar">
+                <button type="button" className="pricing-cta" onClick={() => openPflegeAnfrage('Pflege Premium')}>
                   <span className="cta-label">Paket anfragen</span>
-                </a>
+                </button>
               </article>
             </div>
           </div>
@@ -1406,10 +1409,10 @@ function App() {
                   <li><Check size={14} /> SEO- &amp; Conversion-Optimierung</li>
                   <li><Check size={14} /> Google Ads Kampagnen-Setup</li>
                 </ul>
-                <a className="pricing-cta" href="#calendar">
+                <button type="button" className="pricing-cta" onClick={() => openPflegeAnfrage('Shop & E-Commerce')}>
                   <span className="cta-label">Shop &amp; E-Commerce anfragen</span>
                   <ArrowRight size={16} />
-                </a>
+                </button>
               </article>
 
               <article className="pricing-card custom-app-card featured">
@@ -1433,11 +1436,11 @@ function App() {
                   <li><Check size={14} /> SEO-Dashboard &amp; SEO-Pflege</li>
                   <li><Check size={14} /> Laufende Betreuung &amp; Weiterentwicklung</li>
                 </ul>
-                <a className="pricing-cta" href="#calendar">
+                <button type="button" className="pricing-cta" onClick={() => openPflegeAnfrage('Individuell & Web-App')}>
                   <span className="cta-dots" aria-hidden="true" />
                   <span className="cta-label">Individuell &amp; Web-App anfragen</span>
                   <ArrowRight size={16} />
-                </a>
+                </button>
               </article>
             </div>
           </div>
@@ -1616,6 +1619,12 @@ function App() {
       <ContactModal 
         isOpen={isContactModalOpen} 
         onClose={() => setIsContactModalOpen(false)} 
+        onOpenDatenschutz={() => setIsDatenschutzModalOpen(true)}
+      />
+      <PflegeModal
+        isOpen={isPflegeModalOpen}
+        onClose={() => setIsPflegeModalOpen(false)}
+        packageName={selectedPflegePackage}
         onOpenDatenschutz={() => setIsDatenschutzModalOpen(true)}
       />
       <DatenschutzModal
