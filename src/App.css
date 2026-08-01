@@ -1023,8 +1023,8 @@
 
 .ba-case-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
-  gap: clamp(1.2rem, 3vw, 2.2rem);
+  grid-template-columns: minmax(0, 1.65fr) minmax(0, 0.35fr);
+  gap: clamp(1rem, 2.5vw, 1.8rem);
   align-items: stretch;
   width: 100%;
 }
@@ -1032,7 +1032,7 @@
 .ba-slider-container {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 11;
+  aspect-ratio: 16 / 9;
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid rgba(0, 204, 106, 0.25);
