@@ -284,15 +284,7 @@ const pricingPackages: PricingPackage[] = [
 
 
 
-const techReferences = [
-  ['Next.js 16', 'Production Framework powering every GreenLabz Studio site.', 'https://nextjs.org'],
-  ['React 19', 'UI library that keeps interfaces fast and modular.', 'https://react.dev'],
-  ['Vercel', 'Default deployment platform with global CDN and fast previews.', 'https://vercel.com'],
-  ['TypeScript', 'Type-safe codebase for reliable, maintainable projects.', 'https://www.typescriptlang.org'],
-  ['Core Web Vitals', 'Google performance standards for speed and user experience.', 'https://web.dev/vitals'],
-  ['Schema.org', 'Structured data foundation for Google and AI search systems.', 'https://schema.org'],
-  ['/llms-full.txt', 'Machine-readable reference layer for AI assistant visibility.', 'https://llmstxt.org'],
-]
+
 
 const promises = [
   ['100% individuell, keine Templates', 'Ich nutze keine billigen WordPress-Baukästen. Jedes Projekt wird von Grund auf mit modernsten Technologien und effizienten KI-Workflows maßgeschneidert entwickelt.', 'code'],
@@ -1577,28 +1569,8 @@ export default function App() {
 
 
 
-        <section className="section tech-section" data-reveal>
-          <div className="tech-refs">
-            <SectionLabel number="17" label="Technik" />
-            <h2>Technologie & <span className="section-title-serif">Transparenz</span></h2>
-            <p>
-              Ich nenne Stack, Performance-Ziele und Standards offen. Hier kannst du die wichtigsten
-              Quellen selbst nachvollziehen.
-            </p>
-          </div>
-          <div className="tech-grid">
-            {techReferences.map(([title, text, href]) => (
-              <a className="tech-card" href={href} target="_blank" rel="noreferrer" key={title}>
-                <strong>{title}</strong>
-                <p>{text}</p>
-                <ArrowUpRight size={15} />
-              </a>
-            ))}
-          </div>
-        </section>
-
         <section className="section contact-section" id="contact" data-reveal>
-          <SectionLabel number="18" label="Kontakt" />
+          <SectionLabel number="17" label="Kontakt" />
           <h2><span className="section-title-serif">Lass</span> uns <span className="section-title-serif">reden</span></h2>
           <p>
             Erzähl mir von deinem nächsten Projekt oder stelle deine Frage. Klicke auf den Button unten, um mir direkt deine Nachricht zu senden.
