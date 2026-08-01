@@ -42,6 +42,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Lenis from 'lenis'
 import { HeroBendGallery } from './components/HeroBendGallery'
+import { BeforeAfterSlider } from './components/BeforeAfterSlider'
 import './App.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -1226,9 +1227,8 @@ export default function App() {
                 <div><span>Umgesetzt</span><p>{featuredCase.after}</p></div>
               </div>
             </div>
-            <div className="featured-case-visuals" aria-label="Vorher und Nachher Platzhalterbilder">
-              <div className="case-shot before"><span>VORHER</span><div className="case-shot-browser"><i /><i /><i /></div><h4>Praxis Website</h4><p>Informationen ohne klare Führung</p></div>
-              <div className="case-shot after"><span>NACHHER</span><div className="case-shot-browser"><i /><i /><i /></div><h4>Mehr Vertrauen. Mehr Termine.</h4><p>Klare Leistung, klare Handlung.</p></div>
+            <div className="featured-case-visuals" aria-label="Interaktiver Vorher und Nachher Vergleich">
+              <BeforeAfterSlider />
             </div>
           </article>
           <div className="work-list">

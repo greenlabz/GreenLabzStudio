@@ -1007,6 +1007,133 @@
   line-height: 1.4;
 }
 .case-steps > svg { color: var(--accent); }
+/* Interactive Before/After Split Slider */
+.ba-slider-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #000;
+  user-select: none;
+  touch-action: none;
+  cursor: ew-resize;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.ba-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ba-browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  background: #0e1310;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ba-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.ba-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.ba-url {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--accent);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 2px 10px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.ba-image img {
+  width: 100%;
+  height: calc(100% - 32px);
+  object-fit: cover;
+  object-position: top center;
+}
+
+.ba-before-image {
+  z-index: 2;
+}
+
+.ba-badge {
+  position: absolute;
+  bottom: 1rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 6px 14px;
+  border-radius: 99px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  z-index: 3;
+}
+
+.after-badge {
+  right: 1rem;
+  background: var(--accent);
+  color: #04120b;
+}
+
+.before-badge {
+  left: 1rem;
+  background: #2a2a2a;
+  color: #e0e0e0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.ba-divider-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  z-index: 4;
+  transform: translateX(-50%);
+}
+
+.ba-divider-line {
+  width: 3px;
+  height: 100%;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+}
+
+.ba-handle-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #04120b;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 0 20px color-mix(in oklch, var(--accent) 50%, transparent);
+}
+
 .featured-case-visuals {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
