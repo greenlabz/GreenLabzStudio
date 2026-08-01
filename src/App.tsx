@@ -1216,17 +1216,22 @@ export default function App() {
             <h2>Kein <span className="text-accent">Blabla</span>. Nur fertige Websites.</h2>
           </div>
           <article className="featured-case">
-            <div className="featured-case-copy">
-              <span className="case-kicker">{featuredCase.label}</span>
-              <h3>{featuredCase.title}</h3>
-              <p>{featuredCase.intro}</p>
-              <strong>{featuredCase.outcome}</strong>
-              <div className="case-steps">
-                <div><span>Vorher</span><p>{featuredCase.before}</p></div>
-                <ArrowRight size={18} aria-hidden="true" />
-                <div><span>Umgesetzt</span><p>{featuredCase.after}</p></div>
+            <div className="featured-case-header">
+              <div className="featured-case-intro-block">
+                <span className="case-kicker">{featuredCase.label}</span>
+                <h3>{featuredCase.title}</h3>
+                <p>{featuredCase.intro}</p>
+              </div>
+              <div className="featured-case-stats-block">
+                <strong>{featuredCase.outcome}</strong>
+                <div className="case-steps">
+                  <div><span>Vorher</span><p>{featuredCase.before}</p></div>
+                  <ArrowRight size={18} aria-hidden="true" />
+                  <div><span>Umgesetzt</span><p>{featuredCase.after}</p></div>
+                </div>
               </div>
             </div>
+
             <div className="featured-case-visuals" aria-label="Interaktiver Vorher und Nachher Vergleich">
               <BeforeAfterSlider />
             </div>
