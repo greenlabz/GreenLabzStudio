@@ -1221,13 +1221,10 @@ export default function App() {
                 <span className="case-kicker">{featuredCase.label}</span>
                 <h3>{featuredCase.title}</h3>
                 <p>{featuredCase.intro}</p>
-              </div>
-              <div className="featured-case-stats-block">
-                <strong>{featuredCase.outcome}</strong>
                 <div className="case-steps">
-                  <div><span>Vorher</span><p>{featuredCase.before}</p></div>
+                  <div><span>VORHER</span><p>{featuredCase.before}</p></div>
                   <ArrowRight size={18} aria-hidden="true" />
-                  <div><span>Umgesetzt</span><p>{featuredCase.after}</p></div>
+                  <div><span>UMGESETZT (NACHHER)</span><p>{featuredCase.after}</p></div>
                 </div>
               </div>
             </div>

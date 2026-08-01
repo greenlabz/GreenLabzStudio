@@ -965,10 +965,9 @@
 }
 
 .featured-case-header {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
-  gap: clamp(1.5rem, 3vw, 3.5rem);
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--line);
 }
@@ -993,42 +992,27 @@
 }
 
 .featured-case-intro-block p {
-  margin: 0;
+  margin: 0 0 1.2rem;
   color: var(--muted);
-  font-size: .92rem;
+  font-size: .95rem;
   line-height: 1.5;
-}
-
-.featured-case-stats-block {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-}
-
-.featured-case-stats-block strong {
-  display: inline-block;
-  color: var(--accent);
-  font-family: var(--hero-display);
-  font-size: clamp(1.4rem, 2.8vw, 2.2rem);
-  font-weight: 700;
-  margin-bottom: .8rem;
+  max-width: 80ch;
 }
 
 .case-steps {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.2fr) auto minmax(0, 1.8fr);
   align-items: center;
-  gap: .75rem;
-  padding-top: .8rem;
+  gap: 1.2rem;
+  padding-top: 1.2rem;
   border-top: 1px dashed var(--line);
 }
 
 .case-steps p {
-  margin: .2rem 0 0;
+  margin: .25rem 0 0;
   color: var(--muted);
-  font-size: .84rem;
-  line-height: 1.35;
+  font-size: .88rem;
+  line-height: 1.4;
 }
 .case-steps > svg { color: var(--accent); }
 
