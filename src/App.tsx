@@ -1221,10 +1221,21 @@ export default function App() {
                 <span className="case-kicker">{featuredCase.label}</span>
                 <h3>{featuredCase.title}</h3>
                 <p>{featuredCase.intro}</p>
-                <div className="case-steps">
-                  <div><span>VORHER</span><p>{featuredCase.before}</p></div>
-                  <ArrowRight size={18} aria-hidden="true" />
-                  <div><span>UMGESETZT (NACHHER)</span><p>{featuredCase.after}</p></div>
+              </div>
+
+              <div className="featured-case-side-details">
+                <div className="case-steps-column">
+                  <div className="case-step-item before">
+                    <span>VORHER</span>
+                    <p>{featuredCase.before}</p>
+                  </div>
+                  <div className="case-step-divider">
+                    <ArrowRight size={18} aria-hidden="true" />
+                  </div>
+                  <div className="case-step-item after">
+                    <span>UMGESETZT (NACHHER)</span>
+                    <p>{featuredCase.after}</p>
+                  </div>
                 </div>
               </div>
             </div>

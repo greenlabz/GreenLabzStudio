@@ -965,15 +965,15 @@
 }
 
 .featured-case-header {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(1.5rem, 3vw, 3.5rem);
+  align-items: center;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--line);
 }
 
-.case-kicker,
-.case-steps span {
+.case-kicker {
   color: var(--accent);
   font-family: var(--mono);
   font-size: .68rem;
@@ -986,35 +986,63 @@
   margin: .35rem 0 .55rem;
   color: var(--ink);
   font-family: var(--hero-display);
-  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  font-size: clamp(1.45rem, 2.8vw, 2.2rem);
   font-weight: 600;
   line-height: 1.05;
 }
 
 .featured-case-intro-block p {
-  margin: 0 0 1.2rem;
+  margin: 0;
   color: var(--muted);
-  font-size: .95rem;
+  font-size: .92rem;
   line-height: 1.5;
-  max-width: 80ch;
 }
 
-.case-steps {
+.featured-case-side-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(0, 204, 106, 0.03);
+  border: 1px solid rgba(0, 204, 106, 0.15);
+  border-radius: 14px;
+  padding: 1.1rem 1.3rem;
+}
+
+.case-steps-column {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) auto minmax(0, 1.8fr);
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  gap: 1.2rem;
-  padding-top: 1.2rem;
-  border-top: 1px dashed var(--line);
+  gap: 0.9rem;
 }
 
-.case-steps p {
-  margin: .25rem 0 0;
-  color: var(--muted);
-  font-size: .88rem;
-  line-height: 1.4;
+.case-step-item span {
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
 }
-.case-steps > svg { color: var(--accent); }
+
+.case-step-item.before span {
+  color: var(--muted);
+}
+
+.case-step-item.after span {
+  color: var(--accent);
+}
+
+.case-step-item p {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.38;
+}
+
+.case-step-divider {
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* Interactive Before/After Grid with Live Results Panel */
 .featured-case-visuals {
@@ -5541,17 +5569,17 @@
   }
   .featured-case-header {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 1.2rem;
     padding-bottom: 1rem;
   }
   .featured-case-intro-block h3 {
     max-width: 100%;
   }
-  .case-steps {
+  .case-steps-column {
     grid-template-columns: 1fr;
     gap: 0.6rem;
   }
-  .case-steps > svg {
+  .case-step-divider {
     display: none;
   }
   .featured-case-visuals {
