@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { ArrowLeft, Search, Copy, Check, Terminal, ExternalLink, Sparkles, X, ShieldCheck, Tag, Code2, Cpu } from 'lucide-react'
 import { claudeSkillsData, skillsCategories, type SkillsItem } from './claudeSkillsData'
-import ParticleScroll from '../components/ParticleScroll'
 
 interface ClaudeSkillsPageProps {
   onNavigate: (route: string) => void
@@ -64,17 +63,16 @@ export default function ClaudeSkillsPage({ onNavigate, initialSkillId }: ClaudeS
       </div>
 
       <section className="section ratgeber-section skills-hero-section">
-        <ParticleScroll density={1.5} spread={200} gravity={0.3} swirl={50} point={0.7}>
-          <div className="skills-hero-grid">
-            <div className="skills-hero-copy">
-              <p className="section-code"><span></span> [09] GreenLabz Open Library · 2026</p>
-              <h1 className="skills-hero-title">
-                Claude <span className="text-accent">Skills Library</span>
-              </h1>
-              <p className="skills-hero-lead">
-                Die 150 meistgenutzten Agent Skills – kuratiert aus dem offenen Vercel Skills Ökosystem. Finde fertige Fähigkeiten für Claude Code, Cursor &amp; AI-Agenten.
-              </p>
-              <div className="skills-hero-badges">
+        <div className="skills-hero-grid">
+          <div className="skills-hero-copy">
+            <p className="section-code"><span></span> [09] GreenLabz Open Library · 2026</p>
+            <h1 className="skills-hero-title">
+              Claude <span className="text-accent">Skills Library</span>
+            </h1>
+            <p className="skills-hero-lead">
+              Die 150 meistgenutzten Agent Skills – kuratiert aus dem offenen Vercel Skills Ökosystem. Finde fertige Fähigkeiten für Claude Code, Cursor &amp; AI-Agenten.
+            </p>
+            <div className="skills-hero-badges">
               <span><ShieldCheck size={14} className="text-accent" /> 100% Open Source</span>
               <span><Terminal size={14} className="text-accent" /> Claude Code Ready</span>
               <span><Sparkles size={14} className="text-accent" /> 1-Klick Installation</span>
@@ -124,7 +122,6 @@ export default function ClaudeSkillsPage({ onNavigate, initialSkillId }: ClaudeS
             </div>
           </div>
         </div>
-        </ParticleScroll>
       </section>
 
       <section className="section ratgeber-section">
