@@ -25,7 +25,7 @@ const caseResults = [
   {
     icon: Zap,
     title: '0.7s Ladezeit & KI-Sichtbarkeit',
-    desc: 'Optimiert für Google & Perplexity KI-Suche',
+    desc: 'Optimiert für Google, ChatGPT & Co',
   },
 ]
 
