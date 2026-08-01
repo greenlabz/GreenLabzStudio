@@ -35,7 +35,7 @@ import {
   Handshake,
   ScanSearch,
   Ban,
-  Search, Settings2, CheckCircle2, Shield, MousePointer2, Bot, Building2
+  Search, Settings2, CheckCircle2, Shield, MousePointer2, Bot, Building2, Wrench
 , Smartphone} from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -1311,18 +1311,64 @@ function App() {
               </article>
             ))}
           </div>
-          <div className="pricing-addons">
-            {pricingAddOns.map(([title, kicker, name, price, text]) => (
-              <article className="pricing-addon" key={title}>
-                <div>
-                  <h3>{title}</h3>
-                  <span>{kicker}</span>
-                  <strong>{name}</strong>
-                  <p>{text}</p>
+          <div className="maintenance-section">
+            <div className="maintenance-head">
+              <h3>Dein Erfolg ist kein einmal Projekt</h3>
+              <p>Google findet dich ständig. Ich halte deine Website sicher, schnell und ganz oben.</p>
+            </div>
+            <div className="maintenance-grid">
+              <article className="pricing-card maintenance-card">
+                <div className="card-top-icon">
+                  <ShieldCheck size={20} className="text-accent" />
+                  <h4>Wartung Basis</h4>
                 </div>
-                <em>{price}</em>
+                <div className="card-price-row">
+                  <strong>59 €</strong><span>/ Monat</span>
+                </div>
+                <p className="card-subtext">Die Website bleibt sicher, aktuell und erreichbar.</p>
+                <ul>
+                  <li><Check size={14} /> Updates, Backups &amp; Sicherheits-Monitoring</li>
+                  <li><Check size={14} /> Uptime-Überwachung</li>
+                  <li><Check size={14} /> Kleine Anpassungen (30 Min. / Monat)</li>
+                  <li><Check size={14} /> E-Mail-Support</li>
+                </ul>
               </article>
-            ))}
+
+              <article className="pricing-card maintenance-card featured">
+                <span className="pricing-badge">Empfohlen</span>
+                <div className="card-top-icon">
+                  <Wrench size={20} className="text-accent" />
+                  <h4>Wartung Business</h4>
+                </div>
+                <div className="card-price-row">
+                  <strong>129 €</strong><span>/ Monat</span>
+                </div>
+                <p className="card-subtext">Laufende Änderungen und Technik in guten Händen.</p>
+                <ul>
+                  <li><Check size={14} /> Alles aus Wartung Basis</li>
+                  <li><Check size={14} /> Änderungen &amp; Content-Updates (2 Std. / Monat)</li>
+                  <li><Check size={14} /> Performance- &amp; Core-Web-Vitals-Checks</li>
+                  <li><Check size={14} /> Prio-Support mit fester Reaktionszeit</li>
+                </ul>
+              </article>
+
+              <article className="pricing-card maintenance-card">
+                <div className="card-top-icon">
+                  <Sparkles size={20} className="text-accent" />
+                  <h4>Wartung Premium</h4>
+                </div>
+                <div className="card-price-row">
+                  <strong>249 €</strong><span>/ Monat</span>
+                </div>
+                <p className="card-subtext">Wartung plus laufende Sichtbarkeit und Beratung.</p>
+                <ul>
+                  <li><Check size={14} /> Alles aus Wartung Business</li>
+                  <li><Check size={14} /> Laufende SEO-Pflege &amp; Monats-Report</li>
+                  <li><Check size={14} /> SEO-Dashboard inklusive</li>
+                  <li><Check size={14} /> Strategie-Call pro Quartal</li>
+                </ul>
+              </article>
+            </div>
           </div>
         </section>
 
