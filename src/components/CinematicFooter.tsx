@@ -119,9 +119,9 @@ export default function CinematicFooter({ onPrimaryClick, onContactClick, onNavi
               <MagneticButton type="button" onClick={onPrimaryClick} className="cinematic-footer-pill cinematic-footer-primary">
                 Kostenloses Erstgespräch <ArrowRight size={18} />
               </MagneticButton>
-              <MagneticAnchor href="#cases" className="cinematic-footer-pill cinematic-footer-secondary">
-                Projekte ansehen
-              </MagneticAnchor>
+              <MagneticButton type="button" onClick={onContactClick} className="cinematic-footer-pill cinematic-footer-secondary">
+                Nachricht senden <MessageCircle size={18} />
+              </MagneticButton>
             </div>
             <nav className="cinematic-footer-nav" aria-label="Seitennavigation">
               {footerLinks.map((link) => (
