@@ -1479,10 +1479,90 @@
 }
 
 .card-price-row strong {
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   font-weight: 800;
   color: #ffffff;
   font-family: var(--hero-display);
+}
+
+/* 2-Cards Grid: E-Commerce & Custom Web-App */
+.custom-apps-section {
+  margin-top: clamp(3rem, 5vw, 4.5rem);
+  padding-top: clamp(2rem, 4vw, 3rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.custom-apps-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.8rem;
+}
+
+@media (max-width: 860px) {
+  .custom-apps-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.custom-app-card {
+  padding: 2.2rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-app-card .card-top-icon {
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.custom-app-card .card-subtext {
+  min-height: auto;
+  margin-top: 2px;
+  margin-bottom: 0;
+}
+
+.custom-app-price-box {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.1rem 1.4rem;
+  margin: 1.2rem 0 1.6rem;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.custom-app-price-box .price-kicker {
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+
+.custom-app-price-box strong {
+  font-size: clamp(2.1rem, 3.5vw, 2.6rem);
+  font-weight: 900;
+  color: #ffffff;
+  font-family: var(--hero-display);
+  letter-spacing: -0.02em;
+}
+
+.custom-app-price-box .price-sub {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-left: auto;
+}
+
+.custom-app-card ul {
+  margin-bottom: 2rem;
+}
+
+.custom-app-card .pricing-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .card-price-row span {

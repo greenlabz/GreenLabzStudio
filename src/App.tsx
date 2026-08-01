@@ -1320,7 +1320,7 @@ function App() {
                   <h4>Wartung Basis</h4>
                 </div>
                 <div className="card-price-row">
-                  <strong>59 €</strong><span>/ Monat</span>
+                  <strong>auf Anfrage</strong>
                 </div>
                 <p className="card-subtext">Die Website bleibt sicher, aktuell und erreichbar.</p>
                 <ul>
@@ -1341,7 +1341,7 @@ function App() {
                   <h4>Wartung Business</h4>
                 </div>
                 <div className="card-price-row">
-                  <strong>129 €</strong><span>/ Monat</span>
+                  <strong>auf Anfrage</strong>
                 </div>
                 <p className="card-subtext">Laufende Änderungen und Technik in guten Händen.</p>
                 <ul>
@@ -1362,7 +1362,7 @@ function App() {
                   <h4>Wartung Premium</h4>
                 </div>
                 <div className="card-price-row">
-                  <strong>249 €</strong><span>/ Monat</span>
+                  <strong>auf Anfrage</strong>
                 </div>
                 <p className="card-subtext">Wartung plus laufende Sichtbarkeit und Beratung.</p>
                 <ul>
@@ -1373,6 +1373,70 @@ function App() {
                 </ul>
                 <a className="pricing-cta" href="#calendar">
                   <span className="cta-label">Paket anfragen</span>
+                </a>
+              </article>
+            </div>
+          </div>
+
+          {/* Enterprise & Custom Web-App Section (2 Cards Grid) */}
+          <div className="custom-apps-section">
+            <div className="maintenance-head">
+              <h3>Shop, E-Commerce &amp; Web-Apps</h3>
+              <p>Komplexe digitale Systeme, maßgeschneidert für deinen Verkaufserfolg.</p>
+            </div>
+            <div className="custom-apps-grid">
+              <article className="pricing-card custom-app-card">
+                <div className="card-top-icon">
+                  <ReceiptText size={22} className="text-accent" />
+                  <div>
+                    <h4>Shop &amp; E-Commerce</h4>
+                    <p className="card-subtext">Verkaufen mit einem eigenen Onlineshop.</p>
+                  </div>
+                </div>
+                <div className="custom-app-price-box">
+                  <span className="price-kicker">AB</span>
+                  <strong>22.000 €</strong>
+                  <span className="price-sub">je nach Umfang</span>
+                </div>
+                <ul>
+                  <li><Check size={14} /> Shop-System mit Produktverwaltung</li>
+                  <li><Check size={14} /> Stripe-Zahlungen &amp; Versand-Integration</li>
+                  <li><Check size={14} /> Individuelles Shop-Theme &amp; Branding</li>
+                  <li><Check size={14} /> Bestell- &amp; Kundenverwaltung</li>
+                  <li><Check size={14} /> SEO- &amp; Conversion-Optimierung</li>
+                  <li><Check size={14} /> Google Ads Kampagnen-Setup</li>
+                </ul>
+                <a className="pricing-cta" href="#calendar">
+                  <span className="cta-label">Shop &amp; E-Commerce anfragen</span>
+                  <ArrowRight size={16} />
+                </a>
+              </article>
+
+              <article className="pricing-card custom-app-card featured">
+                <div className="card-top-icon">
+                  <Code size={22} className="text-accent" />
+                  <div>
+                    <h4>Individuell &amp; Web-App</h4>
+                    <p className="card-subtext">Maßgeschneiderte Systeme und Web-Apps.</p>
+                  </div>
+                </div>
+                <div className="custom-app-price-box">
+                  <span className="price-kicker">BIS</span>
+                  <strong>35.000 €</strong>
+                  <span className="price-sub">individuelles Angebot</span>
+                </div>
+                <ul>
+                  <li><Check size={14} /> Individuelle Web-App-Entwicklung</li>
+                  <li><Check size={14} /> Stripe-Zahlungen, Abos &amp; Rechnungen</li>
+                  <li><Check size={14} /> Schnittstellen &amp; API-Anbindungen</li>
+                  <li><Check size={14} /> Logins, Rollen &amp; Dashboards</li>
+                  <li><Check size={14} /> SEO-Dashboard &amp; SEO-Pflege</li>
+                  <li><Check size={14} /> Laufende Betreuung &amp; Weiterentwicklung</li>
+                </ul>
+                <a className="pricing-cta" href="#calendar">
+                  <span className="cta-dots" aria-hidden="true" />
+                  <span className="cta-label">Individuell &amp; Web-App anfragen</span>
+                  <ArrowRight size={16} />
                 </a>
               </article>
             </div>
