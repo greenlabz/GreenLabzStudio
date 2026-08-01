@@ -1043,10 +1043,6 @@
   cursor: ew-resize;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 204, 106, 0.12);
 }
-  touch-action: none;
-  cursor: ew-resize;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 204, 106, 0.12);
-}
 
 .ba-live-results-panel {
   display: flex;
