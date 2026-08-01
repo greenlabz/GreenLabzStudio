@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './ContactModal.css'
-import { ArrowRight, CheckCircle2, ShieldCheck, X } from 'lucide-react'
+import { ArrowRight, CheckCircle2, X } from 'lucide-react'
 
 interface PflegeModalProps {
   isOpen: boolean
