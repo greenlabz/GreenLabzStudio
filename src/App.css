@@ -1021,19 +1021,11 @@
   width: 100%;
 }
 
-.ba-case-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-  gap: clamp(1.2rem, 3vw, 2.2rem);
-  align-items: center;
-  width: 100%;
-}
-
 .ba-slider-container {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  max-height: 440px;
+  aspect-ratio: 16 / 9;
+  max-height: 520px;
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid rgba(0, 204, 106, 0.25);
