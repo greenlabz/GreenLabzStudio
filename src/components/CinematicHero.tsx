@@ -4,6 +4,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import HeroWave from './HeroWave'
 import WebsiteAuditTool from './WebsiteAuditTool'
+import GreenLabzLaser from './GreenLabzLaser'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -135,7 +136,8 @@ export default function CinematicHero({ onOpenDatenschutz }: CinematicHeroProps 
       <HeroWave />
       <div className="gl-exact-bg-grid" aria-hidden="true" />
 
-      <div className="gl-exact-hero-text-wrapper">
+      <div className="gl-exact-hero-text-wrapper" style={{ position: 'relative' }}>
+        <GreenLabzLaser />
         <div className="gl-exact-text-track">
           <h1 className="gl-exact-text-3d">Umsatzstarke <span className="gl-exact-serif">Websites</span> &amp;</h1>
           <h1 className="gl-exact-text-days">Software <span className="gl-exact-serif">die verkaufen.</span></h1>
