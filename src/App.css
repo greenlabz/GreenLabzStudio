@@ -950,7 +950,9 @@
   overflow: visible;
 }
 .work-section {
-  width: min(1440px, calc(100% - 2rem));
+  width: 100%;
+  max-width: 100%;
+  padding-inline: clamp(1rem, 3vw, 3rem);
 }
 .featured-case {
   display: flex;
@@ -1005,8 +1007,8 @@
 
 .ba-case-side-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-  gap: clamp(1.2rem, 3vw, 2.2rem);
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: clamp(1rem, 2.5vw, 1.8rem);
   align-items: stretch;
   width: 100%;
 }
