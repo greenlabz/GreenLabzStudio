@@ -46,7 +46,6 @@ export function BeforeAfterSlider() {
           <div className="ba-url">zahnaerzte-roth.de (NEU / REDESIGN)</div>
         </div>
         <img src="/cases/roth.png" alt="Zahnarzt Dr. Roth Redesign Nachher" />
-        <span className="ba-badge after-badge">NACHHER (GreenLabz Studio)</span>
       </div>
 
       {/* VORHER Bild (Abgeschnitten durch Slider %) */}
@@ -63,7 +62,6 @@ export function BeforeAfterSlider() {
           <div className="ba-url" style={{ color: '#888' }}>zahnaerzte-roth.de (VORHER / ALT)</div>
         </div>
         <img src="/cases/roth-before.jpg" alt="Zahnarzt Praxis Alte Website Vorher" />
-        <span className="ba-badge before-badge">VORHER (Alte Website)</span>
       </div>
 
       {/* Interaktiver Trenn-Regler */}

@@ -1011,7 +1011,7 @@
 .ba-slider-container {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 12;
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid var(--line);
