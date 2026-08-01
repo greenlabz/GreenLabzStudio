@@ -1295,6 +1295,157 @@
   letter-spacing: .12em;
   text-transform: uppercase;
 }
+/* 3D Bend Showcase Gallery */
+.hero-bend-gallery-section {
+  position: relative;
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  perspective: 1200px;
+}
+
+.bend-gallery-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+}
+
+.bend-gallery-card {
+  position: relative;
+  border-radius: 20px;
+  transform: perspective(1000px) rotateX(10deg) rotateY(0deg);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+  will-change: transform;
+}
+
+.bend-gallery-card:hover,
+.bend-gallery-card.is-active {
+  z-index: 5;
+}
+
+.bend-card-frame {
+  background: #090c0a;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bend-gallery-card:hover .bend-card-frame,
+.bend-gallery-card.is-active .bend-card-frame {
+  border-color: color-mix(in oklch, var(--accent) 60%, transparent);
+  box-shadow:
+    0 30px 70px rgba(0, 204, 106, 0.18),
+    0 0 35px rgba(0, 204, 106, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.bend-browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: rgba(0, 0, 0, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.bend-browser-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.bend-browser-dots .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.dot-red { background: #ff5f56; }
+.dot-yellow { background: #ffbd2e; }
+.dot-green { background: #27c93f; }
+
+.bend-browser-url {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 3px 12px;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.bend-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #000;
+}
+
+.bend-showcase-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bend-gallery-card:hover .bend-showcase-img {
+  transform: scale(1.04);
+}
+
+.bend-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 60%, rgba(9, 12, 10, 0.95));
+  pointer-events: none;
+}
+
+.bend-card-caption {
+  padding: 1.2rem 1.4rem 1.4rem;
+  background: #090c0a;
+}
+
+.bend-tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.4rem;
+}
+
+.bend-card-caption h4 {
+  font-family: var(--hero-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.3rem;
+}
+
+.bend-card-caption p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0;
+  min-height: auto;
+  text-align: left;
+}
+
+/* Mobile Responsiveness for 3D Bend Gallery */
+@media (max-width: 960px) {
+  .bend-gallery-container {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+    perspective: none;
+  }
+  .bend-gallery-card {
+    transform: none !important;
+  }
+}
+
 .pricing-card h3 {
   margin: .5rem 0 0;
   color: var(--ink);

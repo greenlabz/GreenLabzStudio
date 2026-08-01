@@ -41,6 +41,7 @@ import {
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Lenis from 'lenis'
+import { HeroBendGallery } from './components/HeroBendGallery'
 import './App.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -1288,6 +1289,8 @@ export default function App() {
             <ul>{methods[activeMethod][3].map((item) => <li key={item}><Check size={15} />{item}</li>)}</ul>
           </div>
         </section>
+
+        <HeroBendGallery />
 
         <section className="section pricing-section" id="pricing" data-reveal>
           <div className="section-head pricing-head">
