@@ -29,9 +29,8 @@ const showcases = [
 
 export function HeroBendGallery() {
   const [activeIndex, setActiveIndex] = useState(0)
-  const containerRef = useRef<HTMLDivElement>(null)
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>, index: number) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const card = e.currentTarget
     const rect = card.getBoundingClientRect()
     const x = e.clientX - rect.left
@@ -67,7 +66,7 @@ export function HeroBendGallery() {
             key={item.id}
             className={`bend-gallery-card ${activeIndex === index ? 'is-active' : ''}`}
             onMouseEnter={() => setActiveIndex(index)}
-            onMouseMove={(e) => handleMouseMove(e, index)}
+            onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
           >
             <div className="bend-card-frame">
