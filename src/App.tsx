@@ -1329,6 +1329,9 @@ function App() {
                   <li><Check size={14} /> Kleine Anpassungen (30 Min. / Monat)</li>
                   <li><Check size={14} /> E-Mail-Support</li>
                 </ul>
+                <a className="pricing-cta" href="#calendar">
+                  <span className="cta-label">Paket anfragen</span>
+                </a>
               </article>
 
               <article className="pricing-card maintenance-card featured">
@@ -1347,6 +1350,10 @@ function App() {
                   <li><Check size={14} /> Performance- &amp; Core-Web-Vitals-Checks</li>
                   <li><Check size={14} /> Prio-Support mit fester Reaktionszeit</li>
                 </ul>
+                <a className="pricing-cta" href="#calendar">
+                  <span className="cta-dots" aria-hidden="true" />
+                  <span className="cta-label">Paket anfragen</span>
+                </a>
               </article>
 
               <article className="pricing-card maintenance-card">
@@ -1364,6 +1371,9 @@ function App() {
                   <li><Check size={14} /> SEO-Dashboard inklusive</li>
                   <li><Check size={14} /> Strategie-Call pro Quartal</li>
                 </ul>
+                <a className="pricing-cta" href="#calendar">
+                  <span className="cta-label">Paket anfragen</span>
+                </a>
               </article>
             </div>
           </div>

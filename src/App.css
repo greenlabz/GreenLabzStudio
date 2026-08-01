@@ -1499,6 +1499,11 @@
 }
 
 .maintenance-card ul {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.maintenance-card .pricing-cta {
   margin-top: auto;
 }
 .pricing-addon {
