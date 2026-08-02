@@ -1003,6 +1003,13 @@
 /* Interactive Before/After Grid with Live Results Panel (Nebeneinander im rot markierten Bereich) */
 .featured-case-visuals {
   width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.featured-case-visuals .ba-slider-container {
+  max-width: 900px;
+  width: 100%;
 }
 
 .ba-case-side-grid {
