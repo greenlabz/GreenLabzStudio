@@ -71,11 +71,11 @@ export function BeforeAfterSlider() {
 
       const pinTarget = containerRef.current.closest<HTMLElement>('.featured-case') || containerRef.current
 
-      // Pin Timeline
+      // Pin Timeline (125px top clearance for floating header navigation)
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: pinTarget,
-          start: 'top 8%',
+          start: 'top 125px',
           end: () => `+=${Math.round(window.innerHeight * 1.8)}`,
           pin: true,
           pinSpacing: true,

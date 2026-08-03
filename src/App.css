@@ -950,9 +950,9 @@
   overflow: visible;
 }
 .work-section {
-  width: 100%;
+  width: min(1500px, calc(100% - 2rem));
   max-width: 100%;
-  padding-inline: clamp(1rem, 3vw, 3rem);
+  padding-inline: clamp(1rem, 3vw, 2.5rem);
 }
 .featured-case {
   display: flex;
