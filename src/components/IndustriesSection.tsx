@@ -1,13 +1,4 @@
-import { Car, Utensils, Hammer, Zap, Stethoscope, ArrowRight } from 'lucide-react'
-
-const CarCompanyBadge = () => (
-  <svg width="140" height="70" viewBox="0 0 140 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M20 42L36 22H104L120 42H132C135 42 137 44 137 47V52H3V47C3 44 5 42 8 42H20Z" fill="rgba(255,255,255,0.06)" stroke="#4285F4" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-    <circle cx="38" cy="52" r="8" fill="#0a0d0b" stroke="#4285F4" strokeWidth="3"/>
-    <circle cx="102" cy="52" r="8" fill="#0a0d0b" stroke="#4285F4" strokeWidth="3"/>
-    <text x="70" y="16" fill="#FFFFFF" fontSize="11" fontWeight="800" fontFamily="var(--mono)" textAnchor="middle" letterSpacing="3">CAR COMPANY</text>
-  </svg>
-)
+import { Car, Utensils, Hammer, Zap, Stethoscope } from 'lucide-react'
 
 const industries = [
   {
@@ -47,7 +38,7 @@ const industries = [
     subtitle: 'Autohäuser, Werkstätten & Aufbereitung',
     kicker: 'REFERENZ · CAR COMPANY',
     icon: Car,
-    customLogo: CarCompanyBadge,
+    image: '/assets/showcases/denker-logo.png',
     accent: '#4285f4',
   },
 ]
@@ -79,11 +70,7 @@ export function IndustriesSection() {
                     <Icon size={20} />
                   </div>
                   <div className="industry-image-wrapper">
-                    {ind.customLogo ? (
-                      <ind.customLogo />
-                    ) : (
-                      <img src={ind.image} alt={ind.title} className="industry-img" />
-                    )}
+                    <img src={ind.image} alt={ind.title} className="industry-img" />
                   </div>
                 </div>
 
@@ -93,7 +80,6 @@ export function IndustriesSection() {
 
                   <div className="industry-card-footer">
                     <span><small>■</small> {ind.kicker}</span>
-                    <ArrowRight size={16} />
                   </div>
                 </div>
               </article>

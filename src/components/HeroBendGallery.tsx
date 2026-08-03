@@ -22,11 +22,11 @@ const showcases: ShowcaseItem[] = [
   },
   {
     id: 'denker',
-    title: 'Denker KFZ Werkstatt',
-    subtitle: 'Freie Meisterwerkstatt mit digitaler Termin- & Rückmeldediagnose',
+    title: 'Automobil & KFZ',
+    subtitle: 'Autohäuser, Werkstätten & Aufbereitung',
     category: 'Handwerk & KFZ-Meisterbetrieb',
     image: '/assets/showcases/showcase-denker.png',
-    tag: 'KFZ & MEISTERBETRIEB',
+    tag: '■ REFERENZ · CAR COMPANY',
     objectPosition: 'top left',
   },
   {
