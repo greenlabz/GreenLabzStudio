@@ -20,6 +20,15 @@ const showcases = [
     objectPosition: 'top center',
   },
   {
+    id: 'makeup-luxe',
+    title: 'Luxe Botanicals Skincare',
+    subtitle: 'Natürliche Schönheit & Premium Make-Up Concept Store',
+    category: 'Beauty & Cosmetics',
+    image: '/assets/showcases/showcase-makeup.jpg',
+    tag: 'BEAUTY & SKINCARE',
+    objectPosition: 'top center',
+  },
+  {
     id: 'aura',
     title: 'Aura Studio & Agency',
     subtitle: 'Interaktives B2B Brand-Experience & Creative Studio',
