@@ -776,7 +776,7 @@ export default function App() {
         }
         if (trafficElement) {
           tl.to(trafficValue, {
-            value: 82,
+            value: 81,
             duration: .42,
             ease: 'none',
             onUpdate: () => {

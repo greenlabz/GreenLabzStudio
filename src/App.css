@@ -3295,6 +3295,122 @@
   flex-direction: column;
   gap: 3px;
 }
+
+/* ── Mobile vs Desktop Split-Bar (81% Mobile Screen) ── */
+.gl-split-bar-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border-radius: 12px;
+  background: rgba(14, 24, 19, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  margin: 0.4rem 0 0.5rem;
+}
+
+.gl-split-bar-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 0.42rem;
+  letter-spacing: 0.04em;
+}
+
+.gl-split-label {
+  display: flex;
+  align-items: center;
+  gap: 0.28rem;
+  text-transform: uppercase;
+}
+
+.gl-split-label-desktop {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.gl-split-label-mobile {
+  color: var(--accent);
+}
+
+.gl-split-num {
+  font-family: var(--hero-display, sans-serif);
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.gl-split-label-mobile .gl-split-num {
+  color: var(--accent);
+}
+
+.gl-split-bar-track {
+  position: relative;
+  display: flex;
+  height: 14px;
+  width: 100%;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 2px;
+  overflow: hidden;
+  gap: 2px;
+  align-items: center;
+}
+
+.gl-split-segment-wrapper {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.gl-wrapper-desktop {
+  width: 19%;
+  justify-content: flex-start;
+}
+
+.gl-wrapper-mobile {
+  width: 81%;
+  justify-content: flex-start;
+}
+
+.gl-split-bar-segment {
+  height: 100%;
+  border-radius: 4px;
+  will-change: width;
+  position: relative;
+  overflow: hidden;
+}
+
+.gl-bar-desktop {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.gl-bar-mobile {
+  background: linear-gradient(90deg, #00b35c 0%, #00cc6a 100%);
+  box-shadow: 0 0 10px rgba(0, 204, 106, 0.4);
+}
+
+.gl-segment-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 100% 50%, rgba(255, 255, 255, 0.6), transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.gl-split-divider {
+  width: 3px;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 2px;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px #ffffff;
+  z-index: 5;
+  opacity: 0;
+}
 @media (min-width: 1080px) {
   .mobile-importance-section {
     width: min(1560px, calc(100vw - 8rem));

@@ -1,6 +1,7 @@
 import { ArrowRight, Bolt, Check, Handshake, Laptop, LoaderCircle, ScanSearch, Smartphone, ThumbsDown, ThumbsUp, TrendingUp, Timer, X } from 'lucide-react'
 import type { RefObject } from 'react'
 import { SwipeCardStack } from './SwipeCardStack'
+import { MobileDesktopSplitBar } from './MobileDesktopSplitBar'
 
 type CinematicPhoneProps = {
   mockupRef?: RefObject<HTMLDivElement | null>
@@ -31,7 +32,7 @@ export default function CinematicPhone({ mockupRef, showBadges = true, staticVie
               <div className="gl-exact-phone-state gl-exact-phone-state-two">
                 <div className="gl-exact-phone-widget gl-exact-phone-header"><span>MOBILE FIRST</span><strong>Das Handy ist die neue Eingangstür</strong></div>
                 <div className="gl-exact-phone-widget gl-exact-phone-score gl-exact-phone-traffic"><svg viewBox="0 0 180 180" aria-hidden="true"><circle cx="90" cy="90" r="68" /><circle className="gl-exact-progress-ring" cx="90" cy="90" r="68" /></svg><strong className="gl-exact-traffic-value">0%</strong><span>Suchen über Mobile</span></div>
-                <div className="gl-exact-device-compare"><span><Smartphone size={15} />Mobile</span><span><Laptop size={13} />Desktop</span></div>
+                <MobileDesktopSplitBar />
                 <div className="gl-exact-phone-widget gl-exact-phone-row"><Smartphone size={15} /><span>NUTZERVERHALTEN</span><i /></div>
               </div>
               <div className="gl-exact-phone-state gl-exact-phone-state-three">
