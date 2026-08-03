@@ -1,5 +1,6 @@
 import { ArrowRight, Bolt, Check, Handshake, Laptop, LoaderCircle, ScanSearch, Smartphone, ThumbsDown, ThumbsUp, TrendingUp, Timer, X } from 'lucide-react'
 import type { RefObject } from 'react'
+import { SwipeCardStack } from './SwipeCardStack'
 
 type CinematicPhoneProps = {
   mockupRef?: RefObject<HTMLDivElement | null>
@@ -24,6 +25,7 @@ export default function CinematicPhone({ mockupRef, showBadges = true, staticVie
                 <div className="gl-exact-phone-widget gl-exact-phone-header"><span>MOBILE FIRST</span><strong>Der erste Eindruck entscheidet</strong></div>
                 <div className="gl-exact-phone-widget gl-exact-phone-score gl-exact-phone-stopwatch"><svg viewBox="0 0 180 180" aria-hidden="true"><circle cx="90" cy="90" r="68" /><circle className="gl-exact-progress-ring" cx="90" cy="90" r="68" /></svg><Timer className="gl-exact-stopwatch-icon" size={16} /><strong className="gl-exact-score-value">0.05s</strong><span>Entscheidungszeit</span></div>
                 <div className="gl-exact-phone-reactions"><span><ThumbsUp size={13} />Bleibt</span><span><ThumbsDown size={13} />Geht</span></div>
+                <SwipeCardStack />
                 <div className="gl-exact-phone-widget gl-exact-phone-row"><ScanSearch size={15} /><span>NUTZERVERHALTEN</span><i /></div>
               </div>
               <div className="gl-exact-phone-state gl-exact-phone-state-two">
