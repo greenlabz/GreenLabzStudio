@@ -10,11 +10,12 @@ export function DatenschutzModal({ isOpen, onClose }: DatenschutzModalProps) {
   if (!isOpen) return null
 
   return (
-    <div className="modal-backdrop" onClick={onClose}>
+    <div className="modal-backdrop" onClick={onClose} data-lenis-prevent>
       <div
         className="modal-content"
         style={{ maxWidth: '680px', maxHeight: '85vh', overflowY: 'auto' }}
         onClick={(event) => event.stopPropagation()}
+        data-lenis-prevent
       >
         <button className="modal-close" onClick={onClose} aria-label="Schließen">
           <X size={24} />

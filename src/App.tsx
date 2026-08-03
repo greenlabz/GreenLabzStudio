@@ -984,7 +984,7 @@ export default function App() {
         </button>
       </header>
       {isMenuOpen && (
-        <nav className="menu-panel" aria-label="Hauptnavigation">
+        <nav className="menu-panel" aria-label="Hauptnavigation" data-lenis-prevent>
           <div className="menu-panel-head"><span>[00] NAVIGATION</span><span>GreenLabz Studio</span></div>
           <div className="menu-links">
             <a href="#top" onClick={() => setIsMenuOpen(false)}><span>01</span>Startseite<ArrowUpRight size={17} /></a>

@@ -47,6 +47,10 @@ button {
   font: inherit;
 }
 
+input, textarea, select {
+  font-size: 16px; /* Prevents auto-zoom on iOS Safari touch focus */
+}
+
 ::selection {
   background: var(--accent);
   color: #0a0a0b;

@@ -77,8 +77,8 @@ export default function RatgeberPage({ onNavigate, initialArticleSlug }: Ratgebe
 
       {/* Article Modal */}
       {activeArticle && (
-        <div className="article-modal-overlay" onClick={closeArticle}>
-          <div className="article-modal-content" onClick={(e) => e.stopPropagation()}>
+        <div className="article-modal-overlay" onClick={closeArticle} data-lenis-prevent>
+          <div className="article-modal-content" onClick={(e) => e.stopPropagation()} data-lenis-prevent>
             <button className="modal-close" onClick={closeArticle} aria-label="Schließen">
               <X size={22} />
             </button>

@@ -215,8 +215,8 @@ export default function ClaudeSkillsPage({ onNavigate, initialSkillId }: ClaudeS
 
       {/* Skill Modal Detail */}
       {activeSkill && (
-        <div className="article-modal-overlay" onClick={closeSkillDetail}>
-          <div className="article-modal-content skill-modal-content" onClick={(e) => e.stopPropagation()}>
+        <div className="article-modal-overlay" onClick={closeSkillDetail} data-lenis-prevent>
+          <div className="article-modal-content skill-modal-content" onClick={(e) => e.stopPropagation()} data-lenis-prevent>
             <button className="modal-close" onClick={closeSkillDetail} aria-label="Schließen">
               <X size={22} />
             </button>
