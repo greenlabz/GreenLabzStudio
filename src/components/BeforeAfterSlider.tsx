@@ -1,115 +1,195 @@
 import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Search, CalendarCheck, TrendingUp, ShieldCheck, Zap } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
 
+// Eigene SVG-Icons pro Karte
+const IconGoogle = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="11" cy="11" r="8"/>
+    <path d="m21 21-4.35-4.35"/>
+    <path d="M11 8v6M8 11h6" strokeWidth="2.5"/>
+  </svg>
+)
+const IconCalendar = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="4" width="18" height="18" rx="2"/>
+    <line x1="16" y1="2" x2="16" y2="6"/>
+    <line x1="8" y1="2" x2="8" y2="6"/>
+    <line x1="3" y1="10" x2="21" y2="10"/>
+    <path d="M9 15l2 2 4-4"/>
+  </svg>
+)
+const IconTrend = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+    <polyline points="16 7 22 7 22 13"/>
+  </svg>
+)
+const IconShield = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+    <path d="m9 12 2 2 4-4"/>
+  </svg>
+)
+const IconZap = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+  </svg>
+)
+
 const caseResults = [
-  { icon: Search,        label: 'TOP 3 GOOGLE',   title: 'Jetzt Top 3 bei Google in der Region' },
-  { icon: CalendarCheck, label: '2-KLICK TERMIN',  title: 'Vereinfachte Terminvergabe' },
-  { icon: TrendingUp,    label: '+43% ERFOLG',     title: '+43% Mehr Patienten-Anfragen' },
-  { icon: ShieldCheck,   label: '100% MOBILE-FIRST', title: 'Vertrauen & 100% Barrierefreiheit' },
-  { icon: Zap,           label: '0.7s ULTRA-FAST', title: '0.7s Ladezeit & KI-Sichtbarkeit' },
+  {
+    Icon: IconGoogle,
+    label: 'TOP 3 GOOGLE',
+    metric: '#1–3',
+    title: 'Jetzt Top 3 bei Google in der Region',
+    color: '#00cc6a',
+  },
+  {
+    Icon: IconCalendar,
+    label: '2-KLICK TERMIN',
+    metric: '2×',
+    title: 'Vereinfachte Terminvergabe',
+    color: '#00b4d8',
+  },
+  {
+    Icon: IconTrend,
+    label: '+43% ERFOLG',
+    metric: '+43%',
+    title: 'Mehr Patienten-Anfragen',
+    color: '#f4a261',
+  },
+  {
+    Icon: IconShield,
+    label: '100% MOBILE-FIRST',
+    metric: '100%',
+    title: 'Vertrauen & Barrierefreiheit',
+    color: '#a78bfa',
+  },
+  {
+    Icon: IconZap,
+    label: '0.7s ULTRA-FAST',
+    metric: '0.7s',
+    title: 'Ladezeit & KI-Sichtbarkeit',
+    color: '#fbbf24',
+  },
 ]
 
 export function BeforeAfterSlider() {
-  const wrapperRef   = useRef<HTMLDivElement>(null)
-  const beforeRef    = useRef<HTMLDivElement>(null)
-  const cardsRef     = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const wrapperRef  = useRef<HTMLDivElement>(null)
+  const beforeRef   = useRef<HTMLDivElement>(null)
+  const cardsRef    = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      if (!wrapperRef.current || !beforeRef.current || !cardsRef.current) return
+      if (!sectionRef.current || !beforeRef.current || !cardsRef.current) return
 
-      const cards = cardsRef.current.querySelectorAll<HTMLElement>('.ba-scroll-card')
+      const cards = Array.from(
+        cardsRef.current.querySelectorAll<HTMLElement>('.ba-stack-card')
+      )
 
-      // Timeline: clipPath des Vorher-Bilds schrumpft von 100 % → 0 %
+      // Karten initial: alle unterhalb des Containers versteckt
+      gsap.set(cards, { yPercent: 110, opacity: 0 })
+
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: wrapperRef.current,
-          start: 'top 60%',
-          end: '+=700',
-          scrub: 1.2,
-          pin: false,
+          trigger: sectionRef.current,
+          start: 'top top',
+          end: '+=1400',
+          scrub: 1.4,
+          pin: true,
+          pinSpacing: true,
         },
       })
 
-      // Vorher-Bild verschwindet von rechts nach links
+      // Phase 1 (0–25%): Vorher-Bild verschwindet
       tl.fromTo(
         beforeRef.current,
         { clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' },
-        { clipPath: 'polygon(0 0, 0% 0, 0% 100%, 0 100%)', ease: 'none' },
+        { clipPath: 'polygon(0 0, 0% 0, 0% 100%, 0 100%)', ease: 'none', duration: 0.25 },
         0
       )
 
-      // Karten faden zeitversetzt ein
-      tl.fromTo(
-        cards,
-        { opacity: 0, y: 22 },
-        { opacity: 1, y: 0, stagger: 0.12, ease: 'power2.out' },
-        0.1
-      )
-    }, wrapperRef)
+      // Phase 2 (25–100%): Karten stapeln sich nacheinander
+      const cardStart = 0.28
+      const cardStep  = 0.15
+      cards.forEach((card, i) => {
+        tl.to(
+          card,
+          { yPercent: 0, opacity: 1, ease: 'power3.out', duration: 0.18 },
+          cardStart + i * cardStep
+        )
+      })
+    }, sectionRef)
 
     return () => ctx.revert()
   }, [])
 
   return (
-    <div ref={wrapperRef} className="ba-scroll-wrapper">
-      {/* ── LINKS: Vorher / Nachher Slider ── */}
-      <div className="ba-slider-container">
-        {/* NACHHER */}
-        <div className="ba-image ba-after-image">
-          <div className="ba-browser-bar">
-            <div className="ba-dots">
-              <span className="dot dot-red" />
-              <span className="dot dot-yellow" />
-              <span className="dot dot-green" />
+    <section ref={sectionRef} className="ba-pin-section">
+      <div ref={wrapperRef} className="ba-scroll-wrapper">
+
+        {/* ── LINKS: Vorher / Nachher Slider ── */}
+        <div className="ba-slider-container">
+          {/* NACHHER */}
+          <div className="ba-image ba-after-image">
+            <div className="ba-browser-bar">
+              <div className="ba-dots">
+                <span className="dot dot-red" />
+                <span className="dot dot-yellow" />
+                <span className="dot dot-green" />
+              </div>
+              <div className="ba-url">zahnaerzte-roth.de (NEU / REDESIGN)</div>
             </div>
-            <div className="ba-url">zahnaerzte-roth.de (NEU / REDESIGN)</div>
+            <img src="/cases/roth.png" alt="Zahnarzt Dr. Roth Redesign Nachher" />
           </div>
-          <img src="/cases/roth.png" alt="Zahnarzt Dr. Roth Redesign Nachher" />
+
+          {/* VORHER – clipPath per GSAP gesteuert */}
+          <div ref={beforeRef} className="ba-image ba-before-image">
+            <div className="ba-browser-bar">
+              <div className="ba-dots">
+                <span className="dot" style={{ background: '#555' }} />
+                <span className="dot" style={{ background: '#555' }} />
+                <span className="dot" style={{ background: '#555' }} />
+              </div>
+              <div className="ba-url" style={{ color: '#888' }}>zahnaerzte-roth.de (VORHER / ALT)</div>
+            </div>
+            <img src="/cases/roth-before.jpg" alt="Zahnarzt Praxis Alte Website Vorher" />
+          </div>
+
+          <div className="ba-badge before-badge">VORHER</div>
+          <div className="ba-badge after-badge">NACHHER</div>
         </div>
 
-        {/* VORHER – clipPath per GSAP gesteuert */}
-        <div ref={beforeRef} className="ba-image ba-before-image">
-          <div className="ba-browser-bar">
-            <div className="ba-dots">
-              <span className="dot" style={{ background: '#555' }} />
-              <span className="dot" style={{ background: '#555' }} />
-              <span className="dot" style={{ background: '#555' }} />
-            </div>
-            <div className="ba-url" style={{ color: '#888' }}>zahnaerzte-roth.de (VORHER / ALT)</div>
+        {/* ── RECHTS: Stapel-Karten ── */}
+        <div className="ba-stack-panel">
+          <p className="ba-scroll-cards-label">RELAUNCH ERFOLGE</p>
+          <h4 className="ba-scroll-cards-heading">Was das Redesign bewirkt hat:</h4>
+
+          <div ref={cardsRef} className="ba-stack-deck">
+            {caseResults.map((item) => (
+              <div
+                key={item.label}
+                className="ba-stack-card"
+                style={{ '--card-color': item.color } as React.CSSProperties}
+              >
+                <div className="ba-stack-card-icon">
+                  <item.Icon />
+                </div>
+                <div className="ba-stack-card-content">
+                  <span className="ba-stack-card-tag">{item.label}</span>
+                  <div className="ba-stack-card-metric">{item.metric}</div>
+                  <p className="ba-stack-card-title">{item.title}</p>
+                </div>
+              </div>
+            ))}
           </div>
-          <img src="/cases/roth-before.jpg" alt="Zahnarzt Praxis Alte Website Vorher" />
         </div>
 
-        {/* Badges */}
-        <div className="ba-badge before-badge">VORHER</div>
-        <div className="ba-badge after-badge">NACHHER</div>
       </div>
-
-      {/* ── RECHTS: Ergebnis-Karten ── */}
-      <div ref={cardsRef} className="ba-scroll-cards-panel">
-        <p className="ba-scroll-cards-label">RELAUNCH ERFOLGE</p>
-        <h4 className="ba-scroll-cards-heading">Was das Redesign bewirkt hat:</h4>
-
-        {caseResults.map((item) => {
-          const Icon = item.icon
-          return (
-            <div key={item.label} className="ba-scroll-card">
-              <div className="ba-scroll-card-icon">
-                <Icon size={18} />
-              </div>
-              <div className="ba-scroll-card-body">
-                <span className="ba-scroll-card-tag">{item.label}</span>
-                <p>{item.title}</p>
-              </div>
-            </div>
-          )
-        })}
-      </div>
-    </div>
+    </section>
   )
 }
