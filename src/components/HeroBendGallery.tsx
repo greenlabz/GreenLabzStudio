@@ -32,7 +32,7 @@ const showcases: ShowcaseItem[] = [
   {
     id: 'nadine-kemmert',
     title: 'Nadine Kemmert Photography',
-    subtitle: 'Million-Dollar Hochzeits- & Event-Präsenz mit Buchungssystem',
+    subtitle: 'Exklusive Hochzeits- & Event-Präsenz mit Buchungssystem',
     category: 'Premium Fotografie & Events',
     image: '/assets/showcases/showcase-nadine.png',
     tag: 'HIGH-CONVERSION',
