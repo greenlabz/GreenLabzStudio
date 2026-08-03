@@ -2,6 +2,7 @@ import { ArrowRight, Bolt, Check, Handshake, LoaderCircle, ScanSearch, Smartphon
 import type { RefObject } from 'react'
 import { SwipeCardStack } from './SwipeCardStack'
 import { MobileDesktopSplitBar } from './MobileDesktopSplitBar'
+import { PhoneDragSlider } from './PhoneDragSlider'
 
 type CinematicPhoneProps = {
   mockupRef?: RefObject<HTMLDivElement | null>
@@ -37,10 +38,7 @@ export default function CinematicPhone({ mockupRef, showBadges = true, staticVie
               </div>
               <div className="gl-exact-phone-state gl-exact-phone-state-three">
                 <div className="gl-exact-phone-widget gl-exact-phone-header"><span>MOBILE FIRST</span><strong>Schlecht am Handy heißt: Kunde weg</strong></div>
-                <div className="gl-exact-split-screen">
-                  <div className="gl-exact-split-panel gl-exact-split-bad"><div className="gl-exact-split-window"><span /><span /><span /><i /><b /><em /></div><X size={16} /></div>
-                  <div className="gl-exact-split-panel gl-exact-split-good"><div className="gl-exact-split-window"><span /><span /><span /><i /><b /><em /></div><Check size={16} /></div>
-                </div>
+                <PhoneDragSlider />
                 <div className="gl-exact-loss-label">50% springen ab</div>
                 <div className="gl-exact-phone-widget gl-exact-phone-row"><Smartphone size={15} /><span>VORHER / NACHHER</span><i /></div>
               </div>

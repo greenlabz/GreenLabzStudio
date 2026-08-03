@@ -3411,6 +3411,236 @@
   z-index: 5;
   opacity: 0;
 }
+
+/* ── Phone Drag Slider Before/After (Screen 3) ── */
+.gl-phone-drag-container {
+  position: relative;
+  width: 100%;
+  height: 145px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0d1612;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  user-select: none;
+  touch-action: none;
+  cursor: ew-resize;
+  margin: 0.4rem 0 0.5rem;
+}
+
+.gl-drag-layer {
+  position: absolute;
+  inset: 0;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.gl-drag-layer-after {
+  background: linear-gradient(135deg, rgba(0, 204, 106, 0.12) 0%, rgba(10, 18, 14, 0.98) 100%);
+}
+
+.gl-drag-layer-before {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(20, 10, 10, 0.98) 100%);
+  z-index: 2;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.gl-drag-badge {
+  position: absolute;
+  top: 8px;
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-family: var(--mono);
+  font-size: 0.4rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  z-index: 4;
+}
+
+.gl-badge-after {
+  right: 8px;
+  background: rgba(0, 204, 106, 0.22);
+  color: #00CC6A;
+  border: 1px solid rgba(0, 204, 106, 0.4);
+}
+
+.gl-badge-before {
+  left: 8px;
+  background: rgba(239, 68, 68, 0.22);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.gl-drag-ui {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.gl-drag-nav {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.gl-drag-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.gl-dot-green { background: #00CC6A; }
+.gl-dot-red { background: #ef4444; }
+
+.gl-drag-title {
+  font-size: 0.48rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.gl-title-bad {
+  color: rgba(255, 200, 200, 0.75);
+  text-decoration: line-through;
+  opacity: 0.8;
+}
+
+.gl-drag-tag {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 0.38rem;
+  padding: 1px 4px;
+  border-radius: 4px;
+  background: rgba(0, 204, 106, 0.2);
+  color: #00CC6A;
+}
+
+.gl-tag-bad {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+.gl-drag-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+.gl-hero-good {
+  background: rgba(0, 204, 106, 0.08);
+  border: 1px solid rgba(0, 204, 106, 0.2);
+}
+
+.gl-hero-bad {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  filter: blur(0.4px);
+}
+
+.gl-drag-hero-title {
+  height: 6px;
+  width: 70%;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.gl-line-broken {
+  width: 45%;
+  background: rgba(239, 68, 68, 0.4);
+}
+
+.gl-drag-hero-sub {
+  height: 4px;
+  width: 40%;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.gl-line-cluttered {
+  width: 85%;
+  background: rgba(239, 68, 68, 0.3);
+}
+
+.gl-drag-cta {
+  align-self: flex-start;
+  font-size: 0.38rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-top: 2px;
+}
+
+.gl-cta-green {
+  background: #00CC6A;
+  color: #000;
+}
+
+.gl-cta-bad {
+  background: rgba(239, 68, 68, 0.4);
+  color: #fff;
+  opacity: 0.6;
+}
+
+.gl-drag-features {
+  display: flex;
+  gap: 4px;
+}
+
+.gl-drag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-family: var(--mono);
+  font-size: 0.36rem;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: rgba(0, 204, 106, 0.15);
+  color: #00CC6A;
+}
+
+.gl-pill-bad {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+/* ── HANDLE LINE & KNOB ── */
+.gl-drag-handle-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #ffffff;
+  z-index: 10;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(0, 204, 106, 0.6);
+  pointer-events: none;
+}
+
+.gl-drag-knob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #0d1612;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 0 0 0 2px var(--accent);
+  pointer-events: auto;
+}
 @media (min-width: 1080px) {
   .mobile-importance-section {
     width: min(1560px, calc(100vw - 8rem));
