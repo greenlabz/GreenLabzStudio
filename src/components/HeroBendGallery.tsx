@@ -8,6 +8,7 @@ const showcases = [
     category: 'Fitness & Gesundheit',
     image: '/assets/showcases/showcase-eisenkraft.png',
     tag: 'FITNESS & GYM',
+    objectPosition: 'top center',
   },
   {
     id: 'aura',
@@ -16,6 +17,7 @@ const showcases = [
     category: 'Design & Agentur',
     image: '/assets/showcases/showcase-aura.png',
     tag: 'BRANDING & DESIGN',
+    objectPosition: 'top center',
   },
   {
     id: 'nadine-kemmert',
@@ -24,6 +26,7 @@ const showcases = [
     category: 'Premium Fotografie & Events',
     image: '/assets/showcases/showcase-nadine.png',
     tag: 'HIGH-CONVERSION',
+    objectPosition: 'top center',
   },
   {
     id: 'format-baukonzept',
@@ -32,6 +35,7 @@ const showcases = [
     category: 'Bauwesen & Architektur',
     image: '/assets/showcases/showcase-format.png',
     tag: 'HANDWERK & BAU',
+    objectPosition: 'top center',
   },
   {
     id: 'maison-fleur',
@@ -40,6 +44,7 @@ const showcases = [
     category: 'E-Commerce & Retail',
     image: '/assets/showcases/showcase-maison.png',
     tag: 'LUXURY BRAND',
+    objectPosition: 'top center',
   },
   {
     id: 'thomas-alber',
@@ -48,6 +53,7 @@ const showcases = [
     category: 'Handwerk & Haustechnik',
     image: '/assets/showcases/showcase-alber.png',
     tag: 'MEISTERBETRIEB',
+    objectPosition: 'top center',
   },
   {
     id: 'mainframe',
@@ -56,6 +62,7 @@ const showcases = [
     category: 'Web-App & SaaS',
     image: '/assets/showcases/showcase-mainframe.png',
     tag: 'ENTERPRISE TECH',
+    objectPosition: 'top center',
   },
 ]
 
@@ -114,7 +121,12 @@ export function HeroBendGallery() {
 
               {/* Showcase Image */}
               <div className="bend-image-wrapper">
-                <img src={item.image} alt={item.title} className="bend-showcase-img" />
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="bend-showcase-img"
+                  style={{ objectPosition: item.objectPosition || 'top center' }}
+                />
                 <div className="bend-image-overlay" />
               </div>
 
