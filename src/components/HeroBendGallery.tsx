@@ -11,6 +11,15 @@ const showcases = [
     objectPosition: 'top center',
   },
   {
+    id: 'denker',
+    title: 'Denker KFZ Werkstatt',
+    subtitle: 'Freie Meisterwerkstatt mit digitaler Termin- & Rückmeldediagnose',
+    category: 'Handwerk & KFZ-Meisterbetrieb',
+    image: '/assets/showcases/showcase-denker.png',
+    tag: 'KFZ & MEISTERBETRIEB',
+    objectPosition: 'top center',
+  },
+  {
     id: 'aura',
     title: 'Aura Studio & Agency',
     subtitle: 'Interaktives B2B Brand-Experience & Creative Studio',
