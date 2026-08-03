@@ -1,4 +1,4 @@
-import { ArrowRight, Bolt, Check, Handshake, LoaderCircle, ScanSearch, Smartphone, ThumbsDown, ThumbsUp, TrendingUp, Timer, X } from 'lucide-react'
+import { ArrowRight, Bolt, Check, Handshake, LoaderCircle, ScanSearch, Smartphone, ThumbsDown, ThumbsUp, TrendingUp, Timer } from 'lucide-react'
 import type { RefObject } from 'react'
 import { SwipeCardStack } from './SwipeCardStack'
 import { MobileDesktopSplitBar } from './MobileDesktopSplitBar'
