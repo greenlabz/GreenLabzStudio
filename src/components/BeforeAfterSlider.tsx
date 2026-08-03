@@ -69,11 +69,13 @@ export function BeforeAfterSlider() {
         })
       })
 
+      const pinTarget = containerRef.current.closest<HTMLElement>('.featured-case') || containerRef.current
+
       // Pin Timeline
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top 12%',
+          trigger: pinTarget,
+          start: 'top 8%',
           end: () => `+=${Math.round(window.innerHeight * 1.8)}`,
           pin: true,
           pinSpacing: true,
