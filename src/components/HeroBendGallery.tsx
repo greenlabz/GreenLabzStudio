@@ -1,6 +1,16 @@
 import { useState } from 'react'
 
-const showcases = [
+export interface ShowcaseItem {
+  id: string
+  title: string
+  subtitle: string
+  category: string
+  image: string
+  tag: string
+  objectPosition?: string
+}
+
+const showcases: ShowcaseItem[] = [
   {
     id: 'eisenkraft',
     title: 'Eisenkraft Fitnessstudio',
@@ -8,7 +18,7 @@ const showcases = [
     category: 'Fitness & Gesundheit',
     image: '/assets/showcases/showcase-eisenkraft.png',
     tag: 'FITNESS & GYM',
-    objectPosition: 'top center',
+    objectPosition: 'top left',
   },
   {
     id: 'denker',
@@ -17,7 +27,16 @@ const showcases = [
     category: 'Handwerk & KFZ-Meisterbetrieb',
     image: '/assets/showcases/showcase-denker.png',
     tag: 'KFZ & MEISTERBETRIEB',
-    objectPosition: 'top center',
+    objectPosition: 'top left',
+  },
+  {
+    id: 'nadine-kemmert',
+    title: 'Nadine Kemmert Photography',
+    subtitle: 'Million-Dollar Hochzeits- & Event-Präsenz mit Buchungssystem',
+    category: 'Premium Fotografie & Events',
+    image: '/assets/showcases/showcase-nadine.png',
+    tag: 'HIGH-CONVERSION',
+    objectPosition: 'top left',
   },
   {
     id: 'makeup-luxe',
@@ -35,16 +54,7 @@ const showcases = [
     category: 'Design & Agentur',
     image: '/assets/showcases/showcase-aura.png',
     tag: 'BRANDING & DESIGN',
-    objectPosition: 'top center',
-  },
-  {
-    id: 'nadine-kemmert',
-    title: 'Nadine Kemmert Photography',
-    subtitle: 'Million-Dollar Hochzeits- & Event-Präsenz mit Buchungssystem',
-    category: 'Premium Fotografie & Events',
-    image: '/assets/showcases/showcase-nadine.png',
-    tag: 'HIGH-CONVERSION',
-    objectPosition: 'top center',
+    objectPosition: 'top left',
   },
   {
     id: 'format-baukonzept',
@@ -53,7 +63,7 @@ const showcases = [
     category: 'Bauwesen & Architektur',
     image: '/assets/showcases/showcase-format.png',
     tag: 'HANDWERK & BAU',
-    objectPosition: 'top center',
+    objectPosition: 'top left',
   },
   {
     id: 'maison-fleur',
@@ -62,7 +72,7 @@ const showcases = [
     category: 'E-Commerce & Retail',
     image: '/assets/showcases/showcase-maison.png',
     tag: 'LUXURY BRAND',
-    objectPosition: 'top center',
+    objectPosition: 'top left',
   },
   {
     id: 'thomas-alber',
@@ -71,7 +81,7 @@ const showcases = [
     category: 'Handwerk & Haustechnik',
     image: '/assets/showcases/showcase-alber.png',
     tag: 'MEISTERBETRIEB',
-    objectPosition: 'top center',
+    objectPosition: 'top left',
   },
   {
     id: 'mainframe',
@@ -80,9 +90,60 @@ const showcases = [
     category: 'Web-App & SaaS',
     image: '/assets/showcases/showcase-mainframe.png',
     tag: 'ENTERPRISE TECH',
-    objectPosition: 'top center',
+    objectPosition: 'top left',
   },
 ]
+
+interface ProjectCardProps {
+  item: ShowcaseItem
+  isActive: boolean
+  onMouseEnter: () => void
+  onMouseMove: (e: React.MouseEvent<HTMLDivElement>) => void
+  onMouseLeave: (e: React.MouseEvent<HTMLDivElement>) => void
+}
+
+function ProjectCard({ item, isActive, onMouseEnter, onMouseMove, onMouseLeave }: ProjectCardProps) {
+  return (
+    <div
+      className={`bend-gallery-card ${isActive ? 'is-active' : ''}`}
+      onMouseEnter={onMouseEnter}
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
+    >
+      <div className="bend-card-frame">
+        {/* Browser Header Bar */}
+        <div className="bend-browser-bar">
+          <div className="bend-browser-dots">
+            <span className="dot dot-red" />
+            <span className="dot dot-yellow" />
+            <span className="dot dot-green" />
+          </div>
+          <div className="bend-browser-url">greenlabz.studio/{item.id}</div>
+        </div>
+
+        {/* Showcase Image */}
+        <div className="bend-image-wrapper">
+          <img
+            src={item.image}
+            alt={item.title}
+            className="bend-showcase-img"
+            style={{ objectPosition: item.objectPosition || 'top left' }}
+          />
+          <div className="bend-image-overlay" />
+        </div>
+
+        {/* Bottom Info Bar */}
+        <div className="bend-card-caption">
+          <div>
+            <span className="bend-tag">{item.tag}</span>
+            <h4>{item.title}</h4>
+            <p>{item.subtitle}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export function HeroBendGallery() {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -119,45 +180,14 @@ export function HeroBendGallery() {
 
       <div className="bend-gallery-container">
         {showcases.map((item, index) => (
-          <div
+          <ProjectCard
             key={item.id}
-            className={`bend-gallery-card ${activeIndex === index ? 'is-active' : ''}`}
+            item={item}
+            isActive={activeIndex === index}
             onMouseEnter={() => setActiveIndex(index)}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-          >
-            <div className="bend-card-frame">
-              {/* Browser Header Bar */}
-              <div className="bend-browser-bar">
-                <div className="bend-browser-dots">
-                  <span className="dot dot-red" />
-                  <span className="dot dot-yellow" />
-                  <span className="dot dot-green" />
-                </div>
-                <div className="bend-browser-url">greenlabz.studio/{item.id}</div>
-              </div>
-
-              {/* Showcase Image */}
-              <div className="bend-image-wrapper">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="bend-showcase-img"
-                  style={{ objectPosition: item.objectPosition || 'top center' }}
-                />
-                <div className="bend-image-overlay" />
-              </div>
-
-              {/* Bottom Info Bar */}
-              <div className="bend-card-caption">
-                <div>
-                  <span className="bend-tag">{item.tag}</span>
-                  <h4>{item.title}</h4>
-                  <p>{item.subtitle}</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          />
         ))}
       </div>
     </section>
