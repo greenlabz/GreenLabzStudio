@@ -1,8 +1,9 @@
-import { ArrowRight, Bolt, Check, Handshake, LoaderCircle, ScanSearch, Smartphone, ThumbsDown, ThumbsUp, TrendingUp, Timer } from 'lucide-react'
+import { Bolt, Check, Handshake, LoaderCircle, ScanSearch, Smartphone, ThumbsDown, ThumbsUp, TrendingUp, Timer } from 'lucide-react'
 import type { RefObject } from 'react'
 import { SwipeCardStack } from './SwipeCardStack'
 import { MobileDesktopSplitBar } from './MobileDesktopSplitBar'
 import { PhoneDragSlider } from './PhoneDragSlider'
+import { CountdownRace } from './CountdownRace'
 
 type CinematicPhoneProps = {
   mockupRef?: RefObject<HTMLDivElement | null>
@@ -48,7 +49,7 @@ export default function CinematicPhone({ mockupRef, showBadges = true, staticVie
                   <div className="gl-exact-competitive-screen gl-exact-competitive-yours"><div><span /><span /><span /><strong>Termin bestätigt</strong><Check size={14} /></div></div>
                   <div className="gl-exact-competitive-screen gl-exact-competitive-other"><div><span /><span /><span /><i /><b><LoaderCircle size={13} /></b></div></div>
                 </div>
-                <div className="gl-exact-competitive-lead"><ArrowRight size={13} /><span>+3 Min schneller</span></div>
+                <CountdownRace />
                 <div className="gl-exact-phone-widget gl-exact-phone-row"><Smartphone size={15} /><span>WETTBEWERBSVORTEIL</span><i /></div>
               </div>
               <div className="gl-exact-phone-home" aria-hidden="true" />

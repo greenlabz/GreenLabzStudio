@@ -3641,6 +3641,147 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 0 0 0 2px var(--accent);
   pointer-events: auto;
 }
+
+/* ── Countdown Race (Screen 4) ── */
+.gl-race-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border-radius: 12px;
+  background: rgba(14, 24, 19, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  margin: 0.4rem 0 0.5rem;
+  position: relative;
+}
+
+.gl-race-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+.gl-race-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 0.4rem;
+  letter-spacing: 0.04em;
+}
+
+.gl-race-name {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.gl-name-green { color: var(--accent); }
+.gl-name-grey { color: rgba(255, 255, 255, 0.45); }
+
+.gl-race-time strong {
+  font-family: var(--hero-display, sans-serif);
+  font-size: 0.58rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.gl-race-winner .gl-race-time strong {
+  color: var(--accent);
+}
+
+.gl-race-track {
+  position: relative;
+  height: 12px;
+  width: 100%;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 2px;
+  display: flex;
+  align-items: center;
+}
+
+.gl-race-fill {
+  height: 100%;
+  border-radius: 4px;
+  will-change: width;
+  position: relative;
+  overflow: hidden;
+}
+
+.gl-fill-green {
+  background: linear-gradient(90deg, #00b35c 0%, #00cc6a 100%);
+  box-shadow: 0 0 10px rgba(0, 204, 106, 0.4);
+}
+
+.gl-fill-grey {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.gl-race-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 100% 50%, rgba(255, 255, 255, 0.7), transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.gl-race-badge {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  opacity: 0;
+}
+
+.gl-badge-green {
+  background: #00CC6A;
+  color: #000;
+  box-shadow: 0 0 10px rgba(0, 204, 106, 0.6);
+}
+
+.gl-badge-grey {
+  background: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gl-race-spin {
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.gl-race-delta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  align-self: center;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: rgba(0, 204, 106, 0.15);
+  border: 1px solid rgba(0, 204, 106, 0.35);
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.44rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 0.1rem;
+}
 @media (min-width: 1080px) {
   .mobile-importance-section {
     width: min(1560px, calc(100vw - 8rem));
