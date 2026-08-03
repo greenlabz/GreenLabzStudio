@@ -1046,7 +1046,8 @@
 .ba-stack-deck {
   position: relative;
   flex: 1;
-  min-height: 220px;
+  min-height: 300px;
+  height: 100%;
 }
 
 .ba-stack-card {
@@ -1381,7 +1382,7 @@
   width: 100%;
   height: calc(100% - 32px);
   object-fit: cover;
-  object-position: top left;
+  object-position: top center;
 }
 
 .ba-before-image {

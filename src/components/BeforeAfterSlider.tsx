@@ -40,156 +40,120 @@ const IconZap = () => (
 )
 
 const caseResults = [
-  {
-    Icon: IconGoogle,
-    label: 'TOP 3 GOOGLE',
-    metric: '#1–3',
-    title: 'Jetzt Top 3 bei Google in der Region',
-    color: '#00cc6a',
-  },
-  {
-    Icon: IconCalendar,
-    label: '2-KLICK TERMIN',
-    metric: '2×',
-    title: 'Vereinfachte Terminvergabe',
-    color: '#00b4d8',
-  },
-  {
-    Icon: IconTrend,
-    label: '+43% ERFOLG',
-    metric: '+43%',
-    title: 'Mehr Patienten-Anfragen',
-    color: '#f4a261',
-  },
-  {
-    Icon: IconShield,
-    label: '100% MOBILE-FIRST',
-    metric: '100%',
-    title: 'Vertrauen & Barrierefreiheit',
-    color: '#a78bfa',
-  },
-  {
-    Icon: IconZap,
-    label: '0.7s ULTRA-FAST',
-    metric: '0.7s',
-    title: 'Ladezeit & KI-Sichtbarkeit',
-    color: '#fbbf24',
-  },
+  { Icon: IconGoogle,   label: 'TOP 3 GOOGLE',     metric: '#1–3',  title: 'Jetzt Top 3 bei Google in der Region', color: '#00cc6a' },
+  { Icon: IconCalendar, label: '2-KLICK TERMIN',   metric: '2×',    title: 'Vereinfachte Terminvergabe',           color: '#00b4d8' },
+  { Icon: IconTrend,    label: '+43% ERFOLG',      metric: '+43%',  title: 'Mehr Patienten-Anfragen',              color: '#f4a261' },
+  { Icon: IconShield,   label: '100% MOBILE-FIRST',metric: '100%',  title: 'Vertrauen & Barrierefreiheit',         color: '#a78bfa' },
+  { Icon: IconZap,      label: '0.7s ULTRA-FAST',  metric: '0.7s',  title: 'Ladezeit & KI-Sichtbarkeit',          color: '#fbbf24' },
 ]
 
 export function BeforeAfterSlider() {
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const wrapperRef  = useRef<HTMLDivElement>(null)
-  const beforeRef   = useRef<HTMLDivElement>(null)
-  const cardsRef    = useRef<HTMLDivElement>(null)
+  const wrapperRef = useRef<HTMLDivElement>(null)
+  const beforeRef  = useRef<HTMLDivElement>(null)
+  const cardsRef   = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      if (!sectionRef.current || !beforeRef.current || !cardsRef.current) return
+      if (!wrapperRef.current || !beforeRef.current || !cardsRef.current) return
 
       const cards = Array.from(
         cardsRef.current.querySelectorAll<HTMLElement>('.ba-stack-card')
       )
 
-      // Karten initial: alle unterhalb des Containers versteckt
-      gsap.set(cards, { yPercent: 110, opacity: 0 })
+      // Karten initial versteckt (von unten)
+      gsap.set(cards, { yPercent: 105, opacity: 0 })
 
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top top',
-          end: '+=1400',
-          scrub: 1.4,
-          pin: true,
-          pinSpacing: true,
+          trigger: wrapperRef.current,
+          start: 'top 55%',
+          end: '+=1200',
+          scrub: 1.5,
+          // Kein pin – zu tief im Container-Nesting für position:fixed
         },
       })
 
-      // Phase 1 (0–25%): Vorher-Bild verschwindet
+      // Phase 1 (0–22%): Vorher-Bild verschwindet
       tl.fromTo(
         beforeRef.current,
         { clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' },
-        { clipPath: 'polygon(0 0, 0% 0, 0% 100%, 0 100%)', ease: 'none', duration: 0.25 },
+        { clipPath: 'polygon(0 0, 0% 0, 0% 100%, 0 100%)', ease: 'none', duration: 0.22 },
         0
       )
 
-      // Phase 2 (25–100%): Karten stapeln sich nacheinander
-      const cardStart = 0.28
-      const cardStep  = 0.15
+      // Phase 2 (22–100%): Karten stapeln sich
+      const step = 0.17
       cards.forEach((card, i) => {
         tl.to(
           card,
-          { yPercent: 0, opacity: 1, ease: 'power3.out', duration: 0.18 },
-          cardStart + i * cardStep
+          { yPercent: 0, opacity: 1, ease: 'power3.out', duration: 0.16 },
+          0.24 + i * step
         )
       })
-    }, sectionRef)
+    }, wrapperRef)
 
     return () => ctx.revert()
   }, [])
 
   return (
-    <section ref={sectionRef} className="ba-pin-section">
-      <div ref={wrapperRef} className="ba-scroll-wrapper">
+    <div ref={wrapperRef} className="ba-scroll-wrapper">
 
-        {/* ── LINKS: Vorher / Nachher Slider ── */}
-        <div className="ba-slider-container">
-          {/* NACHHER */}
-          <div className="ba-image ba-after-image">
-            <div className="ba-browser-bar">
-              <div className="ba-dots">
-                <span className="dot dot-red" />
-                <span className="dot dot-yellow" />
-                <span className="dot dot-green" />
-              </div>
-              <div className="ba-url">zahnaerzte-roth.de (NEU / REDESIGN)</div>
+      {/* ── LINKS: Vorher / Nachher Slider ── */}
+      <div className="ba-slider-container">
+        {/* NACHHER */}
+        <div className="ba-image ba-after-image">
+          <div className="ba-browser-bar">
+            <div className="ba-dots">
+              <span className="dot dot-red" />
+              <span className="dot dot-yellow" />
+              <span className="dot dot-green" />
             </div>
-            <img src="/cases/roth.png" alt="Zahnarzt Dr. Roth Redesign Nachher" />
+            <div className="ba-url">zahnaerzte-roth.de (NEU / REDESIGN)</div>
           </div>
-
-          {/* VORHER – clipPath per GSAP gesteuert */}
-          <div ref={beforeRef} className="ba-image ba-before-image">
-            <div className="ba-browser-bar">
-              <div className="ba-dots">
-                <span className="dot" style={{ background: '#555' }} />
-                <span className="dot" style={{ background: '#555' }} />
-                <span className="dot" style={{ background: '#555' }} />
-              </div>
-              <div className="ba-url" style={{ color: '#888' }}>zahnaerzte-roth.de (VORHER / ALT)</div>
-            </div>
-            <img src="/cases/roth-before.jpg" alt="Zahnarzt Praxis Alte Website Vorher" />
-          </div>
-
-          <div className="ba-badge before-badge">VORHER</div>
-          <div className="ba-badge after-badge">NACHHER</div>
+          <img src="/cases/roth.png" alt="Zahnarzt Dr. Roth Redesign Nachher" />
         </div>
 
-        {/* ── RECHTS: Stapel-Karten ── */}
-        <div className="ba-stack-panel">
-          <p className="ba-scroll-cards-label">RELAUNCH ERFOLGE</p>
-          <h4 className="ba-scroll-cards-heading">Was das Redesign bewirkt hat:</h4>
-
-          <div ref={cardsRef} className="ba-stack-deck">
-            {caseResults.map((item) => (
-              <div
-                key={item.label}
-                className="ba-stack-card"
-                style={{ '--card-color': item.color } as React.CSSProperties}
-              >
-                <div className="ba-stack-card-icon">
-                  <item.Icon />
-                </div>
-                <div className="ba-stack-card-content">
-                  <span className="ba-stack-card-tag">{item.label}</span>
-                  <div className="ba-stack-card-metric">{item.metric}</div>
-                  <p className="ba-stack-card-title">{item.title}</p>
-                </div>
-              </div>
-            ))}
+        {/* VORHER – clipPath per GSAP gesteuert */}
+        <div ref={beforeRef} className="ba-image ba-before-image">
+          <div className="ba-browser-bar">
+            <div className="ba-dots">
+              <span className="dot" style={{ background: '#555' }} />
+              <span className="dot" style={{ background: '#555' }} />
+              <span className="dot" style={{ background: '#555' }} />
+            </div>
+            <div className="ba-url" style={{ color: '#888' }}>zahnaerzte-roth.de (VORHER / ALT)</div>
           </div>
+          <img src="/cases/roth-before.jpg" alt="Zahnarzt Praxis Alte Website Vorher" />
         </div>
 
+        <div className="ba-badge before-badge">VORHER</div>
+        <div className="ba-badge after-badge">NACHHER</div>
       </div>
-    </section>
+
+      {/* ── RECHTS: Stapel-Karten ── */}
+      <div className="ba-stack-panel">
+        <p className="ba-scroll-cards-label">RELAUNCH ERFOLGE</p>
+        <h4 className="ba-scroll-cards-heading">Was das Redesign bewirkt hat:</h4>
+
+        <div ref={cardsRef} className="ba-stack-deck">
+          {caseResults.map((item) => (
+            <div
+              key={item.label}
+              className="ba-stack-card"
+              style={{ '--card-color': item.color } as React.CSSProperties}
+            >
+              <div className="ba-stack-card-icon">
+                <item.Icon />
+              </div>
+              <div className="ba-stack-card-content">
+                <span className="ba-stack-card-tag">{item.label}</span>
+                <div className="ba-stack-card-metric">{item.metric}</div>
+                <p className="ba-stack-card-title">{item.title}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   )
 }
