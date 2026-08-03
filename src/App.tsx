@@ -48,7 +48,7 @@ import './App.css'
 gsap.registerPlugin(ScrollTrigger)
 
 const logoSrc = '/assets/greenlabz-studio-logo.svg'
-const leadMagnetEndpoint = 'https://formsubmit.co/ajax/hello@greenlabz-studio.de'
+const leadMagnetEndpoint = '/api/lead-magnet'
 const leadMagnetFile = '/downloads/greenlabz-website-analyse.pdf'
 const socialProofLogos = [
   { src: '/assets/showcases/neweo-logo.png', alt: 'NewEO' },
@@ -561,19 +561,19 @@ export default function App() {
     if (!leadConsent) return
     setLeadStatus('sending')
 
-    try {
-      const formData = new FormData(event.currentTarget)
-      formData.append('Aktion', '5-Minuten-Checkliste für deine Website angefordert / Download ausgelöst')
-      formData.append('Zeitpunkt', new Intl.DateTimeFormat('de-DE', {
-        dateStyle: 'medium',
-        timeStyle: 'medium',
-        timeZone: 'Europe/Berlin',
-      }).format(new Date()))
+    const formEl = event.currentTarget
+    const name  = (formEl.elements.namedItem('name')  as HTMLInputElement)?.value?.trim() || ''
+    const email = (formEl.elements.namedItem('email') as HTMLInputElement)?.value?.trim() || ''
 
+    try {
       const response = await fetch(leadMagnetEndpoint, {
         method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: formData,
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name,
+          email,
+          aktion: '5-Minuten-Checkliste für deine Website angefordert / Download ausgelöst',
+        }),
       })
       if (!response.ok) throw new Error('Anfrage konnte nicht gesendet werden.')
       setLeadStatus('success')

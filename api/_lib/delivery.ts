@@ -105,6 +105,68 @@ export async function sendContactEmail(input: ContactInput) {
   return true
 }
 
+interface LeadMagnetInput {
+  name: string
+  email: string
+  aktion: string
+  createdAt: string
+}
+
+export async function sendLeadMagnetEmail(input: LeadMagnetInput) {
+  const mailer = createTransporter()
+  if (!mailer) return false
+
+  const { transporter, from } = mailer
+  await transporter.sendMail({
+    from: `GreenLabz Lead-Magnet <${from}>`,
+    to: process.env.LEAD_NOTIFICATION_EMAIL || from,
+    replyTo: input.email,
+    subject: `🟢 Neuer Lead: ${input.aktion}`,
+    text: [
+      `Aktion: ${input.aktion}`,
+      `Name: ${input.name || 'nicht angegeben'}`,
+      `E-Mail: ${input.email}`,
+      `Zeitpunkt: ${new Intl.DateTimeFormat('de-DE', {
+        dateStyle: 'medium',
+        timeStyle: 'medium',
+        timeZone: 'Europe/Berlin',
+      }).format(new Date(input.createdAt))}`,
+    ].join('\n'),
+  })
+  return true
+}
+
+export async function appendLeadMagnetToSheet(input: LeadMagnetInput) {
+  const sheetId = process.env.GOOGLE_SHEET_ID
+  if (!sheetId) return false
+
+  const accessToken = await getGoogleSheetsAccessToken()
+  if (!accessToken) return false
+
+  const tab = process.env.GOOGLE_LEAD_MAGNET_TAB || 'Lead-Magnets'
+  const headers = ['Zeitpunkt', 'Name', 'E-Mail', 'Aktion']
+  await ensureSheetTab(accessToken, sheetId, tab, headers)
+
+  const escapedTab = tab.replace(/'/g, "''")
+  const range = encodeURIComponent(`'${escapedTab}'!A:D`)
+  const endpoint = `https://sheets.googleapis.com/v4/spreadsheets/${encodeURIComponent(sheetId)}/values/${range}:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`
+  const res = await fetch(endpoint, {
+    method: 'POST',
+    headers: {
+      authorization: `Bearer ${accessToken}`,
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      values: [[input.createdAt, input.name, input.email, input.aktion]],
+    }),
+  })
+  if (!res.ok) {
+    const details = (await res.text()).slice(0, 500)
+    throw new Error(`Google Sheets: ${res.status} ${details}`)
+  }
+  return true
+}
+
 async function getGoogleSheetsAccessToken() {
   const clientEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL
   const privateKey = process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n')
