@@ -48,55 +48,75 @@ const caseResults = [
 ]
 
 export function BeforeAfterSlider() {
-  const wrapperRef = useRef<HTMLDivElement>(null)
-  const beforeRef  = useRef<HTMLDivElement>(null)
-  const cardsRef   = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const beforeRef    = useRef<HTMLDivElement>(null)
+  const cardsRef     = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      if (!wrapperRef.current || !beforeRef.current || !cardsRef.current) return
+      if (!containerRef.current || !beforeRef.current || !cardsRef.current) return
 
       const cards = Array.from(
         cardsRef.current.querySelectorAll<HTMLElement>('.ba-stack-card')
       )
 
-      // Karten initial versteckt (von unten)
-      gsap.set(cards, { yPercent: 105, opacity: 0 })
+      // Set initial card states (stacked order, card 0 visible or all sliding in)
+      cards.forEach((card, i) => {
+        gsap.set(card, {
+          zIndex: i + 1,
+          yPercent: i === 0 ? 0 : 110,
+          opacity: i === 0 ? 1 : 0,
+        })
+      })
 
+      // Timeline linked to ScrollTrigger pin
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: wrapperRef.current,
-          start: 'top 55%',
-          end: '+=1200',
-          scrub: 1.5,
-          // Kein pin – zu tief im Container-Nesting für position:fixed
+          trigger: containerRef.current,
+          start: 'top 12%',
+          end: () => `+=${window.innerHeight * 2.2}`,
+          pin: true,
+          pinSpacing: true,
+          scrub: 0.8,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
         },
       })
 
-      // Phase 1 (0–22%): Vorher-Bild verschwindet
-      tl.fromTo(
+      // 1. Morph Before-Image continuously from 100% clip to 0% clip (revealing After-Image)
+      tl.to(
         beforeRef.current,
-        { clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' },
-        { clipPath: 'polygon(0 0, 0% 0, 0% 100%, 0 100%)', ease: 'none', duration: 0.22 },
+        {
+          clipPath: 'polygon(0 0, 0% 0, 0% 100%, 0 100%)',
+          ease: 'none',
+          duration: 1,
+        },
         0
       )
 
-      // Phase 2 (22–100%): Karten stapeln sich
-      const step = 0.17
-      cards.forEach((card, i) => {
+      // 2. Synchronized Card Stacking: Each subsequent card slides up into place over time
+      const totalCards = cards.length
+      cards.forEach((card, index) => {
+        if (index === 0) return // Card 0 is already visible at start
+        const startTime = (index / (totalCards - 1)) * 0.85
         tl.to(
           card,
-          { yPercent: 0, opacity: 1, ease: 'power3.out', duration: 0.16 },
-          0.24 + i * step
+          {
+            yPercent: 0,
+            opacity: 1,
+            ease: 'power2.out',
+            duration: 0.18,
+          },
+          startTime
         )
       })
-    }, wrapperRef)
+    }, containerRef)
 
     return () => ctx.revert()
   }, [])
 
   return (
-    <div ref={wrapperRef} className="ba-scroll-wrapper">
+    <div ref={containerRef} className="ba-scroll-wrapper">
 
       {/* ── LINKS: Vorher / Nachher Slider ── */}
       <div className="ba-slider-container">
@@ -136,11 +156,14 @@ export function BeforeAfterSlider() {
         <h4 className="ba-scroll-cards-heading">Was das Redesign bewirkt hat:</h4>
 
         <div ref={cardsRef} className="ba-stack-deck">
-          {caseResults.map((item) => (
+          {caseResults.map((item, idx) => (
             <div
               key={item.label}
               className="ba-stack-card"
-              style={{ '--card-color': item.color } as React.CSSProperties}
+              style={{
+                '--card-color': item.color,
+                zIndex: idx + 1,
+              } as React.CSSProperties}
             >
               <div className="ba-stack-card-icon">
                 <item.Icon />
