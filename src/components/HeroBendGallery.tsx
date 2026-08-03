@@ -2,6 +2,14 @@ import { useState } from 'react'
 
 const showcases = [
   {
+    id: 'eisenkraft',
+    title: 'Eisenkraft Fitnessstudio',
+    subtitle: 'High-Performance Gym & Personal Training mit Probetraining-Buchung',
+    category: 'Fitness & Gesundheit',
+    image: '/assets/showcases/showcase-eisenkraft.png',
+    tag: 'FITNESS & GYM',
+  },
+  {
     id: 'aura',
     title: 'Aura Studio & Agency',
     subtitle: 'Interaktives B2B Brand-Experience & Creative Studio',
