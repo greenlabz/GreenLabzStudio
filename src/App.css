@@ -1012,8 +1012,8 @@
 
 .ba-scroll-wrapper {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-  gap: clamp(1.5rem, 3vw, 2.5rem);
+  grid-template-columns: minmax(0, 2.6fr) minmax(0, 1fr);
+  gap: clamp(1.2rem, 2.5vw, 2rem);
   align-items: stretch;
   width: 100%;
 }
@@ -1224,11 +1224,11 @@
 .ba-slider-container {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid rgba(0, 204, 106, 0.25);
-  background: #ffffff;
+  background: #0e1310;
   user-select: none;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 204, 106, 0.12);
 }
@@ -1381,8 +1381,9 @@
 .ba-image img {
   width: 100%;
   height: calc(100% - 32px);
-  object-fit: cover;
+  object-fit: contain;
   object-position: top center;
+  background: #0e1310;
 }
 
 .ba-before-image {
