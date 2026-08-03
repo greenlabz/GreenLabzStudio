@@ -1012,9 +1012,9 @@
 
 .ba-scroll-wrapper {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-  gap: clamp(1.5rem, 3vw, 3rem);
-  align-items: stretch;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
   width: 100%;
 }
 
@@ -1028,7 +1028,7 @@
 
 .ba-scroll-cards-label {
   font-family: var(--mono);
-  font-size: 0.62rem;
+  font-size: 0.65rem;
   font-weight: 800;
   letter-spacing: 0.14em;
   color: var(--accent);
@@ -1036,19 +1036,18 @@
 }
 
 .ba-scroll-cards-heading {
-  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
   font-weight: 700;
   color: #fff;
-  margin: 0 0 1.2rem;
+  margin: 0 0 1.4rem;
   line-height: 1.3;
 }
 
-/* ── Breiter Karten-Stapel (Green Box Area) ── */
+/* ── Breiter Karten-Stapel (Rechts platziert) ── */
 .ba-stack-deck {
   position: relative;
-  flex: 1;
-  min-height: 260px;
   width: 100%;
+  height: 270px;
 }
 
 .ba-stack-card {
@@ -1058,7 +1057,7 @@
   flex-direction: row;
   align-items: center;
   gap: 1.2rem;
-  padding: 1.4rem 1.8rem;
+  padding: 1.5rem 1.8rem;
   border-radius: 20px;
   background: linear-gradient(
     145deg,
@@ -1230,11 +1229,11 @@
 .ba-slider-container {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 10;
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid rgba(0, 204, 106, 0.25);
-  background: #0e1310;
+  background: #ffffff;
   user-select: none;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 204, 106, 0.12);
 }
@@ -1387,9 +1386,9 @@
 .ba-image img {
   width: 100%;
   height: calc(100% - 32px);
-  object-fit: contain;
-  object-position: top center;
-  background: #0e1310;
+  object-fit: cover;
+  object-position: top left;
+  background: #ffffff;
 }
 
 .ba-before-image {
