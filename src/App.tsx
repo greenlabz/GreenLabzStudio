@@ -831,6 +831,7 @@ export default function App() {
           filter: 'blur(12px)',
           duration: 0.9,
           ease: 'power3.out',
+          clearProps: 'transform,filter',
           scrollTrigger: {
             trigger: el,
             start: 'top 82%',

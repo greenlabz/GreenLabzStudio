@@ -60,44 +60,41 @@ export function BeforeAfterSlider() {
         cardsRef.current.querySelectorAll<HTMLElement>('.ba-stack-card')
       )
 
-      // Set initial card states (stacked order, card 0 visible or all sliding in)
+      // Initial state: Card 0 visible, rest below
       cards.forEach((card, i) => {
         gsap.set(card, {
           zIndex: i + 1,
-          yPercent: i === 0 ? 0 : 110,
+          yPercent: i === 0 ? 0 : 105,
           opacity: i === 0 ? 1 : 0,
         })
       })
 
-      // Timeline linked to ScrollTrigger pin
+      // Pin Timeline
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top 12%',
-          end: () => `+=${window.innerHeight * 2.2}`,
+          end: () => `+=${Math.round(window.innerHeight * 1.8)}`,
           pin: true,
           pinSpacing: true,
-          scrub: 0.8,
+          scrub: 1,
           anticipatePin: 1,
           invalidateOnRefresh: true,
         },
       })
 
-      // 1. Morph Before-Image continuously from 100% clip to 0% clip (revealing After-Image)
-      tl.to(
+      // 1. Reveal After-Image continuously over scroll distance
+      tl.fromTo(
         beforeRef.current,
-        {
-          clipPath: 'polygon(0 0, 0% 0, 0% 100%, 0 100%)',
-          ease: 'none',
-          duration: 1,
-        },
+        { clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' },
+        { clipPath: 'polygon(0 0, 0% 0, 0% 100%, 0 100%)', ease: 'none', duration: 1 },
         0
       )
 
-      // 2. Synchronized Card Stacking: Each subsequent card slides up into place over time
+      // 2. Synchronized Card Stacking
       const totalCards = cards.length
       cards.forEach((card, index) => {
-        if (index === 0) return // Card 0 is already visible at start
+        if (index === 0) return
         const startTime = (index / (totalCards - 1)) * 0.85
         tl.to(
           card,
@@ -110,6 +107,9 @@ export function BeforeAfterSlider() {
           startTime
         )
       })
+
+      // Refresh ScrollTrigger once DOM/images settle
+      setTimeout(() => ScrollTrigger.refresh(), 300)
     }, containerRef)
 
     return () => ctx.revert()
