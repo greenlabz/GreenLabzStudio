@@ -1458,12 +1458,7 @@
   box-shadow: 0 0 20px color-mix(in oklch, var(--accent) 50%, transparent);
 }
 
-.featured-case-visuals {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: center;
-  gap: 1rem;
-}
+
 .case-shot {
   min-height: 255px;
   padding: 1rem;

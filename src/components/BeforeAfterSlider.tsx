@@ -172,9 +172,9 @@ export function BeforeAfterSlider() {
               </div>
               <div className="ba-stack-card-content">
                 <span className="ba-stack-card-tag">{item.label}</span>
-                <div className="ba-stack-card-metric">{item.metric}</div>
                 <p className="ba-stack-card-title">{item.title}</p>
               </div>
+              <div className="ba-stack-card-metric">{item.metric}</div>
             </div>
           ))}
         </div>
