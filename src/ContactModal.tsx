@@ -52,7 +52,7 @@ export function ContactModal({ isOpen, onClose, onOpenDatenschutz }: ContactModa
         }),
       })
       const result = await response.json() as { error?: string }
-      if (!response.ok) throw new Error(result.error || 'Deine Anfrage konnte nicht gesendet werden. Schreib mir bitte direkt an hello@greenlabz-studio.de')
+      if (!response.ok) throw new Error(result.error || 'Deine Anfrage konnte nicht gesendet werden. Schreib mir bitte direkt an hallo@greenlabz.de')
       window.clearInterval(interval)
       setProgress(100)
       window.setTimeout(() => {

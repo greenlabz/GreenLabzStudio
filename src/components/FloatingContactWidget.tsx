@@ -19,7 +19,7 @@ export function FloatingContactWidget() {
 
       {/* E-Mail Button (CTA Optik -> dehnt sich beim Hovern zur transparenten Glasmorphism-Pille aus) */}
       <a
-        href="mailto:hallo@greenlabz-studio.de"
+        href="mailto:hallo@greenlabz.de"
         className="floating-cta-btn floating-email-cta"
         aria-label="E-Mail schreiben"
       >

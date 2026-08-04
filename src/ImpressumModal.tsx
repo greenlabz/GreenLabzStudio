@@ -39,7 +39,7 @@ export function ImpressumModal({ isOpen, onClose }: ImpressumModalProps) {
             <h3 style={{ color: 'var(--ink)', fontSize: '1.1rem', marginBottom: '0.5rem' }}>Kontakt</h3>
             <p>
               Telefon: +49 160 4928746<br />
-              E-Mail: <a href="mailto:hello@greenlabz-studio.de" style={{ color: 'var(--accent)' }}>hello@greenlabz-studio.de</a>
+              E-Mail: <a href="mailto:hallo@greenlabz.de" style={{ color: 'var(--accent)' }}>hallo@greenlabz.de</a>
             </p>
           </section>
 

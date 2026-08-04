@@ -32,7 +32,7 @@ export function DatenschutzModal({ isOpen, onClose }: DatenschutzModalProps) {
             <p>
               Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br />
               <strong>GreenLabz Studio</strong><br />
-              E-Mail: <a href="mailto:hello@greenlabz-studio.de" style={{ color: 'var(--accent)' }}>hello@greenlabz-studio.de</a><br />
+              E-Mail: <a href="mailto:hallo@greenlabz.de" style={{ color: 'var(--accent)' }}>hallo@greenlabz.de</a><br />
               Telefon: +49 160 4928746
             </p>
           </section>
@@ -57,7 +57,7 @@ export function DatenschutzModal({ isOpen, onClose }: DatenschutzModalProps) {
               <strong>E-Mail-Marketing &amp; Informationen:</strong> Mit der Anforderung des Reports erklärst du dich einverstanden, dass wir dich gegebenenfalls per E-Mail mit weiterführenden Tipps zur Website-Optimierung, SEO-Strategien sowie passenden Angeboten von GreenLabz Studio kontaktieren dürfen.
             </p>
             <p style={{ margin: 0 }}>
-              <strong>Widerrufsrecht:</strong> Du kannst dieser Einwilligung sowie der Nutzung deiner E-Mail-Adresse für E-Mail-Marketing jederzeit ohne Angabe von Gründen kostenfrei mit Wirkung für die Zukunft widersprechen. Nutze hierzu den Abmeldelink in jeder E-Mail oder sende eine kurze Nachricht an <a href="mailto:hello@greenlabz-studio.de" style={{ color: 'var(--accent)' }}>hello@greenlabz-studio.de</a>.
+              <strong>Widerrufsrecht:</strong> Du kannst dieser Einwilligung sowie der Nutzung deiner E-Mail-Adresse für E-Mail-Marketing jederzeit ohne Angabe von Gründen kostenfrei mit Wirkung für die Zukunft widersprechen. Nutze hierzu den Abmeldelink in jeder E-Mail oder sende eine kurze Nachricht an <a href="mailto:hallo@greenlabz.de" style={{ color: 'var(--accent)' }}>hallo@greenlabz.de</a>.
             </p>
           </section>
 

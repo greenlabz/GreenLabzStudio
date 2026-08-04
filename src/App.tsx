@@ -1574,7 +1574,7 @@ export default function App() {
           <div className="contact-meta">
             <div>
               <span>E-Mail:</span>
-              <strong>hello@greenlabz-studio.de</strong>
+              <strong>hallo@greenlabz.de</strong>
             </div>
             <div>
               <span>Telefon:</span>

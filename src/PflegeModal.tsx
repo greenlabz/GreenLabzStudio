@@ -66,7 +66,7 @@ export function PflegeModal({ isOpen, onClose, packageName, onOpenDatenschutz }:
         }),
       })
       const result = await response.json() as { error?: string }
-      if (!response.ok) throw new Error(result.error || 'Deine Anfrage konnte nicht gesendet werden. Schreib mir bitte direkt an info@greenlabz-studio.de')
+      if (!response.ok) throw new Error(result.error || 'Deine Anfrage konnte nicht gesendet werden. Schreib mir bitte direkt an hallo@greenlabz.de')
       window.clearInterval(interval)
       setProgress(100)
       window.setTimeout(() => {
