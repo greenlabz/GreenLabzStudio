@@ -42,53 +42,59 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
                   <span className="lab-preview-url">{project.id}.greenlabz.de</span>
                 </div>
                 <div className="lab-preview-content">
-                  <div className="lab-mockup-graphic">
-                    {index === 0 && (
-                      <div className="mockup-ui mockup-ui-scrape">
-                        <div className="mockup-header">
-                          <Database size={16} className="text-accent" />
-                          <span>ScrapeMaster Pro Dashboard</span>
-                        </div>
-                        <div className="mockup-bars">
-                          <div className="mockup-bar flex-1" style={{ width: '85%' }} />
-                          <div className="mockup-bar" style={{ width: '60%' }} />
-                          <div className="mockup-bar" style={{ width: '75%' }} />
-                        </div>
-                        <div className="mockup-pills">
-                          <span className="pill green">+1.420 Leads</span>
-                          <span className="pill">99.4% Valid</span>
-                        </div>
-                      </div>
-                    )}
-                    {index === 1 && (
-                      <div className="mockup-ui mockup-ui-geo">
-                        <div className="mockup-header">
-                          <Sparkles size={16} className="text-accent" />
-                          <span>GEO &amp; AI Search Scanner</span>
-                        </div>
-                        <div className="mockup-ring-row">
-                          <div className="mini-ring">98%</div>
-                          <div className="mini-stats">
-                            <span>ChatGPT Ready</span>
-                            <small>Perplexity Index 100%</small>
+                  {project.previewImage ? (
+                    <div className="lab-mockup-img-wrap">
+                      <img src={project.previewImage} alt={project.name} className="lab-preview-img" />
+                    </div>
+                  ) : (
+                    <div className="lab-mockup-graphic">
+                      {index === 0 && (
+                        <div className="mockup-ui mockup-ui-scrape">
+                          <div className="mockup-header">
+                            <Database size={16} className="text-accent" />
+                            <span>ScrapeMaster Pro Dashboard</span>
+                          </div>
+                          <div className="mockup-bars">
+                            <div className="mockup-bar flex-1" style={{ width: '85%' }} />
+                            <div className="mockup-bar" style={{ width: '60%' }} />
+                            <div className="mockup-bar" style={{ width: '75%' }} />
+                          </div>
+                          <div className="mockup-pills">
+                            <span className="pill green">+1.420 Leads</span>
+                            <span className="pill">99.4% Valid</span>
                           </div>
                         </div>
-                      </div>
-                    )}
-                    {index === 2 && (
-                      <div className="mockup-ui mockup-ui-portal">
-                        <div className="mockup-header">
-                          <Cpu size={16} className="text-accent" />
-                          <span>Client Workspace Portal</span>
+                      )}
+                      {index === 1 && (
+                        <div className="mockup-ui mockup-ui-geo">
+                          <div className="mockup-header">
+                            <Sparkles size={16} className="text-accent" />
+                            <span>GEO &amp; AI Search Scanner</span>
+                          </div>
+                          <div className="mockup-ring-row">
+                            <div className="mini-ring">98%</div>
+                            <div className="mini-stats">
+                              <span>ChatGPT Ready</span>
+                              <small>Perplexity Index 100%</small>
+                            </div>
+                          </div>
                         </div>
-                        <div className="mockup-progress-list">
-                          <div className="progress-item active"><span>Concept &amp; Wireframe</span><i /></div>
-                          <div className="progress-item active"><span>High-End Design</span><i /></div>
-                          <div className="progress-item"><span>Live Deployment</span><i /></div>
+                      )}
+                      {index === 2 && (
+                        <div className="mockup-ui mockup-ui-portal">
+                          <div className="mockup-header">
+                            <Cpu size={16} className="text-accent" />
+                            <span>The Shaker Bar Schichtplan</span>
+                          </div>
+                          <div className="mockup-progress-list">
+                            <div className="progress-item active"><span>Barkeeper &amp; Barback</span><i /></div>
+                            <div className="progress-item active"><span>Service &amp; Gastro Plan</span><i /></div>
+                            <div className="progress-item"><span>Live Umsatzauswertung</span><i /></div>
+                          </div>
                         </div>
-                      </div>
-                    )}
-                  </div>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

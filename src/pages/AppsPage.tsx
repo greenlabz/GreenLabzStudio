@@ -74,81 +74,87 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                     <span className="lab-preview-url">https://{project.id}.greenlabz.de</span>
                   </div>
                   <div className="lab-preview-content large-preview">
-                    <div className="app-mockup-full">
-                      {index === 0 && (
-                        <div className="mockup-screen-full mockup-scrape-screen">
-                          <div className="screen-header">
-                            <Database size={18} className="text-accent" />
-                            <strong>ScrapeMaster Pro — Data Pipeline Engine</strong>
-                          </div>
-                          <div className="screen-grid">
-                            <div className="screen-card">
-                              <small>Extrahiert diese Woche</small>
-                              <strong>14.280 Leads</strong>
+                    {project.previewImage ? (
+                      <div className="lab-mockup-img-wrap full-img-wrap">
+                        <img src={project.previewImage} alt={project.name} className="lab-preview-img-full" />
+                      </div>
+                    ) : (
+                      <div className="app-mockup-full">
+                        {index === 0 && (
+                          <div className="mockup-screen-full mockup-scrape-screen">
+                            <div className="screen-header">
+                              <Database size={18} className="text-accent" />
+                              <strong>ScrapeMaster Pro — Data Pipeline Engine</strong>
                             </div>
-                            <div className="screen-card">
-                              <small>Genauigkeit</small>
-                              <strong>99,4% Verified</strong>
+                            <div className="screen-grid">
+                              <div className="screen-card">
+                                <small>Extrahiert diese Woche</small>
+                                <strong>14.280 Leads</strong>
+                              </div>
+                              <div className="screen-card">
+                                <small>Genauigkeit</small>
+                                <strong>99,4% Verified</strong>
+                              </div>
+                              <div className="screen-card">
+                                <small>Export Format</small>
+                                <strong>CSV / API / Webhook</strong>
+                              </div>
                             </div>
-                            <div className="screen-card">
-                              <small>Export Format</small>
-                              <strong>CSV / API / Webhook</strong>
+                            <div className="screen-table-preview">
+                              <div className="table-row head"><span>Unternehmen</span><span>Ort</span><span>E-Mail Status</span></div>
+                              <div className="table-row"><span>Dr. Roth Zahnmedizin</span><span>Heilbronn</span><span className="verified">Verifiziert</span></div>
+                              <div className="table-row"><span>Schuster Haustechnik</span><span>Stuttgart</span><span className="verified">Verifiziert</span></div>
                             </div>
                           </div>
-                          <div className="screen-table-preview">
-                            <div className="table-row head"><span>Unternehmen</span><span>Ort</span><span>E-Mail Status</span></div>
-                            <div className="table-row"><span>Dr. Roth Zahnmedizin</span><span>Heilbronn</span><span className="verified">Verifiziert</span></div>
-                            <div className="table-row"><span>Schuster Haustechnik</span><span>Stuttgart</span><span className="verified">Verifiziert</span></div>
-                          </div>
-                        </div>
-                      )}
+                        )}
 
-                      {index === 1 && (
-                        <div className="mockup-screen-full mockup-geo-screen">
-                          <div className="screen-header">
-                            <Sparkles size={18} className="text-accent" />
-                            <strong>GEO Engine — KI &amp; Search Auditor</strong>
+                        {index === 1 && (
+                          <div className="mockup-screen-full mockup-geo-screen">
+                            <div className="screen-header">
+                              <Sparkles size={18} className="text-accent" />
+                              <strong>GEO Engine — KI &amp; Search Auditor</strong>
+                            </div>
+                            <div className="screen-grid">
+                              <div className="screen-card">
+                                <small>Google Index Score</small>
+                                <strong>100 / 100</strong>
+                              </div>
+                              <div className="screen-card">
+                                <small>ChatGPT Readiness</small>
+                                <strong>Optimal (98%)</strong>
+                              </div>
+                              <div className="screen-card">
+                                <small>Perplexity Visibility</small>
+                                <strong>Rang #1 Region Heilbronn</strong>
+                              </div>
+                            </div>
                           </div>
-                          <div className="screen-grid">
-                            <div className="screen-card">
-                              <small>Google Index Score</small>
-                              <strong>100 / 100</strong>
-                            </div>
-                            <div className="screen-card">
-                              <small>ChatGPT Readiness</small>
-                              <strong>Optimal (98%)</strong>
-                            </div>
-                            <div className="screen-card">
-                              <small>Perplexity Visibility</small>
-                              <strong>Rang #1 Region Heilbronn</strong>
-                            </div>
-                          </div>
-                        </div>
-                      )}
+                        )}
 
-                      {index === 2 && (
-                        <div className="mockup-screen-full mockup-portal-screen">
-                          <div className="screen-header">
-                            <Cpu size={18} className="text-accent" />
-                            <strong>Client Workspace &amp; Audit Portal</strong>
+                        {index === 2 && (
+                          <div className="mockup-screen-full mockup-portal-screen">
+                            <div className="screen-header">
+                              <Cpu size={18} className="text-accent" />
+                              <strong>Bar Shift Planner — The Shaker Gastro Suite</strong>
+                            </div>
+                            <div className="screen-grid">
+                              <div className="screen-card">
+                                <small>Geplante Schichten</small>
+                                <strong>48 Schichten / Woche</strong>
+                              </div>
+                              <div className="screen-card">
+                                <small>Personalkostenquote</small>
+                                <strong>24.2% (Ziel: &lt;28%)</strong>
+                              </div>
+                              <div className="screen-card">
+                                <small>Ausfallquote</small>
+                                <strong>0% (Auto-Substitute)</strong>
+                              </div>
+                            </div>
                           </div>
-                          <div className="screen-grid">
-                            <div className="screen-card">
-                              <small>Projektfortschritt</small>
-                              <strong>Phase 3 von 4</strong>
-                            </div>
-                            <div className="screen-card">
-                              <small>Offene Freigaben</small>
-                              <strong>0 ausstehend</strong>
-                            </div>
-                            <div className="screen-card">
-                              <small>Live-Performance</small>
-                              <strong>99/100 Core Web Vitals</strong>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                    </div>
+                        )}
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
