@@ -18,7 +18,7 @@ const showcases: ShowcaseItem[] = [
     category: 'Fitness & Gesundheit',
     image: '/assets/showcases/showcase-eisenkraft.png',
     tag: 'FITNESS & GYM',
-    objectPosition: 'top left',
+    objectPosition: 'center top',
   },
   {
     id: 'denker',
@@ -27,7 +27,7 @@ const showcases: ShowcaseItem[] = [
     category: 'Handwerk & KFZ-Meisterbetrieb',
     image: '/assets/showcases/showcase-denker.png',
     tag: '■ REFERENZ · CAR COMPANY',
-    objectPosition: 'top left',
+    objectPosition: 'center top',
   },
   {
     id: 'nadine-kemmert',
@@ -45,7 +45,7 @@ const showcases: ShowcaseItem[] = [
     category: 'Beauty & Cosmetics',
     image: '/assets/showcases/showcase-makeup.jpg',
     tag: 'BEAUTY & SKINCARE',
-    objectPosition: 'top center',
+    objectPosition: 'center top',
   },
   {
     id: 'aura',
@@ -54,7 +54,7 @@ const showcases: ShowcaseItem[] = [
     category: 'Design & Agentur',
     image: '/assets/showcases/showcase-aura.png',
     tag: 'BRANDING & DESIGN',
-    objectPosition: 'top left',
+    objectPosition: 'center top',
   },
   {
     id: 'format-baukonzept',
@@ -63,7 +63,7 @@ const showcases: ShowcaseItem[] = [
     category: 'Bauwesen & Architektur',
     image: '/assets/showcases/showcase-format.png',
     tag: 'HANDWERK & BAU',
-    objectPosition: 'top left',
+    objectPosition: 'center top',
   },
   {
     id: 'maison-fleur',
@@ -72,7 +72,7 @@ const showcases: ShowcaseItem[] = [
     category: 'E-Commerce & Retail',
     image: '/assets/showcases/showcase-maison.png',
     tag: 'LUXURY BRAND',
-    objectPosition: 'top left',
+    objectPosition: 'center top',
   },
   {
     id: 'thomas-alber',
@@ -81,7 +81,7 @@ const showcases: ShowcaseItem[] = [
     category: 'Handwerk & Haustechnik',
     image: '/assets/showcases/showcase-alber.png',
     tag: 'MEISTERBETRIEB',
-    objectPosition: 'top left',
+    objectPosition: 'center top',
   },
   {
     id: 'mainframe',
@@ -90,7 +90,7 @@ const showcases: ShowcaseItem[] = [
     category: 'Web-App & SaaS',
     image: '/assets/showcases/showcase-mainframe.png',
     tag: 'ENTERPRISE TECH',
-    objectPosition: 'top left',
+    objectPosition: 'center top',
   },
 ]
 
