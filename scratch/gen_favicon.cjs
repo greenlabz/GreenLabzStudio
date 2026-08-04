@@ -1,4 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" fill="none">
+const fs = require('fs');
+const sharp = require('sharp');
+
+const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" fill="none">
   <!-- Dark premium rounded squircle background matching GreenLabz Studio theme -->
   <rect width="512" height="512" rx="128" fill="#040c07"/>
   <rect x="12" y="12" width="488" height="488" rx="116" stroke="#00cc6a" stroke-opacity="0.4" stroke-width="12"/>
@@ -17,4 +20,38 @@
       <stop offset="100%" stop-color="#00cc6a" stop-opacity="0"/>
     </radialGradient>
   </defs>
-</svg>
+</svg>`;
+
+async function main() {
+  // 1. Write SVG
+  fs.writeFileSync('public/favicon.svg', svgContent, 'utf-8');
+  console.log('Created public/favicon.svg');
+
+  const svgBuffer = Buffer.from(svgContent);
+
+  // 2. Generate PNG 48x48
+  await sharp(svgBuffer)
+    .resize(48, 48)
+    .png()
+    .toFile('public/favicon-48.png');
+  console.log('Created public/favicon-48.png');
+
+  // 3. Generate Apple Touch Icon 180x180
+  await sharp(svgBuffer)
+    .resize(180, 180)
+    .png()
+    .toFile('public/apple-touch-icon.png');
+  console.log('Created public/apple-touch-icon.png');
+
+  // 4. Generate favicon.ico (32x32)
+  await sharp(svgBuffer)
+    .resize(32, 32)
+    .png()
+    .toFile('public/favicon.ico');
+  console.log('Created public/favicon.ico');
+}
+
+main().catch(err => {
+  console.error('Error generating favicons:', err);
+  process.exit(1);
+});
