@@ -4,6 +4,25 @@
   --card-radius-sm: 12px;
 }
 
+/* FOUC-Vermeidung vor der JS-Initialisierung */
+html:not(.js-ready) .gl-exact-main-card,
+html:not(.js-ready) .gl-exact-phone-static,
+html:not(.js-ready) .mobile-beat-copy-state,
+html:not(.js-ready) .gl-exact-text-track,
+html:not(.js-ready) .gl-exact-text-days,
+html:not(.js-ready) .gl-exact-card-left,
+html:not(.js-ready) .gl-exact-card-right,
+html:not(.js-ready) .gl-exact-phone-wrap,
+html:not(.js-ready) .gl-exact-badge,
+html:not(.js-ready) .gl-exact-cta,
+html:not(.js-ready) [data-reveal],
+html:not(.js-ready) .problem-card,
+html:not(.js-ready) .discipline-card,
+html:not(.js-ready) .work-row {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
 .page {
   position: relative;
   min-height: 100svh;
