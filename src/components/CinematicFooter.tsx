@@ -1,6 +1,5 @@
-import * as React from 'react'
 import { useEffect, useRef } from 'react'
-import { ArrowUp, ArrowUpRight, ExternalLink, Mail, MessageCircle } from 'lucide-react'
+import { ArrowRight, ArrowUp, ArrowUpRight, ExternalLink, Mail, MessageCircle } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -66,84 +65,113 @@ function MarqueeItem() {
   )
 }
 
+const footerLinks = [
+  { number: '01', label: 'Startseite', target: 'top' },
+  { number: '02', label: 'Projekte & Ergebnisse', target: 'cases' },
+  { number: '03', label: 'Leistungen', target: 'services' },
+] as const
+
 export default function CinematicFooter({ onPrimaryClick, onContactClick, onNavigate, onOpenImpressum, onOpenDatenschutz }: CinematicFooterProps) {
   const wrapperRef = useRef<HTMLDivElement>(null)
   const headingRef = useRef<HTMLHeadingElement>(null)
   const linksRef = useRef<HTMLDivElement>(null)
 
-  const goToSection = (event: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+  const goToSection = (event: React.MouseEvent<HTMLAnchorElement>, target: string) => {
     event.preventDefault()
     onNavigate('home')
-    window.history.pushState(null, '', `#${targetId}`)
-    window.requestAnimationFrame(() => {
-      document.getElementById(targetId)?.scrollIntoView({
-        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
-        block: 'start',
-      })
+    window.setTimeout(() => {
+      document.getElementById(target)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     })
   }
 
+  useEffect(() => {
+    const wrapper = wrapperRef.current
+    if (!wrapper || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    const context = gsap.context(() => {
+      gsap.fromTo([headingRef.current, linksRef.current], { y: 50, opacity: 0 }, {
+        y: 0, opacity: 1, stagger: .15, ease: 'power3.out',
+        scrollTrigger: { trigger: wrapper, start: 'top 40%', end: 'bottom bottom', scrub: 1 },
+      })
+    }, wrapper)
+
+    return () => context.revert()
+  }, [])
+
   return (
-    <footer className="cinematic-footer" id="contact" ref={wrapperRef}>
-      <MarqueeItem />
+    <div ref={wrapperRef} className="cinematic-footer-shell">
+      <footer className="cinematic-footer">
+        <div className="cinematic-footer-aurora" aria-hidden="true" />
+        <div className="cinematic-footer-grid" aria-hidden="true" />
 
-      <div className="cinematic-footer-inner">
-        <div className="cinematic-footer-top">
-          <div className="cinematic-footer-hero">
-            <p className="cinematic-footer-kicker"><span>✦</span> GREENLABZ STUDIO</p>
-            <h2 ref={headingRef}>
-              Bereit f&uuml;r deinen <em>digitalen Vorsprung</em>?
-            </h2>
-            <p className="cinematic-footer-subline">
-              Lass uns dar&uuml;ber sprechen, wie deine neue Website oder Web-App mehr qualifizierte Anfragen generiert.
-            </p>
+        <div className="cinematic-footer-marquee" aria-hidden="true">
+          <div className="cinematic-footer-marquee-track">
+            <MarqueeItem />
+            <MarqueeItem />
           </div>
+        </div>
 
-          <div className="cinematic-footer-actions" ref={linksRef}>
-            <div className="cinematic-footer-contact-cards">
-              <MagneticAnchor href="mailto:hallo@greenlabz.de" className="cinematic-footer-card">
-                <span>E-Mail</span>
-                <strong>hallo@greenlabz.de</strong>
-                <ArrowUpRight size={18} aria-hidden="true" />
-              </MagneticAnchor>
-              <MagneticAnchor href="tel:+491604928749" className="cinematic-footer-card">
-                <span>Telefon</span>
-                <strong>+49 160 4928749</strong>
-                <ArrowUpRight size={18} aria-hidden="true" />
-              </MagneticAnchor>
-              <MagneticButton type="button" onClick={onContactClick} className="cinematic-footer-card cta-card">
-                <span>Direktkontakt</span>
-                <strong>Nachricht senden</strong>
-                <MessageCircle size={18} />
+        <div className="cinematic-footer-center">
+          <h2 ref={headingRef}>Bereit f&uuml;r <span>Sichtbarkeit?</span></h2>
+          <div ref={linksRef} className="cinematic-footer-actions">
+            <div className="cinematic-footer-main-actions">
+              <MagneticButton type="button" onClick={onPrimaryClick} className="cinematic-footer-pill cinematic-footer-primary">
+                Kostenloses Erstgespräch <ArrowRight size={18} />
+              </MagneticButton>
+              <MagneticButton type="button" onClick={onContactClick} className="cinematic-footer-pill cinematic-footer-secondary">
+                Nachricht senden <MessageCircle size={18} />
               </MagneticButton>
             </div>
             <nav className="cinematic-footer-nav" aria-label="Seitennavigation">
-              <MagneticAnchor href="#top" onClick={(event) => goToSection(event, 'top')} className="cinematic-footer-nav-link">
-                <span>01</span><strong>Startseite</strong><ArrowUpRight size={18} aria-hidden="true" />
-              </MagneticAnchor>
-              <MagneticAnchor href="#cases" onClick={(event) => goToSection(event, 'cases')} className="cinematic-footer-nav-link">
-                <span>02</span><strong>Projekte &amp; Ergebnisse</strong><ArrowUpRight size={18} aria-hidden="true" />
-              </MagneticAnchor>
-              <MagneticAnchor href="#services" onClick={(event) => goToSection(event, 'services')} className="cinematic-footer-nav-link">
-                <span>03</span><strong>Leistungen</strong><ArrowUpRight size={18} aria-hidden="true" />
-              </MagneticAnchor>
+              {footerLinks.map((link) => (
+                <MagneticAnchor
+                  key={link.number}
+                  href={`#${link.target}`}
+                  onClick={(event) => goToSection(event, link.target)}
+                  className="cinematic-footer-nav-link"
+                >
+                  <span>{link.number}</span>
+                  <strong>{link.label}</strong>
+                  <ArrowUpRight size={18} aria-hidden="true" />
+                </MagneticAnchor>
+              ))}
               <MagneticButton type="button" onClick={() => onNavigate('apps')} className="cinematic-footer-nav-link">
-                <span>04</span><strong>Apps &amp; Tools</strong><ArrowUpRight size={18} aria-hidden="true" />
+                <span>04</span>
+                <strong>Apps &amp; Tools</strong>
+                <ArrowUpRight size={18} aria-hidden="true" />
               </MagneticButton>
-              <MagneticAnchor href="#pricing" onClick={(event) => goToSection(event, 'pricing')} className="cinematic-footer-nav-link">
-                <span>05</span><strong>Investition</strong><ArrowUpRight size={18} aria-hidden="true" />
+              <MagneticAnchor
+                href="#pricing"
+                onClick={(event) => goToSection(event, 'pricing')}
+                className="cinematic-footer-nav-link"
+              >
+                <span>05</span>
+                <strong>Investition</strong>
+                <ArrowUpRight size={18} aria-hidden="true" />
               </MagneticAnchor>
-              <MagneticAnchor href="#faq" onClick={(event) => goToSection(event, 'faq')} className="cinematic-footer-nav-link">
-                <span>06</span><strong>Fragen &amp; Antworten</strong><ArrowUpRight size={18} aria-hidden="true" />
+              <MagneticAnchor
+                href="#faq"
+                onClick={(event) => goToSection(event, 'faq')}
+                className="cinematic-footer-nav-link"
+              >
+                <span>06</span>
+                <strong>Fragen &amp; Antworten</strong>
+                <ArrowUpRight size={18} aria-hidden="true" />
               </MagneticAnchor>
               <MagneticButton type="button" onClick={onPrimaryClick} className="cinematic-footer-nav-link">
-                <span>07</span><strong>Kostenloses Erstgespräch</strong><ArrowUpRight size={18} aria-hidden="true" />
+                <span>07</span>
+                <strong>Kostenloses Erstgespräch</strong>
+                <ArrowUpRight size={18} aria-hidden="true" />
               </MagneticButton>
               <MagneticButton type="button" onClick={() => onNavigate('ratgeber')} className="cinematic-footer-nav-link">
-                <span>08</span><strong>Ratgeber</strong><ArrowUpRight size={18} aria-hidden="true" />
+                <span>08</span>
+                <strong>Ratgeber</strong>
+                <ArrowUpRight size={18} aria-hidden="true" />
               </MagneticButton>
               <MagneticButton type="button" onClick={onContactClick} className="cinematic-footer-nav-link">
-                <span>09</span><strong>Kontakt</strong><ArrowUpRight size={18} aria-hidden="true" />
+                <span>09</span>
+                <strong>Kontakt</strong>
+                <ArrowUpRight size={18} aria-hidden="true" />
               </MagneticButton>
             </nav>
             <nav className="cinematic-footer-legal" aria-label="Rechtliches">
@@ -168,7 +196,7 @@ export default function CinematicFooter({ onPrimaryClick, onContactClick, onNavi
           <span>Baden-W&uuml;rttemberg, DE</span>
           <span>Direkt mit mir</span>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
   )
 }
