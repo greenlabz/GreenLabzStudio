@@ -71,14 +71,15 @@ export function BeforeAfterSlider() {
         })
       })
 
+      const isMobile = window.innerWidth < 900
       const pinTarget = containerRef.current.closest<HTMLElement>('.featured-case') || containerRef.current
 
-      // Pin Timeline (50px top clearance for floating header navigation)
+      // Pin Timeline (65px top clearance for floating header navigation)
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: pinTarget,
-          start: 'top 50px',
-          end: () => `+=${Math.round(window.innerHeight * 1.8)}`,
+          start: isMobile ? 'top 65px' : 'top 50px',
+          end: () => `+=${Math.round(window.innerHeight * (isMobile ? 1.2 : 1.8))}`,
           pin: true,
           pinSpacing: true,
           scrub: 1,
@@ -132,7 +133,7 @@ export function BeforeAfterSlider() {
               <span className="dot dot-yellow" />
               <span className="dot dot-green" />
             </div>
-            <div className="ba-url">zahnaerzte-roth.de (NEU / REDESIGN)</div>
+            <div className="ba-url">zahnaerzte-roth.de <span className="ba-url-sub">(NEU / REDESIGN)</span></div>
           </div>
           <img src="/cases/roth.png" alt="Zahnarzt Dr. Roth Redesign Nachher" />
         </div>
@@ -145,7 +146,7 @@ export function BeforeAfterSlider() {
               <span className="dot" style={{ background: '#555' }} />
               <span className="dot" style={{ background: '#555' }} />
             </div>
-            <div className="ba-url" style={{ color: '#888' }}>zahnaerzte-roth.de (VORHER / ALT)</div>
+            <div className="ba-url" style={{ color: '#888' }}>zahnaerzte-roth.de <span className="ba-url-sub">(VORHER)</span></div>
           </div>
           <img src="/cases/roth-before.jpg" alt="Zahnarzt Praxis Alte Website Vorher" />
         </div>
