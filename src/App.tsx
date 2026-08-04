@@ -1393,8 +1393,10 @@ export default function App() {
                   </div>
                 </div>
                 <div className="custom-app-price-box">
-                  <span className="price-kicker">PREIS</span>
-                  <strong>Auf Anfrage</strong>
+                  <div className="price-main">
+                    <span className="price-kicker">[PREIS]</span>
+                    <strong>Auf Anfrage</strong>
+                  </div>
                   <span className="price-sub">je nach Umfang</span>
                 </div>
                 <ul>
@@ -1420,8 +1422,10 @@ export default function App() {
                   </div>
                 </div>
                 <div className="custom-app-price-box">
-                  <span className="price-kicker">PREIS</span>
-                  <strong>Auf Anfrage</strong>
+                  <div className="price-main">
+                    <span className="price-kicker">[PREIS]</span>
+                    <strong>Auf Anfrage</strong>
+                  </div>
                   <span className="price-sub">individuelles Angebot</span>
                 </div>
                 <ul>
