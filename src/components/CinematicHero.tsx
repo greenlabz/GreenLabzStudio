@@ -1,11 +1,13 @@
-import { useEffect, useLayoutEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { Ban, Bolt, CheckCircle2, Handshake, MessageCircle, ScanSearch, TrendingUp, UserRound } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import HeroWave from './HeroWave'
 import WebsiteAuditTool from './WebsiteAuditTool'
 
-gsap.registerPlugin(ScrollTrigger)
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger)
+}
 
 interface CinematicHeroProps {
   onOpenDatenschutz?: () => void
@@ -42,7 +44,7 @@ export default function CinematicHero({ onOpenDatenschutz }: CinematicHeroProps 
     }
   }, [])
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const root = containerRef.current
     if (!root) return
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches

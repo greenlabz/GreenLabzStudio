@@ -1,11 +1,19 @@
-import { createRoot, hydrateRoot } from 'react-dom/client'
-import './index.css'
+import { ViteReactSSG } from 'vite-react-ssg'
 import App from './App.tsx'
+import './index.css'
 
-const container = document.getElementById('root')!
+export const createRoot = ViteReactSSG({
+  routes: [
+    {
+      path: '/',
+      element: <App />,
+    },
+  ],
+})
 
-if (container.hasChildNodes()) {
-  hydrateRoot(container, <App />)
-} else {
-  createRoot(container).render(<App />)
-}
+export const createApp = createRoot
+export default createRoot
+
+
+
+

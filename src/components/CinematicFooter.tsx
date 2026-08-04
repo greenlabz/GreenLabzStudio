@@ -4,7 +4,9 @@ import { ArrowRight, ArrowUp, ArrowUpRight, ExternalLink, Mail, MessageCircle } 
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-gsap.registerPlugin(ScrollTrigger)
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger)
+}
 
 type CinematicFooterProps = {
   onPrimaryClick: () => void

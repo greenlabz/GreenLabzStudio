@@ -45,7 +45,9 @@ import { HeroBendGallery } from './components/HeroBendGallery'
 import { BeforeAfterSlider } from './components/BeforeAfterSlider'
 import './App.css'
 
-gsap.registerPlugin(ScrollTrigger)
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger)
+}
 
 const logoSrc = '/assets/greenlabz-studio-logo.svg'
 const leadMagnetEndpoint = '/api/lead-magnet'
@@ -503,17 +505,20 @@ export default function App() {
   }
 
   const [route, setRoute] = useState(() => {
+    if (typeof window === 'undefined') return 'home'
     const h = window.location.hash.replace('#', '')
     if (h.startsWith('ratgeber')) return 'ratgeber'
     if (h.startsWith('skills') || h.startsWith('claude-skills')) return 'skills'
     return 'home'
   })
   const [articleSlug, setArticleSlug] = useState<string | null>(() => {
+    if (typeof window === 'undefined') return null
     const h = window.location.hash.replace('#', '')
     if (h.startsWith('ratgeber/')) return h.split('/')[1] || null
     return null
   })
   const [skillSlug, setSkillSlug] = useState<string | null>(() => {
+    if (typeof window === 'undefined') return null
     const h = window.location.hash.replace('#', '')
     if (h.startsWith('skills/')) return h.split('/')[1] || null
     return null
