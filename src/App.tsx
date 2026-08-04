@@ -47,6 +47,7 @@ import './App.css'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
+  ScrollTrigger.config({ ignoreMobileResize: true })
 }
 
 const logoSrc = '/assets/greenlabz-studio-logo.svg'
@@ -610,7 +611,13 @@ export default function App() {
     let rafId = 0
     let refreshRafId = 0
     if (!reduce) {
-      lenis = new Lenis({ lerp: 0.08, wheelMultiplier: 0.9 })
+      const isTouch = typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0)
+      lenis = new Lenis({
+        lerp: isTouch ? 0.12 : 0.08,
+        wheelMultiplier: 0.9,
+        touchMultiplier: 1.2,
+        syncTouch: true,
+      })
       const raf = (time: number) => {
         lenis?.raf(time)
         rafId = requestAnimationFrame(raf)

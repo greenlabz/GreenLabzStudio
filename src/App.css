@@ -9508,6 +9508,26 @@
   }
 }
 
+/* Mobile GPU Hardware Acceleration & Smooth Touch Scroll Optimizations */
+@media (max-width: 768px) {
+  html, body {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .gl-exact-main-card,
+  .gl-exact-phone-wrap,
+  .ba-slider-container,
+  .ba-stack-card,
+  .hero-bend-gallery,
+  .site-nav,
+  .featured-case {
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+}
+
 
 
 
