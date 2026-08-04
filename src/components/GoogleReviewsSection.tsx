@@ -62,7 +62,7 @@ export function GoogleReviewsSection() {
     <section className="section google-reviews-section" data-reveal>
       <div className="google-reviews-head">
         <div>
-          <p className="section-code"><span /> [10] GOOGLE REVIEWS</p>
+          <p className="section-code"><span /> [11] GOOGLE REVIEWS</p>
           <h2>
             Was Kunden <br />
             <span className="section-title-serif">wirklich sagen.</span>

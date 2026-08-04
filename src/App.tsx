@@ -5,6 +5,8 @@ import { PflegeModal } from './PflegeModal'
 import { DatenschutzModal } from './DatenschutzModal'
 import { ImpressumModal } from './ImpressumModal'
 const RatgeberPage = lazy(() => import('./pages/RatgeberPage'))
+const AppsPage = lazy(() => import('./pages/AppsPage'))
+import { LabTeaserSection } from './components/LabTeaserSection'
 import CinematicHero from './components/CinematicHero'
 import CinematicPhone from './components/CinematicPhone'
 import CinematicFooter from './components/CinematicFooter'
@@ -508,6 +510,7 @@ export default function App() {
     if (typeof window === 'undefined') return 'home'
     const h = window.location.hash.replace('#', '')
     if (h.startsWith('ratgeber')) return 'ratgeber'
+    if (h.startsWith('apps') || h.startsWith('labs')) return 'apps'
     return 'home'
   })
   const [articleSlug, setArticleSlug] = useState<string | null>(() => {
@@ -984,17 +987,22 @@ export default function App() {
             <a href="#top" onClick={() => setIsMenuOpen(false)}><span>01</span>Startseite<ArrowUpRight size={17} /></a>
             <a href="#cases" onClick={() => setIsMenuOpen(false)}><span>02</span>Projekte &amp; Ergebnisse<ArrowUpRight size={17} /></a>
             <a href="#services" onClick={() => setIsMenuOpen(false)}><span>03</span>Leistungen<ArrowUpRight size={17} /></a>
-            <a href="#pricing" onClick={() => setIsMenuOpen(false)}><span>04</span>Investition<ArrowUpRight size={17} /></a>
-            <a href="#faq" onClick={() => setIsMenuOpen(false)}><span>05</span>Fragen &amp; Antworten<ArrowUpRight size={17} /></a>
-            <a href="#calendar" onClick={() => setIsMenuOpen(false)}><span>06</span>Kostenloses Erstgespräch<ArrowUpRight size={17} /></a>
-            <a href="#ratgeber" onClick={(event) => { event.preventDefault(); setIsMenuOpen(false); navigate('ratgeber') }}><span>07</span>Ratgeber<ArrowUpRight size={17} /></a>
-            <a href="#contact" onClick={(event) => { event.preventDefault(); setIsMenuOpen(false); setIsContactModalOpen(true) }}><span>08</span>Kontakt<ArrowUpRight size={17} /></a>
+            <a href="#apps" onClick={(event) => { event.preventDefault(); setIsMenuOpen(false); navigate('apps') }}><span>04</span>Apps &amp; Tools<ArrowUpRight size={17} /></a>
+            <a href="#pricing" onClick={() => setIsMenuOpen(false)}><span>05</span>Investition<ArrowUpRight size={17} /></a>
+            <a href="#faq" onClick={() => setIsMenuOpen(false)}><span>06</span>Fragen &amp; Antworten<ArrowUpRight size={17} /></a>
+            <a href="#calendar" onClick={() => setIsMenuOpen(false)}><span>07</span>Kostenloses Erstgespräch<ArrowUpRight size={17} /></a>
+            <a href="#ratgeber" onClick={(event) => { event.preventDefault(); setIsMenuOpen(false); navigate('ratgeber') }}><span>08</span>Ratgeber<ArrowUpRight size={17} /></a>
+            <a href="#contact" onClick={(event) => { event.preventDefault(); setIsMenuOpen(false); setIsContactModalOpen(true) }}><span>09</span>Kontakt<ArrowUpRight size={17} /></a>
           </div>
         </nav>
       )}
       {route === 'ratgeber' ? (
         <Suspense fallback={<div style={{minHeight:'100vh'}} />}>
           <RatgeberPage onNavigate={navigate} initialArticleSlug={articleSlug} />
+        </Suspense>
+      ) : route === 'apps' ? (
+        <Suspense fallback={<div style={{minHeight:'100vh'}} />}>
+          <AppsPage onNavigate={navigate} />
         </Suspense>
       ) : (
 <main>
@@ -1114,10 +1122,12 @@ export default function App() {
           </div>
         </section>
 
+        <LabTeaserSection onNavigate={navigate} />
+
         <section className="section search-shift-section" data-reveal>
           <div className="search-shift-shell">
             <div className="search-shift-copy">
-              <SectionLabel number="05" label="Warum das wichtig ist" />
+              <SectionLabel number="06" label="Warum das wichtig ist" />
               <h2>Die <span className="text-accent">Suche</span> hat sich <span className="text-accent">verändert</span></h2>
               <p>
                 Früher hat man bei Google getippt und geklickt. Heute fragen immer mehr Menschen direkt
@@ -1169,7 +1179,7 @@ export default function App() {
         <div className="mobile-importance-stage">
         <section className="section mobile-importance-section">
           <div className="section-head">
-            <SectionLabel number="06" label="Mobile First" />
+            <SectionLabel number="07" label="Mobile First" />
             <h2>Warum <span className="text-accent">Mobil</span> so <span className="text-accent">Wichtig</span> ist</h2>
           </div>
           <div className="mobile-beat-copy" aria-live="polite">
@@ -1202,7 +1212,7 @@ export default function App() {
 
         <section className="section work-section" id="cases" data-reveal>
           <div className="section-head">
-            <SectionLabel number="09" label="Projekte / Case Studies" />
+            <SectionLabel number="10" label="Projekte / Case Studies" />
             <h2>Kein <span className="text-accent">Blabla</span>. Nur fertige Websites.</h2>
           </div>
           <article className="featured-case">
@@ -1246,7 +1256,7 @@ export default function App() {
 
         <section className="section promises-section" data-reveal>
           <div className="section-head">
-            <SectionLabel number="11" label="MEIN VERSPRECHEN" />
+            <SectionLabel number="12" label="MEIN VERSPRECHEN" />
             <h2>Wie <span className="text-accent">ich</span> Qualität <span className="text-accent">garantiere</span></h2>
           </div>
           <div className="card-grid">
@@ -1293,7 +1303,7 @@ export default function App() {
 
         <section className="section pricing-section" id="pricing" data-reveal>
           <div className="section-head pricing-head">
-            <SectionLabel number="13" label="Investition" />
+            <SectionLabel number="14" label="Investition" />
             <h2><span className="section-title-serif">Investiere</span> in dein <span className="section-title-serif">Wachstum.</span></h2>
           </div>
           <div className="pricing-grid">
@@ -1452,7 +1462,7 @@ export default function App() {
 
         <section className="section lead-magnet-section" id="freebie" data-reveal>
           <div className="lead-magnet-copy">
-            <SectionLabel number="14" label="5-Minuten-Checkliste für deine Website" />
+            <SectionLabel number="15" label="5-Minuten-Checkliste für deine Website" />
             <h2><span className="section-title-serif">Warum</span> deine Website <span className="section-title-serif">Kunden verliert.</span></h2>
             <p>
               Die 5-Minuten-Checkliste als PDF. Finde heraus, ob deine Website Vertrauen aufbaut, bei Google gefunden wird und echte Anfragen auslöst.
@@ -1517,7 +1527,7 @@ export default function App() {
 
         <section className="section objections-section" id="faq" data-reveal>
           <div className="section-head">
-            <SectionLabel number="15" label="Einwände / Stille Ängste" />
+            <SectionLabel number="16" label="Einwände / Stille Ängste" />
             <h2><span className="section-title-serif">Fragen</span> & <span className="section-title-serif">Antworten</span></h2>
             <p className="faq-intro">Häufige Fragen, klare Antworten. Damit du einschätzen kannst, ob GreenLabz Studio zu deinem Betrieb passt.</p>
           </div>
@@ -1536,7 +1546,7 @@ export default function App() {
             <img src="/assets/james-portrait-2.png" alt="James Green" className="about-image" />
           </div>
           <div>
-            <SectionLabel number="16" label="About Me" />
+            <SectionLabel number="17" label="About Me" />
             <h2><span className="section-title-serif">Warum</span> GreenLabz Studio <span className="section-title-serif">?</span></h2>
             <p>
               Hi, ich bin James Green. Ich entwickle maßgeschneiderte digitale Plattformen, die nicht nur auf den ersten Blick faszinieren, sondern deine Besucher gezielt in echte Kunden verwandeln. Dafür setze ich auf modernste KI-gestützte Entwicklungsprozesse. Sie machen mich schneller und präziser als klassische Agenturen und deine digitale Präsenz effizient, skalierbar und zukunftssicher. Mein Antrieb ist simpel: Meine Kunden sollen online so wirken wie sie wirklich sind. Professionell, vertrauenswürdig und einen Schritt voraus. Mein Fokus liegt auf einem Ding: deinem Umsatzwachstum durch smarte technologische Umsetzung. Ich freue mich darauf, mit dir zu arbeiten. Bis bald!
@@ -1545,7 +1555,7 @@ export default function App() {
         </section>
 
         <section className="contact-section calendar-section" id="calendar" data-reveal>
-          <SectionLabel number="17" label="Kostenloses Erstgespräch" />
+          <SectionLabel number="18" label="Kostenloses Erstgespräch" />
           <h2><span className="section-title-serif">In drei Schritten</span> zum passenden Gespräch.</h2>
           <p>
             25 Minuten. Kein Verkaufstheater. Erst dein Anliegen, dann dein Termin.
@@ -1556,7 +1566,7 @@ export default function App() {
 
 
         <section className="section contact-section" id="contact" data-reveal>
-          <SectionLabel number="18" label="Kontakt" />
+          <SectionLabel number="19" label="Kontakt" />
           <h2><span className="section-title-serif">Lass</span> uns <span className="section-title-serif">reden</span></h2>
           <p>
             Erzähl mir von deinem nächsten Projekt oder stelle deine Frage. Klicke auf den Button unten, um mir direkt deine Nachricht zu senden.
