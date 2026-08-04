@@ -916,8 +916,8 @@
   overflow: visible;
 }
 .promises-section h2 {
-  padding-bottom: .22em;
-  line-height: 1.05;
+  padding-bottom: .42em;
+  line-height: 1.18;
   overflow: visible;
 }
 .section h2,
@@ -927,9 +927,10 @@
   font-family: var(--display);
   font-size: clamp(1.69rem, 5.2vw, 3.9rem);
   font-weight: 620;
-  line-height: 1.02;
+  line-height: 1.18;
   letter-spacing: -.048em;
   overflow: visible;
+  padding-bottom: 0.25em;
 }
 .text-accent,
 .section-title-serif {
@@ -939,7 +940,7 @@
   font-style: italic;
   font-weight: 500;
   font-size: 1.538em;
-  line-height: 1.1;
+  line-height: 1.25;
   letter-spacing: -.03em;
   background: linear-gradient(112deg, #00cc6a 0%, #22e285 36%, #dfffee 58%, #5bf0ad 76%, #00cc6a 100%);
   background-clip: text;
@@ -948,9 +949,11 @@
   filter: drop-shadow(0 0 18px rgba(0, 204, 106, .2));
   padding-right: 0.15em;
   margin-right: -0.15em;
-  padding-bottom: 0.28em;
-  margin-bottom: -0.22em;
-  overflow: visible;
+  padding-bottom: 0.52em;
+  margin-bottom: -0.48em;
+  padding-top: 0.15em;
+  margin-top: -0.12em;
+  overflow: visible !important;
 }
 .work-section {
   width: min(1500px, calc(100% - 2rem));
@@ -6618,8 +6621,8 @@
     letter-spacing: -.042em;
   }
   .promises-section h2 {
-    line-height: 1;
-    padding-bottom: .2em;
+    line-height: 1.18;
+    padding-bottom: .42em;
   }
 
   .text-accent,
@@ -6627,6 +6630,8 @@
     font-size: 1.34em;
     padding-right: .08em;
     margin-right: -.08em;
+    padding-bottom: 0.52em;
+    margin-bottom: -0.48em;
   }
 
   .site-nav {
