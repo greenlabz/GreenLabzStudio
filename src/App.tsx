@@ -1049,7 +1049,7 @@ export default function App() {
 
         <section className="section problem-section">
           <div className="section-head" data-reveal>
-            <SectionLabel number="01" label="Problem" />
+            <SectionLabel number="02" label="Problem" />
             <h2><span className="text-accent">Kennst</span> du <span className="text-accent">das?</span></h2>
           </div>
           <div className="problem-grid">
@@ -1069,7 +1069,7 @@ export default function App() {
 
         <section className="section agitation-section">
           <div className="section-head" data-reveal>
-            <SectionLabel number="02" label="Agitation / Konkrete Konsequenzen" />
+            <SectionLabel number="03" label="Agitation / Konkrete Konsequenzen" />
             <h2>Wenn die <span className="text-accent">eigene Website</span> zur <span className="text-accent">Umsatzbremse</span> wird.</h2>
           </div>
           <div className="card-grid">
@@ -1089,7 +1089,7 @@ export default function App() {
 
         <section className="section solution-section" id="services" data-reveal>
           <div className="section-head">
-            <SectionLabel number="03" label="Leistungen / Was ich mache" />
+            <SectionLabel number="04" label="Leistungen / Was ich mache" />
             <h2><span className="section-title-serif">Sechs</span> Disziplinen alles <span className="section-title-serif">aus einer Hand</span></h2>
           </div>
           <div className="discipline-grid">
@@ -1117,7 +1117,7 @@ export default function App() {
         <section className="section search-shift-section" data-reveal>
           <div className="search-shift-shell">
             <div className="search-shift-copy">
-              <SectionLabel number="04" label="Warum das wichtig ist" />
+              <SectionLabel number="05" label="Warum das wichtig ist" />
               <h2>Die <span className="text-accent">Suche</span> hat sich <span className="text-accent">verändert</span></h2>
               <p>
                 Früher hat man bei Google getippt und geklickt. Heute fragen immer mehr Menschen direkt
@@ -1169,7 +1169,7 @@ export default function App() {
         <div className="mobile-importance-stage">
         <section className="section mobile-importance-section">
           <div className="section-head">
-            <SectionLabel number="05" label="Mobile First" />
+            <SectionLabel number="06" label="Mobile First" />
             <h2>Warum <span className="text-accent">Mobil</span> so <span className="text-accent">Wichtig</span> ist</h2>
           </div>
           <div className="mobile-beat-copy" aria-live="polite">
@@ -1202,7 +1202,7 @@ export default function App() {
 
         <section className="section work-section" id="cases" data-reveal>
           <div className="section-head">
-            <SectionLabel number="08" label="Projekte / Case Studies" />
+            <SectionLabel number="09" label="Projekte / Case Studies" />
             <h2>Kein <span className="text-accent">Blabla</span>. Nur fertige Websites.</h2>
           </div>
           <article className="featured-case">
@@ -1246,7 +1246,7 @@ export default function App() {
 
         <section className="section promises-section" data-reveal>
           <div className="section-head">
-            <SectionLabel number="10" label="MEIN VERSPRECHEN" />
+            <SectionLabel number="11" label="MEIN VERSPRECHEN" />
             <h2>Wie <span className="text-accent">ich</span> Qualität <span className="text-accent">garantiere</span></h2>
           </div>
           <div className="card-grid">
@@ -1278,7 +1278,7 @@ export default function App() {
 
         <section className="section pricing-section" id="pricing" data-reveal>
           <div className="section-head pricing-head">
-            <SectionLabel number="11" label="Investition" />
+            <SectionLabel number="13" label="Investition" />
             <h2><span className="section-title-serif">Investiere</span> in dein <span className="section-title-serif">Wachstum.</span></h2>
           </div>
           <div className="pricing-grid">
@@ -1437,7 +1437,7 @@ export default function App() {
 
         <section className="section lead-magnet-section" id="freebie" data-reveal>
           <div className="lead-magnet-copy">
-            <SectionLabel number="12" label="5-Minuten-Checkliste für deine Website" />
+            <SectionLabel number="14" label="5-Minuten-Checkliste für deine Website" />
             <h2><span className="section-title-serif">Warum</span> deine Website <span className="section-title-serif">Kunden verliert.</span></h2>
             <p>
               Die 5-Minuten-Checkliste als PDF. Finde heraus, ob deine Website Vertrauen aufbaut, bei Google gefunden wird und echte Anfragen auslöst.
@@ -1502,7 +1502,7 @@ export default function App() {
 
         <section className="section objections-section" id="faq" data-reveal>
           <div className="section-head">
-            <SectionLabel number="13" label="Einwände / Stille Ängste" />
+            <SectionLabel number="15" label="Einwände / Stille Ängste" />
             <h2><span className="section-title-serif">Fragen</span> & <span className="section-title-serif">Antworten</span></h2>
             <p className="faq-intro">Häufige Fragen, klare Antworten. Damit du einschätzen kannst, ob GreenLabz Studio zu deinem Betrieb passt.</p>
           </div>
@@ -1521,7 +1521,7 @@ export default function App() {
             <img src="/assets/james-portrait-2.png" alt="James Green" className="about-image" />
           </div>
           <div>
-            <SectionLabel number="14" label="About Me" />
+            <SectionLabel number="16" label="About Me" />
             <h2><span className="section-title-serif">Warum</span> GreenLabz Studio <span className="section-title-serif">?</span></h2>
             <p>
               Hi, ich bin James Green. Ich entwickle maßgeschneiderte digitale Plattformen, die nicht nur auf den ersten Blick faszinieren, sondern deine Besucher gezielt in echte Kunden verwandeln. Dafür setze ich auf modernste KI-gestützte Entwicklungsprozesse. Sie machen mich schneller und präziser als klassische Agenturen und deine digitale Präsenz effizient, skalierbar und zukunftssicher. Mein Antrieb ist simpel: Meine Kunden sollen online so wirken wie sie wirklich sind. Professionell, vertrauenswürdig und einen Schritt voraus. Mein Fokus liegt auf einem Ding: deinem Umsatzwachstum durch smarte technologische Umsetzung. Ich freue mich darauf, mit dir zu arbeiten. Bis bald!
@@ -1530,7 +1530,7 @@ export default function App() {
         </section>
 
         <section className="contact-section calendar-section" id="calendar" data-reveal>
-          <SectionLabel number="15" label="Kostenloses Erstgespräch" />
+          <SectionLabel number="17" label="Kostenloses Erstgespräch" />
           <h2><span className="section-title-serif">In drei Schritten</span> zum passenden Gespräch.</h2>
           <p>
             25 Minuten. Kein Verkaufstheater. Erst dein Anliegen, dann dein Termin.
@@ -1541,7 +1541,7 @@ export default function App() {
 
 
         <section className="section contact-section" id="contact" data-reveal>
-          <SectionLabel number="16" label="Kontakt" />
+          <SectionLabel number="18" label="Kontakt" />
           <h2><span className="section-title-serif">Lass</span> uns <span className="section-title-serif">reden</span></h2>
           <p>
             Erzähl mir von deinem nächsten Projekt oder stelle deine Frage. Klicke auf den Button unten, um mir direkt deine Nachricht zu senden.

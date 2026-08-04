@@ -169,7 +169,7 @@ export function HeroBendGallery() {
   return (
     <section className="section hero-bend-gallery-section" data-reveal>
       <div className="section-head text-center" style={{ margin: '0 auto clamp(2.5rem, 5vw, 4rem)', textAlign: 'center', maxWidth: '680px' }}>
-        <p className="section-code" style={{ justifyContent: 'center' }}><span /> [10] DESIGN SHOWROOM</p>
+        <p className="section-code" style={{ justifyContent: 'center' }}><span /> [12] DESIGN SHOWROOM</p>
         <h2>
           Einblick in <span className="section-title-serif">unsere Arbeit.</span>
         </h2>

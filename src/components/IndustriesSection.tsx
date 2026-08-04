@@ -48,7 +48,7 @@ export function IndustriesSection() {
     <section className="section industries-section" data-reveal>
       <div className="industries-head">
         <div>
-          <p className="section-code"><span /> [07] BRANCHEN &amp; ZIELGRUPPEN</p>
+          <p className="section-code"><span /> [08] BRANCHEN &amp; ZIELGRUPPEN</p>
           <h2>
             In deiner Branche <br />
             <span className="section-title-serif">zu Hause.</span>
