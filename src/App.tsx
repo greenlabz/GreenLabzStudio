@@ -1268,9 +1268,24 @@ export default function App() {
               </button>
             ))}
           </div>
-          <div className="method-panel" role="tabpanel">
-            <div><span className="method-kicker">{methods[activeMethod][0]} / {methods[activeMethod][1]}</span><p>{methods[activeMethod][2]}</p></div>
-            <ul>{methods[activeMethod][3].map((item) => <li key={item}><Check size={15} />{item}</li>)}</ul>
+          <div className="method-panels-wrap">
+            {methods.map(([num, title, text, items], index) => (
+              <div
+                className="method-panel"
+                role="tabpanel"
+                key={title}
+                hidden={activeMethod !== index}
+                style={{ display: activeMethod === index ? undefined : 'none' }}
+              >
+                <div>
+                  <span className="method-kicker">{num} / {title}</span>
+                  <p>{text}</p>
+                </div>
+                <ul>
+                  {items.map((item) => <li key={item}><Check size={15} />{item}</li>)}
+                </ul>
+              </div>
+            ))}
           </div>
         </section>
 
