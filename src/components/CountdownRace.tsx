@@ -115,7 +115,7 @@ export function CountdownRace() {
       <div className="gl-race-row gl-race-winner">
         <div className="gl-race-meta">
           <span className="gl-race-name gl-name-green">GreenLabz</span>
-          <span className="gl-race-time"><strong ref={greenTimeRef}>0:00</strong></span>
+          <span className="gl-race-time"><strong ref={greenTimeRef}>0:03</strong></span>
         </div>
 
         <div className="gl-race-track">
@@ -132,7 +132,7 @@ export function CountdownRace() {
       <div className="gl-race-row gl-race-loser">
         <div className="gl-race-meta">
           <span className="gl-race-name gl-name-grey">Wettbewerb</span>
-          <span className="gl-race-time"><strong ref={greyTimeRef}>0:00</strong></span>
+          <span className="gl-race-time"><strong ref={greyTimeRef}>0:47</strong></span>
         </div>
 
         <div className="gl-race-track">

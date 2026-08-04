@@ -185,7 +185,7 @@ export default function CinematicHero({ onOpenDatenschutz }: CinematicHeroProps 
                       </div>
                       <div className="gl-exact-phone-state gl-exact-phone-state-four">
                         <div className="gl-exact-phone-widget gl-exact-phone-header"><span>KONVERSION &amp; ERGEBNIS</span><strong>Aus Besuchern werden zahlende Kunden</strong></div>
-                        <div className="gl-exact-phone-widget gl-exact-phone-score gl-exact-result-score"><div className="gl-exact-result-chart" aria-hidden="true"><span className="gl-exact-result-bar" /><span className="gl-exact-result-bar" /><span className="gl-exact-result-bar" /><span className="gl-exact-result-bar" /></div><strong className="gl-exact-result-value">+0%</strong><span>Mehr Terminbuchungen</span><TrendingUp className="gl-exact-result-arrow" size={17} /></div>
+                        <div className="gl-exact-phone-widget gl-exact-phone-score gl-exact-result-score"><div className="gl-exact-result-chart" aria-hidden="true"><span className="gl-exact-result-bar" /><span className="gl-exact-result-bar" /><span className="gl-exact-result-bar" /><span className="gl-exact-result-bar" /></div><strong className="gl-exact-result-value">+38%</strong><span>Mehr Terminbuchungen</span><TrendingUp className="gl-exact-result-arrow" size={17} /></div>
                         <div className="gl-exact-phone-widget gl-exact-result-compare"><TrendingUp size={14} /><span>vs. alte Website</span></div>
                         <div className="gl-exact-phone-widget gl-exact-phone-row"><TrendingUp size={15} /><span>UMSATZ &amp; KONVERSION</span><i /></div>
                       </div>

@@ -83,11 +83,11 @@ export function MobileDesktopSplitBar() {
         <div className="gl-split-label gl-split-label-desktop">
           <Laptop size={11} className="gl-split-icon" />
           <span>Desktop</span>
-          <strong ref={desktopCountRef} className="gl-split-num">0%</strong>
+          <strong ref={desktopCountRef} className="gl-split-num">19%</strong>
         </div>
 
         <div className="gl-split-label gl-split-label-mobile">
-          <strong ref={mobileCountRef} className="gl-split-num">0%</strong>
+          <strong ref={mobileCountRef} className="gl-split-num">81%</strong>
           <span>Mobile</span>
           <Smartphone size={11} className="gl-split-icon" />
         </div>

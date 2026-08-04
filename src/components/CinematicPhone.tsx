@@ -33,7 +33,7 @@ export default function CinematicPhone({ mockupRef, showBadges = true, staticVie
               </div>
               <div className="gl-exact-phone-state gl-exact-phone-state-two">
                 <div className="gl-exact-phone-widget gl-exact-phone-header"><span>MOBILE FIRST</span><strong>Das Handy ist die neue Eingangstür</strong></div>
-                <div className="gl-exact-phone-widget gl-exact-phone-score gl-exact-phone-traffic"><svg viewBox="0 0 180 180" aria-hidden="true"><circle cx="90" cy="90" r="68" /><circle className="gl-exact-progress-ring" cx="90" cy="90" r="68" /></svg><strong className="gl-exact-traffic-value">0%</strong><span>Suchen über Mobile</span></div>
+                <div className="gl-exact-phone-widget gl-exact-phone-score gl-exact-phone-traffic"><svg viewBox="0 0 180 180" aria-hidden="true"><circle cx="90" cy="90" r="68" /><circle className="gl-exact-progress-ring" cx="90" cy="90" r="68" /></svg><strong className="gl-exact-traffic-value">81%</strong><span>Suchen über Mobile</span></div>
                 <MobileDesktopSplitBar />
                 <div className="gl-exact-phone-widget gl-exact-phone-row"><Smartphone size={15} /><span>NUTZERVERHALTEN</span><i /></div>
               </div>
