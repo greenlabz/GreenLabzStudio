@@ -5,7 +5,6 @@ import { PflegeModal } from './PflegeModal'
 import { DatenschutzModal } from './DatenschutzModal'
 import { ImpressumModal } from './ImpressumModal'
 const RatgeberPage = lazy(() => import('./pages/RatgeberPage'))
-const ClaudeSkillsPage = lazy(() => import('./pages/ClaudeSkillsPage'))
 import CinematicHero from './components/CinematicHero'
 import CinematicPhone from './components/CinematicPhone'
 import CinematicFooter from './components/CinematicFooter'
@@ -505,23 +504,16 @@ export default function App() {
     setIsPflegeModalOpen(true)
   }
 
-  const [route, setRoute] = useState(() => {
+  const [route, setRoute] = useState<string>(() => {
     if (typeof window === 'undefined') return 'home'
     const h = window.location.hash.replace('#', '')
     if (h.startsWith('ratgeber')) return 'ratgeber'
-    if (h.startsWith('skills') || h.startsWith('claude-skills')) return 'skills'
     return 'home'
   })
   const [articleSlug, setArticleSlug] = useState<string | null>(() => {
     if (typeof window === 'undefined') return null
     const h = window.location.hash.replace('#', '')
     if (h.startsWith('ratgeber/')) return h.split('/')[1] || null
-    return null
-  })
-  const [skillSlug, setSkillSlug] = useState<string | null>(() => {
-    if (typeof window === 'undefined') return null
-    const h = window.location.hash.replace('#', '')
-    if (h.startsWith('skills/')) return h.split('/')[1] || null
     return null
   })
   const [activeMethod, setActiveMethod] = useState(0)
@@ -533,19 +525,9 @@ export default function App() {
     if (nextRoute.startsWith('ratgeber/')) {
       setRoute('ratgeber')
       setArticleSlug(nextRoute.split('/')[1])
-      setSkillSlug(null)
-    } else if (nextRoute.startsWith('skills/') || nextRoute.startsWith('claude-skills/')) {
-      setRoute('skills')
-      setSkillSlug(nextRoute.split('/')[1])
-      setArticleSlug(null)
-    } else if (nextRoute === 'skills' || nextRoute === 'claude-skills') {
-      setRoute('skills')
-      setSkillSlug(null)
-      setArticleSlug(null)
     } else {
       setRoute(nextRoute)
       setArticleSlug(null)
-      setSkillSlug(null)
     }
     window.history.pushState(null, '', nextRoute === 'home' ? '#top' : `#${nextRoute}`)
     window.scrollTo(0, 0)
@@ -1006,18 +988,13 @@ export default function App() {
             <a href="#faq" onClick={() => setIsMenuOpen(false)}><span>05</span>Fragen &amp; Antworten<ArrowUpRight size={17} /></a>
             <a href="#calendar" onClick={() => setIsMenuOpen(false)}><span>06</span>Kostenloses Erstgespräch<ArrowUpRight size={17} /></a>
             <a href="#ratgeber" onClick={(event) => { event.preventDefault(); setIsMenuOpen(false); navigate('ratgeber') }}><span>07</span>Ratgeber<ArrowUpRight size={17} /></a>
-            <a href="#skills" onClick={(event) => { event.preventDefault(); setIsMenuOpen(false); navigate('skills') }}><span>08</span>Claude Skills<ArrowUpRight size={17} /></a>
-            <a href="#contact" onClick={(event) => { event.preventDefault(); setIsMenuOpen(false); setIsContactModalOpen(true) }}><span>09</span>Kontakt<ArrowUpRight size={17} /></a>
+            <a href="#contact" onClick={(event) => { event.preventDefault(); setIsMenuOpen(false); setIsContactModalOpen(true) }}><span>08</span>Kontakt<ArrowUpRight size={17} /></a>
           </div>
         </nav>
       )}
       {route === 'ratgeber' ? (
         <Suspense fallback={<div style={{minHeight:'100vh'}} />}>
           <RatgeberPage onNavigate={navigate} initialArticleSlug={articleSlug} />
-        </Suspense>
-      ) : route === 'skills' ? (
-        <Suspense fallback={<div style={{minHeight:'100vh'}} />}>
-          <ClaudeSkillsPage onNavigate={navigate} initialSkillId={skillSlug} />
         </Suspense>
       ) : (
 <main>

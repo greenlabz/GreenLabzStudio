@@ -6,6 +6,28 @@
       "maxDuration": 60
     }
   },
+  "redirects": [
+    {
+      "source": "/skills",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/skills/(.*)",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/claude-skills",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/claude-skills/(.*)",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

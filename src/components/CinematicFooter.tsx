@@ -148,13 +148,8 @@ export default function CinematicFooter({ onPrimaryClick, onContactClick, onNavi
                 <strong>Ratgeber</strong>
                 <ArrowUpRight size={18} aria-hidden="true" />
               </MagneticButton>
-              <MagneticButton type="button" onClick={() => onNavigate('skills')} className="cinematic-footer-nav-link">
-                <span>08</span>
-                <strong>Claude Skills</strong>
-                <ArrowUpRight size={18} aria-hidden="true" />
-              </MagneticButton>
               <MagneticButton type="button" onClick={onContactClick} className="cinematic-footer-nav-link">
-                <span>09</span>
+                <span>08</span>
                 <strong>Kontakt</strong>
                 <ArrowUpRight size={18} aria-hidden="true" />
               </MagneticButton>
