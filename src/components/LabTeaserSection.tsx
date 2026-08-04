@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, Database, Cpu, Sparkles } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Database, Sparkles } from 'lucide-react'
 import { appProjects } from '../pages/appsData'
 
 interface LabTeaserSectionProps {
@@ -42,7 +42,46 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
                   <span className="lab-preview-url">{project.id}.greenlabz.de</span>
                 </div>
                 <div className="lab-preview-content">
-                  {project.previewImage ? (
+                  {index === 2 ? (
+                    <div className="shaker-mockup">
+                      <div className="shaker-header">
+                        <div>
+                          <div className="shaker-title">The Shaker</div>
+                          <div className="shaker-sub">Cocktail Bar · Diese Woche</div>
+                        </div>
+                        <div className="shaker-avatar">JG</div>
+                      </div>
+                      <div className="shaker-cal">
+                        <span className="shaker-cal-nav">‹</span>
+                        <span className="shaker-cal-range">9. – 15. Juni 2025</span>
+                        <span className="shaker-cal-nav">›</span>
+                      </div>
+                      <div className="shaker-days">
+                        {['MO','DI','MI','DO','FR','SA'].map((d, i) => (
+                          <div key={d} className={`shaker-day${i === 2 ? ' active' : ''}`}>
+                            <span>{d}</span><b>{9 + i}</b>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="shaker-label">MITTWOCH, 11. JUNI</div>
+                      <div className="shaker-shift">
+                        <span className="shaker-dot" style={{ background: '#f4a26b' }} />
+                        <div className="shaker-shift-info"><strong>Opening / Prep</strong><small>14:00 – 18:00 Uhr</small></div>
+                        <div className="shaker-avatars"><span>AN</span><span>LK</span><span>MR</span></div>
+                      </div>
+                      <div className="shaker-shift">
+                        <span className="shaker-dot" style={{ background: '#e07060' }} />
+                        <div className="shaker-shift-info"><strong>Dinner Rush</strong><small>18:00 – 00:00 Uhr</small></div>
+                        <div className="shaker-avatars"><span>TW</span><span>AN</span></div>
+                      </div>
+                      <div className="shaker-shift shaker-shift-open">
+                        <span className="shaker-dot" style={{ background: '#6bbfb5' }} />
+                        <div className="shaker-shift-info"><strong>Late Night / Closing</strong><small>22:00 – 04:00 Uhr</small></div>
+                        <span className="shaker-open-badge">1 offen</span>
+                      </div>
+                      <div className="shaker-add-btn">+ Schicht hinzufügen</div>
+                    </div>
+                  ) : project.previewImage ? (
                     <div className="lab-mockup-img-wrap">
                       <img src={project.previewImage} alt={project.name} className="lab-preview-img" />
                     </div>
@@ -77,19 +116,6 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
                               <span>ChatGPT Ready</span>
                               <small>Perplexity Index 100%</small>
                             </div>
-                          </div>
-                        </div>
-                      )}
-                      {index === 2 && (
-                        <div className="mockup-ui mockup-ui-portal">
-                          <div className="mockup-header">
-                            <Cpu size={16} className="text-accent" />
-                            <span>The Shaker Bar Schichtplan</span>
-                          </div>
-                          <div className="mockup-progress-list">
-                            <div className="progress-item active"><span>Barkeeper &amp; Barback</span><i /></div>
-                            <div className="progress-item active"><span>Service &amp; Gastro Plan</span><i /></div>
-                            <div className="progress-item"><span>Live Umsatzauswertung</span><i /></div>
                           </div>
                         </div>
                       )}

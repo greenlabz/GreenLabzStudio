@@ -10234,3 +10234,163 @@
   display: block;
   border-radius: 8px;
 }
+
+/* ==========================================================================
+   THE SHAKER MOCKUP CARD STYLES
+   ========================================================================== */
+.shaker-mockup {
+  width: 100%;
+  background: #111615;
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 0.72rem;
+}
+.shaker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px 8px;
+  background: #1f5f5b;
+}
+.shaker-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f4a26b;
+}
+.shaker-sub {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 1px;
+}
+.shaker-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #f4a26b;
+  color: #3a1a08;
+  font-size: 0.6rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.shaker-cal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 12px;
+  background: #1a1e1d;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.68rem;
+}
+.shaker-cal-nav {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.shaker-cal-range {
+  font-weight: 600;
+}
+.shaker-days {
+  display: flex;
+  padding: 6px 8px;
+  gap: 2px;
+  background: #1a1e1d;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.shaker-day {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 4px 2px;
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.45);
+}
+.shaker-day span {
+  font-size: 0.55rem;
+  letter-spacing: 0.04em;
+}
+.shaker-day b {
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+.shaker-day.active {
+  background: #e0705a;
+  color: #fff;
+  border-radius: 7px;
+}
+.shaker-label {
+  padding: 7px 12px 4px;
+  font-size: 0.58rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.06em;
+  font-weight: 700;
+}
+.shaker-shift {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 3px 8px;
+  padding: 7px 10px;
+  background: #1e2320;
+  border-radius: 8px;
+}
+.shaker-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.shaker-shift-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.shaker-shift-info strong {
+  font-size: 0.7rem;
+  color: #fff;
+  font-weight: 600;
+}
+.shaker-shift-info small {
+  font-size: 0.58rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+.shaker-avatars {
+  display: flex;
+}
+.shaker-avatars span {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #2e4a42;
+  color: #a3ced4;
+  font-size: 0.48rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -4px;
+  border: 1px solid #111615;
+}
+.shaker-open-badge {
+  font-size: 0.58rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 99px;
+  background: #e0705a;
+  color: #fff;
+  white-space: nowrap;
+}
+.shaker-add-btn {
+  margin: 6px 8px 8px;
+  padding: 7px;
+  background: #e0705a;
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  border-radius: 8px;
+  text-align: center;
+}
