@@ -36,7 +36,7 @@ const showcases: ShowcaseItem[] = [
     category: 'Premium Fotografie & Events',
     image: '/assets/showcases/showcase-nadine.png',
     tag: 'HIGH-CONVERSION',
-    objectPosition: 'top left',
+    objectPosition: 'center top',
   },
   {
     id: 'makeup-luxe',
