@@ -975,7 +975,7 @@ export default function App() {
         <a className="nav-cta" href="#calendar">
           <span className="cta-dots" aria-hidden="true" />
           <span className="cta-label nav-cta-label-full">Kostenloses Erstgespräch</span>
-          <span className="cta-label nav-cta-label-short">Kostenloses Erstgespräch</span>
+          <span className="cta-label nav-cta-label-short">Erstgespräch</span>
           <ArrowRight size={16} />
         </a>
         <button className="menu" type="button" aria-label={isMenuOpen ? 'Menü schließen' : 'Menü öffnen'} aria-expanded={isMenuOpen} onClick={() => setIsMenuOpen((open) => !open)}>
