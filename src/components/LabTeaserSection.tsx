@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, Database, Sparkles, Bell, Clock, Award, Zap, FileText, CheckCircle } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Database, Sparkles, Plus, Calendar, Users, GlassWater, Settings } from 'lucide-react'
 import { appProjects } from '../pages/appsData'
 
 interface LabTeaserSectionProps {
@@ -45,121 +45,146 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
                   {index === 2 ? (
                     <div className="shaker-mockup-app">
                       {/* Top App Bar */}
-                      <div className="shaker-app-header">
-                        <div className="shaker-app-header-left">
-                          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHs2TNwhgoK55rR7oX1IK7BOaTedNIJXEPyzUX8iLK_uTCGjf4MoDIfcAYvhtHL6HT7KnsWF0H4ZJ8XqICvN99UQ9DBCfkilCXHeC9NNiA4MbTE73yU05T2V1P3-4Fg_vqyS36RaP43ec_fV1pUENzMkRWSXLEGGTCxyYKytiBQhm0Bo6IoLurWvm_e01O9wkTLEofNphyTL_1yVcOSekUKYPMQ8s-n_kueq7bw88XeXLwMlcYHpFkdJQ1a2S6N8w0gI3AjLtywSHE" alt="User" />
-                          <span>The Shaker</span>
+                      <div className="shaker-app-header-schedule">
+                        <div className="shaker-header-info">
+                          <span className="shaker-title">The Shaker</span>
+                          <span className="shaker-sub">Cocktail Bar · Diese Woche</span>
                         </div>
-                        <Bell size={14} className="shaker-app-notif" />
+                        <div className="shaker-avatar">JG</div>
+                      </div>
+
+                      {/* Calendar Navigation Bar */}
+                      <div className="shaker-cal-bar">
+                        <div className="shaker-cal-nav">
+                          <span>‹</span>
+                          <strong>9. – 15. Juni 2025</strong>
+                          <span>›</span>
+                        </div>
+                        <div className="shaker-cal-days">
+                          {['MO', 'DI', 'MI', 'DO', 'FR', 'SA'].map((d, i) => (
+                            <div key={d} className={`shaker-cal-day${i === 2 ? ' active' : ''}`}>
+                              <small>{d}</small>
+                              <strong>{9 + i}</strong>
+                            </div>
+                          ))}
+                        </div>
                       </div>
 
                       {/* Scroll Area */}
                       <div className="shaker-app-scroll">
                         <div className="shaker-app-scroll-track">
-                          {/* Profile Header */}
-                          <div className="shaker-app-profile">
-                            <div className="shaker-app-avatar-wrap">
-                              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH0FzmGgc8xDkxhO4gUa2Y5--SpDYDZRPDdl02LPWX8Envs4Qhz9gkCBAJU_rhsWof1bYeEiMRNG_LDUl78uhTjvzHJHKE7oCXRxsy3GiOAGpPWWX9b5F2DocCX6aXcF7RTq9S-CE9naWn1rdrNKfVaD3XIEFzWtr2oY0Ra8BKoYCFHBXEjskck0tUrMDweGYN5jpeeDCmehDgEQjjz72iWnn5bkZSX0F3qC2ppAfSh50zcllWaaTNI8mItKOSABq88nu8bRiYJeQH" alt="Marco Polo" />
-                              <span className="shaker-app-verified-badge"><CheckCircle size={10} fill="currentColor" className="text-[#ffb4a5]" /></span>
+                          {/* Wednesday Shifts */}
+                          <div className="shaker-day-label">MITTWOCH, 11. JUNI</div>
+                          
+                          <div className="shaker-shift-card">
+                            <span className="shaker-dot" style={{ background: '#f4a26b' }} />
+                            <div className="shaker-shift-info">
+                              <strong>Opening / Prep</strong>
+                              <small>14:00 – 18:00 Uhr</small>
                             </div>
-                            <h3>Marco Polo</h3>
-                            <p>Senior Bartender</p>
-                            <button>Profil bearbeiten</button>
+                            <div className="shaker-shift-avatars">
+                              <span>AN</span><span>LK</span><span>MR</span>
+                            </div>
+                            <span className="shaker-shift-count">3</span>
                           </div>
 
-                          {/* Stats */}
-                          <div className="shaker-app-section">
-                            <h4>Statistiken</h4>
-                            <div className="shaker-app-stats">
-                              <div className="shaker-app-stat-box box-hours">
-                                <Clock size={16} />
-                                <strong>142h</strong>
-                                <small>Std / Monat</small>
-                              </div>
-                              <div className="shaker-app-stat-sub">
-                                <div className="shaker-app-stat-row">
-                                  <Award size={14} />
-                                  <span>24 Schichten</span>
-                                </div>
-                                <div className="shaker-app-stat-row">
-                                  <Zap size={14} />
-                                  <span>98% Pünktlich</span>
-                                </div>
-                              </div>
+                          <div className="shaker-shift-card">
+                            <span className="shaker-dot" style={{ background: '#e07060' }} />
+                            <div className="shaker-shift-info">
+                              <strong>Dinner Rush</strong>
+                              <small>18:00 – 00:00 Uhr</small>
                             </div>
+                            <div className="shaker-shift-avatars">
+                              <span>TW</span><span>AN</span>
+                            </div>
+                            <span className="shaker-shift-count">2</span>
                           </div>
 
-                          {/* Shifts */}
-                          <div className="shaker-app-section">
-                            <h4>Meine Schichten</h4>
-                            <div className="shaker-app-shifts">
-                              <div className="shaker-app-shift-row border-primary">
-                                <div className="shaker-app-shift-date">
-                                  <span>FR</span>
-                                  <strong>12.</strong>
-                                </div>
-                                <div className="shaker-app-shift-details">
-                                  <strong>Main Bar Night Shift</strong>
-                                  <small>18:00 - 02:30 • Lead</small>
-                                </div>
-                              </div>
-                              <div className="shaker-app-shift-row border-secondary">
-                                <div className="shaker-app-shift-date date-secondary">
-                                  <span>SA</span>
-                                  <strong>13.</strong>
-                                </div>
-                                <div className="shaker-app-shift-details">
-                                  <strong>Cocktail Terrace</strong>
-                                  <small>16:00 - 00:00 • Mix</small>
-                                </div>
-                              </div>
-                              <div className="shaker-app-shift-row border-tertiary">
-                                <div className="shaker-app-shift-date date-tertiary">
-                                  <span>DI</span>
-                                  <strong>16.</strong>
-                                </div>
-                                <div className="shaker-app-shift-details">
-                                  <strong>Inventory &amp; Prep</strong>
-                                  <small>10:00 - 15:00 • Support</small>
-                                </div>
-                              </div>
+                          <div className="shaker-shift-card">
+                            <span className="shaker-dot" style={{ background: '#6bbfb5' }} />
+                            <div className="shaker-shift-info">
+                              <strong>Late Night / Closing</strong>
+                              <small>22:00 – 04:00 Uhr</small>
                             </div>
+                            <span className="shaker-open-badge">1 offen</span>
                           </div>
 
-                          {/* Quals */}
-                          <div className="shaker-app-section">
-                            <h4>Qualifikationen</h4>
-                            <div className="shaker-app-quals">
-                              <span className="qual-badge badge-primary">Mixology Expert</span>
-                              <span className="qual-badge badge-secondary">First Aid</span>
-                              <span className="qual-badge badge-tertiary">Lead</span>
+                          {/* Thursday Shifts */}
+                          <div className="shaker-day-label">DONNERSTAG, 12. JUNI</div>
+
+                          <div className="shaker-shift-card">
+                            <span className="shaker-dot" style={{ background: '#f4a26b' }} />
+                            <div className="shaker-shift-info">
+                              <strong>Day Prep &amp; Clean</strong>
+                              <small>12:00 – 16:00 Uhr</small>
                             </div>
+                            <div className="shaker-shift-avatars">
+                              <span>MR</span><span>JG</span>
+                            </div>
+                            <span className="shaker-shift-count">2</span>
                           </div>
 
-                          {/* Docs */}
-                          <div className="shaker-app-section">
-                            <h4>Dokumente</h4>
-                            <div className="shaker-app-docs">
-                              <div className="shaker-app-doc-row">
-                                <FileText size={14} />
-                                <span>Arbeitsvertrag_2024.pdf</span>
-                              </div>
-                              <div className="shaker-app-doc-row">
-                                <FileText size={14} />
-                                <span>Gesundheitszeugnis.pdf</span>
-                              </div>
+                          <div className="shaker-shift-card">
+                            <span className="shaker-dot" style={{ background: '#e07060' }} />
+                            <div className="shaker-shift-info">
+                              <strong>Dinner Rush</strong>
+                              <small>18:00 – 00:00 Uhr</small>
                             </div>
+                            <div className="shaker-shift-avatars">
+                              <span>LK</span><span>TW</span>
+                            </div>
+                            <span className="shaker-shift-count">2</span>
                           </div>
 
+                          {/* Friday Shifts */}
+                          <div className="shaker-day-label">FREITAG, 13. JUNI</div>
+
+                          <div className="shaker-shift-card">
+                            <span className="shaker-dot" style={{ background: '#e07060' }} />
+                            <div className="shaker-shift-info">
+                              <strong>Weekend Opening</strong>
+                              <small>16:00 – 22:00 Uhr</small>
+                            </div>
+                            <div className="shaker-shift-avatars">
+                              <span>AN</span><span>LK</span><span>MR</span>
+                            </div>
+                            <span className="shaker-shift-count">3</span>
+                          </div>
+
+                          <div className="shaker-shift-card">
+                            <span className="shaker-dot" style={{ background: '#6bbfb5' }} />
+                            <div className="shaker-shift-info">
+                              <strong>Late Night / Closing</strong>
+                              <small>22:00 – 04:00 Uhr</small>
+                            </div>
+                            <span className="shaker-open-badge">2 offen</span>
+                          </div>
+
+                          {/* Add button inside scrolling track */}
+                          <button className="shaker-add-shift-btn">
+                            <Plus size={14} /> Schicht hinzufügen
+                          </button>
                         </div>
                       </div>
 
                       {/* Bottom Nav Bar */}
-                      <div className="shaker-app-footer">
-                        <div><span>Woche</span></div>
-                        <div><span>Team</span></div>
-                        <div><span>Bar</span></div>
-                        <div className="active"><span>Einstellungen</span></div>
+                      <div className="shaker-app-footer-schedule">
+                        <div className="active">
+                          <Calendar size={15} />
+                          <span>Woche</span>
+                        </div>
+                        <div>
+                          <Users size={15} />
+                          <span>Team</span>
+                        </div>
+                        <div>
+                          <GlassWater size={15} />
+                          <span>Bar</span>
+                        </div>
+                        <div>
+                          <Settings size={15} />
+                          <span>Settings</span>
+                        </div>
                       </div>
                     </div>
                   ) : project.previewImage ? (
