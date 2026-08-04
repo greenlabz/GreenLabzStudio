@@ -10837,10 +10837,359 @@ html:not(.js-ready) .system-reveal-block {
   }
 }
 @media (max-width: 575px) {
-  .crm-grid-preview {
-    grid-template-columns: 1fr;
-  }
   .crm-card {
     padding: 8px;
   }
+}
+
+/* ==========================================================================
+   THE SHAKER AUTO-SCROLLING TEAM PROFILE MOCKUP
+   ========================================================================== */
+.shaker-mockup-app {
+  width: 100%;
+  height: 100%;
+  background: #121414;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Plus Jakarta Sans', 'Be Vietnam Pro', sans-serif;
+  color: #e2e2e2;
+  user-select: none;
+}
+
+/* Top App Bar */
+.shaker-app-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: rgba(18, 20, 20, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  z-index: 10;
+}
+.shaker-app-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.shaker-app-header-left img {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(255, 180, 165, 0.2);
+}
+.shaker-app-header-left span {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #ffb4a5;
+  letter-spacing: -0.02em;
+}
+.shaker-app-notif {
+  color: #ffb4a5;
+  opacity: 0.85;
+}
+
+/* Bottom Nav Bar */
+.shaker-app-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 52px;
+  background: rgba(30, 32, 32, 0.9);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 10;
+  padding-bottom: 4px;
+}
+.shaker-app-footer div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ddc0ba;
+  font-size: 0.55rem;
+  cursor: pointer;
+  opacity: 0.75;
+}
+.shaker-app-footer div.active {
+  color: #ffb4a5;
+  opacity: 1;
+  background: rgba(226, 114, 91, 0.1);
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+/* Scrollable area & auto-scroll animation */
+.shaker-app-scroll {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  margin-top: 48px;
+  margin-bottom: 52px;
+}
+.shaker-app-scroll-track {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 12px 24px;
+  animation: shakerAutoScrollTrack 18s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
+}
+
+@keyframes shakerAutoScrollTrack {
+  0%, 15% {
+    transform: translateY(0);
+  }
+  85%, 100% {
+    transform: translateY(-400px); /* scroll down to reveal full bento stats, shifts, quals, and docs */
+  }
+}
+
+/* Profile details */
+.shaker-app-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 8px;
+}
+.shaker-app-avatar-wrap {
+  position: relative;
+  margin-bottom: 10px;
+}
+.shaker-app-avatar-wrap img {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ffb4a5;
+  padding: 2px;
+}
+.shaker-app-verified-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #121414;
+  border-radius: 50%;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.shaker-app-profile h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #e2e2e2;
+  margin: 0;
+  line-height: 1.2;
+}
+.shaker-app-profile p {
+  font-size: 0.72rem;
+  color: #ddc0ba;
+  margin: 2px 0 10px;
+}
+.shaker-app-profile button {
+  background: #e2725b;
+  color: #5a0d02;
+  font-size: 0.68rem;
+  font-weight: 700;
+  border: none;
+  padding: 6px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(226, 114, 91, 0.15);
+}
+
+/* Sections inside screen */
+.shaker-app-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.shaker-app-section h4 {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #e2e2e2;
+  margin: 0;
+  letter-spacing: 0.05em;
+  padding-left: 2px;
+}
+
+/* Stats */
+.shaker-app-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.shaker-app-stat-box {
+  background: rgba(30, 32, 32, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-left: 3px solid #e2725b;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 84px;
+}
+.shaker-app-stat-box.box-hours {
+  color: #ffb4a5;
+}
+.shaker-app-stat-box strong {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #e2e2e2;
+  line-height: 1;
+}
+.shaker-app-stat-box small {
+  font-size: 0.58rem;
+  color: #ddc0ba;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.shaker-app-stat-sub {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.shaker-app-stat-row {
+  flex: 1;
+  background: rgba(30, 32, 32, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+/* Shifts */
+.shaker-app-shifts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.shaker-app-shift-row {
+  background: rgba(30, 32, 32, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-left: 3px solid #ffb4a5;
+  border-radius: 10px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.shaker-app-shift-row.border-secondary {
+  border-left-color: #a3ced4;
+}
+.shaker-app-shift-row.border-tertiary {
+  border-left-color: #ffb77c;
+}
+.shaker-app-shift-date {
+  background: #282a2a;
+  border-radius: 6px;
+  padding: 4px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 38px;
+}
+.shaker-app-shift-date span {
+  font-size: 0.5rem;
+  font-weight: 700;
+  color: #ffb4a5;
+}
+.shaker-app-shift-date.date-secondary span { color: #a3ced4; }
+.shaker-app-shift-date.date-tertiary span { color: #ffb77c; }
+
+.shaker-app-shift-date strong {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #e2e2e2;
+  line-height: 1.1;
+}
+.shaker-app-shift-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.shaker-app-shift-details strong {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #e2e2e2;
+}
+.shaker-app-shift-details small {
+  font-size: 0.58rem;
+  color: #ddc0ba;
+}
+
+/* Quals */
+.shaker-app-quals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.qual-badge {
+  font-size: 0.6rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 99px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.qual-badge.badge-primary {
+  background: rgba(226, 114, 91, 0.1);
+  border-color: rgba(226, 114, 91, 0.3);
+  color: #ffb4a5;
+}
+.qual-badge.badge-secondary {
+  background: rgba(163, 206, 212, 0.1);
+  border-color: rgba(163, 206, 212, 0.3);
+  color: #a3ced4;
+}
+.qual-badge.badge-tertiary {
+  background: rgba(255, 183, 124, 0.1);
+  border-color: rgba(255, 183, 124, 0.3);
+  color: #ffb77c;
+}
+
+/* Docs */
+.shaker-app-docs {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: rgba(30, 32, 32, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 8px;
+}
+.shaker-app-doc-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 4px;
+  font-size: 0.68rem;
+  color: #e2e2e2;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+.shaker-app-doc-row:last-child {
+  border-bottom: none;
+}
+.shaker-app-doc-row span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
