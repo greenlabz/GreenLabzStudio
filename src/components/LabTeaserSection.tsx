@@ -161,7 +161,7 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
           }}
         >
           <span className="cta-dot" />
-          <span className="cta-label">Alle Produkte &amp; Tools im Detail ansehen</span>
+          <span className="cta-label">Alle Projekte &amp; Tools ansehen</span>
           <ArrowUpRight size={17} />
         </button>
       </div>

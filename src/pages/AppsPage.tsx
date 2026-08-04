@@ -1,222 +1,419 @@
-import { useEffect } from 'react'
-import { ArrowLeft, ArrowRight, Code, Cpu, Database, Sparkles } from 'lucide-react'
+import { useEffect, useRef } from 'react'
+import { Head } from 'vite-react-ssg'
+import { ArrowLeft, ArrowRight, Code, Smartphone, Laptop } from 'lucide-react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { appProjects } from './appsData'
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger)
+}
 
 interface AppsPageProps {
   onNavigate: (route: string) => void
 }
 
-function SectionLabel({ number, label }: { number: string; label: string }) {
-  return <p className="section-code"><span /> [{number}] {label}</p>
-}
-
 export default function AppsPage({ onNavigate }: AppsPageProps) {
+  const containerRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.scrollTo(0, 0)
     }
+
+    const container = containerRef.current
+    if (!container || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    const ctx = gsap.context(() => {
+      // Reveal animations for App blocks
+      gsap.utils.toArray<HTMLElement>('.app-reveal-block').forEach((block) => {
+        const phone = block.querySelector('.app-phone-container')
+        const copy = block.querySelector('.app-copy-container')
+        const isLeft = block.classList.contains('layout-phone-left')
+
+        if (phone && copy) {
+          gsap.fromTo(phone, 
+            { 
+              opacity: 0, 
+              x: isLeft ? -80 : 80, 
+              rotationY: isLeft ? 15 : -15, 
+              rotationZ: isLeft ? -3 : 3,
+              transformPerspective: 1200 
+            },
+            {
+              opacity: 1,
+              x: 0,
+              rotationY: 0,
+              rotationZ: 0,
+              duration: 1.1,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: block,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+              }
+            }
+          )
+
+          gsap.fromTo(copy,
+            { opacity: 0, y: 40 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.9,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: block,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+              }
+            }
+          )
+        }
+      })
+
+      // Reveal animations for System blocks
+      gsap.utils.toArray<HTMLElement>('.system-reveal-block').forEach((block) => {
+        const mock = block.querySelector('.system-mockup-container')
+        const details = block.querySelector('.system-details-container')
+        const isLeft = block.classList.contains('layout-mockup-left')
+
+        if (mock && details) {
+          gsap.fromTo(mock,
+            { 
+              opacity: 0, 
+              y: 60,
+              rotationX: 8,
+              transformPerspective: 1200 
+            },
+            {
+              opacity: 1,
+              y: 0,
+              rotationX: 0,
+              duration: 1.2,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: block,
+                start: 'top 82%',
+                toggleActions: 'play none none reverse'
+              }
+            }
+          )
+
+          gsap.fromTo(details,
+            { opacity: 0, x: isLeft ? 60 : -60 },
+            {
+              opacity: 1,
+              x: 0,
+              duration: 1,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: block,
+                start: 'top 82%',
+                toggleActions: 'play none none reverse'
+              }
+            }
+          )
+        }
+      })
+    }, container)
+
+    return () => ctx.revert()
   }, [])
 
+  const apps = appProjects.filter(p => p.type === 'app')
+  const systems = appProjects.filter(p => p.type === 'system')
+
   return (
-    <main className="apps-page">
-      <div className="page-header-nav">
-        <button
-          className="back-btn"
-          type="button"
-          onClick={() => {
-            onNavigate('home')
-            window.scrollTo(0, 0)
-          }}
-        >
-          <ArrowLeft size={16} /> Zurück zur Startseite
-        </button>
-      </div>
+    <div ref={containerRef} className="apps-page-wrapper">
+      <Head>
+        <title>Software, SaaS &amp; Apps aus dem Lab | GreenLabz Studio Heilbronn</title>
+        <meta name="description" content="Maßgeschneiderte Web-Apps, Gastronomie-Schichtplaner, B2B-Scraper und CRM-Systeme von GreenLabz Studio Baden-Württemberg." />
+        <meta property="og:title" content="Software, SaaS &amp; Apps aus dem Lab | GreenLabz Studio" />
+        <meta property="og:description" content="Maßgeschneiderte Web-Apps, Gastronomie-Schichtplaner, B2B-Scraper und CRM-Systeme von GreenLabz Studio Baden-Württemberg." />
+        <meta property="og:url" content="https://greenlabz-studio.de/apps" />
+      </Head>
 
-      <section className="section apps-hero-section">
-        <div className="section-head text-center">
-          <p className="section-code"><span></span> [LAB &amp; SAAS]</p>
-          <h2>
-            Eigene Produkte &amp; <span className="text-accent">intelligente Tools</span>
-          </h2>
-          <p className="section-subtitle">
-            Ich baue nicht nur Websites für Kunden, sondern entwickle eigene digitale Produkte und Automatisierungen. Hier siehst du ausgewählte Systeme aus meinem eigenen Lab.
-          </p>
+      <main className="apps-page">
+        <div className="page-header-nav">
+          <button
+            className="back-btn"
+            type="button"
+            onClick={() => {
+              onNavigate('home')
+              window.scrollTo(0, 0)
+            }}
+          >
+            <ArrowLeft size={16} /> Zurück zur Startseite
+          </button>
         </div>
-      </section>
 
-      <section className="section apps-list-section">
-        <div className="apps-detail-grid">
-          {appProjects.map((project, index) => (
-            <article className="app-detail-card premium-card" key={project.id} id={project.id}>
-              <div className="app-detail-header">
-                <div className="app-detail-title-wrap">
-                  <span className="app-kicker">{project.kicker}</span>
-                  <h3>{project.name}</h3>
-                  <p className="app-tagline">{project.tagline}</p>
-                </div>
-                <div className="app-status-wrap">
-                  <span className={`lab-badge ${project.badge === 'Internal Tool' ? 'lab-badge-internal' : ''}`}>
-                    {project.badge}
-                  </span>
-                  <span className={`status-pill status-${project.statusType}`}>
-                    <i /> {project.status}
-                  </span>
-                </div>
-              </div>
+        {/* Hero Sektion */}
+        <section className="section apps-hero-section">
+          <div className="section-head text-center">
+            <p className="section-code"><span></span> [LAB &amp; SAAS]</p>
+            <h2>
+              Apps und Systeme, die ich <span className="text-accent">selbst baue</span> und <span className="section-title-serif">nutze.</span>
+            </h2>
+            <p className="section-subtitle">
+              Vom mobilen Gastronomie-Schichtplaner bis zur automatisierten Enterprise-Data-Pipeline – schlanke Software ohne Ballast.
+            </p>
+          </div>
+        </section>
 
-              {/* Visual Showcase Frame */}
-              <div className="app-detail-visual" aria-label={`Vorschau für ${project.name}`}>
-                <div className="lab-preview-browser app-large-browser">
-                  <div className="lab-preview-bar">
-                    <span className="dot dot-red" />
-                    <span className="dot dot-yellow" />
-                    <span className="dot dot-green" />
-                    <span className="lab-preview-url">https://{project.id}.greenlabz.de</span>
+        {/* Sektion Apps */}
+        <section className="section apps-list-section">
+          <div className="apps-section-header">
+            <span className="apps-section-badge"><Smartphone size={16} /> Mobile Apps</span>
+            <h3>Fokus auf mobile Usability</h3>
+          </div>
+
+          <div className="apps-zigzag-list">
+            {apps.map((app, index) => {
+              const isLeft = index % 2 === 0
+              return (
+                <div 
+                  key={app.id} 
+                  className={`app-reveal-block layout-phone-${isLeft ? 'left' : 'right'} ${index > 0 ? 'offset-block' : ''}`}
+                >
+                  {/* Phone container */}
+                  <div className="app-phone-container">
+                    <div className="gl-exact-phone-bezel">
+                      <div className="gl-exact-hardware gl-exact-hardware-left-one" />
+                      <div className="gl-exact-hardware gl-exact-hardware-left-two" />
+                      <div className="gl-exact-hardware gl-exact-hardware-right" />
+                      <div className="gl-exact-screen">
+                        <div className="gl-exact-screen-glare" />
+                        <div className="gl-exact-notch"><span></span></div>
+                        <div className="gl-exact-screen-content">
+                          {app.id === 'bar-shift-planner' ? (
+                            <div className="shaker-mockup">
+                              <div className="shaker-header">
+                                <div>
+                                  <div className="shaker-title">The Shaker</div>
+                                  <div className="shaker-sub">Cocktail Bar · Diese Woche</div>
+                                </div>
+                                <div className="shaker-avatar">JG</div>
+                              </div>
+                              <div className="shaker-cal">
+                                <span className="shaker-cal-nav">‹</span>
+                                <span className="shaker-cal-range">9. – 15. Juni 2025</span>
+                                <span className="shaker-cal-nav">›</span>
+                              </div>
+                              <div className="shaker-days">
+                                {['MO','DI','MI','DO','FR','SA'].map((d, i) => (
+                                  <div key={d} className={`shaker-day${i === 2 ? ' active' : ''}`}>
+                                    <span>{d}</span><b>{9 + i}</b>
+                                  </div>
+                                ))}
+                              </div>
+                              <div className="shaker-label">MITTWOCH, 11. JUNI</div>
+                              <div className="shaker-shift">
+                                <span className="shaker-dot" style={{ background: '#f4a26b' }} />
+                                <div className="shaker-shift-info"><strong>Opening / Prep</strong><small>14:00 – 18:00 Uhr</small></div>
+                                <div className="shaker-avatars"><span>AN</span><span>LK</span><span>MR</span></div>
+                              </div>
+                              <div className="shaker-shift">
+                                <span className="shaker-dot" style={{ background: '#e07060' }} />
+                                <div className="shaker-shift-info"><strong>Dinner Rush</strong><small>18:00 – 00:00 Uhr</small></div>
+                                <div className="shaker-avatars"><span>TW</span><span>AN</span></div>
+                              </div>
+                              <div className="shaker-shift shaker-shift-open">
+                                <span className="shaker-dot" style={{ background: '#6bbfb5' }} />
+                                <div className="shaker-shift-info"><strong>Late Night / Closing</strong><small>22:00 – 04:00 Uhr</small></div>
+                                <span className="shaker-open-badge">1 offen</span>
+                              </div>
+                              <div className="shaker-add-btn">+ Schicht hinzufügen</div>
+                            </div>
+                          ) : app.previewImage ? (
+                            <img src={app.previewImage} alt={app.name} className="phone-screenshot-img" />
+                          ) : (
+                            <div className="phone-placeholder">
+                              <Smartphone size={32} className="text-accent" />
+                              <span>{app.name} UI</span>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="lab-preview-content large-preview">
-                    {project.previewImage ? (
-                      <div className="lab-mockup-img-wrap full-img-wrap">
-                        <img src={project.previewImage} alt={project.name} className="lab-preview-img-full" />
-                      </div>
-                    ) : (
-                      <div className="app-mockup-full">
-                        {index === 0 && (
-                          <div className="mockup-screen-full mockup-scrape-screen">
-                            <div className="screen-header">
-                              <Database size={18} className="text-accent" />
-                              <strong>ScrapeMaster Pro — Data Pipeline Engine</strong>
-                            </div>
-                            <div className="screen-grid">
-                              <div className="screen-card">
-                                <small>Extrahiert diese Woche</small>
-                                <strong>14.280 Leads</strong>
-                              </div>
-                              <div className="screen-card">
-                                <small>Genauigkeit</small>
-                                <strong>99,4% Verified</strong>
-                              </div>
-                              <div className="screen-card">
-                                <small>Export Format</small>
-                                <strong>CSV / API / Webhook</strong>
-                              </div>
-                            </div>
-                            <div className="screen-table-preview">
-                              <div className="table-row head"><span>Unternehmen</span><span>Ort</span><span>E-Mail Status</span></div>
-                              <div className="table-row"><span>Dr. Roth Zahnmedizin</span><span>Heilbronn</span><span className="verified">Verifiziert</span></div>
-                              <div className="table-row"><span>Schuster Haustechnik</span><span>Stuttgart</span><span className="verified">Verifiziert</span></div>
-                            </div>
-                          </div>
-                        )}
 
-                        {index === 1 && (
-                          <div className="mockup-screen-full mockup-geo-screen">
-                            <div className="screen-header">
-                              <Sparkles size={18} className="text-accent" />
-                              <strong>GEO Engine — KI &amp; Search Auditor</strong>
-                            </div>
-                            <div className="screen-grid">
-                              <div className="screen-card">
-                                <small>Google Index Score</small>
-                                <strong>100 / 100</strong>
-                              </div>
-                              <div className="screen-card">
-                                <small>ChatGPT Readiness</small>
-                                <strong>Optimal (98%)</strong>
-                              </div>
-                              <div className="screen-card">
-                                <small>Perplexity Visibility</small>
-                                <strong>Rang #1 Region Heilbronn</strong>
-                              </div>
-                            </div>
-                          </div>
-                        )}
-
-                        {index === 2 && (
-                          <div className="mockup-screen-full mockup-portal-screen">
-                            <div className="screen-header">
-                              <Cpu size={18} className="text-accent" />
-                              <strong>Bar Shift Planner — The Shaker Gastro Suite</strong>
-                            </div>
-                            <div className="screen-grid">
-                              <div className="screen-card">
-                                <small>Geplante Schichten</small>
-                                <strong>48 Schichten / Woche</strong>
-                              </div>
-                              <div className="screen-card">
-                                <small>Personalkostenquote</small>
-                                <strong>24.2% (Ziel: &lt;28%)</strong>
-                              </div>
-                              <div className="screen-card">
-                                <small>Ausfallquote</small>
-                                <strong>0% (Auto-Substitute)</strong>
-                              </div>
-                            </div>
-                          </div>
-                        )}
-                      </div>
+                  {/* Copy container */}
+                  <div className="app-copy-container">
+                    <div className="app-meta">
+                      <span className="app-badge-tag">App</span>
+                      <span className="app-status-badge">
+                        <i className={`status-dot dot-${app.statusType}`} />
+                        {app.status}
+                      </span>
+                    </div>
+                    <h3>{app.name}</h3>
+                    <p className="app-tagline-text">{app.tagline}</p>
+                    {app.hasMore && (
+                      <span className="app-ghost-link">
+                        Mehr erfahren <ArrowRight size={15} />
+                      </span>
                     )}
                   </div>
                 </div>
-              </div>
-
-              {/* Case Study Breakdown Grid */}
-              <div className="app-breakdown-grid">
-                <div className="breakdown-box">
-                  <h4>Das Problem</h4>
-                  <p>{project.problem}</p>
-                </div>
-                <div className="breakdown-box">
-                  <h4>Die Lösung</h4>
-                  <p>{project.solution}</p>
-                </div>
-                <div className="breakdown-box highlight-box">
-                  <h4>Ergebnis &amp; Nutzen</h4>
-                  <p>{project.result}</p>
-                </div>
-              </div>
-
-              {/* Tech Stack Footer */}
-              <div className="app-detail-footer">
-                <div className="tech-tags-list">
-                  <span className="tags-label"><Code size={14} /> Tech Stack:</span>
-                  {project.techStack.map(tech => (
-                    <span className="tech-tag" key={tech}>{tech}</span>
-                  ))}
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* Page Bottom CTA */}
-      <section className="section apps-cta-section text-center">
-        <div className="apps-cta-box premium-card">
-          <SectionLabel number="19" label="Eigene Idee umsetzen" />
-          <h2>
-            Möchtest du eine eigene <span className="text-accent">Web-App</span> oder ein <span className="section-title-serif">Tool</span> bauen lassen?
-          </h2>
-          <p>
-            Ob komplexe Web-Anwendung, internes Kundenportal oder maßgeschneiderte Schnittstelle. Ich baue dein digitales Produkt schnell, sicher und skalierbar.
-          </p>
-          <div className="apps-cta-actions">
-            <button
-              type="button"
-              className="btn primary"
-              onClick={() => {
-                onNavigate('home')
-                window.requestAnimationFrame(() => {
-                  document.getElementById('calendar')?.scrollIntoView({ behavior: 'smooth' })
-                })
-              }}
-            >
-              <span className="cta-label">Kostenloses Erstgespräch vereinbaren</span>
-              <span className="cta-dots" aria-hidden="true" />
-              <ArrowRight size={19} />
-            </button>
+              )
+            })}
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+
+        {/* Sektion Systeme */}
+        <section className="section systems-list-section">
+          <div className="apps-section-header">
+            <span className="apps-section-badge systems-badge"><Laptop size={16} /> Enterprise Systeme</span>
+            <h3>Verwaltung &amp; Skalierung</h3>
+          </div>
+
+          <div className="systems-vertical-list">
+            {systems.map((system, index) => {
+              const isLeft = index % 2 === 0
+              return (
+                <div 
+                  key={system.id} 
+                  className={`system-reveal-block layout-mockup-${isLeft ? 'left' : 'right'}`}
+                >
+                  {/* Browser Mockup */}
+                  <div className="system-mockup-container">
+                    <div className="lab-preview-browser">
+                      <div className="lab-preview-bar">
+                        <span className="dot dot-red" />
+                        <span className="dot dot-yellow" />
+                        <span className="dot dot-green" />
+                        <span className="lab-preview-url">https://{system.id}.greenlabz.de</span>
+                      </div>
+                      <div className="lab-preview-content system-preview-content">
+                        {system.id === 'greenlabz-crm' ? (
+                          <div className="crm-mockup-ui">
+                            <div className="crm-mockup-nav">
+                              <span>GreenLabz CRM</span>
+                              <div className="crm-nav-items"><span className="active" /><span /><span /></div>
+                            </div>
+                            <div className="crm-grid-preview">
+                              <div className="crm-card">
+                                <small>Aktive Projekte</small>
+                                <strong>6 laufend</strong>
+                              </div>
+                              <div className="crm-card">
+                                <small>Onboarding Status</small>
+                                <strong className="text-accent">100% Bereit</strong>
+                              </div>
+                              <div className="crm-card">
+                                <small>Rechnungs-Quote</small>
+                                <strong>99.8% Bezahlt</strong>
+                              </div>
+                            </div>
+                            <div className="crm-table-preview">
+                              <div className="crm-table-row head"><span>Kunde</span><span>Status</span><span>Budget</span></div>
+                              <div className="crm-table-row"><span>Dr. Roth Zahnarzt</span><span>Entwicklung</span><span>€ 3.200</span></div>
+                              <div className="crm-table-row"><span>Praxis Heilbronn</span><span>Freigegeben</span><span>€ 1.890</span></div>
+                            </div>
+                          </div>
+                        ) : system.id === 'scrapemaster-pro' ? (
+                          <div className="crm-mockup-ui scrapemaster-mockup-ui">
+                            <div className="crm-mockup-nav">
+                              <span>ScrapeMaster Pro</span>
+                            </div>
+                            <div className="crm-grid-preview">
+                              <div className="crm-card">
+                                <small>API-Status</small>
+                                <strong className="text-accent">Aktiv</strong>
+                              </div>
+                              <div className="crm-card">
+                                <small>Verifizierungs-Rate</small>
+                                <strong>99.4%</strong>
+                              </div>
+                              <div className="crm-card">
+                                <small>Speed</small>
+                                <strong>120 req/s</strong>
+                              </div>
+                            </div>
+                          </div>
+                        ) : system.previewImage ? (
+                          <img src={system.previewImage} alt={system.name} className="system-screenshot-img" />
+                        ) : (
+                          <div className="system-placeholder">
+                            <Laptop size={36} className="text-accent" />
+                            <span>{system.name} Dashboard</span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* System Details */}
+                  <div className="system-details-container">
+                    <div className="system-meta">
+                      <span className="system-badge-tag">{system.badge}</span>
+                      <span className="system-status-badge">
+                        <i className={`status-dot dot-${system.statusType}`} />
+                        {system.status}
+                      </span>
+                    </div>
+                    <h3>{system.name}</h3>
+                    
+                    <div className="system-breakdown">
+                      <div className="system-box">
+                        <strong>Problem</strong>
+                        <p>{system.problem}</p>
+                      </div>
+                      <div className="system-box">
+                        <strong>Lösung</strong>
+                        <p>{system.solution}</p>
+                      </div>
+                      <div className="system-box highlight-box">
+                        <strong>Ergebnis</strong>
+                        <p>{system.result}</p>
+                      </div>
+                    </div>
+
+                    <div className="system-footer">
+                      <div className="tech-tags-list">
+                        <span className="tags-label"><Code size={14} /> Tech Stack:</span>
+                        {system.techStack.map(tech => (
+                          <span className="tech-tag" key={tech}>{tech}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </section>
+
+        {/* CTA-Sektion am Seitenende */}
+        <section className="section apps-cta-section text-center">
+          <div className="apps-cta-box premium-card">
+            <p className="section-code"><span></span> [KOOPERATION]</p>
+            <h2>
+              Möchtest du ein eigenes <span className="text-accent">System</span> oder eine <span className="section-title-serif">App</span> entwickeln lassen?
+            </h2>
+            <p>
+              Ob maßgeschneiderte SaaS-Lösungen, interne Verwaltungsportale oder automatisierte APIs – ich baue deine Software schnell, wartungsarm und absolut performant.
+            </p>
+            <div className="apps-cta-actions">
+              <button
+                type="button"
+                className="btn primary"
+                onClick={() => {
+                  onNavigate('home')
+                  window.requestAnimationFrame(() => {
+                    document.getElementById('calendar')?.scrollIntoView({ behavior: 'smooth' })
+                  })
+                }}
+              >
+                <span className="cta-label">Kostenloses Erstgespräch vereinbaren</span>
+                <span className="cta-dots" aria-hidden="true" />
+                <ArrowRight size={19} />
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
   )
 }
