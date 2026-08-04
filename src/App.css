@@ -10846,12 +10846,16 @@ html:not(.js-ready) .system-reveal-block {
    THE SHAKER AUTO-SCROLLING SCHEDULE MOCKUP
    ========================================================================== */
 .shaker-mockup-app {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
   background: #121414;
   display: flex;
   flex-direction: column;
-  position: relative;
   overflow: hidden;
   font-family: 'Plus Jakarta Sans', 'Be Vietnam Pro', sans-serif;
   color: #e2e2e2;
@@ -10864,13 +10868,15 @@ html:not(.js-ready) .system-reveal-block {
   top: 0;
   left: 0;
   right: 0;
-  height: 50px;
+  height: 64px;
+  padding-top: 16px;
   background: #082c2a; /* dark green/teal */
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 14px;
+  padding-left: 14px;
+  padding-right: 14px;
   z-index: 10;
 }
 .shaker-header-info {
@@ -10905,7 +10911,7 @@ html:not(.js-ready) .system-reveal-block {
 /* Calendar Navigation Bar */
 .shaker-cal-bar {
   position: absolute;
-  top: 50px;
+  top: 64px;
   left: 0;
   right: 0;
   height: 74px;
@@ -10963,7 +10969,7 @@ html:not(.js-ready) .system-reveal-block {
   flex: 1;
   overflow: hidden;
   position: relative;
-  margin-top: 124px; /* header (50) + cal-bar (74) */
+  margin-top: 138px; /* header (64) + cal-bar (74) */
   margin-bottom: 50px; /* footer (50) */
 }
 .shaker-app-scroll-track {
@@ -10971,7 +10977,7 @@ html:not(.js-ready) .system-reveal-block {
   flex-direction: column;
   gap: 12px;
   padding: 10px 12px 20px;
-  animation: shakerAutoScrollTrack 22s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
+  animation: shakerAutoScrollTrack 12s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
 }
 
 @keyframes shakerAutoScrollTrack {
