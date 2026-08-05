@@ -1,5 +1,4 @@
-import { ArrowRight, ArrowUpRight, Database, Sparkles, Plus, Calendar, Users, GlassWater, Settings } from 'lucide-react'
-import { appProjects } from '../pages/appsData'
+import { ArrowRight, ArrowUpRight, Plus, Calendar, Users, GlassWater, Settings } from 'lucide-react'
 
 interface LabTeaserSectionProps {
   onNavigate: (route: string) => void
@@ -22,27 +21,137 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
         </p>
       </div>
 
-      <div className="lab-card-grid">
-        {appProjects.map((project, index) => (
-          <article 
-            className="lab-card premium-card" 
-            key={project.id}
-            onClick={() => {
-              onNavigate('apps')
-              window.scrollTo(0, 0)
-            }}
-          >
-            {/* Visual Frame Mockup */}
-            <div className="lab-card-preview" aria-hidden="true">
-              <div className="lab-preview-browser">
-                <div className="lab-preview-bar">
-                  <span className="dot dot-red" />
-                  <span className="dot dot-yellow" />
-                  <span className="dot dot-green" />
-                  <span className="lab-preview-url">{project.id}.greenlabz.de</span>
+      <div className="lab-teaser-rows">
+        {/* Row 1: ScrapeMaster Pro (SaaS) */}
+        <div className="lab-teaser-row layout-left">
+          <div className="lab-teaser-preview">
+            <div className="lab-preview-browser">
+              <div className="lab-preview-bar">
+                <span className="dot dot-red" />
+                <span className="dot dot-yellow" />
+                <span className="dot dot-green" />
+                <span className="lab-preview-url">scrapemaster.greenlabz.de</span>
+              </div>
+              <div className="lab-preview-content">
+                <div className="crm-mockup-ui scrapemaster-mockup-ui">
+                  <div className="crm-mockup-nav">
+                    <span>ScrapeMaster Pro</span>
+                  </div>
+                  <div className="crm-grid-preview">
+                    <div className="crm-card">
+                      <small>API-Status</small>
+                      <strong className="text-accent">Aktiv</strong>
+                    </div>
+                    <div className="crm-card">
+                      <small>Verifizierungs-Rate</small>
+                      <strong>99.4%</strong>
+                    </div>
+                    <div className="crm-card">
+                      <small>Speed</small>
+                      <strong>120 req/s</strong>
+                    </div>
+                  </div>
                 </div>
-                <div className="lab-preview-content">
-                  {index === 2 ? (
+              </div>
+            </div>
+          </div>
+
+          <div className="lab-teaser-info">
+            <div className="lab-card-top">
+              <span className="lab-card-kicker">ENTERPRISE SAAS</span>
+              <span className="lab-badge">SaaS</span>
+            </div>
+            <h3>ScrapeMaster Pro</h3>
+            <p>Automatisierte Lead-Generierung und Daten-Pipeline für B2B-Vertriebsprozesse im DACH-Raum.</p>
+            <div className="lab-tech-list">
+              <span>React</span><span>FastAPI</span><span>Python</span><span>Tailwind</span>
+            </div>
+            <div className="lab-card-footer" style={{ marginTop: '0.5rem' }}>
+              <span className="lab-card-link" onClick={() => { onNavigate('apps'); window.scrollTo(0, 0); }}>
+                Mehr erfahren <ArrowRight size={15} />
+              </span>
+              <span className="lab-status-dot" title="Live in Produktion">
+                <i className="dot-live" />
+                <small>Live in Produktion</small>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Row 2: GreenLabz CRM */}
+        <div className="lab-teaser-row layout-right">
+          <div className="lab-teaser-preview">
+            <div className="lab-preview-browser">
+              <div className="lab-preview-bar">
+                <span className="dot dot-red" />
+                <span className="dot dot-yellow" />
+                <span className="dot dot-green" />
+                <span className="lab-preview-url">crm.greenlabz.de</span>
+              </div>
+              <div className="lab-preview-content">
+                <div className="crm-mockup-ui">
+                  <div className="crm-mockup-nav">
+                    <span>GreenLabz CRM</span>
+                    <div className="crm-nav-items"><span className="active" /><span /><span /></div>
+                  </div>
+                  <div className="crm-grid-preview">
+                    <div className="crm-card">
+                      <small>Aktive Projekte</small>
+                      <strong>6 laufend</strong>
+                    </div>
+                    <div className="crm-card">
+                      <small>Onboarding Status</small>
+                      <strong className="text-accent">100% Bereit</strong>
+                    </div>
+                    <div className="crm-card">
+                      <small>Rechnungs-Quote</small>
+                      <strong>99.8% Bezahlt</strong>
+                    </div>
+                  </div>
+                  <div className="crm-table-preview">
+                    <div className="crm-table-row head"><span>Kunde</span><span>Status</span><span>Budget</span></div>
+                    <div className="crm-table-row"><span>Dr. Roth Zahnarzt</span><span>Entwicklung</span><span>€ 3.200</span></div>
+                    <div className="crm-table-row"><span>Praxis Heilbronn</span><span>Freigegeben</span><span>€ 1.890</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="lab-teaser-info">
+            <div className="lab-card-top">
+              <span className="lab-card-kicker">KUNDEN &amp; PROJEKT CONTROL</span>
+              <span className="lab-badge">CRM System</span>
+            </div>
+            <h3>GreenLabz CRM</h3>
+            <p>Das zentrale Steuerungselement für Kundenbeziehungen, Projektfortschritt und automatisierte Rechnungsstellung.</p>
+            <div className="lab-tech-list">
+              <span>React</span><span>TypeScript</span><span>Node.js</span><span>Supabase</span><span>PostgreSQL</span>
+            </div>
+            <div className="lab-card-footer" style={{ marginTop: '0.5rem' }}>
+              <span className="lab-card-link" onClick={() => { onNavigate('apps'); window.scrollTo(0, 0); }}>
+                Mehr erfahren <ArrowRight size={15} />
+              </span>
+              <span className="lab-status-dot" title="Interne Nutzung">
+                <i className="dot-live" />
+                <small>Interne Nutzung</small>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Row 3: The Shaker */}
+        <div className="lab-teaser-row layout-left">
+          <div className="lab-teaser-preview">
+            <div className="app-phone-container" style={{ transform: 'scale(0.95)' }}>
+              <div className="gl-exact-phone-bezel">
+                <div className="gl-exact-hardware gl-exact-hardware-left-one" />
+                <div className="gl-exact-hardware gl-exact-hardware-left-two" />
+                <div className="gl-exact-hardware gl-exact-hardware-right" />
+                <div className="gl-exact-screen">
+                  <div className="gl-exact-screen-glare" />
+                  <div className="gl-exact-notch"><span></span></div>
+                  <div className="gl-exact-screen-content">
                     <div className="shaker-mockup-app">
                       {/* Top App Bar */}
                       <div className="shaker-app-header-schedule">
@@ -187,74 +296,33 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
                         </div>
                       </div>
                     </div>
-                  ) : project.previewImage ? (
-                    <div className="lab-mockup-img-wrap">
-                      <img src={project.previewImage} alt={project.name} className="lab-preview-img" />
-                    </div>
-                  ) : (
-                    <div className="lab-mockup-graphic">
-                      {index === 0 && (
-                        <div className="mockup-ui mockup-ui-scrape">
-                          <div className="mockup-header">
-                            <Database size={16} className="text-accent" />
-                            <span>ScrapeMaster Pro Dashboard</span>
-                          </div>
-                          <div className="mockup-bars">
-                            <div className="mockup-bar flex-1" style={{ width: '85%' }} />
-                            <div className="mockup-bar" style={{ width: '60%' }} />
-                            <div className="mockup-bar" style={{ width: '75%' }} />
-                          </div>
-                          <div className="mockup-pills">
-                            <span className="pill green">+1.420 Leads</span>
-                            <span className="pill">99.4% Valid</span>
-                          </div>
-                        </div>
-                      )}
-                      {index === 1 && (
-                        <div className="mockup-ui mockup-ui-geo">
-                          <div className="mockup-header">
-                            <Sparkles size={16} className="text-accent" />
-                            <span>GEO &amp; AI Search Scanner</span>
-                          </div>
-                          <div className="mockup-ring-row">
-                            <div className="mini-ring">98%</div>
-                            <div className="mini-stats">
-                              <span>ChatGPT Ready</span>
-                              <small>Perplexity Index 100%</small>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  )}
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Card Content */}
-            <div className="lab-card-body">
-              <div className="lab-card-top">
-                <span className="lab-card-kicker">{project.kicker}</span>
-                <span className={`lab-badge ${project.badge === 'Internal Tool' ? 'lab-badge-internal' : ''}`}>
-                  {project.badge}
-                </span>
-              </div>
-
-              <h3>{project.name}</h3>
-              <p>{project.tagline}</p>
-
-              <div className="lab-card-footer">
-                <span className="lab-card-link">
-                  Mehr erfahren <ArrowRight size={15} />
-                </span>
-                <span className="lab-status-dot" title={project.status}>
-                  <i className={`dot-${project.statusType}`} />
-                  <small>{project.status}</small>
-                </span>
-              </div>
+          <div className="lab-teaser-info">
+            <div className="lab-card-top">
+              <span className="lab-card-kicker">BAR-SCHICHTPLANER</span>
+              <span className="lab-badge">App</span>
             </div>
-          </article>
-        ))}
+            <h3>The Shaker</h3>
+            <p>Dienstplanung, Rollenverteilung und Umsatz-Auswertung für Gastronomie-Betriebe direkt auf dem Smartphone.</p>
+            <div className="lab-tech-list">
+              <span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>Supabase</span><span>Vercel</span>
+            </div>
+            <div className="lab-card-footer" style={{ marginTop: '0.5rem' }}>
+              <span className="lab-card-link" onClick={() => { onNavigate('apps'); window.scrollTo(0, 0); }}>
+                Mehr erfahren <ArrowRight size={15} />
+              </span>
+              <span className="lab-status-dot" title="Live">
+                <i className="dot-live" />
+                <small>Live</small>
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="lab-teaser-cta">

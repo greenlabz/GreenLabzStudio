@@ -10479,6 +10479,88 @@ html:not(.js-ready) .work-row {
   margin: 0;
 }
 
+/* Homepage Lab Teaser Rows */
+.lab-teaser-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+  margin: 5rem 0 6rem;
+}
+.lab-teaser-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5rem;
+  width: 100%;
+}
+.lab-teaser-row.layout-right {
+  flex-direction: row-reverse;
+}
+.lab-teaser-preview {
+  flex: 1.1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 580px;
+}
+.lab-teaser-info {
+  flex: 0.9;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+  max-width: 480px;
+  text-align: left;
+}
+.lab-teaser-info h3 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.lab-teaser-info p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0;
+}
+.lab-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.lab-tech-list span {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+@media (max-width: 991px) {
+  .lab-teaser-rows {
+    gap: 5rem;
+  }
+  .lab-teaser-row,
+  .lab-teaser-row.layout-right {
+    flex-direction: column;
+    gap: 2.5rem;
+    text-align: center;
+  }
+  .lab-teaser-info {
+    align-items: center;
+    max-width: 100%;
+  }
+  .lab-teaser-preview {
+    max-width: 100%;
+  }
+}
+
 /* Zigzag Apps List */
 .apps-zigzag-list {
   display: flex;
