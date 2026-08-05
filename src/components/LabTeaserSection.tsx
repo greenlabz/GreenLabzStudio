@@ -25,21 +25,11 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
         {/* Row 1: MedReview Pro (SaaS) */}
         <div className="lab-teaser-row layout-left">
           <div className="lab-teaser-preview">
-            <div className="lab-preview-browser">
-              <div className="lab-preview-bar">
-                <span className="dot dot-red" />
-                <span className="dot dot-yellow" />
-                <span className="dot dot-green" />
-                <span className="lab-preview-url">medreview.greenlabz.de</span>
-              </div>
-              <div className="lab-preview-content" style={{ padding: 0, height: '300px', overflow: 'hidden' }}>
-                <img 
-                  src="/assets/apps/medreview-preview.png" 
-                  alt="MedReview Pro Dashboard" 
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top left' }}
-                />
-              </div>
-            </div>
+            <img 
+              src="/assets/apps/medreview-preview.png" 
+              alt="MedReview Pro Dashboard" 
+              className="medreview-teaser-img"
+            />
           </div>
 
           <div className="lab-teaser-info">

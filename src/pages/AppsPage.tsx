@@ -384,58 +384,58 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                 >
                   {/* Browser Mockup */}
                   <div className="system-mockup-container">
-                    <div className="lab-preview-browser">
-                      <div className="lab-preview-bar">
-                        <span className="dot dot-red" />
-                        <span className="dot dot-yellow" />
-                        <span className="dot dot-green" />
-                        <span className="lab-preview-url">https://{system.id}.greenlabz.de</span>
+                    {system.id === 'medreview-pro' ? (
+                      <img 
+                        src="/assets/apps/medreview-preview.png" 
+                        alt="MedReview Pro Dashboard" 
+                        className="medreview-teaser-img"
+                      />
+                    ) : (
+                      <div className="lab-preview-browser">
+                        <div className="lab-preview-bar">
+                          <span className="dot dot-red" />
+                          <span className="dot dot-yellow" />
+                          <span className="dot dot-green" />
+                          <span className="lab-preview-url">https://{system.id}.greenlabz.de</span>
+                        </div>
+                        <div className="lab-preview-content system-preview-content">
+                          {system.id === 'greenlabz-crm' ? (
+                            <div className="crm-mockup-ui">
+                              <div className="crm-mockup-nav">
+                                <span>GreenLabz CRM</span>
+                                <div className="crm-nav-items"><span className="active" /><span /><span /></div>
+                              </div>
+                              <div className="crm-grid-preview">
+                                <div className="crm-card">
+                                  <small>Aktive Projekte</small>
+                                  <strong>6 laufend</strong>
+                                </div>
+                                <div className="crm-card">
+                                  <small>Onboarding Status</small>
+                                  <strong className="text-accent">100% Bereit</strong>
+                                </div>
+                                <div className="crm-card">
+                                  <small>Rechnungs-Quote</small>
+                                  <strong>99.8% Bezahlt</strong>
+                                </div>
+                              </div>
+                              <div className="crm-table-preview">
+                                <div className="crm-table-row head"><span>Kunde</span><span>Status</span><span>Budget</span></div>
+                                <div className="crm-table-row"><span>Dr. Roth Zahnarzt</span><span>Entwicklung</span><span>€ 3.200</span></div>
+                                <div className="crm-table-row"><span>Praxis Heilbronn</span><span>Freigegeben</span><span>€ 1.890</span></div>
+                              </div>
+                            </div>
+                          ) : system.previewImage ? (
+                            <img src={system.previewImage} alt={system.name} className="system-screenshot-img" />
+                          ) : (
+                            <div className="system-placeholder">
+                              <Laptop size={36} className="text-accent" />
+                              <span>{system.name} Dashboard</span>
+                            </div>
+                          )}
+                        </div>
                       </div>
-                      <div className="lab-preview-content system-preview-content">
-                        {system.id === 'greenlabz-crm' ? (
-                          <div className="crm-mockup-ui">
-                            <div className="crm-mockup-nav">
-                              <span>GreenLabz CRM</span>
-                              <div className="crm-nav-items"><span className="active" /><span /><span /></div>
-                            </div>
-                            <div className="crm-grid-preview">
-                              <div className="crm-card">
-                                <small>Aktive Projekte</small>
-                                <strong>6 laufend</strong>
-                              </div>
-                              <div className="crm-card">
-                                <small>Onboarding Status</small>
-                                <strong className="text-accent">100% Bereit</strong>
-                              </div>
-                              <div className="crm-card">
-                                <small>Rechnungs-Quote</small>
-                                <strong>99.8% Bezahlt</strong>
-                              </div>
-                            </div>
-                            <div className="crm-table-preview">
-                              <div className="crm-table-row head"><span>Kunde</span><span>Status</span><span>Budget</span></div>
-                              <div className="crm-table-row"><span>Dr. Roth Zahnarzt</span><span>Entwicklung</span><span>€ 3.200</span></div>
-                              <div className="crm-table-row"><span>Praxis Heilbronn</span><span>Freigegeben</span><span>€ 1.890</span></div>
-                            </div>
-                          </div>
-                        ) : system.id === 'medreview-pro' ? (
-                          <div style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
-                            <img 
-                              src="/assets/apps/medreview-preview.png" 
-                              alt="MedReview Pro Dashboard" 
-                              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top left' }}
-                            />
-                          </div>
-                        ) : system.previewImage ? (
-                          <img src={system.previewImage} alt={system.name} className="system-screenshot-img" />
-                        ) : (
-                          <div className="system-placeholder">
-                            <Laptop size={36} className="text-accent" />
-                            <span>{system.name} Dashboard</span>
-                          </div>
-                        )}
-                      </div>
-                    </div>
+                    )}
                   </div>
 
                   {/* System Details */}
