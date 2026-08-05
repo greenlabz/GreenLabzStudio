@@ -57,41 +57,11 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
         {/* Row 2: GreenLabz CRM */}
         <div className="lab-teaser-row layout-right">
           <div className="lab-teaser-preview">
-            <div className="lab-preview-browser">
-              <div className="lab-preview-bar">
-                <span className="dot dot-red" />
-                <span className="dot dot-yellow" />
-                <span className="dot dot-green" />
-                <span className="lab-preview-url">crm.greenlabz.de</span>
-              </div>
-              <div className="lab-preview-content">
-                <div className="crm-mockup-ui">
-                  <div className="crm-mockup-nav">
-                    <span>GreenLabz CRM</span>
-                    <div className="crm-nav-items"><span className="active" /><span /><span /></div>
-                  </div>
-                  <div className="crm-grid-preview">
-                    <div className="crm-card">
-                      <small>Aktive Projekte</small>
-                      <strong>6 laufend</strong>
-                    </div>
-                    <div className="crm-card">
-                      <small>Onboarding Status</small>
-                      <strong className="text-accent">100% Bereit</strong>
-                    </div>
-                    <div className="crm-card">
-                      <small>Rechnungs-Quote</small>
-                      <strong>99.8% Bezahlt</strong>
-                    </div>
-                  </div>
-                  <div className="crm-table-preview">
-                    <div className="crm-table-row head"><span>Kunde</span><span>Status</span><span>Budget</span></div>
-                    <div className="crm-table-row"><span>Dr. Roth Zahnarzt</span><span>Entwicklung</span><span>€ 3.200</span></div>
-                    <div className="crm-table-row"><span>Praxis Heilbronn</span><span>Freigegeben</span><span>€ 1.890</span></div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <img 
+              src="/assets/apps/crm-preview.png" 
+              alt="GreenLabz CRM Dashboard" 
+              className="medreview-teaser-img"
+            />
           </div>
 
           <div className="lab-teaser-info">
