@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, Plus, Calendar, Users, GlassWater, Settings, Star, TrendingUp } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Plus, Calendar, Users, GlassWater, Settings } from 'lucide-react'
 
 interface LabTeaserSectionProps {
   onNavigate: (route: string) => void
@@ -32,58 +32,12 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
                 <span className="dot dot-green" />
                 <span className="lab-preview-url">medreview.greenlabz.de</span>
               </div>
-              <div className="lab-preview-content">
-                <div className="crm-mockup-ui medreview-mockup-ui">
-                  <div className="crm-mockup-nav">
-                    <span>MedReview Pro</span>
-                    <div className="crm-nav-items">
-                      <img 
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn5luFPWlrHX0DNcPp36U29XU3jWyB5hLpTkOchUVjsxOW9-yKqoTDmPVdk6OJbdj-4142hBjTjRdM0zAiGreLnudC5AEKqeoLVn6eIqLyWMMZllcrs54iU2D6KrY-glr3Jt-qOGnA2lDp6vf05cRi8vIP5mmNPobar_9xtw1liG8ZSG2d3x6T12VaDjZKMuabpTllcLa6F0Ug1kGcK6OLxqSja9MUvUwvIVfMrvYPpNPtGXHZUzT3" 
-                        alt="Provider Avatar"
-                        className="w-5 h-5 rounded-full object-cover border border-outline-variant"
-                      />
-                    </div>
-                  </div>
-                  
-                  {/* KPI Row */}
-                  <div className="crm-grid-preview">
-                    <div className="crm-card">
-                      <small>Versendete Anfragen</small>
-                      <strong className="text-accent flex items-center gap-1">
-                        1.248 <TrendingUp size={11} />
-                      </strong>
-                    </div>
-                    <div className="crm-card">
-                      <small>Google-Bewertungen</small>
-                      <strong>342</strong>
-                    </div>
-                    <div className="crm-card">
-                      <small>Schnitt-Sterne</small>
-                      <strong className="flex items-center gap-1 text-[#fea619]">
-                        4,8 <Star size={12} fill="#fea619" />
-                      </strong>
-                    </div>
-                  </div>
-
-                  {/* Tiny Trend Chart Visualization */}
-                  <div className="medreview-trend-chart">
-                    <div className="trend-labels">
-                      <span>Google-Sterne-Trend</span>
-                      <small>6-Monats-Übersicht</small>
-                    </div>
-                    <svg className="trend-svg" viewBox="0 0 100 30" preserveAspectRatio="none">
-                      <defs>
-                        <linearGradient id="medreview-chart-gradient" x1="0" x2="0" y1="0" y2="1">
-                          <stop offset="0%" stopColor="#10b981" stopOpacity="0.25"></stop>
-                          <stop offset="100%" stopColor="#10b981" stopOpacity="0"></stop>
-                        </linearGradient>
-                      </defs>
-                      <path d="M0,30 Q20,22 40,15 T80,8 T100,5 L100,30 L0,30 Z" fill="url(#medreview-chart-gradient)"></path>
-                      <path d="M0,30 Q20,22 40,15 T80,8 T100,5" fill="none" stroke="#10b981" strokeWidth="1.5" strokeLinecap="round"></path>
-                      <circle cx="100" cy="5" fill="#10b981" r="1.5" stroke="#ffffff" strokeWidth="0.5"></circle>
-                    </svg>
-                  </div>
-                </div>
+              <div className="lab-preview-content" style={{ padding: 0, height: '300px', overflow: 'hidden' }}>
+                <img 
+                  src="/assets/apps/medreview-preview.png" 
+                  alt="MedReview Pro Dashboard" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top left' }}
+                />
               </div>
             </div>
           </div>
