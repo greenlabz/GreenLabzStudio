@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Head } from 'vite-react-ssg'
-import { ArrowLeft, ArrowRight, Code, Smartphone, Laptop, Plus, Calendar, Users, GlassWater, Settings } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Code, Smartphone, Laptop, Plus, Calendar, Users, GlassWater, Settings, Star } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { appProjects } from './appsData'
@@ -329,6 +329,56 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                                   <Settings size={15} />
                                   <span>Settings</span>
                                 </div>
+                              </div>
+                            </div>
+                          ) : app.id === 'pricebolt' ? (
+                            <div className="pricebolt-mockup-app">
+                              {/* Top App Bar */}
+                              <div className="pricebolt-app-header">
+                                <ArrowLeft size={16} className="pricebolt-back-icon" />
+                                <img 
+                                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3yG_uGVN0DwhuaVsNdshij4dMfz1GmvkwXBYMI0mbNfKcl7sybq0XgT4OxZ7hlVMFoJh2oarp_rxGrjwt39vmNK9HU4dSoQNJzSlULE9fPcyAF57VakDD2R8B4L_UlH9FzXKI--nI8ncmv3Im8dbquCOCHGAcxXjtDOtBMKveRcFpr_Q0eWvaAeutW_YU3TSXD0nEi_LkuA8ZrQJAOLSg2JxAFhTKX3rpR_5TJGzYt5k_ab-5FpNE8xjv7HGvC0y0mg" 
+                                  alt="PriceBolt Logo" 
+                                  className="pricebolt-logo-img" 
+                                />
+                                <div style={{ width: 16 }} />
+                              </div>
+
+                              {/* Scroll Area */}
+                              <div className="pricebolt-app-scroll">
+                                <div className="pricebolt-app-scroll-track">
+                                  {/* Hero Card */}
+                                  <div className="pricebolt-hero-card">
+                                    <img 
+                                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD3g-G_C2INqWvQc29oY8uLMVVbrP_8yZCznzdh1TV77TzcCOovg6k9EK71ecKTBixBEem7xYVFP5zs-skZIsksb5ywOdKMV97DgeqEcifkhIMukuJc-8u1emcJ9rYLXzq-T_Gb3r2JIo7NbDgNCrS5AoIo7qspjEpBqFY4BnfcLTliDMbPXV4zFyL7abBiGxc3LUtrgevjlYOXz1MTgCIwbtoBfvQtaqEghSxV292EmeAcHUq974c" 
+                                      alt="Clipboard" 
+                                      className="pricebolt-hero-img" 
+                                    />
+                                  </div>
+
+                                  {/* Typography Cluster */}
+                                  <div className="pricebolt-text-cluster">
+                                    <h4>Erhalten Sie Ihr Angebot in 60 Sekunden</h4>
+                                    <p>Professionelle Angebote für Ihr nächstes Projekt, sofort.</p>
+                                  </div>
+
+                                  {/* Trust Badge */}
+                                  <div className="pricebolt-trust-badge">
+                                    <div className="pricebolt-stars">
+                                      {[1, 2, 3, 4, 5].map((s) => (
+                                        <Star key={s} size={11} fill="#FFB400" stroke="none" />
+                                      ))}
+                                    </div>
+                                    <span>500+ Angebote erstellt</span>
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* Footer */}
+                              <div className="pricebolt-app-footer">
+                                <button className="pricebolt-start-btn" type="button">
+                                  Jetzt starten <ArrowRight size={14} />
+                                </button>
                               </div>
                             </div>
                           ) : app.previewImage ? (
