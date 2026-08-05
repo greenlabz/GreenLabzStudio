@@ -11305,13 +11305,13 @@ html:not(.js-ready) .system-reveal-block {
   align-items: center;
   padding: 14px;
   gap: 16px;
-  animation: priceboltAutoScrollTrack 9s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
+  animation: priceboltAutoScrollTrack 12s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
 }
 @keyframes priceboltAutoScrollTrack {
   0% { transform: translateY(0); }
   20% { transform: translateY(0); }
-  80% { transform: translateY(-130px); }
-  100% { transform: translateY(-130px); }
+  80% { transform: translateY(-240px); }
+  100% { transform: translateY(-240px); }
 }
 .pricebolt-hero-card {
   width: 100%;
