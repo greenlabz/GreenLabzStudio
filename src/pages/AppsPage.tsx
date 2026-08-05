@@ -384,10 +384,10 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                 >
                   {/* Browser Mockup */}
                   <div className="system-mockup-container">
-                    {system.id === 'medreview-pro' ? (
+                    {system.id === 'repute' ? (
                       <img 
-                        src="/assets/apps/medreview-preview.png" 
-                        alt="MedReview Pro Dashboard" 
+                        src="/assets/apps/repute-preview.png" 
+                        alt="Repute Dashboard" 
                         className="medreview-teaser-img"
                       />
                     ) : (

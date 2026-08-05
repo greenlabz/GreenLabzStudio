@@ -22,23 +22,23 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
       </div>
 
       <div className="lab-teaser-rows">
-        {/* Row 1: MedReview Pro (SaaS) */}
+        {/* Row 1: Repute (SaaS) */}
         <div className="lab-teaser-row layout-left">
           <div className="lab-teaser-preview">
             <img 
-              src="/assets/apps/medreview-preview.png" 
-              alt="MedReview Pro Dashboard" 
+              src="/assets/apps/repute-preview.png" 
+              alt="Repute Dashboard" 
               className="medreview-teaser-img"
             />
           </div>
 
           <div className="lab-teaser-info">
             <div className="lab-card-top">
-              <span className="lab-card-kicker">CLINICAL REPUTATION SAAS</span>
+              <span className="lab-card-kicker">REPUTATION SAAS</span>
               <span className="lab-badge">SaaS</span>
             </div>
-            <h3>MedReview Pro</h3>
-            <p>Automatisiertes Reputations- und Bewertungsmanagement für Arztpraxen und Kliniken zur nachhaltigen Patientenakquise.</p>
+            <h3>Repute</h3>
+            <p>Automatisches Bewertungsmanagement für Praxen, Betriebe und Dienstleister, die nachhaltig neue Kunden gewinnen wollen.</p>
             <div className="lab-tech-list">
               <span>React</span><span>Node.js</span><span>Tailwind CSS</span><span>FastAPI</span><span>Vercel</span>
             </div>
