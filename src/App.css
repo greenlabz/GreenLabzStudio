@@ -12120,33 +12120,88 @@ html:not(.js-ready) .system-reveal-block {
 }
 .vnpro-upload-zone {
   flex: 1;
-  border: 2px dashed #bbcbba;
+  border: 1px dashed #bbcbba;
   border-radius: 10px;
   aspect-ratio: 4/3;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 2px;
   cursor: pointer;
   position: relative;
   box-sizing: border-box;
+  background: #ffffff;
+  transition: all 0.2s ease-in-out;
+}
+.vnpro-upload-zone:hover {
+  border-color: #00cc6a;
+  background: rgba(0, 204, 106, 0.02);
+}
+.vnpro-upload-circle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(0, 204, 106, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2px;
+  transition: transform 0.2s ease;
+}
+.vnpro-upload-zone:hover .vnpro-upload-circle {
+  transform: scale(1.1);
+}
+.vnpro-upload-zone h5 {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #1a1c1c;
+  margin: 0;
 }
 .vnpro-zone-badge {
   position: absolute;
   top: 4px;
   left: 4px;
-  font-size: 0.52rem;
+  font-size: 0.48rem;
   font-weight: 700;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(29, 29, 31, 0.7);
   color: #ffffff;
-  padding: 1px 4px;
+  padding: 1px 5px;
   border-radius: 3px;
+  backdrop-filter: blur(2px);
 }
 .vnpro-upload-zone small {
-  font-size: 0.52rem;
+  font-size: 0.5rem;
   color: #5f5e60;
-  font-weight: 600;
+  font-weight: 500;
+}
+.vnpro-btn-primary {
+  background: #00cc6a;
+  color: #ffffff;
+  border: none;
+  font-size: 0.58rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+.vnpro-btn-primary:hover {
+  opacity: 0.9;
+}
+.vnpro-btn-secondary {
+  background: #f3f3f3;
+  color: #1b1b1d;
+  border: none;
+  font-size: 0.58rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.vnpro-btn-secondary:hover {
+  background: #e2e2e2;
 }
 .vnpro-logo-card {
   background: #ffffff;

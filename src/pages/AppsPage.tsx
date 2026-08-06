@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Head } from 'vite-react-ssg'
-import { ArrowLeft, ArrowRight, Code, Smartphone, Laptop, Plus, Calendar, Users, GlassWater, Settings, Star, Paintbrush, Layers, Zap, Hammer, Minus, Info, Bell, MapPin, Filter, Sparkles, TrendingUp, Camera, CheckCircle2, Trash2 } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Code, Smartphone, Laptop, Plus, Calendar, Users, GlassWater, Settings, Star, Paintbrush, Layers, Zap, Hammer, Minus, Info, Bell, MapPin, Filter, Sparkles, TrendingUp, Camera, CheckCircle2, Trash2, ImagePlus, UploadCloud } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { appProjects } from './appsData'
@@ -750,29 +750,49 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                                   {/* SCREEN 2: Upload */}
                                   <div className="vnpro-screen">
                                     <div className="vnpro-screen-header">
-                                      <h2>Neuer Fall</h2>
-                                      <p>Erfassen Sie die Vorher/Nachher Dokumentation.</p>
+                                      <h2>Neues Projekt erstellen</h2>
+                                      <p>Laden Sie Ihre Vorher/Nachher-Aufnahmen hoch, um ein neues Vergleichsprojekt anzulegen.</p>
                                     </div>
 
                                     {/* Upload Form */}
                                     <div className="vnpro-upload-form">
-                                      <div className="vnpro-input-group">
-                                        <label>Titel der Behandlung</label>
-                                        <div className="vnpro-input-field">Frontzahnästhetik OK</div>
-                                      </div>
-
                                       {/* Upload zones */}
                                       <div className="vnpro-upload-zones">
                                         <div className="vnpro-upload-zone">
                                           <span className="vnpro-zone-badge">Vorher</span>
-                                          <Camera size={20} className="text-secondary" />
-                                          <small>Tippen für Foto</small>
+                                          <div className="vnpro-upload-circle">
+                                            <ImagePlus size={18} className="text-primary" />
+                                          </div>
+                                          <h5>Vorher-Bild hochladen</h5>
+                                          <small>Drag &amp; Drop oder klicken</small>
                                         </div>
                                         <div className="vnpro-upload-zone">
                                           <span className="vnpro-zone-badge">Nachher</span>
-                                          <Camera size={20} className="text-secondary" />
-                                          <small>Tippen für Foto</small>
+                                          <div className="vnpro-upload-circle">
+                                            <ImagePlus size={18} className="text-primary" />
+                                          </div>
+                                          <h5>Nachher-Bild hochladen</h5>
+                                          <small>Drag &amp; Drop oder klicken</small>
                                         </div>
+                                      </div>
+
+                                      <div className="vnpro-input-group">
+                                        <label>Projekttitel</label>
+                                        <div className="vnpro-input-field text-secondary">z.B. Frontzahnästhetik Restauration</div>
+                                      </div>
+
+                                      <div className="vnpro-input-group">
+                                        <label>Beschreibung (Optional)</label>
+                                        <div className="vnpro-input-field text-secondary" style={{ minHeight: '38px', height: 'auto', display: 'flex', alignItems: 'flex-start', paddingTop: '6px' }}>
+                                          Kurze Details zur Behandlung...
+                                        </div>
+                                      </div>
+
+                                      <div className="flex justify-end gap-2 border-t border-surface-container pt-3 mt-1">
+                                        <button className="vnpro-btn-secondary">Abbrechen</button>
+                                        <button className="vnpro-btn-primary flex items-center justify-center gap-1">
+                                          <UploadCloud size={11} /> Projekt speichern
+                                        </button>
                                       </div>
                                     </div>
                                   </div>
