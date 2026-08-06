@@ -638,92 +638,86 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                                     <div className="vnpro-screen-header">
                                       <h2>Projektgalerie</h2>
                                       <p>Übersicht aller abgeschlossenen und laufenden Restaurierungen.</p>
+                                      
+                                      {/* New Project Button */}
+                                      <button className="vnpro-dashboard-btn mt-3 flex items-center justify-center gap-1 w-full bg-[#00CC6A] text-white py-2 rounded-xl text-xs font-bold border-none cursor-pointer">
+                                        <Plus size={14} /> Neues Projekt
+                                      </button>
                                     </div>
 
                                     {/* Grid Cases */}
                                     <div className="vnpro-cases-list">
                                       {/* Card 1 */}
                                       <div className="vnpro-case-card">
-                                        <div className="vnpro-card-badge-row">
-                                          <span className="vnpro-badge bg-primary-container text-on-primary">
-                                            <CheckCircle2 size={10} /> Abgeschlossen
-                                          </span>
-                                        </div>
                                         <div className="vnpro-card-image">
                                           <div className="vnpro-photo-split">
-                                            <div className="vnpro-photo-half before">
-                                              <span>Vorher</span>
+                                            <div className="vnpro-photo-half before" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=300&q=80')" }}>
+                                              <span className="vnpro-image-capsule">Vorher</span>
                                             </div>
-                                            <div className="vnpro-photo-half after">
-                                              <span>Nachher</span>
+                                            <div className="vnpro-photo-half after" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=300&q=80')" }}>
+                                              <span className="vnpro-image-capsule right-capsule">Nachher</span>
                                             </div>
                                           </div>
                                         </div>
                                         <div className="vnpro-card-info">
                                           <h5>Parkett-Restaurierung Villa Schmidt</h5>
-                                          <span className="vnpro-card-date">
-                                            <Calendar size={10} /> 12. Oktober 2023
-                                          </span>
+                                          <div className="vnpro-card-row">
+                                            <span className="vnpro-card-date-new">12. Oktober 2023</span>
+                                            <span className="vnpro-badge bg-primary-container text-on-primary">
+                                              Abgeschlossen
+                                            </span>
+                                          </div>
                                         </div>
                                       </div>
 
                                       {/* Card 2 */}
                                       <div className="vnpro-case-card">
-                                        <div className="vnpro-card-badge-row">
-                                          <span className="vnpro-badge bg-primary-container text-on-primary">
-                                            <CheckCircle2 size={10} /> Abgeschlossen
-                                          </span>
-                                        </div>
                                         <div className="vnpro-card-image">
                                           <div className="vnpro-photo-split">
-                                            <div className="vnpro-photo-half before">
-                                              <span>Vorher</span>
+                                            <div className="vnpro-photo-half before" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=300&q=80')" }}>
+                                              <span className="vnpro-image-capsule">Vorher</span>
                                             </div>
-                                            <div className="vnpro-photo-half after">
-                                              <span>Nachher</span>
+                                            <div className="vnpro-photo-half after" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?auto=format&fit=crop&w=300&q=80')" }}>
+                                              <span className="vnpro-image-capsule right-capsule">Nachher</span>
                                             </div>
                                           </div>
                                         </div>
                                         <div className="vnpro-card-info">
                                           <h5>Bodenaufbereitung Kanzlei Meyer</h5>
-                                          <span className="vnpro-card-date">
-                                            <Calendar size={10} /> 05. September 2023
-                                          </span>
+                                          <div className="vnpro-card-row">
+                                            <span className="vnpro-card-date-new">05. September 2023</span>
+                                            <span className="vnpro-badge bg-primary-container text-on-primary">
+                                              Abgeschlossen
+                                            </span>
+                                          </div>
                                         </div>
                                       </div>
 
                                       {/* Card 3 */}
                                       <div className="vnpro-case-card">
-                                        <div className="vnpro-card-badge-row">
-                                          <span className="vnpro-badge bg-surface-container-highest text-on-surface">
-                                            Laufend
-                                          </span>
-                                        </div>
                                         <div className="vnpro-card-image">
                                           <div className="vnpro-photo-split">
-                                            <div className="vnpro-photo-half before">
-                                              <span>Vorher</span>
+                                            <div className="vnpro-photo-half before" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1584824486509-112e4181ff6b?auto=format&fit=crop&w=300&q=80')" }}>
+                                              <span className="vnpro-image-capsule">Vorher</span>
                                             </div>
-                                            <div className="vnpro-photo-half after">
-                                              <span>Nachher</span>
+                                            <div className="vnpro-photo-half after" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=300&q=80')" }}>
+                                              <span className="vnpro-image-capsule right-capsule">Nachher</span>
                                             </div>
                                           </div>
                                         </div>
                                         <div className="vnpro-card-info">
                                           <h5>Epoxidharz Medical Center</h5>
-                                          <span className="vnpro-card-date">
-                                            In Bearbeitung
-                                          </span>
+                                          <div className="vnpro-card-row">
+                                            <span className="vnpro-card-date-new">In Bearbeitung</span>
+                                            <span className="vnpro-badge bg-surface-container-highest text-on-surface">
+                                              Laufend
+                                            </span>
+                                          </div>
                                         </div>
                                       </div>
 
                                       {/* Card 4 */}
                                       <div className="vnpro-case-card">
-                                        <div className="vnpro-card-badge-row">
-                                          <span className="vnpro-badge bg-surface-container-highest text-on-surface">
-                                            Entwurf
-                                          </span>
-                                        </div>
                                         <div className="vnpro-card-image">
                                           <div className="vnpro-photo-placeholder bg-surface-container">
                                             <Camera size={20} className="text-secondary opacity-30" style={{ marginBottom: 4 }} />
@@ -732,9 +726,12 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                                         </div>
                                         <div className="vnpro-card-info">
                                           <h5>Treppensanierung Altbau</h5>
-                                          <span className="vnpro-card-date">
-                                            Geplant
-                                          </span>
+                                          <div className="vnpro-card-row">
+                                            <span className="vnpro-card-date-new">Geplant</span>
+                                            <span className="vnpro-badge bg-surface-container-highest text-on-surface">
+                                              Entwurf
+                                            </span>
+                                          </div>
                                         </div>
                                       </div>
                                     </div>
