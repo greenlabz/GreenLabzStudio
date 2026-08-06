@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Head } from 'vite-react-ssg'
-import { ArrowLeft, ArrowRight, Code, Smartphone, Laptop, Plus, Calendar, Users, GlassWater, Settings, Star } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Code, Smartphone, Laptop, Plus, Calendar, Users, GlassWater, Settings, Star, Paintbrush, Layers, Zap, Hammer } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { appProjects } from './appsData'
@@ -347,29 +347,77 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                               {/* Scroll Area */}
                               <div className="pricebolt-app-scroll">
                                 <div className="pricebolt-app-scroll-track">
-                                  {/* Hero Card */}
-                                  <div className="pricebolt-hero-card">
-                                    <img 
-                                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD3g-G_C2INqWvQc29oY8uLMVVbrP_8yZCznzdh1TV77TzcCOovg6k9EK71ecKTBixBEem7xYVFP5zs-skZIsksb5ywOdKMV97DgeqEcifkhIMukuJc-8u1emcJ9rYLXzq-T_Gb3r2JIo7NbDgNCrS5AoIo7qspjEpBqFY4BnfcLTliDMbPXV4zFyL7abBiGxc3LUtrgevjlYOXz1MTgCIwbtoBfvQtaqEghSxV292EmeAcHUq974c" 
-                                      alt="Clipboard" 
-                                      className="pricebolt-hero-img" 
-                                    />
-                                  </div>
-
-                                  {/* Typography Cluster */}
-                                  <div className="pricebolt-text-cluster">
-                                    <h4>Erhalten Sie Ihr Angebot in 60 Sekunden</h4>
-                                    <p>Professionelle Angebote für Ihr nächstes Projekt, sofort.</p>
-                                  </div>
-
-                                  {/* Trust Badge */}
-                                  <div className="pricebolt-trust-badge">
-                                    <div className="pricebolt-stars">
-                                      {[1, 2, 3, 4, 5].map((s) => (
-                                        <Star key={s} size={11} fill="#FFB400" stroke="none" />
-                                      ))}
+                                  {/* SCREEN 1 */}
+                                  <div className="pricebolt-screen-section">
+                                    {/* Hero Card */}
+                                    <div className="pricebolt-hero-card">
+                                      <img 
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD3g-G_C2INqWvQc29oY8uLMVVbrP_8yZCznzdh1TV77TzcCOovg6k9EK71ecKTBixBEem7xYVFP5zs-skZIsksb5ywOdKMV97DgeqEcifkhIMukuJc-8u1emcJ9rYLXzq-T_Gb3r2JIo7NbDgNCrS5AoIo7qspjEpBqFY4BnfcLTliDMbPXV4zFyL7abBiGxc3LUtrgevjlYOXz1MTgCIwbtoBfvQtaqEghSxV292EmeAcHUq974c" 
+                                        alt="Clipboard" 
+                                        className="pricebolt-hero-img" 
+                                      />
                                     </div>
-                                    <span>500+ Angebote erstellt</span>
+
+                                    {/* Typography Cluster */}
+                                    <div className="pricebolt-text-cluster">
+                                      <h4>Erhalten Sie Ihr Angebot in 60 Sekunden</h4>
+                                      <p>Professionelle Angebote für Ihr nächstes Projekt, sofort.</p>
+                                    </div>
+
+                                    {/* Trust Badge */}
+                                    <div className="pricebolt-trust-badge">
+                                      <div className="pricebolt-stars">
+                                        {[1, 2, 3, 4, 5].map((s) => (
+                                          <Star key={s} size={11} fill="#FFB400" stroke="none" />
+                                        ))}
+                                      </div>
+                                      <span>500+ Angebote erstellt</span>
+                                    </div>
+
+                                    <button className="pricebolt-start-btn" type="button" style={{ marginTop: 8 }}>
+                                      Jetzt starten <ArrowRight size={14} />
+                                    </button>
+                                  </div>
+
+                                  {/* Divider / Transition spacing */}
+                                  <div className="pricebolt-screen-divider">
+                                    <span>NÄCHSTER SCHRITT</span>
+                                  </div>
+
+                                  {/* SCREEN 2: Service Selection */}
+                                  <div className="pricebolt-screen-section">
+                                    <div className="pricebolt-progress-bar">
+                                      <div className="pricebolt-progress-fill" />
+                                    </div>
+                                    <span className="pricebolt-step-badge">SCHRITT 1 VON 4</span>
+                                    <h4 className="pricebolt-section-title">Wobei können wir Ihnen helfen?</h4>
+                                    <p className="pricebolt-section-subtitle">
+                                      Wählen Sie die Hauptdienstleistung aus für ein genaues Angebot.
+                                    </p>
+
+                                    {/* Grid */}
+                                    <div className="pricebolt-service-grid">
+                                      <div className="pricebolt-service-card">
+                                        <div className="pricebolt-card-icon"><Paintbrush size={16} /></div>
+                                        <span>Malerarbeiten</span>
+                                      </div>
+                                      <div className="pricebolt-service-card selected">
+                                        <div className="pricebolt-card-icon"><Layers size={16} /></div>
+                                        <span>Bodenlegen</span>
+                                      </div>
+                                      <div className="pricebolt-service-card">
+                                        <div className="pricebolt-card-icon"><Zap size={16} /></div>
+                                        <span>Elektro</span>
+                                      </div>
+                                      <div className="pricebolt-service-card">
+                                        <div className="pricebolt-card-icon"><Hammer size={16} /></div>
+                                        <span>Schreinerei</span>
+                                      </div>
+                                    </div>
+
+                                    <button className="pricebolt-start-btn" type="button" style={{ marginTop: 14 }}>
+                                      Weiter <ArrowRight size={14} />
+                                    </button>
                                   </div>
                                 </div>
                               </div>

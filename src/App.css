@@ -11305,13 +11305,13 @@ html:not(.js-ready) .system-reveal-block {
   align-items: center;
   padding: 14px;
   gap: 16px;
-  animation: priceboltAutoScrollTrack 12s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
+  animation: priceboltAutoScrollTrack 18s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
 }
 @keyframes priceboltAutoScrollTrack {
   0% { transform: translateY(0); }
-  20% { transform: translateY(0); }
-  80% { transform: translateY(-240px); }
-  100% { transform: translateY(-240px); }
+  15% { transform: translateY(0); }
+  85% { transform: translateY(-370px); }
+  100% { transform: translateY(-370px); }
 }
 .pricebolt-hero-card {
   width: 100%;
@@ -11402,5 +11402,118 @@ html:not(.js-ready) .system-reveal-block {
   border: none;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(255, 149, 0, 0.2);
+}
+
+/* Screen Sections & Screen 2 (Service Selection) */
+.pricebolt-screen-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.pricebolt-screen-divider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 24px 0;
+  position: relative;
+}
+.pricebolt-screen-divider::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.08);
+}
+.pricebolt-screen-divider span {
+  position: relative;
+  background: #f9f9fe;
+  padding: 0 10px;
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: #ff9500;
+  letter-spacing: 0.08em;
+}
+.pricebolt-progress-bar {
+  width: 100%;
+  height: 4px;
+  background: #e2e2e7;
+  border-radius: 99px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+.pricebolt-progress-fill {
+  width: 25%;
+  height: 100%;
+  background: #8c5000;
+}
+.pricebolt-step-badge {
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: #8c5000;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.pricebolt-section-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #1a1c1f;
+  margin: 0;
+  text-align: center;
+}
+.pricebolt-section-subtitle {
+  font-size: 0.7rem;
+  line-height: 1.35;
+  color: #554334;
+  margin: 0;
+  text-align: center;
+  padding: 0 12px;
+}
+.pricebolt-service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+.pricebolt-service-card {
+  background: #ffffff;
+  border: 1px solid #e2e2e7;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  aspect-ratio: 1.1;
+  transition: all 0.2s ease;
+}
+.pricebolt-service-card.selected {
+  border-color: #8c5000;
+  background: rgba(255, 184, 116, 0.15);
+}
+.pricebolt-card-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f3f3f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5f5e60;
+  transition: all 0.2s ease;
+}
+.pricebolt-service-card.selected .pricebolt-card-icon {
+  background: #ffb874;
+  color: #2d1600;
+}
+.pricebolt-service-card span {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #1a1c1f;
 }
 
