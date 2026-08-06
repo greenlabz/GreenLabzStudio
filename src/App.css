@@ -9527,19 +9527,11 @@ html:not(.js-ready) .work-row {
   }
 }
 
-/* Mobile GPU Hardware Acceleration & Smooth Touch Scroll Optimizations */
+/* Mobile GPU Acceleration */
 @media (max-width: 768px) {
   html, body {
     -webkit-overflow-scrolling: touch;
   }
-
-  .gl-exact-main-card,
-  .gl-exact-phone-wrap,
-  .ba-slider-container,
-  .ba-stack-card,
-  gap: 3rem;
-  margin-bottom: 3.5rem;
-  flex-wrap: wrap;
 }
 
 .industries-head h2 {
@@ -11951,15 +11943,29 @@ html:not(.js-ready) .system-reveal-block {
   flex-direction: column;
   padding: 12px;
   gap: 16px;
-  animation: vnproAutoScrollTrack 18s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
+  animation: vnproAutoScrollTrack 25s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
 }
 @keyframes vnproAutoScrollTrack {
   0% { transform: translateY(0); }
-  20% { transform: translateY(0); }
-  45% { transform: translateY(-300px); }
-  55% { transform: translateY(-300px); }
-  80% { transform: translateY(-630px); }
-  100% { transform: translateY(-630px); }
+  10% { transform: translateY(0); }
+  22% { transform: translateY(-220px); }
+  32% { transform: translateY(-220px); }
+  45% { transform: translateY(-460px); }
+  55% { transform: translateY(-460px); }
+  70% { transform: translateY(-760px); }
+  80% { transform: translateY(-760px); }
+  92% { transform: translateY(-1120px); }
+  100% { transform: translateY(-1120px); }
+}
+.vnpro-profile-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #bbcbba;
+  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCVUcHqVo1lyuobGlo0AfXOrqApQ-oKn1uM-mZi2ubPwNytUUlN6TKp7iGYeyJSaQnwd4EzazIQ6srLZ5jy48uuiFklH0oYweNwUl8qXZTDiFpxmEdgu9-H8dVXZ0mLfEcSQ7UxLo-XaFM5-joZoIzpNAO-aPISZTy-68PgN_CmFsGsvjt4ARCg_hohw6DYkDlEQzokf6bnN_BU-iSkO72ZUrs7cdK933noG6LJVqCGAwih0cVrNr-SkA');
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 .vnpro-screen {
   display: flex;

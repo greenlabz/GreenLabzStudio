@@ -623,7 +623,10 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                               {/* Top Dynamic Bar / Title Bar */}
                               <div className="vnpro-app-header">
                                 <span className="vnpro-logo-text">vnPro</span>
-                                <Smartphone size={14} className="text-primary" />
+                                <div className="flex items-center gap-2">
+                                  <Settings size={14} className="text-secondary" />
+                                  <div className="vnpro-profile-thumb" />
+                                </div>
                               </div>
 
                               {/* Scrolling Track Container */}
@@ -633,8 +636,8 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                                   {/* SCREEN 1: Dashboard */}
                                   <div className="vnpro-screen">
                                     <div className="vnpro-screen-header">
-                                      <h2>Aktuelle Projekte</h2>
-                                      <p>Zuletzt bearbeitete Fälle und Vergleiche.</p>
+                                      <h2>Projektgalerie</h2>
+                                      <p>Übersicht aller abgeschlossenen und laufenden Restaurierungen.</p>
                                     </div>
 
                                     {/* Grid Cases */}
@@ -657,9 +660,9 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                                           </div>
                                         </div>
                                         <div className="vnpro-card-info">
-                                          <h5>Fallstudie: Keramik-Veneers</h5>
+                                          <h5>Parkett-Restaurierung Villa Schmidt</h5>
                                           <span className="vnpro-card-date">
-                                            <Calendar size={10} /> 12. Okt 2023
+                                            <Calendar size={10} /> 12. Oktober 2023
                                           </span>
                                         </div>
                                       </div>
@@ -667,19 +670,70 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                                       {/* Card 2 */}
                                       <div className="vnpro-case-card">
                                         <div className="vnpro-card-badge-row">
+                                          <span className="vnpro-badge bg-primary-container text-on-primary">
+                                            <CheckCircle2 size={10} /> Abgeschlossen
+                                          </span>
+                                        </div>
+                                        <div className="vnpro-card-image">
+                                          <div className="vnpro-photo-split">
+                                            <div className="vnpro-photo-half before">
+                                              <span>Vorher</span>
+                                            </div>
+                                            <div className="vnpro-photo-half after">
+                                              <span>Nachher</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div className="vnpro-card-info">
+                                          <h5>Bodenaufbereitung Kanzlei Meyer</h5>
+                                          <span className="vnpro-card-date">
+                                            <Calendar size={10} /> 05. September 2023
+                                          </span>
+                                        </div>
+                                      </div>
+
+                                      {/* Card 3 */}
+                                      <div className="vnpro-case-card">
+                                        <div className="vnpro-card-badge-row">
                                           <span className="vnpro-badge bg-surface-container-highest text-on-surface">
                                             Laufend
                                           </span>
                                         </div>
                                         <div className="vnpro-card-image">
-                                          <div className="vnpro-photo-placeholder bg-surface-container">
-                                            <Smartphone size={24} className="text-secondary opacity-30" />
+                                          <div className="vnpro-photo-split">
+                                            <div className="vnpro-photo-half before">
+                                              <span>Vorher</span>
+                                            </div>
+                                            <div className="vnpro-photo-half after">
+                                              <span>Nachher</span>
+                                            </div>
                                           </div>
                                         </div>
                                         <div className="vnpro-card-info">
-                                          <h5>Präzisionsanpassung</h5>
+                                          <h5>Epoxidharz Medical Center</h5>
                                           <span className="vnpro-card-date">
-                                            <Calendar size={10} /> 14. Okt 2023
+                                            In Bearbeitung
+                                          </span>
+                                        </div>
+                                      </div>
+
+                                      {/* Card 4 */}
+                                      <div className="vnpro-case-card">
+                                        <div className="vnpro-card-badge-row">
+                                          <span className="vnpro-badge bg-surface-container-highest text-on-surface">
+                                            Entwurf
+                                          </span>
+                                        </div>
+                                        <div className="vnpro-card-image">
+                                          <div className="vnpro-photo-placeholder bg-surface-container">
+                                            <Camera size={20} className="text-secondary opacity-30" style={{ marginBottom: 4 }} />
+                                            <span style={{ fontSize: '0.52rem', color: '#5f5e60' }}>Keine Bilder</span>
+                                          </div>
+                                        </div>
+                                        <div className="vnpro-card-info">
+                                          <h5>Treppensanierung Altbau</h5>
+                                          <span className="vnpro-card-date">
+                                            Geplant
                                           </span>
                                         </div>
                                       </div>
