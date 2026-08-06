@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Head } from 'vite-react-ssg'
-import { ArrowLeft, ArrowRight, Code, Smartphone, Laptop, Plus, Calendar, Users, GlassWater, Settings, Star, Paintbrush, Layers, Zap, Hammer, Minus, Info } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Code, Smartphone, Laptop, Plus, Calendar, Users, GlassWater, Settings, Star, Paintbrush, Layers, Zap, Hammer, Minus, Info, Bell, MapPin, Filter, Sparkles, TrendingUp } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { appProjects } from './appsData'
@@ -499,6 +499,123 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                                 <button className="pricebolt-start-btn" type="button">
                                   Jetzt starten <ArrowRight size={14} />
                                 </button>
+                              </div>
+                            </div>
+                          ) : app.id === 'leadradar' ? (
+                            <div className="leadradar-mockup-app">
+                              {/* Top App Bar */}
+                              <div className="leadradar-app-header">
+                                <div className="leadradar-header-left">
+                                  <div className="leadradar-pulse-dot" />
+                                  <span className="leadradar-logo-text">LeadRadar</span>
+                                </div>
+                                <div className="leadradar-header-actions">
+                                  <span className="leadradar-badge-live">LIVE SCAN</span>
+                                  <Bell size={14} className="leadradar-bell-icon" />
+                                </div>
+                              </div>
+
+                              {/* Live Scanning Stats Banner */}
+                              <div className="leadradar-stats-banner">
+                                <div className="leadradar-stat-item">
+                                  <small>REGION</small>
+                                  <strong>DACH</strong>
+                                </div>
+                                <div className="leadradar-stat-item">
+                                  <small>GEFUNDEN</small>
+                                  <strong className="text-accent">482</strong>
+                                </div>
+                                <div className="leadradar-stat-item">
+                                  <small>HEUTE</small>
+                                  <strong style={{ color: '#10b981' }}>+18</strong>
+                                </div>
+                              </div>
+
+                              {/* Scroll Area */}
+                              <div className="leadradar-app-scroll">
+                                <div className="leadradar-app-scroll-track">
+                                  
+                                  {/* Lead Card 1 */}
+                                  <div className="leadradar-card">
+                                    <div className="leadradar-card-header">
+                                      <div className="leadradar-card-title-group">
+                                        <h6>Zahnarztpraxis Dr. Stein</h6>
+                                        <div className="leadradar-meta-row">
+                                          <MapPin size={10} /> <small>München</small>
+                                        </div>
+                                      </div>
+                                      <span className="leadradar-score-badge red">Audit: Mangelhaft</span>
+                                    </div>
+                                    <p className="leadradar-card-desc">
+                                      Keine mobil-optimierte Website, eklatante NAP-Inkonsistenzen in Branchenbüchern. SSL-Zertifikat abgelaufen.
+                                    </p>
+                                    <div className="leadradar-card-footer">
+                                      <span className="leadradar-card-source">Google Maps</span>
+                                      <span className="leadradar-card-time">Vor 4 Min.</span>
+                                    </div>
+                                  </div>
+
+                                  {/* Lead Card 2 */}
+                                  <div className="leadradar-card">
+                                    <div className="leadradar-card-header">
+                                      <div className="leadradar-card-title-group">
+                                        <h6>Kreativ Malerbetrieb Gbr</h6>
+                                        <div className="leadradar-meta-row">
+                                          <MapPin size={10} /> <small>Stuttgart</small>
+                                        </div>
+                                      </div>
+                                      <span className="leadradar-score-badge yellow">GBP: Fehlt</span>
+                                    </div>
+                                    <p className="leadradar-card-desc">
+                                      Kein Google Business Profile Eintrag vorhanden. Hervorragende Option für Repute SaaS Kaltakquise.
+                                    </p>
+                                    <div className="leadradar-card-footer">
+                                      <span className="leadradar-card-source">Gelbe Seiten</span>
+                                      <span className="leadradar-card-time">Vor 18 Min.</span>
+                                    </div>
+                                  </div>
+
+                                  {/* Lead Card 3 */}
+                                  <div className="leadradar-card">
+                                    <div className="leadradar-card-header">
+                                      <div className="leadradar-card-title-group">
+                                        <h6>Restaurant Bella Vista</h6>
+                                        <div className="leadradar-meta-row">
+                                          <MapPin size={10} /> <small>Heilbronn</small>
+                                        </div>
+                                      </div>
+                                      <span className="leadradar-score-badge red">3.2 ★ (Rezensionen)</span>
+                                    </div>
+                                    <p className="leadradar-card-desc">
+                                      12 unbeantwortete negative Rezensionen in den letzten 30 Tagen. Extrem hohes Conversion-Potenzial.
+                                    </p>
+                                    <div className="leadradar-card-footer">
+                                      <span className="leadradar-card-source">TripAdvisor</span>
+                                      <span className="leadradar-card-time">Vor 1 Std.</span>
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+
+                              {/* Navigation Footer */}
+                              <div className="leadradar-app-footer">
+                                <div className="active">
+                                  <Sparkles size={16} />
+                                  <span>Leads</span>
+                                </div>
+                                <div>
+                                  <TrendingUp size={16} />
+                                  <span>Stats</span>
+                                </div>
+                                <div>
+                                  <Filter size={16} />
+                                  <span>Filter</span>
+                                </div>
+                                <div>
+                                  <Settings size={16} />
+                                  <span>Optionen</span>
+                                </div>
                               </div>
                             </div>
                           ) : app.previewImage ? (

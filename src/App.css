@@ -11677,3 +11677,221 @@ html:not(.js-ready) .system-reveal-block {
   margin: 0;
 }
 
+/* ==========================================================================
+   LEADRADAR AUTO-SCROLLING LEAD ENGINE MOCKUP
+   ========================================================================== */
+.leadradar-mockup-app {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: #0b0f19;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  color: #ffffff;
+  user-select: none;
+}
+.leadradar-app-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 52px;
+  padding-top: 14px;
+  background: #0f172a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 14px;
+  padding-right: 14px;
+  z-index: 10;
+}
+.leadradar-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.leadradar-pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  animation: leadradarPulse 1.5s infinite alternate;
+}
+@keyframes leadradarPulse {
+  0% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+.leadradar-logo-text {
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: #ffffff;
+  letter-spacing: -0.015em;
+}
+.leadradar-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.leadradar-badge-live {
+  font-size: 0.5rem;
+  font-weight: 800;
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  padding: 1px 5px;
+  border-radius: 99px;
+  letter-spacing: 0.04em;
+}
+.leadradar-bell-icon {
+  color: #94a3b8;
+  cursor: pointer;
+}
+.leadradar-stats-banner {
+  position: absolute;
+  top: 52px;
+  left: 0;
+  right: 0;
+  height: 44px;
+  background: #111827;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 10;
+}
+.leadradar-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.leadradar-stat-item small {
+  font-size: 0.5rem;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.03em;
+}
+.leadradar-stat-item strong {
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+.leadradar-app-scroll {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  margin-top: 96px;
+  margin-bottom: 50px;
+}
+.leadradar-app-scroll-track {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 12px;
+  animation: leadradarAutoScrollTrack 14s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
+}
+@keyframes leadradarAutoScrollTrack {
+  0% { transform: translateY(0); }
+  20% { transform: translateY(0); }
+  80% { transform: translateY(-160px); }
+  100% { transform: translateY(-160px); }
+}
+.leadradar-card {
+  background: #1f2937;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  box-sizing: border-box;
+}
+.leadradar-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.leadradar-card-title-group h6 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 2px 0;
+}
+.leadradar-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #94a3b8;
+}
+.leadradar-meta-row small {
+  font-size: 0.6rem;
+  font-weight: 500;
+}
+.leadradar-score-badge {
+  font-size: 0.55rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.leadradar-score-badge.red {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+}
+.leadradar-score-badge.yellow {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+}
+.leadradar-card-desc {
+  font-size: 0.65rem;
+  line-height: 1.4;
+  color: #cbd5e1;
+  margin: 0;
+}
+.leadradar-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 6px;
+}
+.leadradar-card-source {
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: #38bdf8;
+}
+.leadradar-card-time {
+  font-size: 0.58rem;
+  color: #94a3b8;
+}
+.leadradar-app-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: #0f172a;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 10;
+}
+.leadradar-app-footer div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  color: #64748b;
+  font-size: 0.52rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.leadradar-app-footer div.active {
+  color: #10b981;
+}
+
