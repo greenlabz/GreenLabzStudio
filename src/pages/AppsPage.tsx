@@ -896,16 +896,22 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
 
                               {/* Mobile Navigation Footer */}
                               <div className="vnpro-app-footer">
-                                <div className="vnpro-foot-item active">
-                                  <Layers size={16} />
+                                <div className="vnpro-foot-item vnpro-foot-item-projekte">
+                                  <div className="vnpro-foot-icon-wrap">
+                                    <Layers size={14} />
+                                  </div>
                                   <span>Projekte</span>
                                 </div>
-                                <div className="vnpro-foot-item">
-                                  <Plus size={16} />
+                                <div className="vnpro-foot-item vnpro-foot-item-upload">
+                                  <div className="vnpro-foot-icon-wrap">
+                                    <Plus size={14} />
+                                  </div>
                                   <span>Upload</span>
                                 </div>
-                                <div className="vnpro-foot-item">
-                                  <Settings size={16} />
+                                <div className="vnpro-foot-item vnpro-foot-item-profil">
+                                  <div className="vnpro-foot-icon-wrap">
+                                    <Settings size={14} />
+                                  </div>
                                   <span>Profil</span>
                                 </div>
                               </div>

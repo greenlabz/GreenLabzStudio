@@ -12429,13 +12429,112 @@ html:not(.js-ready) .system-reveal-block {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
-  color: #5f5e60;
-  font-size: 0.52rem;
-  font-weight: 500;
+  gap: 1px;
   cursor: pointer;
+  width: 55px;
 }
-.vnpro-foot-item.active {
-  color: #006d36;
+.vnpro-foot-icon-wrap {
+  width: 32px;
+  height: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.vnpro-foot-item-projekte .vnpro-foot-icon-wrap {
+  animation: vnproTabIconProjekte 25s ease-in-out infinite alternate;
+}
+.vnpro-foot-item-projekte span {
+  animation: vnproTabTextProjekte 25s ease-in-out infinite alternate;
+}
+
+.vnpro-foot-item-upload .vnpro-foot-icon-wrap {
+  animation: vnproTabIconUpload 25s ease-in-out infinite alternate;
+}
+.vnpro-foot-item-upload span {
+  animation: vnproTabTextUpload 25s ease-in-out infinite alternate;
+}
+
+.vnpro-foot-item-profil .vnpro-foot-icon-wrap {
+  animation: vnproTabIconProfil 25s ease-in-out infinite alternate;
+}
+.vnpro-foot-item-profil span {
+  animation: vnproTabTextProfil 25s ease-in-out infinite alternate;
+}
+
+/* Keyframes for PROJECTS Tab */
+@keyframes vnproTabIconProjekte {
+  0%, 35% {
+    background: rgba(0, 204, 106, 0.12);
+    color: #006d36;
+  }
+  38%, 100% {
+    background: transparent;
+    color: #5f5e60;
+  }
+}
+@keyframes vnproTabTextProjekte {
+  0%, 35% {
+    color: #006d36;
+    font-weight: 700;
+  }
+  38%, 100% {
+    color: #5f5e60;
+    font-weight: 500;
+  }
+}
+
+/* Keyframes for UPLOAD Tab */
+@keyframes vnproTabIconUpload {
+  0%, 35% {
+    background: transparent;
+    color: #5f5e60;
+  }
+  42%, 62% {
+    background: rgba(0, 204, 106, 0.12);
+    color: #006d36;
+  }
+  65%, 100% {
+    background: transparent;
+    color: #5f5e60;
+  }
+}
+@keyframes vnproTabTextUpload {
+  0%, 35% {
+    color: #5f5e60;
+    font-weight: 500;
+  }
+  42%, 62% {
+    color: #006d36;
+    font-weight: 700;
+  }
+  65%, 100% {
+    color: #5f5e60;
+    font-weight: 500;
+  }
+}
+
+/* Keyframes for PROFIL Tab */
+@keyframes vnproTabIconProfil {
+  0%, 65% {
+    background: transparent;
+    color: #5f5e60;
+  }
+  70%, 100% {
+    background: rgba(0, 204, 106, 0.12);
+    color: #006d36;
+  }
+}
+@keyframes vnproTabTextProfil {
+  0%, 65% {
+    color: #5f5e60;
+    font-weight: 500;
+  }
+  70%, 100% {
+    color: #006d36;
+    font-weight: 700;
+  }
 }
 
