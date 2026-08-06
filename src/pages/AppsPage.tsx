@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Head } from 'vite-react-ssg'
-import { ArrowLeft, ArrowRight, Code, Smartphone, Laptop, Plus, Calendar, Users, GlassWater, Settings, Star, Paintbrush, Layers, Zap, Hammer } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Code, Smartphone, Laptop, Plus, Calendar, Users, GlassWater, Settings, Star, Paintbrush, Layers, Zap, Hammer, Minus, Info } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { appProjects } from './appsData'
@@ -412,6 +412,78 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                                       <div className="pricebolt-service-card">
                                         <div className="pricebolt-card-icon"><Hammer size={16} /></div>
                                         <span>Schreinerei</span>
+                                      </div>
+                                    </div>
+
+                                    <button className="pricebolt-start-btn" type="button" style={{ marginTop: 14 }}>
+                                      Weiter <ArrowRight size={14} />
+                                    </button>
+                                  </div>
+
+                                  {/* Divider / Transition spacing */}
+                                  <div className="pricebolt-screen-divider">
+                                    <span>NÄCHSTER SCHRITT</span>
+                                  </div>
+
+                                  {/* SCREEN 3: Scope & Size */}
+                                  <div className="pricebolt-screen-section">
+                                    <div className="pricebolt-progress-bar">
+                                      <div className="pricebolt-progress-fill" style={{ width: '50%' }} />
+                                    </div>
+                                    <span className="pricebolt-step-badge">SCHRITT 2 VON 4</span>
+                                    <h4 className="pricebolt-section-title">Wie groß ist das Projekt?</h4>
+                                    <p className="pricebolt-section-subtitle">
+                                      Definieren Sie den Umfang für einen genauen Kostenvoranschlag.
+                                    </p>
+
+                                    {/* Slider Card */}
+                                    <div className="pricebolt-bento-card">
+                                      <div className="pricebolt-bento-card-header">
+                                        <div>
+                                          <h5>Gesamtfläche</h5>
+                                          <p>Geschätzte m²</p>
+                                        </div>
+                                        <div className="pricebolt-bento-val">
+                                          <strong>120</strong> <span>m²</span>
+                                        </div>
+                                      </div>
+                                      <div className="pricebolt-slider-container">
+                                        <input 
+                                          type="range" 
+                                          min="10" 
+                                          max="500" 
+                                          value="120" 
+                                          readOnly 
+                                          className="pricebolt-slider-input" 
+                                        />
+                                        <div className="pricebolt-slider-labels">
+                                          <span>10 m²</span>
+                                          <span>500+ m²</span>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    {/* Stepper Card */}
+                                    <div className="pricebolt-bento-card pricebolt-bento-card-center">
+                                      <div className="pricebolt-bento-card-header-simple">
+                                        <h5>Räume</h5>
+                                        <p>Zu bearbeitende Haupträume</p>
+                                      </div>
+                                      <div className="pricebolt-stepper">
+                                        <button className="pricebolt-stepper-btn" type="button"><Minus size={14} /></button>
+                                        <span className="pricebolt-stepper-val">3</span>
+                                        <button className="pricebolt-stepper-btn" type="button"><Plus size={14} /></button>
+                                      </div>
+                                    </div>
+
+                                    {/* Pro-Tipp Card */}
+                                    <div className="pricebolt-info-card">
+                                      <Info size={18} className="pricebolt-info-icon" />
+                                      <div className="pricebolt-info-text">
+                                        <h6>Pro-Tipp</h6>
+                                        <p>
+                                          Schließen Sie Flure und große Schränke in Ihre Schätzung ein, um ein genaueres Angebot zu erhalten.
+                                        </p>
                                       </div>
                                     </div>
 

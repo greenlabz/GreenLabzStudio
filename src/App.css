@@ -11305,13 +11305,13 @@ html:not(.js-ready) .system-reveal-block {
   align-items: center;
   padding: 14px;
   gap: 16px;
-  animation: priceboltAutoScrollTrack 18s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
+  animation: priceboltAutoScrollTrack 28s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
 }
 @keyframes priceboltAutoScrollTrack {
   0% { transform: translateY(0); }
-  15% { transform: translateY(0); }
-  85% { transform: translateY(-370px); }
-  100% { transform: translateY(-370px); }
+  12% { transform: translateY(0); }
+  88% { transform: translateY(-800px); }
+  100% { transform: translateY(-800px); }
 }
 .pricebolt-hero-card {
   width: 100%;
@@ -11515,5 +11515,165 @@ html:not(.js-ready) .system-reveal-block {
   font-size: 0.72rem;
   font-weight: 600;
   color: #1a1c1f;
+}
+
+/* Bento cards inside Screen 3 */
+.pricebolt-bento-card {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-sizing: border-box;
+}
+.pricebolt-bento-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  text-align: left;
+}
+.pricebolt-bento-card-header h5 {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1a1c1f;
+  margin: 0;
+}
+.pricebolt-bento-card-header p {
+  font-size: 0.68rem;
+  color: #554334;
+  margin: 0;
+}
+.pricebolt-bento-val {
+  text-align: right;
+  color: #8c5000;
+}
+.pricebolt-bento-val strong {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.pricebolt-bento-val span {
+  font-size: 0.72rem;
+  color: #554334;
+  font-weight: 600;
+  margin-left: 2px;
+}
+.pricebolt-slider-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.pricebolt-slider-input {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+  outline: none;
+}
+.pricebolt-slider-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: -7px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border: 2px solid #8c5000;
+}
+.pricebolt-slider-input::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  background: #e2e2e7;
+  border-radius: 2px;
+}
+.pricebolt-slider-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.58rem;
+  color: #554334;
+  font-weight: 600;
+}
+.pricebolt-bento-card-center {
+  align-items: center;
+  text-align: center;
+}
+.pricebolt-bento-card-header-simple h5 {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1a1c1f;
+  margin: 0 0 2px 0;
+}
+.pricebolt-bento-card-header-simple p {
+  font-size: 0.68rem;
+  color: #554334;
+  margin: 0;
+}
+.pricebolt-stepper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #f3f3f8;
+  border-radius: 99px;
+  padding: 4px 8px;
+  margin-top: 6px;
+}
+.pricebolt-stepper-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a1c1f;
+  cursor: pointer;
+  padding: 0;
+}
+.pricebolt-stepper-val {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a1c1f;
+  width: 18px;
+  text-align: center;
+}
+
+/* Pro-Tipp Card styles */
+.pricebolt-info-card {
+  width: 100%;
+  background: rgba(255, 184, 116, 0.08);
+  border: 1px solid rgba(255, 184, 116, 0.4);
+  border-radius: 16px;
+  padding: 14px;
+  display: flex;
+  gap: 10px;
+  text-align: left;
+  box-sizing: border-box;
+}
+.pricebolt-info-icon {
+  color: #8c5000;
+  flex-shrink: 0;
+}
+.pricebolt-info-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.pricebolt-info-text h6 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #1a1c1f;
+  margin: 0;
+}
+.pricebolt-info-text p {
+  font-size: 0.68rem;
+  line-height: 1.4;
+  color: #554334;
+  margin: 0;
 }
 
