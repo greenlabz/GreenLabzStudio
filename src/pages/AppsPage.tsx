@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Head } from 'vite-react-ssg'
-import { ArrowLeft, ArrowRight, Code, Smartphone, Laptop, Plus, Calendar, Users, GlassWater, Settings, Star, Paintbrush, Layers, Zap, Hammer, Minus, Info, Bell, MapPin, Filter, Sparkles, TrendingUp } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Code, Smartphone, Laptop, Plus, Calendar, Users, GlassWater, Settings, Star, Paintbrush, Layers, Zap, Hammer, Minus, Info, Bell, MapPin, Filter, Sparkles, TrendingUp, Camera, CheckCircle2, Trash2 } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { appProjects } from './appsData'
@@ -615,6 +615,179 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                                 <div>
                                   <Settings size={16} />
                                   <span>Optionen</span>
+                                </div>
+                              </div>
+                            </div>
+                          ) : app.id === 'vnpro' ? (
+                            <div className="vnpro-mockup-app">
+                              {/* Top Dynamic Bar / Title Bar */}
+                              <div className="vnpro-app-header">
+                                <span className="vnpro-logo-text">vnPro</span>
+                                <Smartphone size={14} className="text-primary" />
+                              </div>
+
+                              {/* Scrolling Track Container */}
+                              <div className="vnpro-app-scroll">
+                                <div className="vnpro-app-scroll-track">
+                                  
+                                  {/* SCREEN 1: Dashboard */}
+                                  <div className="vnpro-screen">
+                                    <div className="vnpro-screen-header">
+                                      <h2>Aktuelle Projekte</h2>
+                                      <p>Zuletzt bearbeitete Fälle und Vergleiche.</p>
+                                    </div>
+
+                                    {/* Grid Cases */}
+                                    <div className="vnpro-cases-list">
+                                      {/* Card 1 */}
+                                      <div className="vnpro-case-card">
+                                        <div className="vnpro-card-badge-row">
+                                          <span className="vnpro-badge bg-primary-container text-on-primary">
+                                            <CheckCircle2 size={10} /> Abgeschlossen
+                                          </span>
+                                        </div>
+                                        <div className="vnpro-card-image">
+                                          <div className="vnpro-photo-split">
+                                            <div className="vnpro-photo-half before">
+                                              <span>Vorher</span>
+                                            </div>
+                                            <div className="vnpro-photo-half after">
+                                              <span>Nachher</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div className="vnpro-card-info">
+                                          <h5>Fallstudie: Keramik-Veneers</h5>
+                                          <span className="vnpro-card-date">
+                                            <Calendar size={10} /> 12. Okt 2023
+                                          </span>
+                                        </div>
+                                      </div>
+
+                                      {/* Card 2 */}
+                                      <div className="vnpro-case-card">
+                                        <div className="vnpro-card-badge-row">
+                                          <span className="vnpro-badge bg-surface-container-highest text-on-surface">
+                                            Laufend
+                                          </span>
+                                        </div>
+                                        <div className="vnpro-card-image">
+                                          <div className="vnpro-photo-placeholder bg-surface-container">
+                                            <Smartphone size={24} className="text-secondary opacity-30" />
+                                          </div>
+                                        </div>
+                                        <div className="vnpro-card-info">
+                                          <h5>Präzisionsanpassung</h5>
+                                          <span className="vnpro-card-date">
+                                            <Calendar size={10} /> 14. Okt 2023
+                                          </span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  {/* SCREEN SEPARATOR 1 */}
+                                  <div className="vnpro-step-divider">
+                                    <div className="vnpro-divider-line" />
+                                    <span className="vnpro-divider-text">NÄCHSTER SCREEN: UPLOAD</span>
+                                    <div className="vnpro-divider-line" />
+                                  </div>
+
+                                  {/* SCREEN 2: Upload */}
+                                  <div className="vnpro-screen">
+                                    <div className="vnpro-screen-header">
+                                      <h2>Neuer Fall</h2>
+                                      <p>Erfassen Sie die Vorher/Nachher Dokumentation.</p>
+                                    </div>
+
+                                    {/* Upload Form */}
+                                    <div className="vnpro-upload-form">
+                                      <div className="vnpro-input-group">
+                                        <label>Titel der Behandlung</label>
+                                        <div className="vnpro-input-field">Frontzahnästhetik OK</div>
+                                      </div>
+
+                                      {/* Upload zones */}
+                                      <div className="vnpro-upload-zones">
+                                        <div className="vnpro-upload-zone">
+                                          <span className="vnpro-zone-badge">Vorher</span>
+                                          <Camera size={20} className="text-secondary" />
+                                          <small>Tippen für Foto</small>
+                                        </div>
+                                        <div className="vnpro-upload-zone">
+                                          <span className="vnpro-zone-badge">Nachher</span>
+                                          <Camera size={20} className="text-secondary" />
+                                          <small>Tippen für Foto</small>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  {/* SCREEN SEPARATOR 2 */}
+                                  <div className="vnpro-step-divider">
+                                    <div className="vnpro-divider-line" />
+                                    <span className="vnpro-divider-text">NÄCHSTER SCREEN: SETTINGS</span>
+                                    <div className="vnpro-divider-line" />
+                                  </div>
+
+                                  {/* SCREEN 3: Settings */}
+                                  <div className="vnpro-screen" style={{ paddingBottom: 30 }}>
+                                    <div className="vnpro-screen-header">
+                                      <h2>Einstellungen &amp; Branding</h2>
+                                      <p>Erscheinungsbild anpassen.</p>
+                                    </div>
+
+                                    {/* Settings Form */}
+                                    <div className="vnpro-settings-form">
+                                      <div className="vnpro-input-group">
+                                        <label>Studioname</label>
+                                        <div className="vnpro-input-field">Dr. med. Ästhetik</div>
+                                      </div>
+
+                                      {/* Logo preview */}
+                                      <div className="vnpro-logo-card">
+                                        <div className="vnpro-logo-thumb">vP</div>
+                                        <div className="vnpro-logo-details">
+                                          <h6>logo_dr_aesthetik.png</h6>
+                                          <small>245 KB</small>
+                                        </div>
+                                        <Trash2 size={12} className="text-secondary hover:text-error" />
+                                      </div>
+
+                                      {/* Color selection */}
+                                      <div className="vnpro-color-section">
+                                        <label>Akzentfarbe</label>
+                                        <div className="vnpro-color-grid">
+                                          <span className="vnpro-color-dot active" style={{ background: '#00cc6a' }} />
+                                          <span className="vnpro-color-dot" style={{ background: '#1a1c1c' }} />
+                                          <span className="vnpro-color-dot" style={{ background: '#4a90e2' }} />
+                                          <span className="vnpro-color-dot" style={{ background: '#9b51e0' }} />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+
+                              {/* Floating Action Button */}
+                              <div className="vnpro-fab-button">
+                                <Plus size={18} />
+                              </div>
+
+                              {/* Mobile Navigation Footer */}
+                              <div className="vnpro-app-footer">
+                                <div className="vnpro-foot-item active">
+                                  <Layers size={16} />
+                                  <span>Projekte</span>
+                                </div>
+                                <div className="vnpro-foot-item">
+                                  <Plus size={16} />
+                                  <span>Upload</span>
+                                </div>
+                                <div className="vnpro-foot-item">
+                                  <Settings size={16} />
+                                  <span>Profil</span>
                                 </div>
                               </div>
                             </div>
