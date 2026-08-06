@@ -12214,17 +12214,16 @@ html:not(.js-ready) .system-reveal-block {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
   box-sizing: border-box;
 }
-.vnpro-logo-thumb {
+.vnpro-logo-thumb-custom {
   width: 24px;
   height: 24px;
-  border-radius: 50%;
-  background: #00cc6a;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.58rem;
-  font-weight: 700;
+  border-radius: 6px;
+  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCxTL0ATw0nNAkcfDTsEM7S-4q6UbImvT64qJFJGJ8kFzyukeV80B_qaVuYi83K_4wQwePKtG0uqXrRKKtAMGpU6A5EWxepQyE55YIUuP-rXUHk2DcH5geH6g1uI32Qiv6-SDR9FcFS44X0NCq4vbe0wKBC-Zil20n_5vU_t_Y2ApSn4ZBACg4NUwYd46QlGBiAiX-NFuoD9mxQa6TV_l0NNEI6_qkkVMWa3BIKAKxTeP8y-S6uB6l07Q');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+  border: 1px solid rgba(0,0,0,0.05);
 }
 .vnpro-logo-details {
   flex: 1;
@@ -12240,31 +12239,92 @@ html:not(.js-ready) .system-reveal-block {
   font-size: 0.5rem;
   color: #5f5e60;
 }
-.vnpro-color-section {
+.vnpro-section-card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  text-align: left;
 }
-.vnpro-color-section label {
-  font-size: 0.58rem;
-  font-weight: 600;
-  color: #5f5e60;
-}
-.vnpro-color-grid {
+.vnpro-section-title {
   display: flex;
+  align-items: center;
   gap: 6px;
 }
-.vnpro-color-dot {
-  width: 14px;
-  height: 14px;
+.vnpro-section-title h6 {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #1a1c1c;
+  margin: 0;
+}
+.vnpro-icon-wrap {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(0, 204, 106, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vnpro-logo-dropzone {
+  border: 1px dashed #bbcbba;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f9f9f9;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.vnpro-logo-dropzone:hover {
+  border-color: #00cc6a;
+  background: rgba(0, 204, 106, 0.02);
+}
+.vnpro-logo-dropzone span {
+  font-size: 0.55rem;
+  font-weight: 600;
+  color: #1a1c1c;
+}
+.vnpro-logo-dropzone small {
+  font-size: 0.45rem;
+  color: #5f5e60;
+}
+.vnpro-color-dot-new {
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease;
 }
-.vnpro-color-dot.active {
+.vnpro-color-dot-new:hover {
+  transform: scale(1.1);
+}
+.vnpro-color-dot-new.active {
   transform: scale(1.15);
-  box-shadow: 0 0 0 2px #ffffff, 0 0 0 3px #006d36;
+  box-shadow: 0 0 0 1px #ffffff, 0 0 0 2px #006d36;
+}
+.vnpro-color-preview {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 8px;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.01);
+}
+.vnpro-color-preview span {
+  font-size: 0.58rem;
+  font-weight: 500;
+  color: #1a1c1c;
 }
 .vnpro-fab-button {
   position: absolute;

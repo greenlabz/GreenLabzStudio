@@ -808,36 +808,80 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                                   <div className="vnpro-screen" style={{ paddingBottom: 30 }}>
                                     <div className="vnpro-screen-header">
                                       <h2>Einstellungen &amp; Branding</h2>
-                                      <p>Erscheinungsbild anpassen.</p>
+                                      <p>Passen Sie das Erscheinungsbild Ihres Studios an.</p>
                                     </div>
 
                                     {/* Settings Form */}
                                     <div className="vnpro-settings-form">
-                                      <div className="vnpro-input-group">
-                                        <label>Studioname</label>
-                                        <div className="vnpro-input-field">Dr. med. Ästhetik</div>
+                                      
+                                      {/* Identity section */}
+                                      <div className="vnpro-section-card">
+                                        <div className="vnpro-section-title">
+                                          <div className="vnpro-icon-wrap">
+                                            <Smartphone size={10} className="text-primary" />
+                                          </div>
+                                          <h6>Studio Identität</h6>
+                                        </div>
+                                        <div className="vnpro-input-group mt-2">
+                                          <label>Studioname</label>
+                                          <div className="vnpro-input-field">Dr. med. Ästhetik</div>
+                                        </div>
                                       </div>
 
-                                      {/* Logo preview */}
-                                      <div className="vnpro-logo-card">
-                                        <div className="vnpro-logo-thumb">vP</div>
-                                        <div className="vnpro-logo-details">
-                                          <h6>logo_dr_aesthetik.png</h6>
-                                          <small>245 KB</small>
+                                      {/* Logo Upload section */}
+                                      <div className="vnpro-section-card">
+                                        <div className="vnpro-section-title">
+                                          <div className="vnpro-icon-wrap">
+                                            <ImagePlus size={10} className="text-primary" />
+                                          </div>
+                                          <h6>Markenlogo</h6>
                                         </div>
-                                        <Trash2 size={12} className="text-secondary hover:text-error" />
+                                        
+                                        {/* Dropzone Mini */}
+                                        <div className="vnpro-logo-dropzone mt-2">
+                                          <UploadCloud size={14} className="text-secondary mb-1" />
+                                          <span>Logo hochladen</span>
+                                          <small>SVG, PNG, JPG (Max. 5MB)</small>
+                                        </div>
+
+                                        {/* Logo preview */}
+                                        <div className="vnpro-logo-card mt-2">
+                                          <div className="vnpro-logo-thumb-custom" />
+                                          <div className="vnpro-logo-details">
+                                            <h6>logo_dr_aesthetik.png</h6>
+                                            <small>245 KB</small>
+                                          </div>
+                                          <Trash2 size={12} className="text-secondary hover:text-error cursor-pointer" />
+                                        </div>
                                       </div>
 
                                       {/* Color selection */}
-                                      <div className="vnpro-color-section">
-                                        <label>Akzentfarbe</label>
-                                        <div className="vnpro-color-grid">
-                                          <span className="vnpro-color-dot active" style={{ background: '#00cc6a' }} />
-                                          <span className="vnpro-color-dot" style={{ background: '#1a1c1c' }} />
-                                          <span className="vnpro-color-dot" style={{ background: '#4a90e2' }} />
-                                          <span className="vnpro-color-dot" style={{ background: '#9b51e0' }} />
+                                      <div className="vnpro-section-card">
+                                        <div className="vnpro-section-title">
+                                          <div className="vnpro-icon-wrap">
+                                            <Paintbrush size={10} className="text-primary" />
+                                          </div>
+                                          <h6>Akzentfarbe</h6>
+                                        </div>
+
+                                        <div className="vnpro-color-grid mt-2">
+                                          <button className="vnpro-color-dot-new active" style={{ background: '#00CC6A' }}>
+                                            <CheckCircle2 size={8} className="text-white" />
+                                          </button>
+                                          <button className="vnpro-color-dot-new" style={{ background: '#1A1C1C' }} />
+                                          <button className="vnpro-color-dot-new" style={{ background: '#005227' }} />
+                                          <button className="vnpro-color-dot-new" style={{ background: '#4A90E2' }} />
+                                          <button className="vnpro-color-dot-new" style={{ background: '#9B51E0' }} />
+                                          <button className="vnpro-color-dot-new" style={{ background: '#F2994A' }} />
+                                        </div>
+
+                                        {/* Preview Card */}
+                                        <div className="vnpro-color-preview mt-2">
+                                          <span>Aktionsbutton</span>
+                                          <button className="vnpro-btn-primary" style={{ padding: '4px 10px', fontSize: '0.52rem' }}>Klicken</button>
                                         </div>
                                       </div>
+
                                     </div>
                                   </div>
 
