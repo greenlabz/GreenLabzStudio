@@ -12260,34 +12260,40 @@ html:not(.js-ready) .system-reveal-block {
   font-size: 0.5rem;
   color: #5f5e60;
 }
-.vnpro-section-card {
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0,0,0,0.05);
-  border-radius: 12px;
-  padding: 10px;
+.vnpro-section-card-new {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  padding: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
   display: flex;
   flex-direction: column;
 }
-.vnpro-section-title {
+.vnpro-section-title-new {
   display: flex;
-  align-items: center;
-  gap: 6px;
+  align-items: flex-start;
+  gap: 8px;
 }
-.vnpro-section-title h6 {
-  font-size: 0.65rem;
+.vnpro-section-title-new h6 {
+  font-size: 0.68rem;
   font-weight: 700;
   color: #1a1c1c;
   margin: 0;
 }
-.vnpro-icon-wrap {
-  width: 16px;
-  height: 16px;
+.vnpro-section-sub {
+  font-size: 0.52rem;
+  color: #5f5e60;
+  margin-top: 1px;
+}
+.vnpro-icon-backdrop {
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  background: rgba(0, 204, 106, 0.08);
+  background: rgba(0, 109, 54, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 .vnpro-logo-dropzone {
   border: 1px dashed #bbcbba;
@@ -12314,6 +12320,25 @@ html:not(.js-ready) .system-reveal-block {
   font-size: 0.45rem;
   color: #5f5e60;
 }
+.vnpro-input-card {
+  background: #ffffff;
+  border: 1px solid #bbcbba;
+  border-radius: 10px;
+  padding: 6px 12px;
+  text-align: left;
+}
+.vnpro-input-card label {
+  display: block;
+  font-size: 0.48rem;
+  font-weight: 600;
+  color: #5f5e60;
+}
+.vnpro-input-value {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #1a1c1c;
+  margin-top: 1px;
+}
 .vnpro-color-dot-new {
   width: 16px;
   height: 16px;
@@ -12332,20 +12357,42 @@ html:not(.js-ready) .system-reveal-block {
   transform: scale(1.15);
   box-shadow: 0 0 0 1px #ffffff, 0 0 0 2px #006d36;
 }
-.vnpro-color-preview {
-  background: #ffffff;
-  border: 1px solid rgba(0,0,0,0.05);
-  border-radius: 8px;
-  padding: 6px 10px;
+.vnpro-save-action-bar {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.01);
+  gap: 8px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding-top: 12px;
+  margin-top: 8px;
 }
-.vnpro-color-preview span {
-  font-size: 0.58rem;
-  font-weight: 500;
+.vnpro-btn-cancel {
+  flex: 1;
+  background: #ffffff;
   color: #1a1c1c;
+  border: 1px solid #d2d2d7;
+  font-size: 0.58rem;
+  font-weight: 700;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.vnpro-btn-cancel:hover {
+  background: #f5f5f7;
+}
+.vnpro-btn-save {
+  flex: 1.5;
+  background: #00cc6a;
+  color: #ffffff;
+  border: none;
+  font-size: 0.58rem;
+  font-weight: 700;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+.vnpro-btn-save:hover {
+  opacity: 0.9;
 }
 .vnpro-fab-button {
   position: absolute;

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Head } from 'vite-react-ssg'
-import { ArrowLeft, ArrowRight, Code, Smartphone, Laptop, Plus, Calendar, Users, GlassWater, Settings, Star, Paintbrush, Layers, Zap, Hammer, Minus, Info, Bell, MapPin, Filter, Sparkles, TrendingUp, Camera, CheckCircle2, Trash2, ImagePlus, UploadCloud } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Code, Smartphone, Laptop, Plus, Calendar, Users, GlassWater, Settings, Star, Paintbrush, Layers, Zap, Hammer, Minus, Info, Bell, MapPin, Filter, Sparkles, TrendingUp, Camera, CheckCircle2, Trash2, ImagePlus, UploadCloud, Store, Save } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { appProjects } from './appsData'
@@ -802,47 +802,46 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                                   </div>
 
                                   {/* SCREEN 3: Settings */}
-                                  <div className="vnpro-screen" style={{ paddingBottom: 30 }}>
-                                    <div className="vnpro-screen-header">
+                                  <div className="vnpro-screen" style={{ paddingBottom: 70 }}>
+                                    <div className="vnpro-screen-header text-center">
                                       <h2>Einstellungen &amp; Branding</h2>
-                                      <p>Passen Sie das Erscheinungsbild Ihres Studios an.</p>
+                                      <p>Passen Sie das Erscheinungsbild Ihres Studios an. Diese Einstellungen werden für alle veroffentlichten Galerien und Vorher/Nachher-Präsentationen verwendet.</p>
                                     </div>
 
                                     {/* Settings Form */}
                                     <div className="vnpro-settings-form">
                                       
                                       {/* Identity section */}
-                                      <div className="vnpro-section-card">
-                                        <div className="vnpro-section-title">
-                                          <div className="vnpro-icon-wrap">
-                                            <Smartphone size={10} className="text-primary" />
+                                      <div className="vnpro-section-card-new">
+                                        <div className="vnpro-section-title-new">
+                                          <div className="vnpro-icon-backdrop">
+                                            <Store size={14} className="text-[#006d36]" />
                                           </div>
-                                          <h6>Studio Identität</h6>
+                                          <div className="flex flex-col text-left">
+                                            <h6>Studio Identität</h6>
+                                            <span className="vnpro-section-sub">Der offizielle Name, der auf allen Kundenpräsentationen erscheint.</span>
+                                          </div>
                                         </div>
-                                        <div className="vnpro-input-group mt-2">
+                                        <div className="vnpro-input-card mt-3">
                                           <label>Studioname</label>
-                                          <div className="vnpro-input-field">Dr. med. Ästhetik</div>
+                                          <div className="vnpro-input-value">Dr. med. Ästhetik</div>
                                         </div>
                                       </div>
 
                                       {/* Logo Upload section */}
-                                      <div className="vnpro-section-card">
-                                        <div className="vnpro-section-title">
-                                          <div className="vnpro-icon-wrap">
-                                            <ImagePlus size={10} className="text-primary" />
+                                      <div className="vnpro-section-card-new">
+                                        <div className="vnpro-section-title-new">
+                                          <div className="vnpro-icon-backdrop">
+                                            <ImagePlus size={14} className="text-[#006d36]" />
                                           </div>
-                                          <h6>Markenlogo</h6>
+                                          <div className="flex flex-col text-left">
+                                            <h6>Markenlogo</h6>
+                                            <span className="vnpro-section-sub">Laden Sie ein klares, hochauflösendes Logo hoch (bevorzugt SVG oder PNG).</span>
+                                          </div>
                                         </div>
                                         
-                                        {/* Dropzone Mini */}
-                                        <div className="vnpro-logo-dropzone mt-2">
-                                          <UploadCloud size={14} className="text-secondary mb-1" />
-                                          <span>Logo hochladen</span>
-                                          <small>SVG, PNG, JPG (Max. 5MB)</small>
-                                        </div>
-
                                         {/* Logo preview */}
-                                        <div className="vnpro-logo-card mt-2">
+                                        <div className="vnpro-logo-card mt-3">
                                           <div className="vnpro-logo-thumb-custom" />
                                           <div className="vnpro-logo-details">
                                             <h6>logo_dr_aesthetik.png</h6>
@@ -853,15 +852,18 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                                       </div>
 
                                       {/* Color selection */}
-                                      <div className="vnpro-section-card">
-                                        <div className="vnpro-section-title">
-                                          <div className="vnpro-icon-wrap">
-                                            <Paintbrush size={10} className="text-primary" />
+                                      <div className="vnpro-section-card-new">
+                                        <div className="vnpro-section-title-new">
+                                          <div className="vnpro-icon-backdrop">
+                                            <Paintbrush size={14} className="text-[#006d36]" />
                                           </div>
-                                          <h6>Akzentfarbe</h6>
+                                          <div className="flex flex-col text-left">
+                                            <h6>Akzentfarbe</h6>
+                                            <span className="vnpro-section-sub">Wählen Sie die primäre Markenfarbe für Ihre Buttons.</span>
+                                          </div>
                                         </div>
 
-                                        <div className="vnpro-color-grid mt-2">
+                                        <div className="vnpro-color-grid mt-3">
                                           <button className="vnpro-color-dot-new active" style={{ background: '#00CC6A' }}>
                                             <CheckCircle2 size={8} className="text-white" />
                                           </button>
@@ -871,12 +873,14 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                                           <button className="vnpro-color-dot-new" style={{ background: '#9B51E0' }} />
                                           <button className="vnpro-color-dot-new" style={{ background: '#F2994A' }} />
                                         </div>
+                                      </div>
 
-                                        {/* Preview Card */}
-                                        <div className="vnpro-color-preview mt-2">
-                                          <span>Aktionsbutton</span>
-                                          <button className="vnpro-btn-primary" style={{ padding: '4px 10px', fontSize: '0.52rem' }}>Klicken</button>
-                                        </div>
+                                      {/* Floating save actions inside phone mockup */}
+                                      <div className="vnpro-save-action-bar">
+                                        <button className="vnpro-btn-cancel">Abbrechen</button>
+                                        <button className="vnpro-btn-save flex items-center justify-center gap-1">
+                                          <Save size={10} /> Änderungen speichern
+                                        </button>
                                       </div>
 
                                     </div>
