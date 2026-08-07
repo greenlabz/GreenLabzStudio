@@ -185,8 +185,8 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                       <div className="gl-exact-screen">
                         <div className="gl-exact-screen-glare" />
                         <div className="gl-exact-notch"><span></span></div>
-                        <div className={`gl-exact-screen-content ${['shaker', 'vnpro', 'pricebolt'].includes(app.id) ? 'gl-custom-mockup-screen' : ''}`}>
-                          {app.id === 'shaker' ? (
+                        <div className={`gl-exact-screen-content ${['bar-shift-planner', 'shaker', 'vnpro', 'pricebolt'].includes(app.id) ? 'gl-custom-mockup-screen' : ''}`}>
+                          {app.id === 'bar-shift-planner' || app.id === 'shaker' ? (
                             <div className="shaker-mockup-app">
                               {/* Sticky elements for Screen 2 (Schedule) - animated with CSS opacity fade */}
                               <div className="shaker-sticky-header">
