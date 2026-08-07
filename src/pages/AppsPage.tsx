@@ -185,7 +185,7 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                       <div className="gl-exact-screen">
                         <div className="gl-exact-screen-glare" />
                         <div className="gl-exact-notch"><span></span></div>
-                        <div className="gl-exact-screen-content">
+                        <div className={`gl-exact-screen-content ${['shaker', 'vnpro', 'pricebolt'].includes(app.id) ? 'gl-custom-mockup-screen' : ''}`}>
                           {app.id === 'shaker' ? (
                             <div className="shaker-mockup-app">
                               {/* Sticky elements for Screen 2 (Schedule) - animated with CSS opacity fade */}
@@ -224,13 +224,16 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                                   
                                   {/* Canvas Content */}
                                   <div className="shaker-splash-canvas">
-                                    {/* Logo */}
+                                    {/* Logo matching Bild 2 */}
                                     <div className="shaker-splash-logo-wrap animate-float">
-                                      <img src="https://lh3.googleusercontent.com/aida/AP1WRLso7dPHLkc4-EMWgux4APyAE2H_TU9zQLt7KfUSc6Ax6-7i0LUzYKCWNEAuzndBvdZbvpUopP7ugxlF0xEWIRY34dD5AP8YGkvCpF1znoEQqTZBHsCqKTOymaH1sn53P9Alql8217-VaV_P7FFjHX9dR5VhL92ujZbnLxFbYAlM4VZ2ZBOJDHZRyA8lPMAcmUNO68s0VFQzUa2naAE47ftYmb0tsSpeVi6J6ncU92mOgWF9WZa1y6uYRAM" alt="The Shaker Logo" className="shaker-splash-logo" />
+                                      <div className="shaker-splash-logo-circle">
+                                        <GlassWater size={22} className="text-[#e2725b]" />
+                                        <span className="shaker-splash-logo-text">The Shaker</span>
+                                      </div>
                                     </div>
                                     
-                                    {/* Typography */}
-                                    <h1 className="shaker-splash-headline">Heben Sie Ihr Bar-Management auf ein neues Level</h1>
+                                    {/* Typography matching Bild 2 */}
+                                    <h1 className="shaker-splash-headline">Next Level Gastro Management</h1>
                                     <p className="shaker-splash-subtext">Die intelligente Schichtplanung für erstklassige Cocktailbars.</p>
                                     
                                     {/* Call to Actions */}
