@@ -140,11 +140,10 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
             className="back-btn"
             type="button"
             onClick={() => {
-              onNavigate('home')
-              window.scrollTo(0, 0)
+              onNavigate('home#lab')
             }}
           >
-            <ArrowLeft size={16} /> Zurück zur Startseite
+            <ArrowLeft size={16} /> Zurück zur Übersicht
           </button>
         </div>
 

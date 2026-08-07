@@ -525,15 +525,41 @@ export default function App() {
   const [leadStatus, setLeadStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
 
   const navigate = (nextRoute: string) => {
-    if (nextRoute.startsWith('ratgeber/')) {
+    let routeTarget = nextRoute
+    let hashTarget = ''
+    if (nextRoute.includes('#')) {
+      const parts = nextRoute.split('#')
+      routeTarget = parts[0] || 'home'
+      hashTarget = parts[1]
+    } else if (nextRoute === 'lab') {
+      routeTarget = 'home'
+      hashTarget = 'lab'
+    }
+
+    if (routeTarget.startsWith('ratgeber/')) {
       setRoute('ratgeber')
-      setArticleSlug(nextRoute.split('/')[1])
+      setArticleSlug(routeTarget.split('/')[1])
     } else {
-      setRoute(nextRoute)
+      setRoute(routeTarget)
       setArticleSlug(null)
     }
-    window.history.pushState(null, '', nextRoute === 'home' ? '#top' : `#${nextRoute}`)
-    window.scrollTo(0, 0)
+
+    window.history.pushState(null, '', routeTarget === 'home' && !hashTarget ? '#top' : `#${hashTarget || routeTarget}`)
+
+    if (hashTarget) {
+      window.requestAnimationFrame(() => {
+        setTimeout(() => {
+          const el = document.getElementById(hashTarget)
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' })
+          } else {
+            window.scrollTo(0, 0)
+          }
+        }, 100)
+      })
+    } else {
+      window.scrollTo(0, 0)
+    }
   }
 
   const scrollToCalendar = () => {
