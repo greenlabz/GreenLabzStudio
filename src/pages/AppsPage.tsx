@@ -173,6 +173,7 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
               return (
                 <div 
                   key={app.id} 
+                  id={app.id === 'bar-shift-planner' ? 'app-bar-shift-planner' : `app-${app.id}`}
                   className={`app-reveal-block layout-phone-${isLeft ? 'left' : 'right'} ${index > 0 ? 'offset-block' : ''}`}
                 >
                   {/* Phone container */}

@@ -43,7 +43,7 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
               <span>React</span><span>Node.js</span><span>Tailwind CSS</span><span>FastAPI</span><span>Vercel</span>
             </div>
             <div className="lab-card-footer" style={{ marginTop: '0.5rem' }}>
-              <span className="lab-card-link" onClick={() => { onNavigate('apps'); window.scrollTo(0, 0); }}>
+              <span className="lab-card-link" onClick={() => { onNavigate('apps#app-repute'); }}>
                 Mehr erfahren <ArrowRight size={15} />
               </span>
               <span className="lab-status-dot" title="Live in Produktion">
@@ -75,7 +75,7 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
               <span>React</span><span>TypeScript</span><span>Node.js</span><span>Supabase</span><span>PostgreSQL</span>
             </div>
             <div className="lab-card-footer" style={{ marginTop: '0.5rem' }}>
-              <span className="lab-card-link" onClick={() => { onNavigate('apps'); window.scrollTo(0, 0); }}>
+              <span className="lab-card-link" onClick={() => { onNavigate('apps#app-crm'); }}>
                 Mehr erfahren <ArrowRight size={15} />
               </span>
               <span className="lab-status-dot" title="Interne Nutzung">
@@ -259,7 +259,7 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
               <span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>Supabase</span><span>Vercel</span>
             </div>
             <div className="lab-card-footer" style={{ marginTop: '0.5rem' }}>
-              <span className="lab-card-link" onClick={() => { onNavigate('apps'); window.scrollTo(0, 0); }}>
+              <span className="lab-card-link" onClick={() => { onNavigate('apps#app-bar-shift-planner'); }}>
                 Mehr erfahren <ArrowRight size={15} />
               </span>
               <span className="lab-status-dot" title="Live">

@@ -549,13 +549,16 @@ export default function App() {
     if (hashTarget) {
       window.requestAnimationFrame(() => {
         setTimeout(() => {
-          const el = document.getElementById(hashTarget)
+          let el = document.getElementById(hashTarget)
+          if (!el && (hashTarget === 'shaker' || hashTarget === 'bar-shift-planner' || hashTarget === 'app-shaker')) {
+            el = document.getElementById('app-bar-shift-planner') || document.getElementById('app-shaker')
+          }
           if (el) {
             el.scrollIntoView({ behavior: 'smooth' })
           } else {
             window.scrollTo(0, 0)
           }
-        }, 100)
+        }, 200)
       })
     } else {
       window.scrollTo(0, 0)
