@@ -186,10 +186,10 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                         <div className="gl-exact-screen-glare" />
                         <div className="gl-exact-notch"><span></span></div>
                         <div className="gl-exact-screen-content">
-                          {app.id === 'bar-shift-planner' ? (
+                          {app.id === 'shaker' ? (
                             <div className="shaker-mockup-app">
-                              {/* Top App Bar */}
-                              <div className="shaker-app-header-schedule">
+                              {/* Sticky elements for Screen 2 (Schedule) - animated with CSS opacity fade */}
+                              <div className="shaker-sticky-header">
                                 <div className="shaker-header-info">
                                   <span className="shaker-title">The Shaker</span>
                                   <span className="shaker-sub">Cocktail Bar · Diese Woche</span>
@@ -197,8 +197,7 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                                 <div className="shaker-avatar">JG</div>
                               </div>
 
-                              {/* Calendar Navigation Bar */}
-                              <div className="shaker-cal-bar">
+                              <div className="shaker-sticky-cal-bar">
                                 <div className="shaker-cal-nav">
                                   <span>‹</span>
                                   <strong>9. – 15. Juni 2025</strong>
@@ -214,9 +213,66 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                                 </div>
                               </div>
 
-                              {/* Scroll Area */}
-                              <div className="shaker-app-scroll">
-                                <div className="shaker-app-scroll-track">
+                              {/* Scrolling Track */}
+                              <div className="shaker-scroll-track">
+                                
+                                {/* SCREEN 1: Splash / Landing Page */}
+                                <div className="shaker-screen-splash">
+                                  {/* Background image & overlay */}
+                                  <div className="shaker-splash-bg" />
+                                  <div className="shaker-splash-overlay" />
+                                  
+                                  {/* Canvas Content */}
+                                  <div className="shaker-splash-canvas">
+                                    {/* Logo */}
+                                    <div className="shaker-splash-logo-wrap animate-float">
+                                      <img src="https://lh3.googleusercontent.com/aida/AP1WRLso7dPHLkc4-EMWgux4APyAE2H_TU9zQLt7KfUSc6Ax6-7i0LUzYKCWNEAuzndBvdZbvpUopP7ugxlF0xEWIRY34dD5AP8YGkvCpF1znoEQqTZBHsCqKTOymaH1sn53P9Alql8217-VaV_P7FFjHX9dR5VhL92ujZbnLxFbYAlM4VZ2ZBOJDHZRyA8lPMAcmUNO68s0VFQzUa2naAE47ftYmb0tsSpeVi6J6ncU92mOgWF9WZa1y6uYRAM" alt="The Shaker Logo" className="shaker-splash-logo" />
+                                    </div>
+                                    
+                                    {/* Typography */}
+                                    <h1 className="shaker-splash-headline">Heben Sie Ihr Bar-Management auf ein neues Level</h1>
+                                    <p className="shaker-splash-subtext">Die intelligente Schichtplanung für erstklassige Cocktailbars.</p>
+                                    
+                                    {/* Call to Actions */}
+                                    <div className="shaker-splash-cta">
+                                      <button className="shaker-btn-primary flex items-center justify-center gap-1 w-full">
+                                        Jetzt starten <ArrowRight size={12} />
+                                      </button>
+                                      <button className="shaker-btn-secondary w-full">Login für Mitarbeiter</button>
+                                    </div>
+
+                                    {/* Features grid */}
+                                    <div className="shaker-splash-features-grid">
+                                      <div className="shaker-feature-item">
+                                        <span className="material-symbols-outlined text-[16px] text-accent">auto_awesome</span>
+                                        <h6>Intelligente Planung</h6>
+                                        <p>Optimierte Schichten basierend auf Bedarf.</p>
+                                      </div>
+                                      <div className="shaker-feature-item">
+                                        <span className="material-symbols-outlined text-[16px] text-accent">chat</span>
+                                        <h6>Team-Kommunikation</h6>
+                                        <p>Direkter Austausch für reibungslose Abläufe.</p>
+                                      </div>
+                                      <div className="shaker-feature-item">
+                                        <span className="material-symbols-outlined text-[16px] text-accent">inventory_2</span>
+                                        <h6>Echtzeit-Inventur</h6>
+                                        <p>Bestände immer im Blick behalten.</p>
+                                      </div>
+                                    </div>
+
+                                    {/* Testimonial */}
+                                    <div className="shaker-splash-testimonial">
+                                      <p>"The Shaker hat unsere Effizienz hinter der Bar verdoppelt. Endlich mehr Zeit für die Gäste!"</p>
+                                      <div className="shaker-testimonial-author">
+                                        <div className="shaker-author-avatar">M</div>
+                                        <span>Marc S., Bar Manager @ Velvet Lounge</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                {/* SCREEN 2: Main Schedule View */}
+                                <div className="shaker-screen-schedule">
                                   {/* Wednesday Shifts */}
                                   <div className="shaker-day-label">MITTWOCH, 11. JUNI</div>
                                   
@@ -309,10 +365,11 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                                     <Plus size={14} /> Schicht hinzufügen
                                   </button>
                                 </div>
+
                               </div>
 
-                              {/* Bottom Nav Bar */}
-                              <div className="shaker-app-footer-schedule">
+                              {/* Sticky Navigation Bar */}
+                              <div className="shaker-sticky-footer">
                                 <div className="active">
                                   <Calendar size={15} />
                                   <span>Woche</span>
