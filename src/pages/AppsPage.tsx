@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Head } from 'vite-react-ssg'
-import { ArrowLeft, ArrowRight, Code, Smartphone, Laptop, Plus, Calendar, Users, GlassWater, Settings, Star, Paintbrush, Layers, Zap, Hammer, Minus, Info, Bell, MapPin, Filter, Sparkles, TrendingUp } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Code, Smartphone, Laptop, Plus, Calendar, Users, GlassWater, Settings, Layers, Bell, MapPin, Filter, Sparkles, TrendingUp } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { appProjects } from './appsData'
@@ -392,173 +392,33 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                               </div>
                             </div>
                           ) : app.id === 'pricebolt' ? (
-                            <div className="pricebolt-mockup-app">
-                              {/* Top App Bar */}
-                              <div className="pricebolt-app-header">
-                                <ArrowLeft size={16} className="pricebolt-back-icon" />
+                            <div className="pricebolt-phone-scroll-wrapper w-full h-full relative overflow-hidden">
+                              <div className="pricebolt-phone-scroll-track w-full flex flex-col">
                                 <img 
-                                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3yG_uGVN0DwhuaVsNdshij4dMfz1GmvkwXBYMI0mbNfKcl7sybq0XgT4OxZ7hlVMFoJh2oarp_rxGrjwt39vmNK9HU4dSoQNJzSlULE9fPcyAF57VakDD2R8B4L_UlH9FzXKI--nI8ncmv3Im8dbquCOCHGAcxXjtDOtBMKveRcFpr_Q0eWvaAeutW_YU3TSXD0nEi_LkuA8ZrQJAOLSg2JxAFhTKX3rpR_5TJGzYt5k_ab-5FpNE8xjv7HGvC0y0mg" 
-                                  alt="PriceBolt Logo" 
-                                  className="pricebolt-logo-img" 
+                                  src="/assets/apps/pricebolt-screen1.png" 
+                                  alt="PriceBolt Startbild" 
+                                  className="w-full h-auto block object-cover flex-shrink-0" 
                                 />
-                                <div style={{ width: 16 }} />
-                              </div>
-
-                              {/* Scroll Area */}
-                              <div className="pricebolt-app-scroll">
-                                <div className="pricebolt-app-scroll-track">
-                                  {/* SCREEN 1 */}
-                                  <div className="pricebolt-screen-section">
-                                    {/* Hero Card */}
-                                    <div className="pricebolt-hero-card">
-                                      <img 
-                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD3g-G_C2INqWvQc29oY8uLMVVbrP_8yZCznzdh1TV77TzcCOovg6k9EK71ecKTBixBEem7xYVFP5zs-skZIsksb5ywOdKMV97DgeqEcifkhIMukuJc-8u1emcJ9rYLXzq-T_Gb3r2JIo7NbDgNCrS5AoIo7qspjEpBqFY4BnfcLTliDMbPXV4zFyL7abBiGxc3LUtrgevjlYOXz1MTgCIwbtoBfvQtaqEghSxV292EmeAcHUq974c" 
-                                        alt="Clipboard" 
-                                        className="pricebolt-hero-img" 
-                                      />
-                                    </div>
-
-                                    {/* Typography Cluster */}
-                                    <div className="pricebolt-text-cluster">
-                                      <h4>Erhalten Sie Ihr Angebot in 60 Sekunden</h4>
-                                      <p>Professionelle Angebote für Ihr nächstes Projekt, sofort.</p>
-                                    </div>
-
-                                    {/* Trust Badge */}
-                                    <div className="pricebolt-trust-badge">
-                                      <div className="pricebolt-stars">
-                                        {[1, 2, 3, 4, 5].map((s) => (
-                                          <Star key={s} size={11} fill="#FFB400" stroke="none" />
-                                        ))}
-                                      </div>
-                                      <span>500+ Angebote erstellt</span>
-                                    </div>
-
-                                    <button className="pricebolt-start-btn" type="button" style={{ marginTop: 8 }}>
-                                      Jetzt starten <ArrowRight size={14} />
-                                    </button>
-                                  </div>
-
-                                  {/* Divider / Transition spacing */}
-                                  <div className="pricebolt-screen-divider">
-                                    <span>NÄCHSTER SCHRITT</span>
-                                  </div>
-
-                                  {/* SCREEN 2: Service Selection */}
-                                  <div className="pricebolt-screen-section">
-                                    <div className="pricebolt-progress-bar">
-                                      <div className="pricebolt-progress-fill" />
-                                    </div>
-                                    <span className="pricebolt-step-badge">SCHRITT 1 VON 4</span>
-                                    <h4 className="pricebolt-section-title">Wobei können wir Ihnen helfen?</h4>
-                                    <p className="pricebolt-section-subtitle">
-                                      Wählen Sie die Hauptdienstleistung aus für ein genaues Angebot.
-                                    </p>
-
-                                    {/* Grid */}
-                                    <div className="pricebolt-service-grid">
-                                      <div className="pricebolt-service-card">
-                                        <div className="pricebolt-card-icon"><Paintbrush size={16} /></div>
-                                        <span>Malerarbeiten</span>
-                                      </div>
-                                      <div className="pricebolt-service-card selected">
-                                        <div className="pricebolt-card-icon"><Layers size={16} /></div>
-                                        <span>Bodenlegen</span>
-                                      </div>
-                                      <div className="pricebolt-service-card">
-                                        <div className="pricebolt-card-icon"><Zap size={16} /></div>
-                                        <span>Elektro</span>
-                                      </div>
-                                      <div className="pricebolt-service-card">
-                                        <div className="pricebolt-card-icon"><Hammer size={16} /></div>
-                                        <span>Schreinerei</span>
-                                      </div>
-                                    </div>
-
-                                    <button className="pricebolt-start-btn" type="button" style={{ marginTop: 14 }}>
-                                      Weiter <ArrowRight size={14} />
-                                    </button>
-                                  </div>
-
-                                  {/* Divider / Transition spacing */}
-                                  <div className="pricebolt-screen-divider">
-                                    <span>NÄCHSTER SCHRITT</span>
-                                  </div>
-
-                                  {/* SCREEN 3: Scope & Size */}
-                                  <div className="pricebolt-screen-section">
-                                    <div className="pricebolt-progress-bar">
-                                      <div className="pricebolt-progress-fill" style={{ width: '50%' }} />
-                                    </div>
-                                    <span className="pricebolt-step-badge">SCHRITT 2 VON 4</span>
-                                    <h4 className="pricebolt-section-title">Wie groß ist das Projekt?</h4>
-                                    <p className="pricebolt-section-subtitle">
-                                      Definieren Sie den Umfang für einen genauen Kostenvoranschlag.
-                                    </p>
-
-                                    {/* Slider Card */}
-                                    <div className="pricebolt-bento-card">
-                                      <div className="pricebolt-bento-card-header">
-                                        <div>
-                                          <h5>Gesamtfläche</h5>
-                                          <p>Geschätzte m²</p>
-                                        </div>
-                                        <div className="pricebolt-bento-val">
-                                          <strong>120</strong> <span>m²</span>
-                                        </div>
-                                      </div>
-                                      <div className="pricebolt-slider-container">
-                                        <input 
-                                          type="range" 
-                                          min="10" 
-                                          max="500" 
-                                          value="120" 
-                                          readOnly 
-                                          className="pricebolt-slider-input" 
-                                        />
-                                        <div className="pricebolt-slider-labels">
-                                          <span>10 m²</span>
-                                          <span>500+ m²</span>
-                                        </div>
-                                      </div>
-                                    </div>
-
-                                    {/* Stepper Card */}
-                                    <div className="pricebolt-bento-card pricebolt-bento-card-center">
-                                      <div className="pricebolt-bento-card-header-simple">
-                                        <h5>Räume</h5>
-                                        <p>Zu bearbeitende Haupträume</p>
-                                      </div>
-                                      <div className="pricebolt-stepper">
-                                        <button className="pricebolt-stepper-btn" type="button"><Minus size={14} /></button>
-                                        <span className="pricebolt-stepper-val">3</span>
-                                        <button className="pricebolt-stepper-btn" type="button"><Plus size={14} /></button>
-                                      </div>
-                                    </div>
-
-                                    {/* Pro-Tipp Card */}
-                                    <div className="pricebolt-info-card">
-                                      <Info size={18} className="pricebolt-info-icon" />
-                                      <div className="pricebolt-info-text">
-                                        <h6>Pro-Tipp</h6>
-                                        <p>
-                                          Schließen Sie Flure und große Schränke in Ihre Schätzung ein, um ein genaueres Angebot zu erhalten.
-                                        </p>
-                                      </div>
-                                    </div>
-
-                                    <button className="pricebolt-start-btn" type="button" style={{ marginTop: 14 }}>
-                                      Weiter <ArrowRight size={14} />
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-
-                              {/* Footer */}
-                              <div className="pricebolt-app-footer">
-                                <button className="pricebolt-start-btn" type="button">
-                                  Jetzt starten <ArrowRight size={14} />
-                                </button>
+                                <img 
+                                  src="/assets/apps/pricebolt-screen2.png" 
+                                  alt="PriceBolt Schritt 1 - Service wählen" 
+                                  className="w-full h-auto block object-cover flex-shrink-0" 
+                                />
+                                <img 
+                                  src="/assets/apps/pricebolt-screen3.png" 
+                                  alt="PriceBolt Schritt 2 - Projektgröße" 
+                                  className="w-full h-auto block object-cover flex-shrink-0" 
+                                />
+                                <img 
+                                  src="/assets/apps/pricebolt-screen4.png" 
+                                  alt="PriceBolt Schritt 3 - Raum zeigen" 
+                                  className="w-full h-auto block object-cover flex-shrink-0" 
+                                />
+                                <img 
+                                  src="/assets/apps/pricebolt-screen5.png" 
+                                  alt="PriceBolt Schritt 4 - Angebot anfordern" 
+                                  className="w-full h-auto block object-cover flex-shrink-0" 
+                                />
                               </div>
                             </div>
                           ) : app.id === 'leadradar' ? (

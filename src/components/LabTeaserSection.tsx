@@ -2,18 +2,13 @@ import { useEffect, useRef } from 'react'
 import { 
   ArrowRight, 
   ArrowUpRight, 
-  Star, 
   Layers, 
-  Zap, 
-  Paintbrush, 
-  Hammer, 
   Bell, 
   MapPin, 
   Calendar, 
   Users, 
   GlassWater, 
   Settings, 
-  ArrowLeft,
   Upload,
   Plus
 } from 'lucide-react'
@@ -257,61 +252,34 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
                   <div className="gl-exact-screen">
                     <div className="gl-exact-screen-glare" />
                     <div className="gl-exact-notch"><span></span></div>
-                    <div className="gl-exact-screen-content gl-custom-mockup-screen">
-                      <div className="pricebolt-mockup-app">
-                        <div className="pricebolt-app-header">
-                          <ArrowLeft size={16} className="pricebolt-back-icon" />
-                          <span className="font-bold text-white text-sm tracking-wide">PriceBolt</span>
-                          <div style={{ width: 16 }} />
-                        </div>
-
-                        <div className="pricebolt-app-scroll">
-                          <div className="pricebolt-app-scroll-track p-3 space-y-3">
-                            <div className="pricebolt-screen-section">
-                              <div className="pricebolt-text-cluster text-center">
-                                <h4 className="text-xs font-bold text-white mb-1">Erhalten Sie Ihr Angebot in 60 Sekunden</h4>
-                                <p className="text-[10px] text-white/60">Professionelle Angebote für Ihr nächstes Projekt, sofort.</p>
-                              </div>
-
-                              <div className="pricebolt-trust-badge flex items-center justify-center gap-1.5 my-2">
-                                <div className="pricebolt-stars flex gap-0.5">
-                                  {[1, 2, 3, 4, 5].map((s) => (
-                                    <Star key={s} size={10} fill="#FFB400" stroke="none" />
-                                  ))}
-                                </div>
-                                <span className="text-[9px] text-white/70">500+ Angebote erstellt</span>
-                              </div>
-
-                              <div className="bg-white/5 border border-dashed border-white/20 rounded-lg p-2.5 text-center my-2">
-                                <Upload size={14} className="mx-auto text-[#00CC6A] mb-1" />
-                                <span className="text-[10px] text-white/80 block font-medium">Fotos oder Bauplan hochladen</span>
-                                <small className="text-[8px] text-white/40">Optional für präzise Schätzung</small>
-                              </div>
-
-                              <div className="pricebolt-service-grid grid grid-cols-2 gap-1.5 my-2">
-                                <div className="pricebolt-service-card bg-white/5 border border-white/10 rounded-lg p-2 text-center cursor-pointer">
-                                  <Paintbrush size={13} className="mx-auto text-[#00CC6A] mb-0.5" />
-                                  <span className="text-[10px] text-white/90 font-semibold block">Maler</span>
-                                </div>
-                                <div className="pricebolt-service-card selected bg-[#00CC6A]/20 border border-[#00CC6A] rounded-lg p-2 text-center cursor-pointer">
-                                  <Layers size={13} className="mx-auto text-[#00CC6A] mb-0.5" />
-                                  <span className="text-[10px] text-white font-semibold block">Trockenbau</span>
-                                </div>
-                                <div className="pricebolt-service-card bg-white/5 border border-white/10 rounded-lg p-2 text-center cursor-pointer">
-                                  <Zap size={13} className="mx-auto text-[#00CC6A] mb-0.5" />
-                                  <span className="text-[10px] text-white/90 font-semibold block">Elektro</span>
-                                </div>
-                                <div className="pricebolt-service-card bg-white/5 border border-white/10 rounded-lg p-2 text-center cursor-pointer">
-                                  <Hammer size={13} className="mx-auto text-[#00CC6A] mb-0.5" />
-                                  <span className="text-[10px] text-white/90 font-semibold block">Boden</span>
-                                </div>
-                              </div>
-
-                              <button className="w-full bg-[#f97316] hover:bg-[#ea580c] text-white font-bold py-2 rounded-lg text-xs flex items-center justify-center gap-1 shadow-md transition-colors mt-2" type="button">
-                                Angebot berechnen <ArrowRight size={12} />
-                              </button>
-                            </div>
-                          </div>
+                    <div className="gl-exact-screen-content gl-custom-mockup-screen overflow-hidden relative">
+                      <div className="pricebolt-phone-scroll-wrapper w-full h-full relative overflow-hidden">
+                        <div className="pricebolt-phone-scroll-track w-full flex flex-col">
+                          <img 
+                            src="/assets/apps/pricebolt-screen1.png" 
+                            alt="PriceBolt Startbild" 
+                            className="w-full h-auto block object-cover flex-shrink-0" 
+                          />
+                          <img 
+                            src="/assets/apps/pricebolt-screen2.png" 
+                            alt="PriceBolt Schritt 1 - Service wählen" 
+                            className="w-full h-auto block object-cover flex-shrink-0" 
+                          />
+                          <img 
+                            src="/assets/apps/pricebolt-screen3.png" 
+                            alt="PriceBolt Schritt 2 - Projektgröße" 
+                            className="w-full h-auto block object-cover flex-shrink-0" 
+                          />
+                          <img 
+                            src="/assets/apps/pricebolt-screen4.png" 
+                            alt="PriceBolt Schritt 3 - Raum zeigen" 
+                            className="w-full h-auto block object-cover flex-shrink-0" 
+                          />
+                          <img 
+                            src="/assets/apps/pricebolt-screen5.png" 
+                            alt="PriceBolt Schritt 4 - Angebot anfordern" 
+                            className="w-full h-auto block object-cover flex-shrink-0" 
+                          />
                         </div>
                       </div>
                     </div>
