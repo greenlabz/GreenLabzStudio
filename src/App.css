@@ -11122,12 +11122,25 @@ html:not(.js-ready) .system-reveal-block {
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
 }
-@keyframes vnproPhoneAutoScroll {
-  0%, 30% {
-    transform: translateY(0%);
+/* vnPro Native Vector Track */
+.vnpro-native-scroll-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.vnpro-native-scroll-track {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  animation: vnproNativeAutoScroll 12s ease-in-out infinite alternate;
+}
+@keyframes vnproNativeAutoScroll {
+  0%, 25% {
+    transform: translateY(0);
   }
-  70%, 100% {
-    transform: translateY(-50%);
+  75%, 100% {
+    transform: translateY(-380px);
   }
 }
 

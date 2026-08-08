@@ -679,19 +679,118 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                               </div>
                             </div>
                           ) : app.id === 'vnpro' ? (
-                            <div className="vnpro-phone-scroll-wrapper w-full h-full relative overflow-hidden">
-                              <div className="vnpro-phone-scroll-track w-full flex flex-col">
-                                <img 
-                                  src="/assets/apps/vnpro-screen1.png" 
-                                  alt="vnPro Projektgalerie" 
-                                  className="w-full h-auto block object-cover flex-shrink-0" 
-                                />
-                                <img 
-                                  src="/assets/apps/vnpro-screen2.png" 
-                                  alt="vnPro Neues Projekt erstellen" 
-                                  className="w-full h-auto block object-cover flex-shrink-0" 
-                                />
+                            <div className="w-full h-full bg-[#FAFAFA] text-[#1A1A1A] flex flex-col relative overflow-hidden select-none font-sans text-left">
+                              
+                              {/* Header */}
+                              <div className="pt-6 pb-2.5 px-3.5 bg-white border-b border-gray-200/80 flex items-center justify-between z-20">
+                                <span className="font-extrabold text-base tracking-tight text-[#00CC6A]">vnPro</span>
+                                <div className="flex items-center gap-2">
+                                  <Settings size={13} className="text-gray-400" />
+                                  <div className="w-5 h-5 rounded-full bg-gray-200 overflow-hidden border border-gray-300">
+                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Avatar" className="w-full h-full object-cover" />
+                                  </div>
+                                </div>
                               </div>
+
+                              {/* Scroll Track Container */}
+                              <div className="vnpro-native-scroll-wrapper flex-1 overflow-hidden relative">
+                                <div className="vnpro-native-scroll-track flex flex-col w-full">
+                                  
+                                  {/* SCREEN 1: Projektgalerie */}
+                                  <div className="p-3 space-y-2.5 bg-[#FAFAFA] min-h-[380px]">
+                                    <div>
+                                      <h4 className="text-sm font-bold text-gray-900 tracking-tight">Projektgalerie</h4>
+                                      <p className="text-[10px] text-gray-500 mt-0.5 leading-snug">Übersicht aller abgeschlossenen und laufenden Restaurierungen.</p>
+                                    </div>
+
+                                    <button className="w-full bg-[#00CC6A] text-black font-extrabold py-1.5 rounded-xl text-[11px] flex items-center justify-center gap-1 shadow-sm" type="button">
+                                      <Plus size={13} /> Neues Projekt
+                                    </button>
+
+                                    {/* Card 1 */}
+                                    <div className="bg-white border border-gray-200/80 rounded-xl overflow-hidden shadow-sm">
+                                      <div className="flex h-24 relative">
+                                        <div className="w-1/2 bg-cover bg-center relative" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=400&q=80')" }}>
+                                          <span className="absolute top-1.5 left-1.5 bg-black/60 backdrop-blur-md text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full">Vorher</span>
+                                        </div>
+                                        <div className="w-1/2 bg-cover bg-center relative border-l border-white/40" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=400&q=80')" }}>
+                                          <span className="absolute top-1.5 right-1.5 bg-[#00CC6A] text-black text-[8px] font-bold px-1.5 py-0.5 rounded-full">Nachher</span>
+                                        </div>
+                                      </div>
+                                      <div className="p-2">
+                                        <h5 className="text-[11px] font-bold text-gray-900">Parkett-Restaurierung Villa Schmidt</h5>
+                                        <div className="flex items-center justify-between mt-1">
+                                          <span className="text-[9px] text-gray-400 font-medium">12. Okt 2023</span>
+                                          <span className="text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-[#00CC6A]/15 text-[#00CC6A]">Abgeschlossen</span>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    {/* Card 2 */}
+                                    <div className="bg-white border border-gray-200/80 rounded-xl overflow-hidden shadow-sm">
+                                      <div className="flex h-20 relative">
+                                        <div className="w-1/2 bg-cover bg-center relative" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=400&q=80')" }}>
+                                          <span className="absolute top-1.5 left-1.5 bg-black/60 backdrop-blur-md text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full">Vorher</span>
+                                        </div>
+                                        <div className="w-1/2 bg-cover bg-center relative border-l border-white/40" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?auto=format&fit=crop&w=400&q=80')" }}>
+                                          <span className="absolute top-1.5 right-1.5 bg-[#00CC6A] text-black text-[8px] font-bold px-1.5 py-0.5 rounded-full">Nachher</span>
+                                        </div>
+                                      </div>
+                                      <div className="p-2">
+                                        <h5 className="text-[11px] font-bold text-gray-900">Badezimmer Sanierung</h5>
+                                        <div className="flex items-center justify-between mt-1">
+                                          <span className="text-[9px] text-gray-400 font-medium">05. Sep 2023</span>
+                                          <span className="text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-[#00CC6A]/15 text-[#00CC6A]">Fertiggestellt</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  {/* SCREEN 2: Upload */}
+                                  <div className="p-3 space-y-2 bg-[#FAFAFA] min-h-[380px]">
+                                    <div>
+                                      <h4 className="text-sm font-bold text-gray-900 tracking-tight">Neues Projekt erstellen</h4>
+                                      <p className="text-[10px] text-gray-500 mt-0.5 leading-snug">Vorher/Nachher-Aufnahmen hochladen.</p>
+                                    </div>
+
+                                    <div className="border border-dashed border-gray-300 bg-white rounded-xl p-2.5 flex flex-col items-center justify-center text-center space-y-0.5">
+                                      <span className="bg-gray-100 text-gray-600 text-[8px] font-bold px-1.5 py-0.5 rounded-full self-start">Vorher</span>
+                                      <div className="w-6 h-6 rounded-full bg-[#00CC6A]/10 text-[#00CC6A] flex items-center justify-center my-0.5">
+                                        <Plus size={12} />
+                                      </div>
+                                      <span className="text-[10px] font-bold text-gray-800">Vorher-Bild hochladen</span>
+                                      <span className="text-[8px] text-gray-400">Drag &amp; Drop oder klicken</span>
+                                    </div>
+
+                                    <div className="border border-dashed border-gray-300 bg-white rounded-xl p-2.5 flex flex-col items-center justify-center text-center space-y-0.5">
+                                      <span className="bg-gray-100 text-gray-600 text-[8px] font-bold px-1.5 py-0.5 rounded-full self-start">Nachher</span>
+                                      <div className="w-6 h-6 rounded-full bg-[#00CC6A]/10 text-[#00CC6A] flex items-center justify-center my-0.5">
+                                        <Plus size={12} />
+                                      </div>
+                                      <span className="text-[10px] font-bold text-gray-800">Nachher-Bild hochladen</span>
+                                      <span className="text-[8px] text-gray-400">Drag &amp; Drop oder klicken</span>
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+
+                              {/* Bottom Navigation */}
+                              <div className="h-10 bg-white border-t border-gray-200/80 flex items-center justify-around z-20 px-2">
+                                <div className="flex flex-col items-center gap-0.5 text-[#00CC6A] font-bold text-[9px]">
+                                  <Layers size={13} />
+                                  <span>Projekte</span>
+                                </div>
+                                <div className="flex flex-col items-center gap-0.5 text-gray-400 text-[9px]">
+                                  <Plus size={13} />
+                                  <span>Upload</span>
+                                </div>
+                                <div className="flex flex-col items-center gap-0.5 text-gray-400 text-[9px]">
+                                  <Users size={13} />
+                                  <span>Profil</span>
+                                </div>
+                              </div>
+
                             </div>
                           ) : app.previewImage ? (
                             <img src={app.previewImage} alt={app.name} className="phone-screenshot-img" />
