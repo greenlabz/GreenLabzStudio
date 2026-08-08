@@ -10495,7 +10495,13 @@ html:not(.js-ready) .work-row {
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 620px;
+  max-width: 660px;
+}
+.lab-teaser-row.layout-right .lab-teaser-preview {
+  justify-content: flex-end;
+}
+.lab-teaser-row.layout-left .lab-teaser-preview {
+  justify-content: flex-start;
 }
 .lab-teaser-info {
   flex: 1 1 42%;
@@ -10503,8 +10509,20 @@ html:not(.js-ready) .work-row {
   flex-direction: column;
   align-items: flex-start;
   gap: 1.2rem;
-  max-width: 480px;
+  max-width: 520px;
   text-align: left;
+}
+.lab-teaser-preview-card {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+}
+.lab-teaser-preview-card:hover {
+  border-color: rgba(0, 204, 106, 0.6);
+  box-shadow: 0 0 50px rgba(0, 204, 106, 0.3), 0 20px 50px rgba(0, 0, 0, 0.5);
+  transform: translateY(-2px);
 }
 .system_preview_content {
   padding: 0;

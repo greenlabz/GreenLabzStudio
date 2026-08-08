@@ -559,18 +559,18 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
         <div className="lab-teaser-rows space-y-24 md:space-y-36">
           
           {/* 1. Repute */}
-          <div className="lab-teaser-row lab-item-card layout-left flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16">
-            <div className="lab-teaser-preview lab-item-mockup w-full md:w-7/12 flex justify-center items-center">
-              <div className="w-full max-w-[620px] h-auto rounded-xl overflow-hidden border border-white/10 bg-[#121414] shadow-2xl transition-all duration-300 hover:border-white/20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+          <div className="lab-teaser-row lab-item-card layout-left flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+            <div className="lab-teaser-preview lab-item-mockup w-full md:w-7/12 flex justify-start items-center">
+              <div className="lab-teaser-preview-card w-full max-w-[640px] h-auto bg-[#121414]">
                 <img 
                   src="/assets/apps/repute-preview.png" 
                   alt="Repute Dashboard Preview" 
-                  className="w-full h-auto object-contain max-h-none rounded-xl block"
+                  className="w-full h-auto object-contain max-h-none block"
                 />
               </div>
             </div>
 
-            <div className="lab-teaser-info lab-item-content w-full md:w-5/12 flex flex-col items-start gap-4">
+            <div className="lab-teaser-info lab-item-content w-full md:w-5/12 flex flex-col items-start gap-4 text-left pl-0">
               <div className="lab-anim-child lab-card-top flex items-center gap-3">
                 <span className="lab-badge border border-white/20 text-xs px-3 py-1 rounded-full text-white/90 font-semibold tracking-wider uppercase">
                   AUTOMATISIERTES SAAS
@@ -607,18 +607,18 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
           </div>
 
           {/* 2. GreenLabz CRM */}
-          <div className="lab-teaser-row lab-item-card layout-right flex flex-col md:flex-row-reverse items-center justify-between gap-8 md:gap-16">
-            <div className="lab-teaser-preview lab-item-mockup w-full md:w-7/12 flex justify-center items-center">
-              <div className="w-full max-w-[620px] h-auto rounded-xl overflow-hidden border border-white/10 bg-[#121414] shadow-2xl transition-all duration-300 hover:border-white/20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+          <div className="lab-teaser-row lab-item-card layout-right flex flex-col md:flex-row-reverse items-center justify-between gap-8 md:gap-12">
+            <div className="lab-teaser-preview lab-item-mockup w-full md:w-7/12 flex justify-end items-center">
+              <div className="lab-teaser-preview-card w-full max-w-[640px] h-auto bg-[#121414]">
                 <img 
                   src="/assets/apps/crm-preview.png" 
                   alt="GreenLabz CRM Dashboard Preview" 
-                  className="w-full h-auto object-contain max-h-none rounded-xl block"
+                  className="w-full h-auto object-contain max-h-none block"
                 />
               </div>
             </div>
 
-            <div className="lab-teaser-info lab-item-content w-full md:w-5/12 flex flex-col items-start gap-4">
+            <div className="lab-teaser-info lab-item-content w-full md:w-5/12 flex flex-col items-start gap-4 text-left pl-0 ml-0 mr-auto">
               <div className="lab-anim-child lab-card-top flex items-center gap-3">
                 <span className="lab-badge border border-white/20 text-xs px-3 py-1 rounded-full text-white/90 font-semibold tracking-wider uppercase">
                   INTERN &amp; PROJEKT CONTROL
