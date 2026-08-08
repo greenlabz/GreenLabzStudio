@@ -3,8 +3,6 @@ import {
   ArrowRight, 
   ArrowUpRight, 
   Layers, 
-  Bell, 
-  MapPin, 
   Calendar, 
   Users, 
   GlassWater, 
@@ -478,101 +476,6 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
             </div>
           </div>
 
-          {/* 4. LeadRadar */}
-          <div className="lab-teaser-row lab-item-card layout-right flex flex-col md:flex-row-reverse items-center justify-between gap-8 md:gap-16">
-            <div className="lab-teaser-preview lab-item-mockup w-full md:w-1/2 flex justify-center">
-              <div className="app-phone-container max-w-[290px] md:max-w-[310px] w-full" style={{ transform: 'scale(0.96)' }}>
-                <div className="gl-exact-phone-bezel border-2 border-[#00CC6A]/50 shadow-[0_0_35px_rgba(0,204,106,0.18)]">
-                  <div className="gl-exact-hardware gl-exact-hardware-left-one" />
-                  <div className="gl-exact-hardware gl-exact-hardware-left-two" />
-                  <div className="gl-exact-hardware gl-exact-hardware-right" />
-                  <div className="gl-exact-screen">
-                    <div className="gl-exact-screen-glare" />
-                    <div className="gl-exact-notch"><span></span></div>
-                    <div className="gl-exact-screen-content gl-custom-mockup-screen">
-                      <div className="leadradar-mockup-app">
-                        <div className="leadradar-app-header flex items-center justify-between p-3 bg-[#161819] border-b border-white/10">
-                          <div className="flex items-center gap-1.5">
-                            <span className="w-2 h-2 rounded-full bg-[#00CC6A] animate-pulse" />
-                            <span className="font-bold text-white text-xs">LeadRadar</span>
-                          </div>
-                          <span className="bg-[#00CC6A]/20 text-[#00CC6A] text-[9px] font-bold px-2 py-0.5 rounded-full border border-[#00CC6A]/40">
-                            LIVE SCAN
-                          </span>
-                        </div>
-
-                        <div className="leadradar-app-scroll">
-                          <div className="p-3 space-y-2.5">
-                            
-                            {/* Push Notification Banner */}
-                            <div className="bg-gradient-to-r from-[#00CC6A]/20 to-[#00CC6A]/5 border border-[#00CC6A]/40 rounded-xl p-2.5 flex items-start gap-2">
-                              <Bell size={14} className="text-[#00CC6A] mt-0.5 flex-shrink-0" />
-                              <div>
-                                <span className="text-[10px] font-bold text-white block">🔔 Neuer Lead in Heilbronn!</span>
-                                <p className="text-[9px] text-white/70">Praxis Dr. Weber sucht Relaunch &amp; Local SEO</p>
-                              </div>
-                            </div>
-
-                            {/* Lead Card */}
-                            <div className="leadradar-card bg-white/5 border border-white/10 rounded-xl p-2.5 space-y-1.5">
-                              <div className="flex items-center justify-between">
-                                <span className="text-[11px] font-bold text-white">Klinik Dr. Stein</span>
-                                <span className="bg-[#00CC6A] text-black font-extrabold text-[9px] px-1.5 py-0.5 rounded">
-                                  94% Match
-                                </span>
-                              </div>
-                              <div className="flex items-center gap-1 text-[9px] text-white/60">
-                                <MapPin size={9} /> <span>München · Dermatologie</span>
-                              </div>
-                              <p className="text-[9px] text-white/70 leading-normal">
-                                Veraltete Website ohne Mobiloptimierung. Hohes Anfragepotenzial.
-                              </p>
-                              <div className="flex gap-1.5 pt-1">
-                                <button type="button" className="flex-1 bg-white/10 text-white text-[9px] font-semibold py-1 rounded border border-white/15">
-                                  Details
-                                </button>
-                                <button type="button" className="flex-1 bg-[#00CC6A] text-black text-[9px] font-bold py-1 rounded">
-                                  Kontaktieren
-                                </button>
-                              </div>
-                            </div>
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="lab-teaser-info lab-item-content w-full md:w-1/2 flex flex-col items-start gap-4">
-              <div className="lab-anim-child lab-card-top flex items-center gap-3">
-                <span className="lab-badge border border-white/20 text-xs px-3 py-1 rounded-full text-white/90 font-semibold tracking-wider uppercase">
-                  APP
-                </span>
-                <span className="lab-status-dot flex items-center gap-1.5 text-xs font-semibold text-[#9CA3AF]">
-                  <i className="w-2 h-2 rounded-full bg-[#6B7280]" />
-                  Interne Testung
-                </span>
-              </div>
-              <h3 className="lab-anim-child text-2xl md:text-3xl font-bold text-white tracking-tight">
-                LeadRadar
-              </h3>
-              <p className="lab-anim-child text-white/70 text-base leading-relaxed">
-                Echtzeit-Push-Benachrichtigungen und Detail-Recherche für Neukunden-Leads im DACH-Raum von unterwegs.
-              </p>
-              <div className="lab-anim-child mt-2">
-                <span 
-                  className="lab-card-link text-[#00CC6A] hover:text-[#00FF84] inline-flex items-center gap-1.5 text-sm font-semibold cursor-pointer transition-colors"
-                  onClick={() => onNavigate('apps#app-leadradar')}
-                >
-                  Mehr erfahren <ArrowRight size={15} />
-                </span>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
 
@@ -593,9 +496,9 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
 
         <div className="lab-teaser-rows space-y-24 md:space-y-36">
           
-          {/* 1. Repute */}
-          <div className="lab-teaser-row lab-item-card layout-left flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
-            <div className="lab-teaser-preview lab-item-mockup w-full md:w-1/2 flex justify-start items-center">
+          {/* 1. Repute (layout-right: Text LEFT, Mockup RIGHT) */}
+          <div className="lab-teaser-row lab-item-card layout-right flex flex-col md:flex-row-reverse items-center justify-between gap-8 md:gap-12">
+            <div className="lab-teaser-preview lab-item-mockup w-full md:w-1/2 flex justify-end items-center">
               <div className="lab-teaser-preview-card w-full max-w-[500px] h-auto bg-[#121414]">
                 <img 
                   src="/assets/apps/repute-preview.png" 
@@ -641,9 +544,9 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
             </div>
           </div>
 
-          {/* 2. GreenLabz CRM */}
-          <div className="lab-teaser-row lab-item-card layout-right flex flex-col md:flex-row-reverse items-center justify-between gap-8 md:gap-12">
-            <div className="lab-teaser-preview lab-item-mockup w-full md:w-1/2 flex justify-end items-center">
+          {/* 2. GreenLabz CRM (layout-left: Mockup LEFT, Text RIGHT) */}
+          <div className="lab-teaser-row lab-item-card layout-left flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+            <div className="lab-teaser-preview lab-item-mockup w-full md:w-1/2 flex justify-start items-center">
               <div className="lab-teaser-preview-card w-full max-w-[500px] h-auto bg-[#121414]">
                 <img 
                   src="/assets/apps/crm-preview.png" 
@@ -653,7 +556,7 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
               </div>
             </div>
 
-            <div className="lab-teaser-info lab-item-content w-full md:w-1/2 flex flex-col items-start gap-4 text-left pl-0 ml-0 mr-auto">
+            <div className="lab-teaser-info lab-item-content w-full md:w-1/2 flex flex-col items-start gap-4 text-left pl-0">
               <div className="lab-anim-child lab-card-top flex items-center gap-3">
                 <span className="lab-badge border border-white/20 text-xs px-3 py-1 rounded-full text-white/90 font-semibold tracking-wider uppercase">
                   INTERN &amp; PROJEKT CONTROL
