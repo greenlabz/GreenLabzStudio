@@ -562,23 +562,11 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
           <div className="lab-teaser-row lab-item-card layout-left flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16">
             <div className="lab-teaser-preview lab-item-mockup w-full md:w-7/12 flex justify-center">
               <div className="w-full max-w-[620px] rounded-xl overflow-hidden border border-white/10 bg-[#121414] shadow-2xl transition-all duration-300 hover:border-white/20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-                <div className="bg-[#1c1e1f] px-4 py-2.5 flex items-center gap-2 border-b border-white/5">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
-                  </div>
-                  <div className="flex-1 bg-[#121414]/60 rounded-md px-3 py-1 text-[11px] text-white/40 font-mono text-center truncate">
-                    repute.greenlabz-studio.de/dashboard
-                  </div>
-                </div>
-                <div className="p-1 bg-[#0d0e0f]">
-                  <img 
-                    src="/assets/apps/repute-preview.png" 
-                    alt="Repute Dashboard Preview" 
-                    className="w-full h-auto rounded-b-lg block"
-                  />
-                </div>
+                <img 
+                  src="/assets/apps/repute-preview.png" 
+                  alt="Repute Dashboard Preview" 
+                  className="w-full h-auto rounded-xl block"
+                />
               </div>
             </div>
 
@@ -622,23 +610,11 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
           <div className="lab-teaser-row lab-item-card layout-right flex flex-col md:flex-row-reverse items-center justify-between gap-8 md:gap-16">
             <div className="lab-teaser-preview lab-item-mockup w-full md:w-7/12 flex justify-center">
               <div className="w-full max-w-[620px] rounded-xl overflow-hidden border border-white/10 bg-[#121414] shadow-2xl transition-all duration-300 hover:border-white/20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-                <div className="bg-[#1c1e1f] px-4 py-2.5 flex items-center gap-2 border-b border-white/5">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
-                  </div>
-                  <div className="flex-1 bg-[#121414]/60 rounded-md px-3 py-1 text-[11px] text-white/40 font-mono text-center truncate">
-                    crm.greenlabz-studio.de/dashboard
-                  </div>
-                </div>
-                <div className="p-1 bg-[#0d0e0f]">
-                  <img 
-                    src="/assets/apps/crm-preview.png" 
-                    alt="GreenLabz CRM Dashboard Preview" 
-                    className="w-full h-auto rounded-b-lg block"
-                  />
-                </div>
+                <img 
+                  src="/assets/apps/crm-preview.png" 
+                  alt="GreenLabz CRM Dashboard Preview" 
+                  className="w-full h-auto rounded-xl block"
+                />
               </div>
             </div>
 
