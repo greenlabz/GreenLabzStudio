@@ -357,7 +357,7 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
                   <div className="gl-exact-screen">
                     <div className="gl-exact-screen-glare" />
                     <div className="gl-exact-notch"><span></span></div>
-                    <div className="gl-exact-screen-content overflow-hidden relative">
+                    <div className="gl-exact-screen-content gl-custom-mockup-screen overflow-hidden relative">
                       <div className="vnpro-phone-scroll-wrapper w-full h-full relative overflow-hidden">
                         <div className="vnpro-phone-scroll-track w-full flex flex-col">
                           <img 

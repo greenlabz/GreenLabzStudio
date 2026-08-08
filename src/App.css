@@ -11104,7 +11104,9 @@ html:not(.js-ready) .system-reveal-block {
   height: 100%;
   position: relative;
   overflow: hidden;
-  border-radius: 40px;
+  border-radius: 2.65rem;
+  background: #ffffff;
+  padding-top: 18px;
 }
 .vnpro-phone-scroll-track {
   display: flex;
@@ -11117,6 +11119,8 @@ html:not(.js-ready) .system-reveal-block {
   height: auto;
   display: block;
   flex-shrink: 0;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 @keyframes vnproPhoneAutoScroll {
   0%, 30% {
