@@ -10506,23 +10506,18 @@ html:not(.js-ready) .work-row {
   max-width: 480px;
   text-align: left;
 }
+.system_preview_content {
+  padding: 0;
+  width: 100%;
+}
+.system-screenshot-img,
 .medreview-teaser-img {
   width: 100%;
   height: auto;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 
-    0 15px 35px rgba(0, 0, 0, 0.35),
-    0 5px 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s, border-color 0.4s;
   display: block;
-}
-.medreview-teaser-img:hover {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 
-    0 25px 50px rgba(0, 0, 0, 0.5),
-    0 10px 20px rgba(0, 0, 0, 0.3);
-  border-color: rgba(255, 255, 255, 0.15);
+  object-fit: contain;
+  object-position: center;
+  max-height: none;
 }
 .lab-teaser-info h3 {
   font-size: 2.2rem;

@@ -560,12 +560,12 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
           
           {/* 1. Repute */}
           <div className="lab-teaser-row lab-item-card layout-left flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16">
-            <div className="lab-teaser-preview lab-item-mockup w-full md:w-7/12 flex justify-center">
-              <div className="w-full max-w-[620px] rounded-xl overflow-hidden border border-white/10 bg-[#121414] shadow-2xl transition-all duration-300 hover:border-white/20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+            <div className="lab-teaser-preview lab-item-mockup w-full md:w-7/12 flex justify-center items-center">
+              <div className="w-full max-w-[620px] h-auto rounded-xl overflow-hidden border border-white/10 bg-[#121414] shadow-2xl transition-all duration-300 hover:border-white/20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
                 <img 
                   src="/assets/apps/repute-preview.png" 
                   alt="Repute Dashboard Preview" 
-                  className="w-full h-auto rounded-xl block"
+                  className="w-full h-auto object-contain max-h-none rounded-xl block"
                 />
               </div>
             </div>
@@ -608,12 +608,12 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
 
           {/* 2. GreenLabz CRM */}
           <div className="lab-teaser-row lab-item-card layout-right flex flex-col md:flex-row-reverse items-center justify-between gap-8 md:gap-16">
-            <div className="lab-teaser-preview lab-item-mockup w-full md:w-7/12 flex justify-center">
-              <div className="w-full max-w-[620px] rounded-xl overflow-hidden border border-white/10 bg-[#121414] shadow-2xl transition-all duration-300 hover:border-white/20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+            <div className="lab-teaser-preview lab-item-mockup w-full md:w-7/12 flex justify-center items-center">
+              <div className="w-full max-w-[620px] h-auto rounded-xl overflow-hidden border border-white/10 bg-[#121414] shadow-2xl transition-all duration-300 hover:border-white/20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
                 <img 
                   src="/assets/apps/crm-preview.png" 
                   alt="GreenLabz CRM Dashboard Preview" 
-                  className="w-full h-auto rounded-xl block"
+                  className="w-full h-auto object-contain max-h-none rounded-xl block"
                 />
               </div>
             </div>
