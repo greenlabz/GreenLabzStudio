@@ -522,8 +522,8 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
           
           {/* 1. Repute */}
           <div className="lab-teaser-row lab-item-card layout-left flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
-            <div className="lab-teaser-preview lab-item-mockup w-full md:w-7/12 flex justify-start items-center">
-              <div className="lab-teaser-preview-card w-full max-w-[640px] h-auto bg-[#121414]">
+            <div className="lab-teaser-preview lab-item-mockup w-full md:w-1/2 flex justify-start items-center">
+              <div className="lab-teaser-preview-card w-full max-w-[500px] h-auto bg-[#121414]">
                 <img 
                   src="/assets/apps/repute-preview.png" 
                   alt="Repute Dashboard Preview" 
@@ -532,7 +532,7 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
               </div>
             </div>
 
-            <div className="lab-teaser-info lab-item-content w-full md:w-5/12 flex flex-col items-start gap-4 text-left pl-0">
+            <div className="lab-teaser-info lab-item-content w-full md:w-1/2 flex flex-col items-start gap-4 text-left pl-0">
               <div className="lab-anim-child lab-card-top flex items-center gap-3">
                 <span className="lab-badge border border-white/20 text-xs px-3 py-1 rounded-full text-white/90 font-semibold tracking-wider uppercase">
                   AUTOMATISIERTES SAAS
@@ -570,8 +570,8 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
 
           {/* 2. GreenLabz CRM */}
           <div className="lab-teaser-row lab-item-card layout-right flex flex-col md:flex-row-reverse items-center justify-between gap-8 md:gap-12">
-            <div className="lab-teaser-preview lab-item-mockup w-full md:w-7/12 flex justify-end items-center">
-              <div className="lab-teaser-preview-card w-full max-w-[640px] h-auto bg-[#121414]">
+            <div className="lab-teaser-preview lab-item-mockup w-full md:w-1/2 flex justify-end items-center">
+              <div className="lab-teaser-preview-card w-full max-w-[500px] h-auto bg-[#121414]">
                 <img 
                   src="/assets/apps/crm-preview.png" 
                   alt="GreenLabz CRM Dashboard Preview" 
@@ -580,7 +580,7 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
               </div>
             </div>
 
-            <div className="lab-teaser-info lab-item-content w-full md:w-5/12 flex flex-col items-start gap-4 text-left pl-0 ml-0 mr-auto">
+            <div className="lab-teaser-info lab-item-content w-full md:w-1/2 flex flex-col items-start gap-4 text-left pl-0 ml-0 mr-auto">
               <div className="lab-anim-child lab-card-top flex items-center gap-3">
                 <span className="lab-badge border border-white/20 text-xs px-3 py-1 rounded-full text-white/90 font-semibold tracking-wider uppercase">
                   INTERN &amp; PROJEKT CONTROL

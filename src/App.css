@@ -10490,12 +10490,12 @@ html:not(.js-ready) .work-row {
   flex-direction: row-reverse;
 }
 .lab-teaser-preview {
-  flex: 1 1 58%;
+  flex: 1 1 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 660px;
+  max-width: 500px;
 }
 .lab-teaser-row.layout-right .lab-teaser-preview {
   justify-content: flex-end;
