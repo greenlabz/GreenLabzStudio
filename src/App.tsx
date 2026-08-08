@@ -1152,8 +1152,6 @@ export default function App() {
           </div>
         </section>
 
-        <LabTeaserSection onNavigate={navigate} />
-
         <section className="section search-shift-section" data-reveal>
           <div className="search-shift-shell">
             <div className="search-shift-copy">
@@ -1330,6 +1328,9 @@ export default function App() {
         </section>
 
         <HeroBendGallery />
+
+        {/* [03] APPS & SAAS AND DEV LAB */}
+        <LabTeaserSection onNavigate={navigate} />
 
         <section className="section pricing-section" id="pricing" data-reveal>
           <div className="section-head pricing-head">
