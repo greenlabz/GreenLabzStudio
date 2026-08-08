@@ -357,57 +357,19 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
                   <div className="gl-exact-screen">
                     <div className="gl-exact-screen-glare" />
                     <div className="gl-exact-notch"><span></span></div>
-                    <div className="gl-exact-screen-content gl-custom-mockup-screen">
-                      <div className="vnpro-mockup-app">
-                        <div className="vnpro-app-header">
-                          <span className="vnpro-logo-text">vnPro</span>
-                          <div className="vnpro-profile-thumb" />
-                        </div>
-
-                        <div className="vnpro-app-scroll">
-                          <div className="vnpro-app-scroll-track p-3 space-y-3">
-                            <div className="vnpro-screen">
-                              <div className="vnpro-cases-list space-y-2.5">
-                                
-                                {/* Pair 1 */}
-                                <div className="vnpro-case-card bg-white/5 border border-white/10 rounded-xl overflow-hidden">
-                                  <div className="vnpro-photo-split flex h-24 relative">
-                                    <div className="w-1/2 bg-cover bg-center relative" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=300&q=80')" }}>
-                                      <span className="absolute top-1.5 left-1.5 bg-black/70 text-white text-[8px] font-bold px-1.5 py-0.5 rounded">Vorher</span>
-                                    </div>
-                                    <div className="w-1/2 bg-cover bg-center relative border-l border-white/30" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=300&q=80')" }}>
-                                      <span className="absolute top-1.5 right-1.5 bg-[#00CC6A] text-black text-[8px] font-bold px-1.5 py-0.5 rounded">Nachher</span>
-                                    </div>
-                                  </div>
-                                  <div className="p-2 flex items-center justify-between">
-                                    <span className="text-[10px] text-white/80 font-medium">Badezimmer Sanierung</span>
-                                    <span className="text-[9px] text-[#00CC6A] font-bold">Fertiggestellt</span>
-                                  </div>
-                                </div>
-
-                                {/* Pair 2 */}
-                                <div className="vnpro-case-card bg-white/5 border border-white/10 rounded-xl overflow-hidden">
-                                  <div className="vnpro-photo-split flex h-24 relative">
-                                    <div className="w-1/2 bg-cover bg-center relative" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=300&q=80')" }}>
-                                      <span className="absolute top-1.5 left-1.5 bg-black/70 text-white text-[8px] font-bold px-1.5 py-0.5 rounded">Vorher</span>
-                                    </div>
-                                    <div className="w-1/2 bg-cover bg-center relative border-l border-white/30" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?auto=format&fit=crop&w=300&q=80')" }}>
-                                      <span className="absolute top-1.5 right-1.5 bg-[#00CC6A] text-black text-[8px] font-bold px-1.5 py-0.5 rounded">Nachher</span>
-                                    </div>
-                                  </div>
-                                  <div className="p-2 flex items-center justify-between">
-                                    <span className="text-[10px] text-white/80 font-medium">Zahn-Veneers Relaunch</span>
-                                    <span className="text-[9px] text-[#00CC6A] font-bold">Freigegeben</span>
-                                  </div>
-                                </div>
-
-                              </div>
-
-                              <button className="w-full bg-[#00CC6A] text-black font-bold py-2 rounded-xl text-xs flex items-center justify-center gap-1.5 mt-3 shadow-lg" type="button">
-                                <Upload size={13} /> Vorher/Nachher Upload
-                              </button>
-                            </div>
-                          </div>
+                    <div className="gl-exact-screen-content overflow-hidden relative">
+                      <div className="vnpro-phone-scroll-wrapper w-full h-full relative overflow-hidden">
+                        <div className="vnpro-phone-scroll-track w-full flex flex-col">
+                          <img 
+                            src="/assets/apps/vnpro-screen1.png" 
+                            alt="vnPro Projektgalerie" 
+                            className="w-full h-auto block object-cover flex-shrink-0" 
+                          />
+                          <img 
+                            src="/assets/apps/vnpro-screen2.png" 
+                            alt="vnPro Neues Projekt erstellen" 
+                            className="w-full h-auto block object-cover flex-shrink-0" 
+                          />
                         </div>
                       </div>
                     </div>

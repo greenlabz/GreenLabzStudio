@@ -11098,6 +11098,35 @@ html:not(.js-ready) .system-reveal-block {
   font-weight: 800;
 }
 
+/* vnPro Scroll Track */
+.vnpro-phone-scroll-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 40px;
+}
+.vnpro-phone-scroll-track {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  animation: vnproPhoneAutoScroll 10s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate;
+}
+.vnpro-phone-scroll-track img {
+  width: 100%;
+  height: auto;
+  display: block;
+  flex-shrink: 0;
+}
+@keyframes vnproPhoneAutoScroll {
+  0%, 30% {
+    transform: translateY(0%);
+  }
+  70%, 100% {
+    transform: translateY(-50%);
+  }
+}
+
 /* Scroll Area */
 .shaker-app-scroll {
   flex: 1;
