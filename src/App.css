@@ -10483,27 +10483,27 @@ html:not(.js-ready) .work-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 5rem;
+  gap: 3.5rem;
   width: 100%;
 }
 .lab-teaser-row.layout-right {
   flex-direction: row-reverse;
 }
 .lab-teaser-preview {
-  flex: 1.25;
+  flex: 1 1 58%;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 660px;
+  max-width: 620px;
 }
 .lab-teaser-info {
-  flex: 0.75;
+  flex: 1 1 42%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 1.2rem;
-  max-width: 440px;
+  max-width: 480px;
   text-align: left;
 }
 .medreview-teaser-img {
