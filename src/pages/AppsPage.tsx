@@ -392,7 +392,7 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                               </div>
                             </div>
                           ) : app.id === 'pricebolt' ? (
-                            <div className="w-full h-full relative overflow-hidden bg-[#f9f9fe]">
+                            <div className="w-full h-full relative overflow-hidden bg-[#f9f9fe] pt-5">
                               <img 
                                 src="/assets/apps/pricebolt-screen1.png" 
                                 alt="PriceBolt Startbild" 
