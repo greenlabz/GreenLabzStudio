@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { 
   ArrowRight, 
+  ArrowLeft,
   ArrowUpRight, 
   Layers, 
   Calendar, 
@@ -8,7 +9,20 @@ import {
   GlassWater, 
   Settings, 
   Upload,
-  Plus
+  Plus,
+  Minus,
+  CheckCircle,
+  Star,
+  Paintbrush,
+  Zap,
+  Hammer,
+  Sliders,
+  Camera,
+  Trash2,
+  Info,
+  Receipt,
+  Send,
+  ChevronDown
 } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -251,33 +265,278 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
                     <div className="gl-exact-screen-glare" />
                     <div className="gl-exact-notch"><span></span></div>
                     <div className="gl-exact-screen-content gl-custom-mockup-screen overflow-hidden relative">
-                      <div className="pricebolt-phone-scroll-wrapper w-full h-full relative overflow-hidden">
+                      <div className="pricebolt-phone-scroll-wrapper w-full h-full relative overflow-hidden bg-[#f9f9fe] text-[#1a1c1f]">
                         <div className="pricebolt-phone-scroll-track w-full flex flex-col">
-                          <img 
-                            src="/assets/apps/pricebolt-screen1.png" 
-                            alt="PriceBolt Startbild" 
-                            className="w-full h-auto block object-cover flex-shrink-0" 
-                          />
-                          <img 
-                            src="/assets/apps/pricebolt-screen2.png" 
-                            alt="PriceBolt Schritt 1 - Service wählen" 
-                            className="w-full h-auto block object-cover flex-shrink-0" 
-                          />
-                          <img 
-                            src="/assets/apps/pricebolt-screen3.png" 
-                            alt="PriceBolt Schritt 2 - Projektgröße" 
-                            className="w-full h-auto block object-cover flex-shrink-0" 
-                          />
-                          <img 
-                            src="/assets/apps/pricebolt-screen4.png" 
-                            alt="PriceBolt Schritt 3 - Raum zeigen" 
-                            className="w-full h-auto block object-cover flex-shrink-0" 
-                          />
-                          <img 
-                            src="/assets/apps/pricebolt-screen5.png" 
-                            alt="PriceBolt Schritt 4 - Angebot anfordern" 
-                            className="w-full h-auto block object-cover flex-shrink-0" 
-                          />
+                          
+                          {/* SCREEN 1: Start / Landing */}
+                          <div className="w-full min-h-[380px] bg-[#f9f9fe] flex flex-col justify-between p-3 select-none relative font-sans text-left">
+                            <div>
+                              <div className="flex items-center justify-between pb-2 border-b border-gray-200">
+                                <ArrowLeft size={13} className="text-gray-500" />
+                                <span className="font-black text-sm tracking-tight text-[#8c5000]">PriceBolt</span>
+                                <div className="w-3" />
+                              </div>
+
+                              <div className="mt-2.5 rounded-xl overflow-hidden relative h-24 bg-gradient-to-br from-[#8c5000]/20 to-[#ff9500]/10 border border-[#8c5000]/20 flex items-center justify-center p-2 text-center">
+                                <div className="absolute inset-0 bg-cover bg-center opacity-30" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=400&q=80')" }} />
+                                <div className="relative z-10">
+                                  <span className="bg-[#8c5000] text-white text-[8px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">SOFORT-ANGEBOT</span>
+                                </div>
+                              </div>
+
+                              <div className="mt-3 text-center space-y-1">
+                                <h4 className="text-xs font-bold text-gray-900 leading-tight">Erhalten Sie Ihr Angebot in 60 Sekunden</h4>
+                                <p className="text-[9px] text-gray-500 leading-snug">Professionelle Angebote, schnell, einfach, sofort.</p>
+                              </div>
+
+                              <div className="mt-2.5 flex items-center justify-center gap-1.5 bg-gray-100/80 py-1 px-2.5 rounded-full border border-gray-200/60 w-max mx-auto">
+                                <div className="flex text-[#FFB400]">
+                                  {[...Array(5)].map((_, i) => (
+                                    <Star key={i} size={9} fill="#FFB400" className="text-[#FFB400]" />
+                                  ))}
+                                </div>
+                                <span className="text-[8px] font-semibold text-gray-600">500+ Angebote erstellt</span>
+                              </div>
+                            </div>
+
+                            <button className="w-full bg-[#8c5000] hover:bg-[#a66000] text-white font-extrabold py-2 rounded-xl text-[10px] flex items-center justify-center gap-1 shadow-sm mt-3" type="button">
+                              Jetzt starten <ArrowRight size={11} />
+                            </button>
+                          </div>
+
+                          {/* SCREEN 2: Serviceauswahl (Schritt 1 von 4) */}
+                          <div className="w-full min-h-[380px] bg-[#f9f9fe] flex flex-col justify-between p-3 select-none relative font-sans text-left">
+                            <div>
+                              <div className="flex items-center justify-between pb-1.5">
+                                <ArrowLeft size={13} className="text-gray-500" />
+                                <span className="font-black text-xs tracking-tight text-[#8c5000]">PriceBolt</span>
+                                <div className="w-3" />
+                              </div>
+                              <div className="w-full h-1 bg-gray-200 rounded-full overflow-hidden mb-2.5">
+                                <div className="h-full bg-[#8c5000] w-1/4 rounded-full" />
+                              </div>
+
+                              <span className="text-[8px] font-bold text-[#8c5000] uppercase tracking-wider block">Schritt 1 von 4</span>
+                              <h4 className="text-xs font-bold text-gray-900 mt-0.5 leading-tight">Wobei kann ich Ihnen helfen?</h4>
+                              <p className="text-[8px] text-gray-500 mt-0.5 leading-snug">Wählen Sie die Hauptdienstleistung aus.</p>
+
+                              <div className="grid grid-cols-2 gap-1.5 mt-2.5">
+                                <div className="bg-white border-2 border-[#8c5000] rounded-xl p-2 flex flex-col items-center justify-center text-center gap-1 shadow-sm bg-[#ffdcbf]/20">
+                                  <div className="w-7 h-7 rounded-full bg-[#ff9500] text-white flex items-center justify-center">
+                                    <Paintbrush size={12} />
+                                  </div>
+                                  <span className="text-[9px] font-bold text-gray-900">Malerarbeiten</span>
+                                </div>
+                                <div className="bg-white border border-gray-200 rounded-xl p-2 flex flex-col items-center justify-center text-center gap-1">
+                                  <div className="w-7 h-7 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center">
+                                    <Layers size={12} />
+                                  </div>
+                                  <span className="text-[9px] font-medium text-gray-700">Bodenlegen</span>
+                                </div>
+                                <div className="bg-white border border-gray-200 rounded-xl p-2 flex flex-col items-center justify-center text-center gap-1">
+                                  <div className="w-7 h-7 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center">
+                                    <Zap size={12} />
+                                  </div>
+                                  <span className="text-[9px] font-medium text-gray-700">Elektro</span>
+                                </div>
+                                <div className="bg-white border border-gray-200 rounded-xl p-2 flex flex-col items-center justify-center text-center gap-1">
+                                  <div className="w-7 h-7 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center">
+                                    <Hammer size={12} />
+                                  </div>
+                                  <span className="text-[9px] font-medium text-gray-700">Schreinerei</span>
+                                </div>
+                              </div>
+                            </div>
+
+                            <button className="w-full bg-[#8c5000] text-white font-extrabold py-1.5 rounded-xl text-[10px] flex items-center justify-center gap-1 shadow-sm mt-2" type="button">
+                              Weiter <ArrowRight size={11} />
+                            </button>
+                          </div>
+
+                          {/* SCREEN 3: Umfang & Größe (Schritt 2 von 4) */}
+                          <div className="w-full min-h-[380px] bg-[#f9f9fe] flex flex-col justify-between p-3 select-none relative font-sans text-left">
+                            <div>
+                              <div className="flex items-center justify-between pb-1.5">
+                                <ArrowLeft size={13} className="text-gray-500" />
+                                <span className="font-black text-xs tracking-tight text-[#8c5000]">PriceBolt</span>
+                                <div className="w-3" />
+                              </div>
+                              <div className="w-full h-1 bg-gray-200 rounded-full overflow-hidden mb-2.5">
+                                <div className="h-full bg-[#8c5000] w-1/2 rounded-full" />
+                              </div>
+
+                              <span className="text-[8px] font-bold text-[#8c5000] uppercase tracking-wider block">Schritt 2 von 4</span>
+                              <h4 className="text-xs font-bold text-gray-900 mt-0.5 leading-tight">Wie groß ist das Projekt?</h4>
+                              <p className="text-[8px] text-gray-500 mt-0.5 leading-snug">Definieren Sie den Umfang für einen genauen Preis.</p>
+
+                              {/* Slider Card */}
+                              <div className="bg-white border border-gray-200 rounded-xl p-2 mt-2 space-y-1 shadow-sm">
+                                <div className="flex justify-between items-center text-[9px]">
+                                  <span className="font-bold text-gray-800">Gesamtfläche</span>
+                                  <span className="font-extrabold text-[#8c5000] text-xs">1.200 m²</span>
+                                </div>
+                                <div className="w-full h-1.5 bg-gray-200 rounded-full relative">
+                                  <div className="h-full bg-[#8c5000] w-2/5 rounded-full" />
+                                  <div className="w-3 h-3 bg-white border-2 border-[#8c5000] rounded-full absolute top-1/2 left-2/5 -translate-y-1/2 -translate-x-1/2 shadow" />
+                                </div>
+                                <div className="flex justify-between text-[7px] text-gray-400">
+                                  <span>10 m²</span>
+                                  <span>500+ m²</span>
+                                </div>
+                              </div>
+
+                              {/* Stepper Card */}
+                              <div className="bg-white border border-gray-200 rounded-xl p-2 mt-1.5 flex items-center justify-between shadow-sm">
+                                <div>
+                                  <span className="text-[9px] font-bold text-gray-800 block">Räume</span>
+                                  <span className="text-[7px] text-gray-400">Haupträume</span>
+                                </div>
+                                <div className="flex items-center gap-2 bg-gray-100 px-2 py-0.5 rounded-full">
+                                  <Minus size={10} className="text-gray-600" />
+                                  <span className="font-bold text-[10px] text-gray-900">3</span>
+                                  <Plus size={10} className="text-gray-600" />
+                                </div>
+                              </div>
+
+                              {/* Pro-Tipp Card */}
+                              <div className="bg-[#ffdcbf]/30 border border-[#ff9500]/40 rounded-xl p-2 mt-1.5 flex items-start gap-1.5">
+                                <Info size={11} className="text-[#8c5000] mt-0.5 flex-shrink-0" />
+                                <p className="text-[7px] text-gray-700 leading-snug">Pro-Tipp: Schließen Sie Flure und Schränke in die Gesamtfläche ein.</p>
+                              </div>
+                            </div>
+
+                            <button className="w-full bg-[#8c5000] text-white font-extrabold py-1.5 rounded-xl text-[10px] flex items-center justify-center gap-1 shadow-sm mt-2" type="button">
+                              Weiter <ArrowRight size={11} />
+                            </button>
+                          </div>
+
+                          {/* SCREEN 4: Foto-Upload (Schritt 3 von 4) */}
+                          <div className="w-full min-h-[380px] bg-[#f9f9fe] flex flex-col justify-between p-3 select-none relative font-sans text-left">
+                            <div>
+                              <div className="flex items-center justify-between pb-1.5">
+                                <ArrowLeft size={13} className="text-gray-500" />
+                                <span className="font-black text-xs tracking-tight text-[#8c5000]">PriceBolt</span>
+                                <div className="w-3" />
+                              </div>
+                              <div className="w-full h-1 bg-gray-200 rounded-full overflow-hidden mb-2.5">
+                                <div className="h-full bg-[#8c5000] w-3/4 rounded-full" />
+                              </div>
+
+                              <span className="text-[8px] font-bold text-[#8c5000] uppercase tracking-wider block">Schritt 3 von 4</span>
+                              <h4 className="text-xs font-bold text-gray-900 mt-0.5 leading-tight">Zeigen Sie uns den Raum</h4>
+                              <p className="text-[8px] text-gray-500 mt-0.5 leading-snug">Laden Sie Fotos hoch für ein genaues Angebot.</p>
+
+                              {/* Upload Box */}
+                              <div className="border-2 border-dashed border-[#8c5000]/40 bg-[#ffdcbf]/20 rounded-xl p-2.5 text-center flex flex-col items-center justify-center gap-0.5 mt-2">
+                                <Camera size={16} className="text-[#8c5000]" />
+                                <span className="text-[9px] font-bold text-gray-800">Fotos hochladen...</span>
+                                <span className="text-[7px] text-gray-400">PNG, JPG bis zu 10MB</span>
+                              </div>
+
+                              {/* Thumbnails */}
+                              <div className="grid grid-cols-2 gap-1.5 mt-2">
+                                <div className="h-14 rounded-lg overflow-hidden relative border border-gray-200 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=300&q=80')" }}>
+                                  <div className="absolute top-1 right-1 bg-red-500 text-white p-0.5 rounded-full">
+                                    <Trash2 size={8} />
+                                  </div>
+                                </div>
+                                <div className="h-14 rounded-lg overflow-hidden relative border border-gray-200 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=300&q=80')" }}>
+                                  <div className="absolute top-1 right-1 bg-red-500 text-white p-0.5 rounded-full">
+                                    <Trash2 size={8} />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div>
+                              <span className="text-[8px] text-gray-400 underline block text-center mb-1 cursor-pointer">Vorerst überspringen</span>
+                              <button className="w-full bg-[#8c5000] text-white font-extrabold py-1.5 rounded-xl text-[10px] flex items-center justify-center gap-1 shadow-sm" type="button">
+                                Weiter <ArrowRight size={11} />
+                              </button>
+                            </div>
+                          </div>
+
+                          {/* SCREEN 5: Kontaktdaten (Schritt 4 von 4) */}
+                          <div className="w-full min-h-[380px] bg-[#f9f9fe] flex flex-col justify-between p-3 select-none relative font-sans text-left">
+                            <div>
+                              <div className="flex items-center justify-between pb-1.5">
+                                <ArrowLeft size={13} className="text-gray-500" />
+                                <span className="font-black text-xs tracking-tight text-[#8c5000]">PriceBolt</span>
+                                <div className="w-3" />
+                              </div>
+                              <div className="w-full h-1 bg-gray-200 rounded-full overflow-hidden mb-2.5">
+                                <div className="h-full bg-[#8c5000] w-full rounded-full" />
+                              </div>
+
+                              <span className="text-[8px] font-bold text-[#8c5000] uppercase tracking-wider block">Schritt 4 von 4</span>
+                              <h4 className="text-xs font-bold text-gray-900 mt-0.5 leading-tight">Wohin sollen wir das Angebot senden?</h4>
+                              <p className="text-[8px] text-gray-500 mt-0.5 leading-snug">Nur ein paar Details für den Preis.</p>
+
+                              <div className="space-y-1.5 mt-2">
+                                <div className="bg-white border border-gray-300 rounded-lg px-2 py-1">
+                                  <span className="text-[7px] text-[#8c5000] font-bold block">Vollständiger Name</span>
+                                  <span className="text-[9px] text-gray-800 font-medium">Max Mustermann</span>
+                                </div>
+                                <div className="bg-white border border-gray-300 rounded-lg px-2 py-1">
+                                  <span className="text-[7px] text-[#8c5000] font-bold block">E-Mail-Adresse</span>
+                                  <span className="text-[9px] text-gray-800 font-medium">max@example.de</span>
+                                </div>
+                                <div className="bg-white border border-gray-300 rounded-lg px-2 py-1 flex items-center justify-between">
+                                  <span className="text-[8px] text-gray-400">Bevorzugte Kontaktzeit...</span>
+                                  <ChevronDown size={10} className="text-gray-400" />
+                                </div>
+                              </div>
+                            </div>
+
+                            <button className="w-full bg-[#8c5000] text-white font-extrabold py-2 rounded-xl text-[10px] flex items-center justify-center gap-1 shadow-sm mt-2" type="button">
+                              Preis berechnen <Zap size={11} fill="currentColor" />
+                            </button>
+                          </div>
+
+                          {/* SCREEN 6: Kostenschätzung / Ergebnis */}
+                          <div className="w-full min-h-[380px] bg-[#f9f9fe] flex flex-col justify-between p-3 select-none relative font-sans text-left">
+                            <div>
+                              <div className="flex items-center justify-between pb-1.5 border-b border-gray-200">
+                                <ArrowLeft size={13} className="text-gray-500" />
+                                <span className="font-black text-xs tracking-tight text-[#8c5000]">PriceBolt</span>
+                                <div className="w-3" />
+                              </div>
+
+                              <div className="mt-2 text-center">
+                                <div className="inline-flex items-center gap-1 bg-[#00CC6A]/15 text-[#00CC6A] px-2 py-0.5 rounded-full text-[8px] font-bold">
+                                  <CheckCircle size={9} /> Berechnung abgeschlossen
+                                </div>
+                                <h4 className="text-xs font-bold text-gray-900 mt-1">Ihre Kostenschätzung</h4>
+                              </div>
+
+                              {/* Price Card */}
+                              <div className="bg-white border border-[#8c5000]/30 rounded-xl p-2.5 text-center mt-2 shadow-sm bg-gradient-to-br from-white to-[#ffdcbf]/20">
+                                <span className="text-[7px] text-gray-400 font-bold uppercase tracking-wider block">Geschätzter Gesamtbereich</span>
+                                <span className="text-sm font-black text-[#8c5000] mt-0.5 block">1.200 € - 1.500 €</span>
+                              </div>
+
+                              {/* Details */}
+                              <div className="bg-white border border-gray-200 rounded-xl p-2 mt-2 space-y-1 text-[8px]">
+                                <div className="flex justify-between items-center text-gray-700">
+                                  <span className="flex items-center gap-1"><Paintbrush size={9} /> Dienstleistung</span>
+                                  <span className="font-bold text-gray-900">Malerarbeiten</span>
+                                </div>
+                                <div className="flex justify-between items-center text-gray-700">
+                                  <span className="flex items-center gap-1"><Sliders size={9} /> Größe</span>
+                                  <span className="font-bold text-gray-900">45 m²</span>
+                                </div>
+                                <div className="flex justify-between items-center text-gray-700">
+                                  <span className="flex items-center gap-1"><Receipt size={9} /> Arbeitskosten</span>
+                                  <span className="font-bold text-gray-900">800 €</span>
+                                </div>
+                              </div>
+                            </div>
+
+                            <button className="w-full bg-[#8c5000] text-white font-extrabold py-2 rounded-xl text-[10px] flex items-center justify-center gap-1 shadow-sm mt-2" type="button">
+                              Anfrage senden <Send size={10} />
+                            </button>
+                          </div>
+
                         </div>
                       </div>
                     </div>
