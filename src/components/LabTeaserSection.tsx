@@ -278,11 +278,6 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
                             alt="PriceBolt Schritt 4 - Angebot anfordern" 
                             className="w-full h-auto block object-cover flex-shrink-0" 
                           />
-                          <img 
-                            src="/assets/apps/pricebolt-screen6.png" 
-                            alt="PriceBolt Bestätigung - Anfrage gesendet" 
-                            className="w-full h-auto block object-cover flex-shrink-0" 
-                          />
                         </div>
                       </div>
                     </div>
