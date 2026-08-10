@@ -664,6 +664,31 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                                   </button>
                                 </div>
 
+                                {/* SCREEN 7: Anfrage gesendet! (Bestätigungs-Screen) */}
+                                <div className="w-full min-h-[380px] bg-[#f9f9fe] flex flex-col justify-between p-3 select-none relative font-sans text-left">
+                                  <div>
+                                    <div className="flex items-center justify-between pb-1.5 border-b border-gray-200">
+                                      <ArrowLeft size={13} className="text-gray-500" />
+                                      <span className="font-black text-xs tracking-tight text-[#8c5000]">PriceBolt</span>
+                                      <div className="w-3" />
+                                    </div>
+
+                                    <div className="mt-6 flex flex-col items-center text-center">
+                                      <div className="w-16 h-16 rounded-full bg-[#ffdcbf]/40 border border-[#ff9500]/30 flex items-center justify-center relative mb-3 shadow-inner">
+                                        <div className="absolute inset-0 bg-[#ff9500]/20 rounded-full blur-md animate-pulse" />
+                                        <CheckCircle size={32} className="text-[#8c5000] relative z-10" />
+                                      </div>
+                                      <h4 className="text-sm font-black text-gray-900 leading-tight">Anfrage gesendet!</h4>
+                                      <p className="text-[9px] text-gray-500 mt-2 leading-relaxed max-w-[200px] mx-auto">
+                                        Vielen Dank für Ihr Vertrauen. Wir melden uns innerhalb von 24 Stunden mit einem endgültigen Angebot.
+                                      </p>
+                                    </div>
+                                  </div>
+
+                                  <button className="w-full bg-[#8c5000] text-white font-extrabold py-2 rounded-xl text-[10px] flex items-center justify-center gap-1 shadow-sm mt-3" type="button">
+                                    Zur Startseite <ArrowRight size={11} />
+                                  </button>
+                                </div>
                               </div>
                             </div>
                           ) : app.id === 'leadradar' ? (
