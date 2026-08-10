@@ -251,11 +251,11 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
                     <div className="gl-exact-screen-glare" />
                     <div className="gl-exact-notch"><span></span></div>
                     <div className="gl-exact-screen-content gl-custom-mockup-screen overflow-hidden relative">
-                      <div className="w-full h-full relative overflow-hidden bg-[#f9f9fe] pt-5">
+                      <div className="w-full h-full relative overflow-hidden bg-[#f9f9fe] pt-[36px]">
                         <img 
                           src="/assets/apps/pricebolt-screen1.png" 
                           alt="PriceBolt Startbild" 
-                          className="w-full h-auto block object-cover" 
+                          className="w-full h-auto block" 
                         />
                       </div>
                     </div>
