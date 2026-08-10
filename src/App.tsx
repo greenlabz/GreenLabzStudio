@@ -1238,8 +1238,8 @@ export default function App() {
 
         <IndustriesSection />
 
-        <section className="section work-section" id="cases" data-reveal>
-          <div className="section-head">
+        <section className="section work-section" id="cases">
+          <div className="section-head" data-reveal>
             <SectionLabel number="10" label="Projekte / Case Studies" />
             <h2>Kein <span className="text-accent">Blabla</span>. Nur fertige Websites.</h2>
           </div>

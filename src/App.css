@@ -1099,6 +1099,9 @@ html:not(.js-ready) .work-row {
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
   overflow: hidden;
   will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  will-change: transform, opacity;
   width: 100%;
 }
 

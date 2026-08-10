@@ -74,15 +74,15 @@ export function BeforeAfterSlider() {
       const isMobile = window.innerWidth < 900
       const pinTarget = containerRef.current.closest<HTMLElement>('.featured-case') || containerRef.current
 
-      // Pin Timeline (65px top clearance for floating header navigation)
+      // Pin Timeline (Clean top clearance for floating header navigation)
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: pinTarget,
-          start: isMobile ? 'top 65px' : 'top 50px',
-          end: () => `+=${Math.round(window.innerHeight * (isMobile ? 1.2 : 1.8))}`,
+          start: isMobile ? 'top 75px' : 'top 85px',
+          end: () => `+=${Math.round(window.innerHeight * (isMobile ? 1.2 : 1.6))}`,
           pin: true,
           pinSpacing: true,
-          scrub: 1,
+          scrub: 0.3,
           anticipatePin: 1,
           invalidateOnRefresh: true,
         },
@@ -92,7 +92,7 @@ export function BeforeAfterSlider() {
       tl.fromTo(
         beforeRef.current,
         { clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' },
-        { clipPath: 'polygon(0 0, 0% 0, 0% 100%, 0 100%)', ease: 'none', duration: 1 },
+        { clipPath: 'polygon(0 0, 0% 0, 0% 100%, 0 100%)', ease: 'none', duration: 1, force3D: true },
         0
       )
 
@@ -108,12 +108,14 @@ export function BeforeAfterSlider() {
             opacity: 1,
             ease: 'power2.out',
             duration: 0.18,
+            force3D: true,
           },
           startTime
         )
       })
 
       // Refresh ScrollTrigger once DOM/images settle
+      requestAnimationFrame(() => ScrollTrigger.refresh())
       setTimeout(() => ScrollTrigger.refresh(), 300)
     }, containerRef)
 
