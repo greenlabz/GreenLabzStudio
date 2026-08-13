@@ -63,18 +63,14 @@ export default function CinematicHero({ onOpenDatenschutz }: CinematicHeroProps 
         return
       }
 
-      gsap.set(all('.gl-exact-text-track'), { autoAlpha: 0, y: 60, scale: .85, filter: 'blur(20px)', rotationX: -20 })
-      gsap.set(all('.gl-exact-text-days'), { autoAlpha: 1, clipPath: 'inset(0 100% 0 0)' })
+      gsap.set(all('.gl-exact-text-track'), { autoAlpha: 1, y: 0, scale: 1, filter: 'blur(0px)', rotationX: 0 })
+      gsap.set(all('.gl-exact-text-days'), { autoAlpha: 1, clipPath: 'inset(0 0% 0 0)' })
       gsap.set(all('.gl-exact-main-card'), { y: window.innerHeight + 200, autoAlpha: 1 })
       gsap.set(all('.gl-exact-card-left, .gl-exact-card-right, .gl-exact-phone-wrap, .gl-exact-badge, .gl-exact-phone-state-one .gl-exact-phone-widget'), { autoAlpha: 0 })
       gsap.set(all('.gl-exact-phone-state, .gl-exact-card-copy'), { filter: 'blur(0px)' })
       gsap.set(all('.gl-exact-phone-state-two, .gl-exact-phone-state-three, .gl-exact-phone-state-four, .gl-exact-card-copy-two, .gl-exact-card-copy-three, .gl-exact-card-copy-four'), { autoAlpha: 0 })
       gsap.set(all('.gl-exact-speed-value, .gl-exact-speed-flash, .gl-exact-speed-point'), { autoAlpha: 0 })
       gsap.set(all('.gl-exact-cta'), { autoAlpha: 0, scale: .8, filter: 'blur(30px)' })
-
-      gsap.timeline({ delay: .3 })
-        .to(all('.gl-exact-text-track'), { duration: 1.8, autoAlpha: 1, y: 0, scale: 1, filter: 'blur(0px)', rotationX: 0, ease: 'expo.out' })
-        .to(all('.gl-exact-text-days'), { duration: 1.4, clipPath: 'inset(0 0% 0 0)', ease: 'power4.inOut' }, '-=1')
 
       const isMobile = window.innerWidth < 768
       const inquiryCounter = { value: 0 }

@@ -10,7 +10,7 @@ const CalEmbed = lazy(() => import('@calcom/embed-react').then((module) => ({ de
 import { LabTeaserSection } from './components/LabTeaserSection'
 import CinematicHero from './components/CinematicHero'
 import CinematicPhone from './components/CinematicPhone'
-import CinematicFooter from './components/CinematicFooter'
+import StandardFooter from './components/CinematicFooter'
 import LegalPage from './pages/LegalPage'
 import { FloatingContactWidget } from './components/FloatingContactWidget'
 import { TechStackSection } from './components/TechStackSection'
@@ -52,7 +52,6 @@ if (typeof window !== 'undefined') {
   ScrollTrigger.config({ ignoreMobileResize: true })
 }
 
-const logoSrc = '/assets/greenlabz-studio-logo.svg'
 const leadMagnetEndpoint = '/api/lead-magnet'
 const leadMagnetFile = '/downloads/greenlabz-website-analyse.pdf'
 const socialProofLogos = [
@@ -331,15 +330,7 @@ const objections = [
 ]
 
 function LogoMark({ className = '' }: { className?: string }) {
-  return (
-    <img
-      className={`brand-logo ${className}`}
-      src={logoSrc}
-      alt="GreenLabz Studio"
-      loading="eager"
-      decoding="async"
-    />
-  )
+  return <span className={`brand-logo ${className}`} role="img" aria-label="GreenLabz Studio" />
 }
 
 function PrimaryCta({ children, href, onClick }: { children: string; href?: string; onClick?: () => void }) {
@@ -1734,7 +1725,7 @@ function MainApp() {
         isOpen={isImpressumModalOpen}
         onClose={() => setIsImpressumModalOpen(false)}
       />
-      <CinematicFooter
+      <StandardFooter
         onPrimaryClick={scrollToCalendar}
         onContactClick={() => setIsContactModalOpen(true)}
         onNavigate={navigate}
