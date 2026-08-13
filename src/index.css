@@ -56,3 +56,15 @@ input, textarea, select {
 #root {
   min-height: 100svh;
 }
+
+/* Critical nav CTA text: visible before the large visual stylesheet arrives. */
+.site-nav .nav-cta-label-full,
+.site-nav .nav-cta-label-mobile,
+.site-nav .nav-cta-word {
+  position: relative;
+  z-index: 2;
+  color: #041209;
+  opacity: 1;
+  visibility: visible;
+  -webkit-text-fill-color: #041209;
+}

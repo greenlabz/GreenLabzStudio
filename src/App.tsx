@@ -46,7 +46,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Lenis from 'lenis'
 import { HeroBendGallery } from './components/HeroBendGallery'
 import { BeforeAfterSlider } from './components/BeforeAfterSlider'
-import './App.css'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
