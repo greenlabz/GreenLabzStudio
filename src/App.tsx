@@ -5,11 +5,13 @@ import { PflegeModal } from './PflegeModal'
 import { DatenschutzModal } from './DatenschutzModal'
 import { ImpressumModal } from './ImpressumModal'
 const RatgeberPage = lazy(() => import('./pages/RatgeberPage'))
-const AppsPage = lazy(() => import('./pages/AppsPage'))
+const ShakerPage = lazy(() => import('./pages/ShakerPage'))
+const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'))
 import { LabTeaserSection } from './components/LabTeaserSection'
 import CinematicHero from './components/CinematicHero'
 import CinematicPhone from './components/CinematicPhone'
 import CinematicFooter from './components/CinematicFooter'
+import LegalPage from './pages/LegalPage'
 import { FloatingContactWidget } from './components/FloatingContactWidget'
 import { TechStackSection } from './components/TechStackSection'
 import { GoogleReviewsSection } from './components/GoogleReviewsSection'
@@ -492,7 +494,7 @@ function BookingFlow({ onOpenDatenschutz }: { onOpenDatenschutz: () => void }) {
   )
 }
 
-export default function App() {
+function MainApp() {
   const rootRef = useRef<HTMLDivElement>(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isContactModalOpen, setIsContactModalOpen] = useState(false)
@@ -510,7 +512,9 @@ export default function App() {
     if (typeof window === 'undefined') return 'home'
     const h = window.location.hash.replace('#', '')
     if (h.startsWith('ratgeber')) return 'ratgeber'
-    if (h.startsWith('apps') || h.startsWith('labs')) return 'apps'
+    if (h.startsWith('apps') || h.startsWith('labs')) return 'home'
+    if (h.startsWith('shaker')) return 'shaker'
+    if (h.startsWith('app-')) return h
     return 'home'
   })
   const [articleSlug, setArticleSlug] = useState<string | null>(() => {
@@ -655,6 +659,72 @@ export default function App() {
         gsap.set(floatingContact, { autoAlpha: 1, y: 0, scale: 1, filter: 'blur(0px)', pointerEvents: 'auto' })
       }
 
+      if (route === 'shaker' || route.startsWith('app-')) {
+        const isCompact = window.matchMedia('(max-width: 799px)').matches
+        const heroElements = root.querySelectorAll<HTMLElement>('.shaker-detail-back, .shaker-detail-kicker, .shaker-detail-hero h1, .shaker-detail-lead')
+
+        gsap.timeline({ defaults: { ease: 'expo.out' } })
+          .from('.site-nav, .floating-contact-sidebar', { y: -24, opacity: 0, duration: 0.65 })
+          .from(heroElements, {
+            y: isCompact ? 28 : 44,
+            opacity: 0,
+            duration: isCompact ? 0.58 : 0.78,
+            stagger: 0.08,
+            clearProps: 'transform,opacity',
+          }, '-=0.28')
+
+        gsap.utils.toArray<HTMLElement>('.shaker-detail-row').forEach((row) => {
+          const visual = row.querySelector<HTMLElement>('.shaker-detail-visual')
+          const copy = row.querySelector<HTMLElement>('.shaker-detail-copy')
+          if (!visual || !copy) return
+
+          const visualDirection = row.classList.contains('is-reversed') ? 1 : -1
+          const timeline = gsap.timeline({
+            scrollTrigger: {
+              trigger: row,
+              start: isCompact ? 'top 88%' : 'top 82%',
+              toggleActions: 'play none none reverse',
+            },
+          })
+
+          timeline
+            .from(visual, {
+              x: visualDirection * (isCompact ? 38 : 96),
+              y: isCompact ? 22 : 0,
+              autoAlpha: 0,
+              scale: isCompact ? 0.98 : 0.96,
+              filter: isCompact ? 'none' : 'blur(8px)',
+              duration: isCompact ? 0.58 : 0.78,
+              ease: 'power3.out',
+              clearProps: 'transform,filter,opacity,visibility',
+            })
+            .from(copy, {
+              x: -visualDirection * (isCompact ? 28 : 72),
+              y: isCompact ? 18 : 0,
+              autoAlpha: 0,
+              duration: isCompact ? 0.52 : 0.7,
+              ease: 'power3.out',
+              clearProps: 'transform,opacity,visibility',
+            }, isCompact ? '-=0.34' : '-=0.54')
+        })
+
+        gsap.from('.shaker-detail-cta > *', {
+          y: isCompact ? 28 : 46,
+          autoAlpha: 0,
+          duration: isCompact ? 0.55 : 0.72,
+          stagger: 0.1,
+          ease: 'power3.out',
+          clearProps: 'transform,opacity,visibility',
+          scrollTrigger: {
+            trigger: '.shaker-detail-cta',
+            start: 'top 86%',
+            toggleActions: 'play none none reverse',
+          },
+        })
+
+        return
+      }
+
       // 1. Hide nav when scrolling down past Hero
       ScrollTrigger.create({
         trigger: '.hero-section',
@@ -715,7 +785,7 @@ export default function App() {
       const mobilePhone = mobileModel?.querySelector<HTMLElement>('.gl-exact-phone-static')
       if (mobileSection && mobileStage && mobileModel && mobilePhone) {
         const mobileViewport = window.matchMedia('(max-width: 1079px)').matches
-        const pinDistance = mobileViewport ? 1800 : 1600
+        const pinDistance = Math.round(window.innerHeight * 1.4)
         const phoneStates = gsap.utils.toArray<HTMLElement>('.gl-exact-phone-state', mobileModel)
         const beatCopies = gsap.utils.toArray<HTMLElement>('.mobile-beat-copy-state', mobileSection)
         const stopwatchRing = mobileModel.querySelector<SVGCircleElement>('.gl-exact-phone-state-one .gl-exact-progress-ring')
@@ -922,7 +992,7 @@ export default function App() {
             scrollTrigger: {
               trigger: agitationSection,
               start: 'top top',
-              end: () => `+=${Math.round(window.innerHeight * agitationCards.length * .72)}`,
+              end: () => `+=${Math.round(window.innerHeight * agitationCards.length * .45)}`,
               pin: true,
               pinSpacing: true,
               scrub: .7,
@@ -999,10 +1069,13 @@ export default function App() {
           <LogoMark />
         </a>
 
-        <a className="nav-cta" href="#calendar">
+        <a className="nav-cta" href="#calendar" onClick={(event) => { event.preventDefault(); navigate('home#calendar') }}>
           <span className="cta-dots" aria-hidden="true" />
           <span className="cta-label nav-cta-label-full">Kostenloses Erstgespräch</span>
-          <span className="cta-label nav-cta-label-short">Erstgespräch</span>
+          <span className="cta-label nav-cta-label-mobile" aria-label="Kostenloses Erstgespräch">
+            <span className="nav-cta-word nav-cta-word-free">Kostenloses</span>
+            <span className="nav-cta-word nav-cta-word-talk">Erstgespräch</span>
+          </span>
           <ArrowRight size={16} />
         </a>
         <button className="menu" type="button" aria-label={isMenuOpen ? 'Menü schließen' : 'Menü öffnen'} aria-expanded={isMenuOpen} onClick={() => setIsMenuOpen((open) => !open)}>
@@ -1014,13 +1087,13 @@ export default function App() {
         <nav className="menu-panel" aria-label="Hauptnavigation" data-lenis-prevent>
           <div className="menu-panel-head"><span>[00] NAVIGATION</span><span>GreenLabz Studio</span></div>
           <div className="menu-links">
-            <a href="#top" onClick={() => setIsMenuOpen(false)}><span>01</span>Startseite<ArrowUpRight size={17} /></a>
-            <a href="#cases" onClick={() => setIsMenuOpen(false)}><span>02</span>Projekte &amp; Ergebnisse<ArrowUpRight size={17} /></a>
-            <a href="#services" onClick={() => setIsMenuOpen(false)}><span>03</span>Leistungen<ArrowUpRight size={17} /></a>
-            <a href="#apps" onClick={(event) => { event.preventDefault(); setIsMenuOpen(false); navigate('apps') }}><span>04</span>Apps &amp; Tools<ArrowUpRight size={17} /></a>
-            <a href="#pricing" onClick={() => setIsMenuOpen(false)}><span>05</span>Investition<ArrowUpRight size={17} /></a>
-            <a href="#faq" onClick={() => setIsMenuOpen(false)}><span>06</span>Fragen &amp; Antworten<ArrowUpRight size={17} /></a>
-            <a href="#calendar" onClick={() => setIsMenuOpen(false)}><span>07</span>Kostenloses Erstgespräch<ArrowUpRight size={17} /></a>
+            <a href="#top" onClick={(event) => { event.preventDefault(); setIsMenuOpen(false); navigate('home') }}><span>01</span>Startseite<ArrowUpRight size={17} /></a>
+            <a href="#cases" onClick={(event) => { event.preventDefault(); setIsMenuOpen(false); navigate('home#cases') }}><span>02</span>Projekte &amp; Ergebnisse<ArrowUpRight size={17} /></a>
+            <a href="#services" onClick={(event) => { event.preventDefault(); setIsMenuOpen(false); navigate('home#services') }}><span>03</span>Leistungen<ArrowUpRight size={17} /></a>
+            <a href="#lab" onClick={(event) => { event.preventDefault(); setIsMenuOpen(false); navigate('home#lab') }}><span>04</span>Apps &amp; Tools<ArrowUpRight size={17} /></a>
+            <a href="#pricing" onClick={(event) => { event.preventDefault(); setIsMenuOpen(false); navigate('home#pricing') }}><span>05</span>Investition<ArrowUpRight size={17} /></a>
+            <a href="#faq" onClick={(event) => { event.preventDefault(); setIsMenuOpen(false); navigate('home#faq') }}><span>06</span>Fragen &amp; Antworten<ArrowUpRight size={17} /></a>
+            <a href="#calendar" onClick={(event) => { event.preventDefault(); setIsMenuOpen(false); navigate('home#calendar') }}><span>07</span>Kostenloses Erstgespräch<ArrowUpRight size={17} /></a>
             <a href="#ratgeber" onClick={(event) => { event.preventDefault(); setIsMenuOpen(false); navigate('ratgeber') }}><span>08</span>Ratgeber<ArrowUpRight size={17} /></a>
             <a href="#contact" onClick={(event) => { event.preventDefault(); setIsMenuOpen(false); setIsContactModalOpen(true) }}><span>09</span>Kontakt<ArrowUpRight size={17} /></a>
           </div>
@@ -1030,9 +1103,13 @@ export default function App() {
         <Suspense fallback={<div style={{minHeight:'100vh'}} />}>
           <RatgeberPage onNavigate={navigate} initialArticleSlug={articleSlug} />
         </Suspense>
-      ) : route === 'apps' ? (
+      ) : route === 'shaker' ? (
         <Suspense fallback={<div style={{minHeight:'100vh'}} />}>
-          <AppsPage onNavigate={navigate} />
+          <ShakerPage onNavigate={navigate} onBookCall={scrollToCalendar} />
+        </Suspense>
+      ) : route.startsWith('app-') ? (
+        <Suspense fallback={<div style={{minHeight:'100vh'}} />}>
+          <ProductDetailPage productId={route.slice(4)} onNavigate={navigate} onBookCall={scrollToCalendar} />
         </Suspense>
       ) : (
 <main>
@@ -1078,7 +1155,7 @@ export default function App() {
             <div className="social-proof-track">
               {[0, 1].map((set) => (
                 <div className="social-proof-set" key={set} aria-hidden={set === 1}>
-                  {socialProofLogos.map((logo) => <img key={`${set}-${logo.alt}`} src={logo.src} alt={set === 0 ? logo.alt : ''} />)}
+                  {socialProofLogos.map((logo) => <img key={`${set}-${logo.alt}`} src={logo.src} alt={set === 0 ? logo.alt : ''} loading="lazy" decoding="async" />)}
                 </div>
               ))}
             </div>
@@ -1574,7 +1651,7 @@ export default function App() {
 
         <section className="section about-section" data-reveal>
           <div className="about-image-wrapper">
-            <img src="/assets/james-portrait-2.png" alt="James Green" className="about-image" />
+            <img src="/assets/james-portrait-2.png" alt="James Green" className="about-image" loading="lazy" decoding="async" />
           </div>
           <div>
             <SectionLabel number="17" label="About Me" />
@@ -1644,10 +1721,15 @@ export default function App() {
         onPrimaryClick={scrollToCalendar}
         onContactClick={() => setIsContactModalOpen(true)}
         onNavigate={navigate}
-        onOpenImpressum={() => setIsImpressumModalOpen(true)}
-        onOpenDatenschutz={() => setIsDatenschutzModalOpen(true)}
       />
       <FloatingContactWidget />
     </div>
   )
+}
+
+export default function App() {
+  const pathname = typeof window === 'undefined' ? '/' : window.location.pathname.replace(/\/$/, '') || '/'
+  if (pathname === '/impressum') return <LegalPage type="impressum" />
+  if (pathname === '/datenschutz') return <LegalPage type="datenschutz" />
+  return <MainApp />
 }

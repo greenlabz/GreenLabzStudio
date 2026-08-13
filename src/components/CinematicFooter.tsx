@@ -11,8 +11,6 @@ type CinematicFooterProps = {
   onPrimaryClick: () => void
   onContactClick: () => void
   onNavigate: (route: string) => void
-  onOpenImpressum: () => void
-  onOpenDatenschutz?: () => void
 }
 
 type MagneticAnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement>
@@ -71,7 +69,7 @@ const footerLinks = [
   { number: '03', label: 'Leistungen', target: 'services' },
 ] as const
 
-export default function CinematicFooter({ onPrimaryClick, onContactClick, onNavigate, onOpenImpressum, onOpenDatenschutz }: CinematicFooterProps) {
+export default function CinematicFooter({ onPrimaryClick, onContactClick, onNavigate }: CinematicFooterProps) {
   const wrapperRef = useRef<HTMLDivElement>(null)
   const headingRef = useRef<HTMLHeadingElement>(null)
   const linksRef = useRef<HTMLDivElement>(null)
@@ -175,8 +173,8 @@ export default function CinematicFooter({ onPrimaryClick, onContactClick, onNavi
               </MagneticButton>
             </nav>
             <nav className="cinematic-footer-legal" aria-label="Rechtliches">
-              <MagneticButton type="button" onClick={onOpenImpressum}>Impressum</MagneticButton>
-              <MagneticButton type="button" onClick={onOpenDatenschutz}>Datenschutz</MagneticButton>
+              <MagneticAnchor href="/impressum">Impressum</MagneticAnchor>
+              <MagneticAnchor href="/datenschutz">Datenschutz</MagneticAnchor>
             </nav>
           </div>
         </div>

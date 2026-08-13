@@ -1,11 +1,8 @@
 import { useEffect, useRef } from 'react'
 import { 
   ArrowRight, 
-  ArrowUpRight, 
   Layers, 
-  Calendar, 
   Users, 
-  GlassWater, 
   Settings, 
   Upload,
   Plus
@@ -27,6 +24,9 @@ function SectionLabel({ number, label }: { number: string; label: string }) {
 
 export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
   const sectionRef = useRef<HTMLElement>(null)
+  const shakerTrackRef = useRef<HTMLDivElement>(null)
+  const priceBoltTrackRef = useRef<HTMLDivElement>(null)
+  const vnProTrackRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -88,6 +88,54 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
           }
         }
       })
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+      const createScreenTimeline = (track: HTMLDivElement | null, triggerSelector: string, slideCount: number) => {
+        if (!track) return
+
+        gsap.set(track, { yPercent: 0 })
+        if (prefersReducedMotion) return
+
+        const trigger = track.closest<HTMLElement>(triggerSelector)
+        if (!trigger) return
+
+        const timeline = gsap.timeline({
+          repeat: -1,
+          repeatDelay: 0.8,
+          scrollTrigger: {
+            trigger,
+            start: 'top 75%',
+            end: 'bottom 20%',
+            toggleActions: 'play pause resume reset',
+            invalidateOnRefresh: true,
+          },
+        })
+
+        timeline.to({}, { duration: 1.2 })
+
+        for (let screenIndex = 1; screenIndex < slideCount; screenIndex += 1) {
+          timeline
+            .to(track, {
+              yPercent: -(screenIndex * 100) / slideCount,
+              duration: 0.65,
+              ease: 'power3.inOut',
+              force3D: true,
+            })
+            .to({}, { duration: 1.15 })
+        }
+
+        timeline.to(track, {
+          yPercent: 0,
+          duration: 0.8,
+          ease: 'power3.inOut',
+          force3D: true,
+        })
+      }
+
+      createScreenTimeline(shakerTrackRef.current, '.shaker-showcase-row', 6)
+      createScreenTimeline(priceBoltTrackRef.current, '.pricebolt-showcase-row', 6)
+      createScreenTimeline(vnProTrackRef.current, '.vnpro-showcase-row', 6)
     }, sectionRef)
 
     return () => ctx.revert()
@@ -97,7 +145,7 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
     <section className="section lab-teaser-section bg-[#0A0A0B] py-20 border-t border-b border-white/5" id="lab" ref={sectionRef}>
       
       {/* ═══════════════════════════════════════
-          SUBSECTION 1: Fokus auf mobile Usability
+          SUBSECTION 1: Individuell entwickelte Apps
           ═══════════════════════════════════════ */}
       <div className="lab-subsection-mobile mb-24">
         <div className="section-head mb-12 md:mb-16">
@@ -105,105 +153,38 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
             <span /> MOBILE APPS
           </p>
           <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mt-2">
-            Fokus auf mobile Usability
+            <span className="lab-highlight">Individuell</span> entwickelte <span className="lab-highlight">Apps</span>, die den <span className="lab-highlight">Alltag</span> meiner Kunden <span className="lab-highlight">leichter</span> machen
           </h2>
         </div>
 
         <div className="lab-teaser-rows space-y-20 md:space-y-28">
           
           {/* 1. The Shaker */}
-          <div className="lab-teaser-row lab-item-card layout-left flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16">
+          <div className="lab-teaser-row lab-item-card shaker-showcase-row layout-left flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16">
             <div className="lab-teaser-preview lab-item-mockup w-full md:w-1/2 flex justify-center">
-              <div className="app-phone-container max-w-[290px] md:max-w-[310px] w-full" style={{ transform: 'scale(0.96)' }}>
-                <div className="gl-exact-phone-bezel border-2 border-[#00CC6A]/50 shadow-[0_0_35px_rgba(0,204,106,0.18)]">
+              <div className="app-phone-container max-w-[290px] md:max-w-[310px] w-full">
+                <div className="gl-exact-phone-bezel app-phone-frame">
                   <div className="gl-exact-hardware gl-exact-hardware-left-one" />
                   <div className="gl-exact-hardware gl-exact-hardware-left-two" />
                   <div className="gl-exact-hardware gl-exact-hardware-right" />
                   <div className="gl-exact-screen">
                     <div className="gl-exact-screen-glare" />
-                    <div className="gl-exact-notch"><span></span></div>
-                    <div className="gl-exact-screen-content gl-custom-mockup-screen">
-                      <div className="shaker-mockup-app">
-                        <div className="shaker-app-header-schedule">
-                          <div className="shaker-header-info">
-                            <span className="shaker-title">The Shaker</span>
-                            <span className="shaker-sub">Cocktail Bar · Diese Woche</span>
-                          </div>
-                          <div className="shaker-avatar">JG</div>
-                        </div>
-
-                        <div className="shaker-cal-bar">
-                          <div className="shaker-cal-nav">
-                            <span>‹</span>
-                            <strong>9. – 15. Juni 2025</strong>
-                            <span>›</span>
-                          </div>
-                          <div className="shaker-cal-days">
-                            {['MO', 'DI', 'MI', 'DO', 'FR', 'SA'].map((d, i) => (
-                              <div key={d} className={`shaker-cal-day${i === 2 ? ' active' : ''}`}>
-                                <small>{d}</small>
-                                <strong>{9 + i}</strong>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        <div className="shaker-app-scroll">
-                          <div className="shaker-app-scroll-track">
-                            <div className="shaker-day-label">MITTWOCH, 11. JUNI</div>
-                            
-                            <div className="shaker-shift-card">
-                              <span className="shaker-dot" style={{ background: '#f4a26b' }} />
-                              <div className="shaker-shift-info">
-                                <strong>Opening / Prep</strong>
-                                <small>14:00 – 18:00 Uhr</small>
-                              </div>
-                              <div className="shaker-shift-avatars">
-                                <span>AN</span><span>LK</span><span>MR</span>
-                              </div>
-                              <span className="shaker-shift-count">3</span>
+                        
+                    <div className="gl-exact-screen-content gl-custom-mockup-screen overflow-hidden relative">
+                      <div className="shaker-phone-scroll-wrapper">
+                        <div className="shaker-phone-scroll-track" ref={shakerTrackRef}>
+                          {[
+                            ['shaker-screen1.png', 'The Shaker Teamübersicht'],
+                            ['shaker-screen2.png', 'The Shaker Einstellungen'],
+                            ['shaker-screen3.png', 'The Shaker Schicht bearbeiten'],
+                            ['shaker-screen4.png', 'The Shaker Wochenplan'],
+                            ['shaker-screen5.png', 'The Shaker Bar-Verwaltung'],
+                            ['shaker-screen6.png', 'The Shaker Profil'],
+                          ].map(([fileName, altText]) => (
+                            <div className="shaker-screen-slide" key={fileName}>
+                              <img src={`/assets/apps/${fileName}`} alt={altText} loading="lazy" decoding="async" />
                             </div>
-
-                            <div className="shaker-shift-card">
-                              <span className="shaker-dot" style={{ background: '#e07060' }} />
-                              <div className="shaker-shift-info">
-                                <strong>Dinner Rush</strong>
-                                <small>18:00 – 00:00 Uhr</small>
-                              </div>
-                              <div className="shaker-shift-avatars">
-                                <span>TW</span><span>AN</span>
-                              </div>
-                              <span className="shaker-shift-count">2</span>
-                            </div>
-
-                            <div className="shaker-shift-card">
-                              <span className="shaker-dot" style={{ background: '#6bbfb5' }} />
-                              <div className="shaker-shift-info">
-                                <strong>Late Night / Closing</strong>
-                                <small>22:00 – 04:00 Uhr</small>
-                              </div>
-                              <span className="shaker-open-badge">1 offen</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="shaker-sticky-footer">
-                          <div className="active">
-                            <Calendar size={15} />
-                            <span>Woche</span>
-                          </div>
-                          <div>
-                            <Users size={15} />
-                            <span>Team</span>
-                          </div>
-                          <div>
-                            <GlassWater size={15} />
-                            <span>Bar</span>
-                          </div>
-                          <div>
-                            <Settings size={15} />
-                            <span>Settings</span>
-                          </div>
+                          ))}
                         </div>
                       </div>
                     </div>
@@ -230,33 +211,42 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
               </p>
               <div className="lab-anim-child mt-2">
                 <span 
-                  className="lab-card-link text-[#00CC6A] hover:text-[#00FF84] inline-flex items-center gap-1.5 text-sm font-semibold cursor-pointer transition-colors"
-                  onClick={() => onNavigate('apps#app-bar-shift-planner')}
+                  className="lab-card-link btn secondary text-[#00CC6A] hover:text-[#00FF84] inline-flex items-center gap-1.5 text-sm font-semibold cursor-pointer transition-colors"
+                  onClick={() => onNavigate('shaker')}
                 >
-                  Mehr erfahren <ArrowRight size={15} />
+                  <span className="cta-label">Mehr dazu</span> <ArrowRight size={15} />
                 </span>
               </div>
             </div>
           </div>
 
           {/* 2. PriceBolt */}
-          <div className="lab-teaser-row lab-item-card layout-right flex flex-col md:flex-row-reverse items-center justify-between gap-8 md:gap-16">
+          <div className="lab-teaser-row lab-item-card pricebolt-showcase-row layout-right flex flex-col md:flex-row-reverse items-center justify-between gap-8 md:gap-16">
             <div className="lab-teaser-preview lab-item-mockup w-full md:w-1/2 flex justify-center">
-              <div className="app-phone-container max-w-[290px] md:max-w-[310px] w-full" style={{ transform: 'scale(0.96)' }}>
-                <div className="gl-exact-phone-bezel border-2 border-[#00CC6A]/50 shadow-[0_0_35px_rgba(0,204,106,0.18)]">
+              <div className="app-phone-container max-w-[290px] md:max-w-[310px] w-full">
+                <div className="gl-exact-phone-bezel app-phone-frame">
                   <div className="gl-exact-hardware gl-exact-hardware-left-one" />
                   <div className="gl-exact-hardware gl-exact-hardware-left-two" />
                   <div className="gl-exact-hardware gl-exact-hardware-right" />
                   <div className="gl-exact-screen">
                     <div className="gl-exact-screen-glare" />
-                    <div className="gl-exact-notch"><span></span></div>
+                        
                     <div className="gl-exact-screen-content gl-custom-mockup-screen overflow-hidden relative">
-                      <div className="w-full h-full relative overflow-hidden bg-[#f9f9fe] pt-[36px]">
-                        <img 
-                          src="/assets/apps/pricebolt-screen1.png" 
-                          alt="PriceBolt Startbild" 
-                          className="w-full h-auto block" 
-                        />
+                      <div className="pricebolt-phone-scroll-wrapper">
+                        <div className="pricebolt-phone-scroll-track" ref={priceBoltTrackRef}>
+                          {[
+                            ['pricebolt-screen1.png', 'PriceBolt Startseite'],
+                            ['pricebolt-screen2.png', 'PriceBolt Serviceauswahl'],
+                            ['pricebolt-screen3.png', 'PriceBolt Projektgröße'],
+                            ['pricebolt-screen4.png', 'PriceBolt Foto-Upload'],
+                            ['pricebolt-screen5.png', 'PriceBolt Kontaktdaten'],
+                            ['pricebolt-screen6.png', 'PriceBolt Anfragebestätigung'],
+                          ].map(([fileName, altText]) => (
+                            <div className="pricebolt-screen-slide" key={fileName}>
+                              <img src={`/assets/apps/${fileName}`} alt={altText} loading="lazy" decoding="async" />
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -282,28 +272,44 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
               </p>
               <div className="lab-anim-child mt-2">
                 <span 
-                  className="lab-card-link text-[#00CC6A] hover:text-[#00FF84] inline-flex items-center gap-1.5 text-sm font-semibold cursor-pointer transition-colors"
-                  onClick={() => onNavigate('apps#app-pricebolt')}
+                  className="lab-card-link btn secondary text-[#00CC6A] hover:text-[#00FF84] inline-flex items-center gap-1.5 text-sm font-semibold cursor-pointer transition-colors"
+                  onClick={() => onNavigate('app-pricebolt')}
                 >
-                  Mehr erfahren <ArrowRight size={15} />
+                  <span className="cta-label">Mehr dazu</span> <ArrowRight size={15} />
                 </span>
               </div>
             </div>
           </div>
 
           {/* 3. vnPro */}
-          <div className="lab-teaser-row lab-item-card layout-left flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16">
+          <div className="lab-teaser-row lab-item-card vnpro-showcase-row layout-left flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16">
             <div className="lab-teaser-preview lab-item-mockup w-full md:w-1/2 flex justify-center">
-              <div className="app-phone-container max-w-[290px] md:max-w-[310px] w-full" style={{ transform: 'scale(0.96)' }}>
-                <div className="gl-exact-phone-bezel border-2 border-[#00CC6A]/50 shadow-[0_0_35px_rgba(0,204,106,0.18)]">
+              <div className="app-phone-container max-w-[290px] md:max-w-[310px] w-full">
+                <div className="gl-exact-phone-bezel app-phone-frame">
                   <div className="gl-exact-hardware gl-exact-hardware-left-one" />
                   <div className="gl-exact-hardware gl-exact-hardware-left-two" />
                   <div className="gl-exact-hardware gl-exact-hardware-right" />
                   <div className="gl-exact-screen">
                     <div className="gl-exact-screen-glare" />
-                    <div className="gl-exact-notch"><span></span></div>
+                    
                     <div className="gl-exact-screen-content gl-custom-mockup-screen overflow-hidden relative">
-                      <div className="w-full h-full bg-[#FAFAFA] text-[#1A1A1A] flex flex-col relative overflow-hidden select-none font-sans text-left">
+                      <div className="vnpro-phone-scroll-wrapper">
+                        <div className="vnpro-phone-scroll-track" ref={vnProTrackRef}>
+                          {[
+                            ['vnpro-mobile-dashboard.png', 'vnPro mobile Projektübersicht'],
+                            ['vnpro-screen1.png', 'vnPro mobile Projektgalerie'],
+                            ['vnpro-mobile-upload.png', 'vnPro mobiler Upload'],
+                            ['vnpro-mobile-editor.png', 'vnPro mobiler Vorher-Nachher-Editor'],
+                            ['vnpro-mobile-share.png', 'vnPro mobiles Teilen und Export'],
+                            ['vnpro-mobile-settings.png', 'vnPro mobile Einstellungen und Branding'],
+                          ].map(([fileName, altText]) => (
+                            <div className="vnpro-screen-slide" key={fileName}>
+                              <img src={`/assets/apps/${fileName}`} alt={altText} loading="lazy" decoding="async" />
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="vnpro-native-mockup hidden">
                         
                         {/* Header */}
                         <div className="pt-6 pb-2.5 px-3.5 bg-white border-b border-gray-200/80 flex items-center justify-between z-20">
@@ -311,7 +317,7 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
                           <div className="flex items-center gap-2">
                             <Settings size={13} className="text-gray-400" />
                             <div className="w-5 h-5 rounded-full bg-gray-200 overflow-hidden border border-gray-300">
-                              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Avatar" className="w-full h-full object-cover" />
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Avatar" className="w-full h-full object-cover" loading="lazy" decoding="async" />
                             </div>
                           </div>
                         </div>
@@ -321,50 +327,37 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
                           <div className="vnpro-native-scroll-track flex flex-col w-full">
                             
                             {/* SCREEN 1: Projektgalerie */}
-                            <div className="p-3 space-y-2.5 bg-[#FAFAFA] min-h-[380px]">
+                            <div className="p-3 space-y-2.5 bg-[#F9F9F9] min-h-[380px]">
                               <div>
                                 <h4 className="text-sm font-bold text-gray-900 tracking-tight">Projektgalerie</h4>
                                 <p className="text-[10px] text-gray-500 mt-0.5 leading-snug">Übersicht aller abgeschlossenen und laufenden Restaurierungen.</p>
                               </div>
-
-                              <button className="w-full bg-[#00CC6A] text-black font-extrabold py-1.5 rounded-xl text-[11px] flex items-center justify-center gap-1 shadow-sm" type="button">
+                              <button className="w-full bg-[#00CC6A] text-white font-bold py-1.5 rounded-xl text-[11px] flex items-center justify-center gap-1 shadow-sm" type="button">
                                 <Plus size={13} /> Neues Projekt
                               </button>
-
-                              {/* Card 1 */}
                               <div className="bg-white border border-gray-200/80 rounded-xl overflow-hidden shadow-sm">
-                                <div className="flex h-24 relative">
-                                  <div className="w-1/2 bg-cover bg-center relative" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=400&q=80')" }}>
-                                    <span className="absolute top-1.5 left-1.5 bg-black/60 backdrop-blur-md text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full">Vorher</span>
+                                <div className="flex h-20 relative">
+                                  <div className="w-1/2 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=400&q=80')" }}>
+                                    <span className="inline-block mt-1.5 ml-1.5 bg-[#1D1D1F]/70 text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full">Vorher</span>
                                   </div>
-                                  <div className="w-1/2 bg-cover bg-center relative border-l border-white/40" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=400&q=80')" }}>
-                                    <span className="absolute top-1.5 right-1.5 bg-[#00CC6A] text-black text-[8px] font-bold px-1.5 py-0.5 rounded-full">Nachher</span>
+                                  <div className="w-1/2 bg-cover bg-center border-l border-white/40" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=400&q=80')" }}>
+                                    <span className="inline-block mt-1.5 ml-1.5 bg-[#1D1D1F]/70 text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full">Nachher</span>
                                   </div>
                                 </div>
                                 <div className="p-2">
-                                  <h5 className="text-[11px] font-bold text-gray-900">Parkett-Restaurierung Villa Schmidt</h5>
+                                  <h5 className="text-[10px] font-bold text-gray-900 leading-tight">Parkett-Restaurierung Villa Schmidt</h5>
                                   <div className="flex items-center justify-between mt-1">
-                                    <span className="text-[9px] text-gray-400 font-medium">12. Okt 2023</span>
-                                    <span className="text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-[#00CC6A]/15 text-[#00CC6A]">Abgeschlossen</span>
+                                    <span className="text-[8px] text-gray-500">12. Oktober 2023</span>
+                                    <span className="text-[8px] px-1.5 py-0.5 rounded-full bg-[#e6f7ec] text-[#006d36]">Abgeschlossen</span>
                                   </div>
                                 </div>
                               </div>
-
-                              {/* Card 2 */}
                               <div className="bg-white border border-gray-200/80 rounded-xl overflow-hidden shadow-sm">
-                                <div className="flex h-20 relative">
-                                  <div className="w-1/2 bg-cover bg-center relative" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=400&q=80')" }}>
-                                    <span className="absolute top-1.5 left-1.5 bg-black/60 backdrop-blur-md text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full">Vorher</span>
-                                  </div>
-                                  <div className="w-1/2 bg-cover bg-center relative border-l border-white/40" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?auto=format&fit=crop&w=400&q=80')" }}>
-                                    <span className="absolute top-1.5 right-1.5 bg-[#00CC6A] text-black text-[8px] font-bold px-1.5 py-0.5 rounded-full">Nachher</span>
-                                  </div>
-                                </div>
                                 <div className="p-2">
-                                  <h5 className="text-[11px] font-bold text-gray-900">Badezimmer Sanierung</h5>
+                                  <h5 className="text-[10px] font-bold text-gray-900 leading-tight">Bodenaufbereitung Kanzlei Meyer</h5>
                                   <div className="flex items-center justify-between mt-1">
-                                    <span className="text-[9px] text-gray-400 font-medium">05. Sep 2023</span>
-                                    <span className="text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-[#00CC6A]/15 text-[#00CC6A]">Fertiggestellt</span>
+                                    <span className="text-[8px] text-gray-500">05. September 2023</span>
+                                    <span className="text-[8px] px-1.5 py-0.5 rounded-full bg-[#e6f7ec] text-[#006d36]">Abgeschlossen</span>
                                   </div>
                                 </div>
                               </div>
@@ -429,7 +422,7 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
                 </span>
                 <span className="lab-status-dot flex items-center gap-1.5 text-xs font-semibold text-[#F59E0B]">
                   <i className="w-2 h-2 rounded-full bg-[#F59E0B]" />
-                  In aktiver Entwicklung
+                  Live
                 </span>
               </div>
               <h3 className="lab-anim-child text-2xl md:text-3xl font-bold text-white tracking-tight">
@@ -440,10 +433,10 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
               </p>
               <div className="lab-anim-child mt-2">
                 <span 
-                  className="lab-card-link text-[#00CC6A] hover:text-[#00FF84] inline-flex items-center gap-1.5 text-sm font-semibold cursor-pointer transition-colors"
-                  onClick={() => onNavigate('apps#app-vnpro')}
+                  className="lab-card-link btn secondary text-[#00CC6A] hover:text-[#00FF84] inline-flex items-center gap-1.5 text-sm font-semibold cursor-pointer transition-colors"
+                  onClick={() => onNavigate('app-vnpro')}
                 >
-                  Mehr erfahren <ArrowRight size={15} />
+                  <span className="cta-label">Mehr dazu</span> <ArrowRight size={15} />
                 </span>
               </div>
             </div>
@@ -459,8 +452,8 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
         <div className="section-head mb-14 md:mb-20">
           <SectionLabel number="03" label="APPS & SAAS AND DEV LAB" />
           <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mt-3">
-            Eigene <span className="font-serif italic text-[#00CC6A]">Tools</span> statt träger <br className="hidden md:inline" />
-            <span className="font-serif italic text-white">Baukästen.</span>
+            <span className="lab-highlight">Eigene</span> <span className="font-serif italic text-white">Tools</span> <span className="lab-highlight">statt</span> träger <br className="hidden md:inline" />
+            <span className="lab-highlight">Baukästen.</span>
           </h2>
           <p className="lab-teaser-lead text-white/70 text-base md:text-lg max-w-2xl mt-4 leading-relaxed">
             Neben Kundenwebsites entwickle ich eigene digitale Produkte und interne Werkzeuge, um Prozesse zu automatisieren und echte Ergebnisse zu liefern.
@@ -472,11 +465,13 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
           {/* 1. Repute (layout-right: Text LEFT, Mockup RIGHT) */}
           <div className="lab-teaser-row lab-item-card layout-right flex flex-col md:flex-row-reverse items-center justify-between gap-8 md:gap-12">
             <div className="lab-teaser-preview lab-item-mockup w-full md:w-1/2 flex justify-end items-center">
-              <div className="lab-teaser-preview-card w-full max-w-[500px] h-auto bg-[#121414]">
+              <div className="lab-teaser-preview-card repute-preview-card">
                 <img 
                   src="/assets/apps/repute-preview.png" 
                   alt="Repute Dashboard Preview" 
-                  className="w-full h-auto object-contain max-h-none block"
+                  className="repute-preview-image"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -508,10 +503,10 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
 
               <div className="lab-anim-child mt-2">
                 <span 
-                  className="lab-card-link text-[#00CC6A] hover:text-[#00FF84] inline-flex items-center gap-1.5 text-sm font-semibold cursor-pointer transition-colors"
-                  onClick={() => onNavigate('apps#app-repute')}
+                  className="lab-card-link btn secondary text-[#00CC6A] hover:text-[#00FF84] inline-flex items-center gap-1.5 text-sm font-semibold cursor-pointer transition-colors"
+                  onClick={() => onNavigate('app-repute')}
                 >
-                  Mehr erfahren <ArrowRight size={15} /> · <span className="text-white/60 font-normal">14+ aktive Betriebe</span>
+                  <span className="cta-label">Mehr dazu</span> <ArrowRight size={15} /> · <span className="text-white/60 font-normal">14+ aktive Betriebe</span>
                 </span>
               </div>
             </div>
@@ -520,11 +515,13 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
           {/* 2. GreenLabz CRM (layout-left: Mockup LEFT, Text RIGHT) */}
           <div className="lab-teaser-row lab-item-card layout-left flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
             <div className="lab-teaser-preview lab-item-mockup w-full md:w-1/2 flex justify-start items-center">
-              <div className="lab-teaser-preview-card w-full max-w-[500px] h-auto bg-[#121414]">
+              <div className="lab-teaser-preview-card crm-preview-card">
                 <img 
                   src="/assets/apps/crm-preview.png" 
                   alt="GreenLabz CRM Dashboard Preview" 
-                  className="w-full h-auto object-contain max-h-none block"
+                  className="crm-preview-image"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -556,10 +553,10 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
 
               <div className="lab-anim-child mt-2">
                 <span 
-                  className="lab-card-link text-[#00CC6A] hover:text-[#00FF84] inline-flex items-center gap-1.5 text-sm font-semibold cursor-pointer transition-colors"
-                  onClick={() => onNavigate('apps#app-crm')}
+                  className="lab-card-link btn secondary text-[#00CC6A] hover:text-[#00FF84] inline-flex items-center gap-1.5 text-sm font-semibold cursor-pointer transition-colors"
+                  onClick={() => onNavigate('app-greenlabz-crm')}
                 >
-                  Mehr erfahren <ArrowRight size={15} />
+                  <span className="cta-label">Mehr dazu</span> <ArrowRight size={15} />
                 </span>
               </div>
             </div>
@@ -571,18 +568,6 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
       {/* ═══════════════════════════════════════
           SECTION FOOTER BUTTON
           ═══════════════════════════════════════ */}
-      <div className="lab-teaser-cta text-center mt-16 md:mt-24">
-        <button
-          className="btn secondary group inline-flex items-center gap-2 bg.white/5 hover:bg-white/10 border border-white/15 text-white px-8 py-4 rounded-full transition-all duration-300"
-          type="button"
-          onClick={() => onNavigate('apps')}
-        >
-          <span className="w-2 h-2 rounded-full bg-[#00CC6A] animate-pulse" />
-          <span className="font-semibold text-sm md:text-base">Alle Projekte &amp; Tools ansehen</span>
-          <ArrowUpRight size={17} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[#00CC6A]" />
-        </button>
-      </div>
-
     </section>
   )
 }

@@ -78,8 +78,8 @@ export function BeforeAfterSlider() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: pinTarget,
-          start: isMobile ? 'top 75px' : 'top 85px',
-          end: () => `+=${Math.round(window.innerHeight * (isMobile ? 1.2 : 1.6))}`,
+          start: isMobile ? 'top 75px' : 'top 80px',
+          end: () => `+=${Math.round(window.innerHeight * (isMobile ? 1 : 1.2))}`,
           pin: true,
           pinSpacing: true,
           scrub: 0.3,
@@ -137,7 +137,7 @@ export function BeforeAfterSlider() {
             </div>
             <div className="ba-url">zahnaerzte-roth.de <span className="ba-url-sub">(NEU / REDESIGN)</span></div>
           </div>
-          <img src="/cases/roth.png" alt="Zahnarzt Dr. Roth Redesign Nachher" />
+          <img src="/cases/roth.png" alt="Zahnarzt Dr. Roth Redesign Nachher" loading="lazy" decoding="async" />
         </div>
 
         {/* VORHER – clipPath per GSAP gesteuert */}
@@ -150,7 +150,7 @@ export function BeforeAfterSlider() {
             </div>
             <div className="ba-url" style={{ color: '#888' }}>zahnaerzte-roth.de <span className="ba-url-sub">(VORHER)</span></div>
           </div>
-          <img src="/cases/roth-before.jpg" alt="Zahnarzt Praxis Alte Website Vorher" />
+          <img src="/cases/roth-before.jpg" alt="Zahnarzt Praxis Alte Website Vorher" loading="lazy" decoding="async" />
         </div>
 
         <div className="ba-badge before-badge">VORHER</div>

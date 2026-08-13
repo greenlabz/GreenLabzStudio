@@ -75,7 +75,7 @@ export default function CinematicHero({ onOpenDatenschutz }: CinematicHeroProps 
         scrollTrigger: {
           trigger: root,
           start: 'top top',
-          end: isMobile ? '+=3200' : '+=7000',
+          end: () => `+=${Math.round(window.innerHeight * (isMobile ? 2.4 : 3.6))}`,
           pin: true,
           scrub: isMobile ? 0.6 : 1,
           anticipatePin: 1,

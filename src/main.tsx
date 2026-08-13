@@ -12,12 +12,19 @@ export const createRoot = ViteReactSSG({
       path: '/apps',
       element: <App />,
     },
+    {
+      path: '/impressum',
+      element: <App />,
+    },
+    {
+      path: '/datenschutz',
+      element: <App />,
+    },
   ],
 })
 
 export const createApp = createRoot
 export default createRoot
-
 
 
 

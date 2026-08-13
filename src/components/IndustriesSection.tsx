@@ -18,11 +18,19 @@ const industries = [
     accent: '#ff5722',
   },
   {
-    title: 'Gesundheit & Praxis',
+    title: 'Tiermedizin & Praxis',
     subtitle: 'Tierärzte, Hausärzte & Fachpraxen',
     kicker: 'REFERENZ · TIERARZTPRAXIS',
     icon: Stethoscope,
     image: '/assets/showcases/buss-logo.png',
+    accent: '#00cc6a',
+  },
+  {
+    title: 'Zahnmedizin & Allgemeinmedizin',
+    subtitle: 'Praxen, Vorsorge & Behandlung',
+    kicker: 'REFERENZ · ADOLF ROTH',
+    icon: Stethoscope,
+    image: '/assets/showcases/roth-logo.png',
     accent: '#00cc6a',
   },
   {
@@ -70,7 +78,7 @@ export function IndustriesSection() {
                     <Icon size={20} />
                   </div>
                   <div className="industry-image-wrapper">
-                    <img src={ind.image} alt={ind.title} className="industry-img" />
+                    <img src={ind.image} alt={ind.title} className="industry-img" loading="lazy" decoding="async" />
                   </div>
                 </div>
 

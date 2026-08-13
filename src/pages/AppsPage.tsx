@@ -164,7 +164,7 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
         <section className="section apps-list-section">
           <div className="apps-section-header">
             <span className="apps-section-badge"><Smartphone size={16} /> Mobile Apps</span>
-            <h3>Fokus auf mobile Usability</h3>
+            <h3><span className="lab-highlight">Individuell</span> entwickelte <span className="lab-highlight">Apps</span>, die den <span className="lab-highlight">Alltag</span> meiner Kunden <span className="lab-highlight">leichter</span> machen</h3>
           </div>
 
           <div className="apps-zigzag-list">
@@ -184,7 +184,7 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                       <div className="gl-exact-hardware gl-exact-hardware-right" />
                       <div className="gl-exact-screen">
                         <div className="gl-exact-screen-glare" />
-                        <div className="gl-exact-notch"><span></span></div>
+                        
                         <div className={`gl-exact-screen-content ${['bar-shift-planner', 'shaker', 'vnpro', 'pricebolt'].includes(app.id) ? 'gl-custom-mockup-screen' : ''}`}>
                           {app.id === 'bar-shift-planner' || app.id === 'shaker' ? (
                             <div className="shaker-mockup-app">
@@ -517,7 +517,24 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                               </div>
                             </div>
                           ) : app.id === 'vnpro' ? (
-                            <div className="w-full h-full bg-[#FAFAFA] text-[#1A1A1A] flex flex-col relative overflow-hidden select-none font-sans text-left">
+                            <>
+                              <div className="vnpro-stitch-mockup">
+                                <div className="vnpro-stitch-track">
+                                  {[
+                                    ['vnpro-mobile-dashboard.png', 'vnPro mobile Projektübersicht'],
+                                    ['vnpro-screen1.png', 'vnPro mobile Projektgalerie'],
+                                    ['vnpro-mobile-upload.png', 'vnPro mobiler Upload'],
+                                    ['vnpro-mobile-editor.png', 'vnPro mobiler Vorher-Nachher-Editor'],
+                                    ['vnpro-mobile-share.png', 'vnPro mobiles Teilen und Export'],
+                                    ['vnpro-mobile-settings.png', 'vnPro mobile Einstellungen und Branding'],
+                                  ].map(([fileName, altText]) => (
+                                    <div className="vnpro-stitch-slide" key={fileName}>
+                                      <img src={`/assets/apps/${fileName}`} alt={altText} loading="lazy" decoding="async" />
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            <div className="vnpro-legacy-mockup hidden">
                               
                               {/* Header */}
                               <div className="pt-6 pb-2.5 px-3.5 bg-white border-b border-gray-200/80 flex items-center justify-between z-20">
@@ -630,6 +647,7 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                               </div>
 
                             </div>
+                            </>
                           ) : app.previewImage ? (
                             <img src={app.previewImage} alt={app.name} className="phone-screenshot-img" />
                           ) : (
@@ -654,11 +672,11 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                     </div>
                     <h3>{app.name}</h3>
                     <p className="app-tagline-text">{app.tagline}</p>
-                    {app.hasMore && (
-                      <span className="app-ghost-link">
+                    {app.hasMore ? (
+                      <button className="app-ghost-link" type="button" onClick={() => onNavigate(app.id === 'bar-shift-planner' ? 'shaker' : `app-${app.id}`)}>
                         Mehr erfahren <ArrowRight size={15} />
-                      </span>
-                    )}
+                      </button>
+                    ) : null}
                   </div>
                 </div>
               )
@@ -750,6 +768,9 @@ export default function AppsPage({ onNavigate }: AppsPageProps) {
                           <span className="tech-tag" key={tech}>{tech}</span>
                         ))}
                       </div>
+                      <button className="app-ghost-link" type="button" onClick={() => onNavigate(`app-${system.id}`)}>
+                        Mehr erfahren <ArrowRight size={15} />
+                      </button>
                     </div>
                   </div>
                 </div>

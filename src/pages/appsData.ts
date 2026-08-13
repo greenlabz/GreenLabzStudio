@@ -16,7 +16,7 @@ export interface AppProject {
   hasMore?: boolean
 }
 
-export const appProjects: AppProject[] = [
+export const appProjects: AppProject[] = ([
   // Apps
   {
     id: 'bar-shift-planner',
@@ -42,7 +42,7 @@ export const appProjects: AppProject[] = [
     tagline: 'Erhalten Sie Ihr Angebot in 60 Sekunden – professionelle Angebote für Ihr nächstes Projekt, sofort.',
     techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
     previewImage: '/assets/apps/pricebolt-preview.png',
-    hasMore: false,
+    hasMore: true,
   },
   {
     id: 'vnpro',
@@ -50,12 +50,12 @@ export const appProjects: AppProject[] = [
     name: 'vnPro',
     kicker: 'VORHER-NACHHER SLIDER',
     badge: 'App',
-    status: 'In aktiver Entwicklung',
+    status: 'Live',
     statusType: 'dev',
     tagline: 'Die premium Vorher-Nachher Galerie für Web und Social Media. Perfekt für Ärzte, Kliniken und Detail-Handwerk.',
     techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
     previewImage: '/assets/apps/vnpro-preview.png',
-    hasMore: false,
+    hasMore: true,
   },
   {
     id: 'leadradar',
@@ -68,7 +68,7 @@ export const appProjects: AppProject[] = [
     tagline: 'Echtzeit-Push-Benachrichtigungen und Detail-Recherche für Neukunden-Leads im DACH-Raum von unterwegs.',
     techStack: ['React Native', 'Expo', 'Firebase', 'Python Scraper'],
     previewImage: '/assets/apps/leadradar-preview.png',
-    hasMore: false,
+    hasMore: true,
   },
   // Systeme
   {
@@ -101,4 +101,4 @@ export const appProjects: AppProject[] = [
     techStack: ['React', 'Node.js', 'Tailwind CSS', 'FastAPI', 'Vercel'],
     previewImage: '/assets/apps/repute-preview.png',
   },
-]
+] as AppProject[]).filter((app) => app.id !== 'leadradar')

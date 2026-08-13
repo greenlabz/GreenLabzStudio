@@ -127,6 +127,8 @@ function ProjectCard({ item, isActive, onMouseEnter, onMouseMove, onMouseLeave }
             src={item.image}
             alt={item.title}
             className="bend-showcase-img"
+            loading="lazy"
+            decoding="async"
             style={{ objectPosition: item.objectPosition || 'top left' }}
           />
           <div className="bend-image-overlay" />
