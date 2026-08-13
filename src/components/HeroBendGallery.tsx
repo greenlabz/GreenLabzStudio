@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 
 export interface ShowcaseItem {
   id: string
@@ -97,7 +97,7 @@ const showcases: ShowcaseItem[] = [
 interface ProjectCardProps {
   item: ShowcaseItem
   isActive: boolean
-  onMouseEnter: () => void
+  onMouseEnter: (e: React.MouseEvent<HTMLDivElement>) => void
   onMouseMove: (e: React.MouseEvent<HTMLDivElement>) => void
   onMouseLeave: (e: React.MouseEvent<HTMLDivElement>) => void
 }
@@ -151,10 +151,12 @@ function ProjectCard({ item, isActive, onMouseEnter, onMouseMove, onMouseLeave }
 
 export function HeroBendGallery() {
   const [activeIndex, setActiveIndex] = useState(0)
+  const cardRectRef = useRef<DOMRect | null>(null)
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const card = e.currentTarget
-    const rect = card.getBoundingClientRect()
+    const rect = cardRectRef.current
+    if (!rect) return
     const x = e.clientX - rect.left
     const y = e.clientY - rect.top
     const centerX = rect.width / 2
@@ -167,7 +169,12 @@ export function HeroBendGallery() {
   }
 
   const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+    cardRectRef.current = null
     e.currentTarget.style.transform = `perspective(1000px) rotateX(10deg) rotateY(0deg) scale(1)`
+  }
+
+  const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
+    cardRectRef.current = e.currentTarget.getBoundingClientRect()
   }
 
   return (
@@ -188,7 +195,7 @@ export function HeroBendGallery() {
             key={item.id}
             item={item}
             isActive={activeIndex === index}
-            onMouseEnter={() => setActiveIndex(index)}
+            onMouseEnter={(event) => { setActiveIndex(index); handleMouseEnter(event) }}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
           />

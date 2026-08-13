@@ -17,6 +17,7 @@ export default function CinematicHero({ onOpenDatenschutz }: CinematicHeroProps 
   const containerRef = useRef<HTMLElement>(null)
   const mainCardRef = useRef<HTMLDivElement>(null)
   const mockupRef = useRef<HTMLDivElement>(null)
+  const cardRectRef = useRef<DOMRect | null>(null)
   const requestRef = useRef<number>(0)
 
   useEffect(() => {
@@ -28,7 +29,8 @@ export default function CinematicHero({ onOpenDatenschutz }: CinematicHeroProps 
       cancelAnimationFrame(requestRef.current)
       requestRef.current = requestAnimationFrame(() => {
         if (!mainCardRef.current || !mockupRef.current) return
-        const rect = mainCardRef.current.getBoundingClientRect()
+        const rect = cardRectRef.current
+        if (!rect) return
         mainCardRef.current.style.setProperty('--mouse-x', `${event.clientX - rect.left}px`)
         mainCardRef.current.style.setProperty('--mouse-y', `${event.clientY - rect.top}px`)
         const x = (event.clientX / window.innerWidth - .5) * 2
@@ -38,8 +40,14 @@ export default function CinematicHero({ onOpenDatenschutz }: CinematicHeroProps 
     }
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true })
+    const refreshCardRect = () => {
+      cardRectRef.current = mainCardRef.current?.getBoundingClientRect() ?? null
+    }
+    refreshCardRect()
+    window.addEventListener('resize', refreshCardRect, { passive: true })
     return () => {
       window.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('resize', refreshCardRect)
       cancelAnimationFrame(requestRef.current)
     }
   }, [])
