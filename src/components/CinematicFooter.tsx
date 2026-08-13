@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { ArrowRight, ArrowUp, ArrowUpRight, ExternalLink, Mail, MessageCircle } from 'lucide-react'
+import { ArrowRight, ArrowUp, ArrowUpRight, Mail, MessageCircle } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -49,6 +49,12 @@ function MagneticButton({ className = '', children, ...props }: MagneticButtonPr
   const ref = useRef<HTMLButtonElement>(null)
   useMagnetic(ref)
   return <button ref={ref} className={`cinematic-footer-magnetic ${className}`} {...props}>{children}</button>
+}
+
+function BrandMark({ type }: { type: 'instagram' | 'tiktok' | 'linkedin' }) {
+  if (type === 'instagram') return <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="1.8" /><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="1.8" /><circle cx="17.4" cy="6.7" r="1" fill="currentColor" /></svg>
+  if (type === 'linkedin') return <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2" fill="none" stroke="currentColor" strokeWidth="1.8" /><path d="M8 10v6M8 8v.1M11.5 16v-3.2a2.3 2.3 0 0 1 4.6 0V16M11.5 10v6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg>
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4v9.1a3.5 3.5 0 1 1-3.5-3.5M14.5 4c.7 1.8 2 3 4 3.3v2.2c-1.5-.1-2.8-.6-4-1.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
 }
 
 function MarqueeItem() {
@@ -110,6 +116,10 @@ export default function CinematicFooter({ onPrimaryClick, onContactClick, onNavi
         </div>
 
         <div className="cinematic-footer-center">
+          <a className="cinematic-footer-brand" href="#top" onClick={(event) => goToSection(event, 'top')} aria-label="GreenLabz Studio Startseite">
+            <img src="/assets/greenlabz-studio-logo.svg" alt="GreenLabz Studio" width="56" height="56" />
+            <span>GreenLabz Studio</span>
+          </a>
           <h2 ref={headingRef}>Bereit f&uuml;r <span>Sichtbarkeit?</span></h2>
           <div ref={linksRef} className="cinematic-footer-actions">
             <div className="cinematic-footer-main-actions">
@@ -133,7 +143,7 @@ export default function CinematicFooter({ onPrimaryClick, onContactClick, onNavi
                   <ArrowUpRight size={18} aria-hidden="true" />
                 </MagneticAnchor>
               ))}
-              <MagneticButton type="button" onClick={() => onNavigate('apps')} className="cinematic-footer-nav-link">
+              <MagneticButton type="button" onClick={() => onNavigate('home#lab')} className="cinematic-footer-nav-link">
                 <span>04</span>
                 <strong>Apps &amp; Tools</strong>
                 <ArrowUpRight size={18} aria-hidden="true" />
@@ -183,7 +193,9 @@ export default function CinematicFooter({ onPrimaryClick, onContactClick, onNavi
           <div className="cinematic-footer-socials" aria-label="Social Links">
             <MagneticAnchor href="mailto:hallo@greenlabz.de" aria-label="E-Mail"><Mail size={17} /></MagneticAnchor>
             <MagneticAnchor href="https://wa.me/491604928749" aria-label="WhatsApp"><MessageCircle size={17} /></MagneticAnchor>
-            <MagneticAnchor href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn"><ExternalLink size={17} /></MagneticAnchor>
+            <MagneticAnchor href="https://www.instagram.com/greenlabz.studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><BrandMark type="instagram" /></MagneticAnchor>
+            <MagneticAnchor href="https://www.tiktok.com/@greenlabz.studio" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><BrandMark type="tiktok" /></MagneticAnchor>
+            <MagneticAnchor href="https://www.linkedin.com/company/greenlabz-studio/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><BrandMark type="linkedin" /></MagneticAnchor>
           </div>
           <span>&copy; 2026 GreenLabz Studio. Engineering, Design and Strategy.</span>
           <MagneticButton type="button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Nach oben" className="cinematic-footer-top"><ArrowUp size={18} /></MagneticButton>

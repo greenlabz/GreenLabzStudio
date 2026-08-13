@@ -5965,6 +5965,30 @@ html:not(.js-ready) .work-row {
   margin: 5rem auto 2rem;
   text-align: center;
 }
+.cinematic-footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+  margin-bottom: 1.35rem;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color .25s ease, transform .25s ease;
+}
+.cinematic-footer-brand img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 16px rgba(0,204,106,.28));
+}
+.cinematic-footer-brand:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
 .cinematic-footer-center h2 {
   margin: 0 0 2.4rem;
   color: var(--ink);
