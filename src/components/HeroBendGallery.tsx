@@ -25,7 +25,7 @@ const showcases: ShowcaseItem[] = [
     title: 'Automobil & KFZ',
     subtitle: 'Autohäuser, Werkstätten & Aufbereitung',
     category: 'Handwerk & KFZ-Meisterbetrieb',
-    image: '/assets/showcases/showcase-denker.png',
+    image: '/assets/showcases/showcase-denker.webp',
     tag: '■ REFERENZ · CAR COMPANY',
     objectPosition: 'center top',
   },
@@ -34,7 +34,7 @@ const showcases: ShowcaseItem[] = [
     title: 'Nadine Kemmert Photography',
     subtitle: 'Exklusive Hochzeits- & Event-Präsenz mit Buchungssystem',
     category: 'Premium Fotografie & Events',
-    image: '/assets/showcases/showcase-nadine.png',
+    image: '/assets/showcases/showcase-nadine.webp',
     tag: 'HIGH-CONVERSION',
     objectPosition: 'center top',
   },
@@ -127,6 +127,8 @@ function ProjectCard({ item, isActive, onMouseEnter, onMouseMove, onMouseLeave }
             src={item.image}
             alt={item.title}
             className="bend-showcase-img"
+            width={1280}
+            height={720}
             loading="lazy"
             decoding="async"
             style={{ objectPosition: item.objectPosition || 'top left' }}
@@ -138,7 +140,7 @@ function ProjectCard({ item, isActive, onMouseEnter, onMouseMove, onMouseLeave }
         <div className="bend-card-caption">
           <div>
             <span className="bend-tag">{item.tag}</span>
-            <h4>{item.title}</h4>
+            <h3>{item.title}</h3>
             <p>{item.subtitle}</p>
           </div>
         </div>

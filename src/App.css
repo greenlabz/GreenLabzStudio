@@ -95,7 +95,7 @@ html:not(.js-ready) .work-row {
   transform: translateX(-50%);
   transform-origin: center top;
   transform-style: preserve-3d;
-  will-change: transform, opacity, filter;
+  will-change: transform, opacity;
 }
 .logo,
 .menu,
@@ -616,7 +616,7 @@ html:not(.js-ready) .work-row {
 
 .btn,
 .nav-cta {
-  --cta-angle: 0deg;
+  --cta-angle: 110deg;
   --cta-fade-start: 92%;
   --cta-glow-start: 94%;
   --cta-highlight: 96%;
@@ -625,7 +625,7 @@ html:not(.js-ready) .work-row {
   background:
     linear-gradient(rgba(8, 10, 10, .92), rgba(8, 10, 10, .92)) padding-box,
     conic-gradient(
-      from var(--cta-angle),
+      from 110deg,
       transparent 0 var(--cta-fade-start),
       rgba(0,204,106,.25) var(--cta-glow-start),
       var(--accent) var(--cta-highlight),
@@ -637,15 +637,15 @@ html:not(.js-ready) .work-row {
     inset 0 1px 0 rgba(255,255,255,.12),
     inset 0 -18px 34px rgba(0,204,106,.055),
     0 18px 42px rgba(0,0,0,.34);
-  animation: cta-angle 4.2s linear infinite;
-  animation-play-state: running;
+  animation: none;
 }
 
 .btn::before,
 .nav-cta::before,
 .btn:hover::before,
 .nav-cta:hover::before {
-  display: none;
+  display: block;
+  transform-origin: center;
 }
 
 .btn.primary {
@@ -3655,14 +3655,14 @@ html:not(.js-ready) .work-row {
 .anim-layout-content { flex: 1; display: flex; flex-direction: column; gap: 8px; }
 .anim-layout-line { height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; width: 100%; }
 .anim-layout-line.short { width: 60%; }
-.anim-layout-box { flex: 1; background: color-mix(in oklch, var(--accent) 20%, transparent); border: 1px solid color-mix(in oklch, var(--accent) 50%, transparent); border-radius: 4px; animation: glow-box 4s infinite; }
+.anim-layout-box { flex: 1; background: color-mix(in oklch, var(--accent) 20%, transparent); border: 1px solid color-mix(in oklch, var(--accent) 50%, transparent); border-radius: 4px; box-shadow: 0 0 15px rgba(0,204,106,0.3); animation: glow-box 4s infinite; }
 @keyframes float-window {
   0%, 100% { transform: translateY(0) scale(1); }
   50% { transform: translateY(-5px) scale(1.02); }
 }
 @keyframes glow-box {
   0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; box-shadow: 0 0 15px rgba(0,204,106,0.3); }
+  50% { opacity: 1; }
 }
 @keyframes pulse-opacity {
   0%, 100% { opacity: 0.5; }
@@ -3685,14 +3685,14 @@ html:not(.js-ready) .work-row {
   90%, 100% { transform: translateY(0) scale(1); opacity: 0; }
 }
 .custom-anim-ai { position: absolute; inset: 0; display: flex; align-items: center; justify-content: space-between; padding: 0 50px; }
-.anim-ai-bot { animation: bot-hover 4s ease-in-out infinite; z-index: 2; }
+.anim-ai-bot { filter: drop-shadow(0 0 18px var(--accent)); animation: bot-hover 4s ease-in-out infinite; z-index: 2; }
 .anim-ai-beam { position: absolute; left: 90px; width: 60px; height: 3px; background: linear-gradient(90deg, rgba(0,204,106,0), rgba(0,204,106,1), rgba(0,204,106,0)); animation: ai-scan-beam 4s ease-in-out infinite; z-index: 1; opacity: 0; }
 .anim-ai-target { position: relative; display: flex; align-items: center; justify-content: center; z-index: 2; }
-.anim-ai-target .target-icon { animation: target-glow 4s ease-in-out infinite; color: rgba(255,255,255,0.4); }
+.anim-ai-target .target-icon { filter: drop-shadow(0 0 12px var(--accent)); animation: target-glow 4s ease-in-out infinite; color: rgba(255,255,255,0.4); }
 .anim-ai-lock { position: absolute; width: 72px; height: 72px; border: 2px solid var(--accent); border-radius: 8px; opacity: 0; animation: lock-on 4s ease-in-out infinite; box-shadow: inset 0 0 15px rgba(0,204,106,0.2), 0 0 15px rgba(0,204,106,0.3); }
 @keyframes bot-hover {
-  0%, 100% { transform: translateY(0); filter: drop-shadow(0 0 10px var(--accent)); }
-  50% { transform: translateY(-5px); filter: drop-shadow(0 0 25px var(--accent)); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
 }
 @keyframes ai-scan-beam {
   0%, 20% { transform: translateX(-40px); opacity: 0; }
@@ -3701,9 +3701,9 @@ html:not(.js-ready) .work-row {
   60%, 100% { transform: translateX(50px); opacity: 0; }
 }
 @keyframes target-glow {
-  0%, 45% { color: rgba(255,255,255,0.4); filter: drop-shadow(0 0 0 transparent); transform: scale(1); }
-  55%, 85% { color: white; filter: drop-shadow(0 0 20px var(--accent)); transform: scale(1.15); }
-  100% { color: rgba(255,255,255,0.4); filter: drop-shadow(0 0 0 transparent); transform: scale(1); }
+  0%, 45% { color: rgba(255,255,255,0.4); transform: scale(1); }
+  55%, 85% { color: white; transform: scale(1.15); }
+  100% { color: rgba(255,255,255,0.4); transform: scale(1); }
 }
 @keyframes lock-on {
   0%, 45% { transform: scale(1.5); opacity: 0; }
@@ -3733,10 +3733,10 @@ html:not(.js-ready) .work-row {
 .custom-anim-system { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
 .anim-sys-shield { position: absolute; animation: shield-pulse 4s infinite; display: flex; align-items: center; justify-content: center; }
 .anim-sys-scanline { position: absolute; width: 80px; height: 3px; background: var(--accent); box-shadow: 0 0 15px var(--accent); animation: scan-up-down 4s ease-in-out infinite; z-index: 3; }
-.anim-sys-check { position: absolute; z-index: 2; animation: check-pop 4s infinite; }
+.anim-sys-check { position: absolute; z-index: 2; filter: drop-shadow(0 0 15px var(--accent)); animation: check-pop 4s infinite; }
 @keyframes shield-pulse { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.1); opacity: 1; } }
 @keyframes scan-up-down { 0%, 10% { transform: translateY(-40px); opacity: 0; } 20% { opacity: 1; } 50% { transform: translateY(40px); } 80% { transform: translateY(-40px); opacity: 1; } 90%, 100% { opacity: 0; transform: translateY(-40px); } }
-@keyframes check-pop { 0%, 30% { transform: scale(0); opacity: 0; } 40%, 80% { transform: scale(1); opacity: 1; filter: drop-shadow(0 0 15px var(--accent)); } 90%, 100% { transform: scale(0); opacity: 0; } }
+@keyframes check-pop { 0%, 30% { transform: scale(0); opacity: 0; } 40%, 80% { transform: scale(1); opacity: 1; } 90%, 100% { transform: scale(0); opacity: 0; } }
 @keyframes discipline-scan {
   0%, 100% {
     opacity: .24;
@@ -3858,6 +3858,7 @@ html:not(.js-ready) .work-row {
   background: rgba(0,0,0,.2);
   animation: row-breathe 4.8s ease-in-out infinite;
   animation-delay: calc(var(--row) * .35s);
+  will-change: opacity;
 }
 .shift-row > div {
   display: grid;
@@ -4856,12 +4857,10 @@ html:not(.js-ready) .work-row {
 }
 @keyframes row-breathe {
   0%, 100% {
-    border-color: rgba(255,255,255,.12);
-    box-shadow: none;
+    opacity: .92;
   }
   50% {
-    border-color: rgba(0,204,106,.28);
-    box-shadow: inset 0 0 28px rgba(0,204,106,.045);
+    opacity: 1;
   }
 }
 .proof-section {
@@ -5451,6 +5450,16 @@ html:not(.js-ready) .work-row {
   background: #090909;
   overflow: clip;
 }
+.calendar-loading {
+  display: grid;
+  min-height: 560px;
+  place-items: center;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
 .calendar-embed-container iframe,
 .calendar-embed-container > div {
   width: 100%;
@@ -5850,6 +5859,8 @@ html:not(.js-ready) .work-row {
   height: 100svh;
   min-height: 650px;
   clip-path: inset(0);
+  content-visibility: auto;
+  contain-intrinsic-size: 900px;
 }
 .cinematic-footer {
   position: fixed;
@@ -6492,6 +6503,24 @@ html:not(.js-ready) .work-row {
     color: #041209 !important;
     font-weight: 800;
   }
+}
+
+/* Keep italic display glyphs inside their line box. */
+.gl-exact-text-3d .gl-exact-serif,
+.gl-exact-text-days .gl-exact-serif,
+.gl-exact-cta h2 span {
+  line-height: 1.08;
+  padding-top: .06em;
+  padding-bottom: .14em;
+  margin-bottom: -.14em;
+}
+
+.text-accent,
+.section-title-serif,
+.hero-title em,
+.hero-title .hero-highlight,
+.shaker-detail-highlight {
+  line-height: 1.12;
 }
 
 @keyframes nav-cta-word-free {
@@ -9727,7 +9756,7 @@ html:not(.js-ready) .work-row {
   gap: 0.85rem;
   opacity: 0;
   pointer-events: none;
-  will-change: opacity, transform, filter;
+  will-change: opacity, transform;
 }
 
 /* Floating CTA Buttons (Exakte Optik der Website-CTAs: Dark Glassmorphism, Neon Glow & smaragdgrünes Badge) */
@@ -9832,6 +9861,8 @@ html:not(.js-ready) .work-row {
   position: relative;
   padding: 5rem 0 3rem;
   overflow: hidden;
+  content-visibility: auto;
+  contain-intrinsic-size: 760px;
 }
 
 .tech-stack-lead {
@@ -10225,6 +10256,8 @@ html:not(.js-ready) .work-row {
   position: relative;
   padding: 5rem 0 3rem;
   overflow: hidden;
+  content-visibility: auto;
+  contain-intrinsic-size: 980px;
 }
 
 .industries-head {
@@ -14006,5 +14039,17 @@ html:not(.js-ready) .system-reveal-block {
     color: #006d36;
     font-weight: 700;
   }
+}
+
+/* Prevent clipped ascenders and descenders in highlighted serif text. */
+.text-accent,
+.section-title-serif,
+.hero-title em,
+.hero-title .hero-highlight,
+.shaker-detail-highlight,
+.gl-exact-serif,
+.gl-exact-cta h2 span {
+  line-height: 1.12 !important;
+  overflow: visible !important;
 }
 

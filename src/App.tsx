@@ -1,5 +1,4 @@
 import { type CSSProperties, lazy, Suspense, useEffect, useRef, useState } from 'react'
-import Cal, { getCalApi } from "@calcom/embed-react"
 import { ContactModal } from './ContactModal'
 import { PflegeModal } from './PflegeModal'
 import { DatenschutzModal } from './DatenschutzModal'
@@ -7,6 +6,7 @@ import { ImpressumModal } from './ImpressumModal'
 const RatgeberPage = lazy(() => import('./pages/RatgeberPage'))
 const ShakerPage = lazy(() => import('./pages/ShakerPage'))
 const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'))
+const CalEmbed = lazy(() => import('@calcom/embed-react').then((module) => ({ default: module.default })))
 import { LabTeaserSection } from './components/LabTeaserSection'
 import CinematicHero from './components/CinematicHero'
 import CinematicPhone from './components/CinematicPhone'
@@ -58,7 +58,7 @@ const leadMagnetEndpoint = '/api/lead-magnet'
 const leadMagnetFile = '/downloads/greenlabz-website-analyse.pdf'
 const socialProofLogos = [
   { src: '/assets/showcases/neweo-logo.png', alt: 'NewEO' },
-  { src: '/assets/showcases/buss-logo.png', alt: 'Tierarzt Buss' },
+  { src: '/assets/showcases/buss-logo.webp', alt: 'Tierarzt Buss' },
   { src: '/assets/showcases/happen-logo.png', alt: 'Happen' },
   { src: '/assets/showcases/ad-logo-cutout.png', alt: 'AD' },
   { src: '/assets/showcases/tfm-montage.png', alt: 'TFM Montage' },
@@ -277,11 +277,11 @@ const searchShift = [
 ]
 
 const cases = [
-  ['01', 'Neweo Energy Studio', 'Relaunch / Local SEO', 'Von Verkaufsdruck zu echter Beratung', '/cases/neweo.png', 'Energy', 'https://neweo.de/', 'center'],
-  ['02', 'Tierarzt Dr. Buss', 'Website / Local SEO', 'Sichtbar in Möckmühl & Umgebung – Google-Anbindung', '/cases/buss.png', 'Vet', 'https://www.xn--tierarztpraxis-mckmhl-wec5l.de/', 'center'],
-  ['03', 'Happen Streetfood', 'Landingpage / KI-Suchmaschinen optimiert', 'Klarer Streetfood-Vibe & Platz 1 Google-Ranking', '/cases/happen.png', 'Food', 'https://happen.food/', 'top center'],
-  ['04', 'TFM Montage', 'Website / Sichtbarkeit', 'Endlich eine passende Homepage – Projektanfragen vereinfacht', '/cases/tfm.png', 'Montage', 'https://www.tf-m.de/', 'top center'],
-  ['05', 'Zahnarzt A. Roth', 'Website / Local SEO', '+43 % mehr Terminanfragen – verständliche Führung durch die Seite', '/cases/roth.png', 'Zahnarzt', 'https://zahnaerzte-roth.de/', 'top center'],
+  ['01', 'Neweo Energy Studio', 'Relaunch / Local SEO', 'Von Verkaufsdruck zu echter Beratung', '/cases/neweo.webp', 'Energy', 'https://neweo.de/', 'center'],
+  ['02', 'Tierarzt Dr. Buss', 'Website / Local SEO', 'Sichtbar in Möckmühl & Umgebung – Google-Anbindung', '/cases/buss.webp', 'Vet', 'https://www.xn--tierarztpraxis-mckmhl-wec5l.de/', 'center'],
+  ['03', 'Happen Streetfood', 'Landingpage / KI-Suchmaschinen optimiert', 'Klarer Streetfood-Vibe & Platz 1 Google-Ranking', '/cases/happen.webp', 'Food', 'https://happen.food/', 'top center'],
+  ['04', 'TFM Montage', 'Website / Sichtbarkeit', 'Endlich eine passende Homepage – Projektanfragen vereinfacht', '/cases/tfm.webp', 'Montage', 'https://www.tf-m.de/', 'top center'],
+  ['05', 'Zahnarzt A. Roth', 'Website / Local SEO', '+43 % mehr Terminanfragen – verständliche Führung durch die Seite', '/cases/roth.webp', 'Zahnarzt', 'https://zahnaerzte-roth.de/', 'top center'],
 ]
 
 const pricingPackages: PricingPackage[] = [
@@ -472,16 +472,18 @@ function BookingFlow({ onOpenDatenschutz }: { onOpenDatenschutz: () => void }) {
               <p>Wähle zuerst Datum und Uhrzeit. Danach folgen Name, E-Mail-Adresse, Website und Telefonnummer (optional).</p>
             </div>
             <div className="calendar-embed-container">
-              <Cal
-                key={bookingSummary}
-                namespace="discoverycall"
-                calLink="green-labz-uufryt/discoverycall"
-                style={{ width: '100%', height: '100%', overflow: 'auto', borderRadius: '16px' }}
-                config={{
-                  layout: 'month_view',
-                  useSlotsViewOnSmallScreen: 'true',
-                }}
-              />
+              <Suspense fallback={<div className="calendar-loading">Kalender wird geladen …</div>}>
+                <CalEmbed
+                  key={bookingSummary}
+                  namespace="discoverycall"
+                  calLink="green-labz-uufryt/discoverycall"
+                  style={{ width: '100%', height: '100%', overflow: 'auto', borderRadius: '16px' }}
+                  config={{
+                    layout: 'month_view',
+                    useSlotsViewOnSmallScreen: 'true',
+                  }}
+                />
+              </Suspense>
             </div>
             <p className="booking-privacy">
               Für die Terminbuchung werden deine Angaben an Cal.com übermittelt. Details stehen in der{' '}
@@ -613,12 +615,28 @@ function MainApp() {
   }
     
   useEffect(() => {
-    (async function () {
-      const cal = await getCalApi({"namespace":"discoverycall"});
+    const calendar = document.getElementById('calendar')
+    if (!calendar) return
+
+    let initialized = false
+    const initializeCal = async () => {
+      if (initialized) return
+      initialized = true
+      const { getCalApi } = await import('@calcom/embed-react')
+      const cal = await getCalApi({ namespace: 'discoverycall' })
       // @ts-ignore
-      cal("ui", {"hideEventTypeDetails":false,"hideBranding":true,"layout":"month_view","theme":"dark"});
-    })();
-  }, []);
+      cal('ui', { hideEventTypeDetails: false, hideBranding: true, layout: 'month_view', theme: 'dark' })
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        void initializeCal()
+        observer.disconnect()
+      }
+    }, { rootMargin: '600px 0px' })
+    observer.observe(calendar)
+    return () => observer.disconnect()
+  }, [route])
 
   useEffect(() => {
     document.documentElement.classList.add('js-ready')
@@ -1155,7 +1173,7 @@ function MainApp() {
             <div className="social-proof-track">
               {[0, 1].map((set) => (
                 <div className="social-proof-set" key={set} aria-hidden={set === 1}>
-                  {socialProofLogos.map((logo) => <img key={`${set}-${logo.alt}`} src={logo.src} alt={set === 0 ? logo.alt : ''} loading="lazy" decoding="async" />)}
+                  {socialProofLogos.map((logo) => <img key={`${set}-${logo.alt}`} src={logo.src} alt={set === 0 ? logo.alt : ''} width={180} height={48} loading="lazy" decoding="async" />)}
                 </div>
               ))}
             </div>
@@ -1305,7 +1323,7 @@ function MainApp() {
               <h3>Wer am Handy überzeugt, gewinnt den Kunden, bevor die Konkurrenz überhaupt geöffnet hat.</h3>
             </article>
           </div>
-          <div className="mobile-model-visual" aria-label="Smartphone-Modell aus dem Hero">
+          <div className="mobile-model-visual" role="img" aria-label="Smartphone-Modell aus dem Hero">
             <CinematicPhone showBadges={false} staticView />
           </div>
         </section>
@@ -1651,7 +1669,7 @@ function MainApp() {
 
         <section className="section about-section" data-reveal>
           <div className="about-image-wrapper">
-            <img src="/assets/james-portrait-2.png" alt="James Green" className="about-image" loading="lazy" decoding="async" />
+            <img src="/assets/james-portrait-2.png" alt="James Green" className="about-image" width={720} height={900} loading="lazy" decoding="async" />
           </div>
           <div>
             <SectionLabel number="17" label="About Me" />

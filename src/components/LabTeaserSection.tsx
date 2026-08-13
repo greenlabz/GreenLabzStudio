@@ -470,6 +470,8 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
                   src="/assets/apps/repute-preview.png" 
                   alt="Repute Dashboard Preview" 
                   className="repute-preview-image"
+                  width={1280}
+                  height={1024}
                   loading="lazy"
                   decoding="async"
                 />
@@ -520,6 +522,8 @@ export function LabTeaserSection({ onNavigate }: LabTeaserSectionProps) {
                   src="/assets/apps/crm-preview.png" 
                   alt="GreenLabz CRM Dashboard Preview" 
                   className="crm-preview-image"
+                  width={885}
+                  height={697}
                   loading="lazy"
                   decoding="async"
                 />

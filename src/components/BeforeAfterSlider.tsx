@@ -137,7 +137,7 @@ export function BeforeAfterSlider() {
             </div>
             <div className="ba-url">zahnaerzte-roth.de <span className="ba-url-sub">(NEU / REDESIGN)</span></div>
           </div>
-          <img src="/cases/roth.png" alt="Zahnarzt Dr. Roth Redesign Nachher" loading="lazy" decoding="async" />
+          <img src="/cases/roth.webp" alt="Zahnarzt Dr. Roth Redesign Nachher" width={1274} height={717} loading="lazy" decoding="async" />
         </div>
 
         {/* VORHER – clipPath per GSAP gesteuert */}
@@ -150,7 +150,7 @@ export function BeforeAfterSlider() {
             </div>
             <div className="ba-url" style={{ color: '#888' }}>zahnaerzte-roth.de <span className="ba-url-sub">(VORHER)</span></div>
           </div>
-          <img src="/cases/roth-before.jpg" alt="Zahnarzt Praxis Alte Website Vorher" loading="lazy" decoding="async" />
+          <img src="/cases/roth-before.jpg" alt="Zahnarzt Praxis Alte Website Vorher" width={1376} height={768} loading="lazy" decoding="async" />
         </div>
 
         <div className="ba-badge before-badge">VORHER</div>

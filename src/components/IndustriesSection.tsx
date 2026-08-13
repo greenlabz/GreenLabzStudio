@@ -22,7 +22,7 @@ const industries = [
     subtitle: 'Tierärzte, Hausärzte & Fachpraxen',
     kicker: 'REFERENZ · TIERARZTPRAXIS',
     icon: Stethoscope,
-    image: '/assets/showcases/buss-logo.png',
+    image: '/assets/showcases/buss-logo.webp',
     accent: '#00cc6a',
   },
   {
@@ -78,7 +78,7 @@ export function IndustriesSection() {
                     <Icon size={20} />
                   </div>
                   <div className="industry-image-wrapper">
-                    <img src={ind.image} alt={ind.title} className="industry-img" loading="lazy" decoding="async" />
+                    <img src={ind.image} alt={ind.title} className="industry-img" width={260} height={260} loading="lazy" decoding="async" />
                   </div>
                 </div>
 
