@@ -21,6 +21,17 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html:not(.js-ready) .gl-exact-main-card,
+html:not(.js-ready) .gl-exact-card-left,
+html:not(.js-ready) .gl-exact-card-right,
+html:not(.js-ready) .gl-exact-phone-wrap,
+html:not(.js-ready) .gl-exact-badge,
+html:not(.js-ready) .gl-exact-cta,
+html:not(.js-ready) [data-reveal] {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
 * {
   box-sizing: border-box;
 }

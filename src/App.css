@@ -4869,6 +4869,20 @@ html:not(.js-ready) .work-row {
   .site-nav .nav-cta-label-mobile { display: none !important; }
   .site-nav .nav-cta { min-width: 178px; font-size: .78rem; }
 }
+
+.btn .cta-label,
+.nav-cta .cta-label,
+.nav-cta .nav-cta-word,
+.standard-footer-cta,
+.pricing-cta,
+.gl-audit-submit,
+.floating-cta-btn .cta-expand-text {
+  position: relative;
+  z-index: 3;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, .28);
+}
 .proof-section {
   display: grid;
   gap: 2rem;
