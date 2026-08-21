@@ -1,0 +1,13 @@
+output/
+out/
+tmp/
+public/brolls/
+public/sounds/
+.playwright-mcp/
+.playwright-cli/
+.agents/
+.codebase-memory/
+before-char-fix.png
+stitch-repute-image1.png
+remotion/
+scripts/

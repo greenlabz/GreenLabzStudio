@@ -21,6 +21,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html:not(.js-ready) body > #root {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
 html:not(.js-ready) .gl-exact-main-card,
 html:not(.js-ready) .gl-exact-card-left,
 html:not(.js-ready) .gl-exact-card-right,
